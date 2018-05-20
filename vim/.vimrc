@@ -12,12 +12,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-Plugin 'lokaltog/vim-powerline'
+Plugin 'powerline/powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 
 syntax on
 set autoindent
