@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
+Plugin 'lokaltog/vim-powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -59,6 +60,5 @@ nmap j ddp
 nmap k dd<up>P
 nmap <C-n> :NERDTreeToggle<CR>
 
-" let mapleader=','
 " Insert mode
 " imap <leader>' ''<ESC>i
