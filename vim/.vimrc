@@ -11,6 +11,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,6 +57,7 @@ set noshowmode
 " Normal mode
 nmap j ddp
 nmap k dd<up>P
+nmap <C-n> :NERDTreeToggle<CR>
 
 " let mapleader=','
 " Insert mode
