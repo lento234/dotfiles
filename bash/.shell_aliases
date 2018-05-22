@@ -1,3 +1,5 @@
+# Shell aliases
+
 
 # macOS
 if [[ "$OSTYPE" = darwin* ]]; then
@@ -37,7 +39,11 @@ alias vpndisconnect='/opt/cisco/anyconnect/bin/vpn disconnect'
 alias hypatia="ssh hypatia"
 alias euler="ssh euler"
 
-# Miscs
+# tar and untar files
+targz() { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; }
+untargz() { tar -zxvf $1 $2; }
+
+# Miscs commands
 #convert -delay 100 -loop 0 Yv_*.png pseudoSS_Yv.gif
 #avconv -r 1 -start_number 1 -i T_%02d.png -vf scale=1920:-1 pseudoSS_T.mp4
 
