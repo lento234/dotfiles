@@ -6,11 +6,11 @@
 
 Clone the dotfiles:
 
-  ```git clone git@github.com:lento234/dotfiles.git```
+    ```git clone git@github.com:lento234/dotfiles.git```
 
 Install vim settings:
 
-  ```
-  cd dotfiles
-  ./vimsetup.sh
-  ```
+    ```
+    cd dotfiles
+    ./vimsetup.sh
+    ```
