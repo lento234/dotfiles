@@ -21,6 +21,7 @@ cheat()     { curl cht.sh/$1; } # Cool apps
 alias open='xdg-open'
 alias update='sudo apt update && apt list --upgradable'
 alias upgrade='sudo apt upgrade'
+alias nomore='sudo shutdown -h now'
 
 # Useless things
 alias meteo='curl v2.wttr.in/Zurich'
@@ -31,6 +32,9 @@ alias meteo='curl v2.wttr.in/Zurich'
 
 # Some must use commands:
 # networking:       ping, dig, traceroute
+# Default permissions
+# Files: chmod 664 <filename>
+# Direc: chmod 775 <dirname>
 
 
 
