@@ -1,12 +1,5 @@
 # Shell aliases
 
-if [[ "$OSTYPE" = "darwin"* ]]; then
-    # MAC OSX
-    echo "Mac"
-elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
-    echo "Ubuntu"
-fi
-
 # Zip, tar, untar, unzip, gunzip, dipshit
 targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # Standard
 tarcheck()  { tar -ztf ${1%/}.tar.gz > /dev/null; } # Verify the tar
@@ -18,10 +11,18 @@ untargz()   { time tar -zxvf $1 $2;} # Untar
 cheat()     { curl cht.sh/$1; } # Cool apps
 
 # Aliases
-alias open='xdg-open'
-alias update='sudo apt update && apt list --upgradable'
-alias upgrade='sudo apt upgrade'
-alias nomore='sudo shutdown -h now'
+
+if [[ "$OSTYPE" = "darwin"* ]]; then
+    # MAC OSX
+    echo "Welcome to Mac"
+    alias update='brew update && brew upgrade && brew cleanup;'
+elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
+    echo "Welcome to Ubuntu"
+    alias nomore='sudo shutdown -h now'
+    alias open='xdg-open'
+    alias update='sudo apt update && apt list --upgradable'
+    alias upgrade='sudo apt upgrade'
+fi
 
 # Useless things
 alias meteo='curl v2.wttr.in/Zurich'
@@ -31,10 +32,13 @@ alias meteo='curl v2.wttr.in/Zurich'
 # avconv -r 1 -start_number 1 -i <filename>_%04d.png -vf scale=1920:-1 <output_filename>.mp4
 
 # Some must use commands:
-# networking:       ping, dig, traceroute
+# garbage:      cointop, cash, spt, weather
+# productivity: calcurses, mc
+# networking:   ping, dig, traceroute, nmap, iftop, arp, speed-test
+# system:       htop, glances, screenfetch, neofetch, exa, yank
+
 # Default permissions
 # Files: chmod 664 <filename>
 # Direc: chmod 775 <dirname>
-
 
 
