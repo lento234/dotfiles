@@ -23,7 +23,7 @@ alias update='sudo apt update && apt list --upgradable'
 alias upgrade='sudo apt upgrade'
 
 # Useless things
-alias wttr='curl v2.wttr.in/Zurich'
+alias meteo='curl v2.wttr.in/Zurich'
 
 # Miscs useful shit, thank me later!
 # convert -delay 100 -loop 0 <filenamestart>*.png <output_filename>.gif
@@ -31,4 +31,6 @@ alias wttr='curl v2.wttr.in/Zurich'
 
 # Some must use commands:
 # networking:       ping, dig, traceroute
-#
+
+
+
