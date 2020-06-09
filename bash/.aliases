@@ -1,0 +1,40 @@
+# Shell aliases
+
+if [[ "$OSTYPE" = "darwin"* ]]; then
+    # MAC OSX
+    echo "Mac"
+elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
+    echo "Ubuntu"
+fi
+
+# Zip, tar, untar, unzip, gunzip, dipshit
+targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # Standard
+tarcheck()  { tar -ztf ${1%/}.tar.gz > /dev/null; } # Verify the tar
+targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # Tar and verify the content
+pgzip()     { time tar cvf - $1 | pigz > $1.tar.gz; } # Parallel tar
+untargz()   { time tar -zxvf $1 $2;} # Untar
+
+# Helper function
+cheat()     { curl cht.sh/$1; } # Cool apps
+
+# Aliases
+alias open='xdg-open'
+alias update='sudo apt update && apt list --upgradable'
+alias upgrade='sudo apt upgrade'
+alias nomore='sudo shutdown -h now'
+
+# Useless things
+alias meteo='curl v2.wttr.in/Zurich'
+
+# Miscs useful shit, thank me later!
+# convert -delay 100 -loop 0 <filenamestart>*.png <output_filename>.gif
+# avconv -r 1 -start_number 1 -i <filename>_%04d.png -vf scale=1920:-1 <output_filename>.mp4
+
+# Some must use commands:
+# networking:       ping, dig, traceroute
+# Default permissions
+# Files: chmod 664 <filename>
+# Direc: chmod 775 <dirname>
+
+
+

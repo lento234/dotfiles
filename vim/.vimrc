@@ -29,9 +29,13 @@ set background=dark
 set mouse=a
 set incsearch
 
+" expand tab to space
+" real tab is now Ctrl-V<Tab>
+set tabstop=4
+set shiftwidth=4
+set expandtab
 " colorscheme base16-colors
-colorscheme gruvbox 
-
+colorscheme gruvbox
 hi vertsplit ctermfg=238 ctermbg=235
 hi LineNr ctermfg=237 
 hi StatusLine ctermfg=235 ctermbg=245
