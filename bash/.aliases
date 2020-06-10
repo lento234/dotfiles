@@ -2,7 +2,7 @@
 
 # Zip, tar, untar, unzip, gunzip, dipshit
 targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # Standard
-tarcheck()  { tar -ztf ${1%/}.tar.gz > /dev/null; } # Verify the tar
+tarcheck()  { tar -ztf $1 > /dev/null; } # Verify the tar
 targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # Tar and verify the content
 pgzip()     { time tar cvf - $1 | pigz > $1.tar.gz; } # Parallel tar
 untargz()   { time tar -zxvf $1 $2;} # Untar
