@@ -14,10 +14,10 @@ cheat()     { curl cht.sh/$1; } # Cool apps
 
 if [[ "$OSTYPE" = "darwin"* ]]; then
     # MAC OSX
-    echo "Welcome to Mac"
+    #echo "Welcome to Mac"
     alias update='brew update && brew upgrade && brew cleanup;'
 elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
-    echo "Welcome to Ubuntu"
+    #echo "Welcome to Ubuntu"
     alias nomore='sudo shutdown -h now'
     alias open='xdg-open'
     alias update='sudo apt update && apt list --upgradable'
