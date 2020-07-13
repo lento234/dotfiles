@@ -43,7 +43,10 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 
 " Colorschemes
-colorscheme gruvbox
+" colorscheme gruvbox
+" colorscheme Tomorrow-Night
+colorscheme adaryn
+" colorscheme midnight
 
 hi vertsplit ctermfg=238 ctermbg=235
 hi LineNr ctermfg=237 
@@ -64,7 +67,7 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\
 set laststatus=2
 set noshowmode
 
-" syntax on
+syntax on
 " set ls=2
 " set ruler
 
