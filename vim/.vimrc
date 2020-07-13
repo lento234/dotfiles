@@ -11,13 +11,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'powerline/powerline'
+Plugin 'preservim/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-
+Plugin 'powerline/powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+" Plugin 'powerline/powerline'
+" Plugin 'scrooloose/nerdtree'
 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 
@@ -35,8 +38,12 @@ set incsearch
 set tabstop=4
 set shiftwidth=4
 set expandtab
-" colorscheme base16-colors
+
+let g:airline_theme='powerlineish'
+
+" Colorschemes
 colorscheme gruvbox
+
 hi vertsplit ctermfg=238 ctermbg=235
 hi LineNr ctermfg=237 
 hi StatusLine ctermfg=235 ctermbg=245
