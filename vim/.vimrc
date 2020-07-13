@@ -39,6 +39,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 
 " Colorschemes
