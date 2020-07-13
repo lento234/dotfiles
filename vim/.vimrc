@@ -16,6 +16,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'powerline/powerline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'kien/ctrlp.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -44,8 +45,8 @@ let g:airline_theme='powerlineish'
 
 " Colorschemes
 " colorscheme gruvbox
-" colorscheme Tomorrow-Night
-colorscheme adaryn
+colorscheme Tomorrow-Night
+" colorscheme adaryn
 " colorscheme midnight
 
 hi vertsplit ctermfg=238 ctermbg=235
