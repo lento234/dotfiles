@@ -1,0 +1,44 @@
+# Shell aliases
+
+# Zip, tar, untar, unzip, gunzip, dipshit
+targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # Standard
+tarcheck()  { tar -ztf $1 > /dev/null; } # Verify the tar
+targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # Tar and verify the content
+pgzip()     { time tar cvf - $1 | pigz > $1.tar.gz; } # Parallel tar
+untargz()   { time tar -zxvf $1 $2;} # Untar
+
+# Helper function
+cheat()     { curl cht.sh/$1; } # Cool apps
+
+# Aliases
+
+if [[ "$OSTYPE" = "darwin"* ]]; then
+    # MAC OSX
+    #echo "Welcome to Mac"
+    alias update='brew update && brew upgrade && brew cleanup;'
+elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
+    #echo "Welcome to Ubuntu"
+    alias nomore='sudo shutdown -h now'
+    alias open='xdg-open'
+    alias update='sudo apt update && apt list --upgradable'
+    alias upgrade='sudo apt upgrade'
+fi
+
+# Useless things
+alias meteo='curl v2.wttr.in/Zurich'
+
+# Miscs useful shit, thank me later!
+# convert -delay 100 -loop 0 <filenamestart>*.png <output_filename>.gif
+# avconv -r 1 -start_number 1 -i <filename>_%04d.png -vf scale=1920:-1 <output_filename>.mp4
+
+# Some must use commands:
+# garbage:      cointop, cash, spt, weather
+# productivity: calcurses, mc
+# networking:   ping, dig, traceroute, nmap, iftop, arp, speed-test
+# system:       htop, glances, screenfetch, neofetch, exa, yank
+
+# Default permissions
+# Files: chmod 664 <filename>
+# Direc: chmod 775 <dirname>
+
+

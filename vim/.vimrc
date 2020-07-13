@@ -60,6 +60,10 @@ set noshowmode
 " set ls=2
 " set ruler
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 " Custom mapping
 " Normal mode
 nmap j ddp
