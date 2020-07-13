@@ -6,8 +6,12 @@ echo "Setting up vim ..."
 CURRENT_DIR=$(pwd) 
 
 # Backup old files
-mv -v ~/.vim ~/.vim.old
-mv -v ~/.vimrc ~/.vimrc.old
+if [ -f ~/.vim ]; then
+    mv -v ~/.vim ~/.vim.old
+fi
+if [ -f ~/.vimrc ]; then
+    mv -v ~/.vimrc ~/.vimrc.old
+fi
 
 # Link new files
 ln -sv $CURRENT_DIR/vim/.vim ~/.vim
