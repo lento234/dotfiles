@@ -13,6 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'powerline/powerline'
+Plugin 'scrooloose/nerdcommenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -67,3 +68,9 @@ nmap <C-n> :NERDTreeToggle<CR>
 
 " Insert mode
 " imap <leader>' ''<ESC>i
+let mapleader = "\<Space>"
+
+" Toggle line number: space + n
+nnoremap <leader>n :set nu!<CR>
+" hit space + space to remove highlights
+nnoremap <leader><Space> :nohlsearch<CR>
