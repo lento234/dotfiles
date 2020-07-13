@@ -17,6 +17,7 @@ Plugin 'powerline/powerline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/ctrlp.vim'
+Plugin 'morhetz/gruvbox'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -40,14 +41,16 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts=1
+let g:airline_theme='gruvbox'
 
 " Colorschemes
-" colorscheme gruvbox
-colorscheme Tomorrow-Night
+colorscheme gruvbox
+" colorscheme Tomorrow-Night
 " colorscheme adaryn
 " colorscheme midnight
+
+let g:gruvbox_contrast_dark='medium'
 
 hi vertsplit ctermfg=238 ctermbg=235
 hi LineNr ctermfg=237 
