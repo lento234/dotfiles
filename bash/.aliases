@@ -25,7 +25,7 @@ elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
 fi
 
 # Useless things
-alias meteo='curl v2.wttr.in/Zurich'
+alias meteo='curl v2.wttr.in'
 
 # Miscs useful shit, thank me later!
 # convert -delay 100 -loop 0 <filenamestart>*.png <output_filename>.gif
