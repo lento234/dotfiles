@@ -104,6 +104,8 @@ nnoremap <leader><Space> :nohlsearch<CR>
 " this ignores indentation rules when pasting
 nnoremap <leader>p :set paste! paste?<CR>
 
+nnoremap <leader><Backspace> :bd<CR>
+
 "
 " -------------- Customization of plugins -------------------
 "
@@ -145,10 +147,10 @@ nnoremap <leader>r  ::YcmCompleter RefactorRename<space>
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 
-highlight YcmWarningSign    ctermfg=14
-highlight YcmWarningSection ctermfg=14
-highlight YcmErrorSign      ctermfg=14
-highlight YcmErrorSection   ctermfg=14
-
-highlight YcmWarningSection cterm=bold
-highlight YcmErrorSection   cterm=bold
+" highlight YcmWarningSign    ctermfg=14
+" highlight YcmWarningSection ctermfg=14
+" highlight YcmErrorSign      ctermfg=14
+" highlight YcmErrorSection   ctermfg=14
+" 
+" highlight YcmWarningSection cterm=bold
+" highlight YcmErrorSection   cterm=bold
