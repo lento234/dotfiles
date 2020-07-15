@@ -39,7 +39,6 @@ colorscheme gruvbox
 
 let g:airline_powerline_fonts=1
 let g:airline_theme='gruvbox'
-
 let g:gruvbox_contrast_dark='medium'
 
 "
@@ -134,6 +133,7 @@ endif
 
 " don't seek confirmation every time ycm_conf file is found
 let g:ycm_confirm_extra_conf = 0
+let g:ymc_auto_trigger = 0
 
 " go to definition of variable/type/function under cursor
 nnoremap <leader>d  ::YcmCompleter GoTo<CR>
@@ -143,7 +143,6 @@ nnoremap <leader>t  ::YcmCompleter GetType<CR>
 nnoremap <leader>f  ::YcmCompleter FixIt<CR>
 " refactor the name under the cursor
 nnoremap <leader>r  ::YcmCompleter RefactorRename<space>
-
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 
