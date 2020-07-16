@@ -37,6 +37,9 @@ colorscheme gruvbox
 " colorscheme adaryn
 " colorscheme midnight
 
+" dark background
+set background=dark
+
 let g:airline_powerline_fonts=1
 let g:airline_theme='gruvbox'
 let g:gruvbox_contrast_dark='medium'
@@ -45,14 +48,17 @@ let g:gruvbox_contrast_dark='medium'
 " ----------------- Standard customization ----------------------
 "
 
-
 syntax on
 set autoindent
 set number
 
+"
+" highlight matches
 set hlsearch
-set background=dark
+
 set mouse=a
+
+" search as characters are entered
 set incsearch
 
 " expand tab to space
@@ -61,6 +67,16 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+set statusline=%=&P\ %f\ %m
+" set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+" set laststatus=2
+" set noshowmode
+
+" Cursorline customization
+set cursorline
+hi CursorLineNr term=bold cterm=bold
+
+" Custom coloring
 " hi vertsplit ctermfg=238 ctermbg=235
 hi LineNr ctermfg=237 
 " hi StatusLine ctermfg=235 ctermbg=245
@@ -75,11 +91,6 @@ hi LineNr ctermfg=237
 " hi GitGutterChangeDelete ctermbg=235 ctermfg=245
 " hi EndOfBuffer ctermfg=237 ctermbg=235
 " 
-set statusline=%=&P\ %f\ %m
-set fillchars=vert:\ ,stl:\ ,stlnc:\ 
-set laststatus=2
-set noshowmode
-
 "
 " ---------------- Keyboard mapping -----------------------
 "
@@ -103,7 +114,13 @@ nnoremap <leader><Space> :nohlsearch<CR>
 " this ignores indentation rules when pasting
 nnoremap <leader>p :set paste! paste?<CR>
 
+" Close buffer window
 nnoremap <leader><Backspace> :bd<CR>
+
+" cycle between left and right tabs
+nnoremap <leader><right> :tabnext<CR>
+nnoremap <leader><left> :tabprev<CR>
+
 
 "
 " -------------- Customization of plugins -------------------
