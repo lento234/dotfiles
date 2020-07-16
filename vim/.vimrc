@@ -152,6 +152,7 @@ endif
 " don't seek confirmation every time ycm_conf file is found
 let g:ycm_confirm_extra_conf = 0
 " let g:ycm_auto_trigger = 0
+let g:ycm_key_list_stop_completion=['<CR>']
 
 " go to definition of variable/type/function under cursor
 nnoremap <leader>d  ::YcmCompleter GoTo<CR>
