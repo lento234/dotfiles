@@ -51,6 +51,7 @@ let g:gruvbox_contrast_dark='medium'
 syntax on
 set autoindent
 set number
+set encoding=utf-8
 
 "
 " highlight matches
@@ -150,7 +151,7 @@ endif
 
 " don't seek confirmation every time ycm_conf file is found
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_auto_trigger = 0
+" let g:ycm_auto_trigger = 0
 
 " go to definition of variable/type/function under cursor
 nnoremap <leader>d  ::YcmCompleter GoTo<CR>
