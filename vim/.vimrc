@@ -162,13 +162,16 @@ nnoremap <leader>t  ::YcmCompleter GetType<CR>
 nnoremap <leader>f  ::YcmCompleter FixIt<CR>
 " refactor the name under the cursor
 nnoremap <leader>r  ::YcmCompleter RefactorRename<space>
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
 
-" highlight YcmWarningSign    ctermfg=14
-" highlight YcmWarningSection ctermfg=14
-" highlight YcmErrorSign      ctermfg=14
-" highlight YcmErrorSection   ctermfg=14
-" 
-" highlight YcmWarningSection cterm=bold
-" highlight YcmErrorSection   cterm=bold
+" Warning highlights 
+let g:syntastic_warning_symbol = '⚠'
+highlight YcmWarningSign    ctermfg=14
+highlight YcmWarningSection ctermfg=14
+highlight YcmWarningSection cterm=bold
+
+" Error highlights
+let g:syntastic_error_symbol = '✗'
+highlight YcmErrorSign      ctermfg=1
+highlight YcmErrorSection   ctermfg=1
+highlight YcmErrorSection   cterm=bold
+
