@@ -27,6 +27,9 @@ fi
 # Useless things
 alias meteo='curl v2.wttr.in'
 
+# Non-Useless things
+alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"
+
 # Miscs useful shit, thank me later!
 # convert -delay 100 -loop 0 <filenamestart>*.png <output_filename>.gif
 # avconv -r 1 -start_number 1 -i <filename>_%04d.png -vf scale=1920:-1 <output_filename>.mp4
