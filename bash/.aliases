@@ -24,15 +24,25 @@ elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
     alias upgrade='sudo apt upgrade'
 fi
 
-# Useless things
+##### Useless things
+
 alias meteo='curl v2.wttr.in'
 
-# Non-Useless things
+##### Non-Useless things
+
 alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"
 alias et_phone_home='ssh pandora'
-# Miscs useful shit, thank me later!
-# convert -delay 100 -loop 0 <filenamestart>*.png <output_filename>.gif
+
+#######  Miscs useful shit, thank me later!
+
+# Convert png files to mp4 movie using avconv/ffmpeg
 # avconv -r 1 -start_number 1 -i <filename>_%04d.png -vf scale=1920:-1 <output_filename>.mp4
+
+# Convert using convert
+# convert -delay 100 -loop 0 <filenamestart>*.png <output_filename>.gif
+
+# Clone all forks from github
+# curl -s "https://api.github.com/users/lento234/repos?page=1&per_page=100&fork=True" |  grep -e 'git_url*' | cut -d \" -f4
 
 # Some must use commands:
 # garbage:      cointop, cash, spt, weather
