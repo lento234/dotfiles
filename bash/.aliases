@@ -30,6 +30,8 @@ alias meteo='curl v2.wttr.in'
 # Non-Useless things
 alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"
 alias et_phone_home='ssh pandora'
+alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-mem'
+
 # Miscs useful shit, thank me later!
 # convert -delay 100 -loop 0 <filenamestart>*.png <output_filename>.gif
 # avconv -r 1 -start_number 1 -i <filename>_%04d.png -vf scale=1920:-1 <output_filename>.mp4
@@ -37,7 +39,7 @@ alias et_phone_home='ssh pandora'
 # Some must use commands:
 # garbage:      cointop, cash, spt, weather
 # productivity: calcurses, mc
-# networking:   ping, dig, traceroute, nmap, iftop, arp, speed-test
+# networking:   ping, dig, traceroute, nmap, iftop, arp, speed-test, netstat
 # system:       htop, glances, screenfetch, neofetch, exa, yank
 
 # Default permissions
