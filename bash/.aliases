@@ -27,6 +27,7 @@ fi
 ##### Useless things
 
 alias meteo='curl v2.wttr.in'
+alias please='sudo' # Let's be nicer 
 
 ##### Non-Useless things
 
