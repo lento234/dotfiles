@@ -15,7 +15,7 @@ cheat()     { curl cht.sh/$1; } # Cool apps
 if [[ "$OSTYPE" = "darwin"* ]]; then
     # MAC OSX
     #echo "Welcome to Mac"
-    alias update='brew update -v && brew upgrade -v && brew cleanup;'
+    alias update='brew update && brew upgrade && brew cleanup;'
 elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
     #echo "Welcome to Ubuntu"
     alias nomore='sudo shutdown -h now'
@@ -32,7 +32,6 @@ alias please='sudo' # Let's be nicer
 ##### Non-Useless things
 
 alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"
-alias et_phone_home='ssh pandora'
 alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-mem'
 
 #######  Miscs useful shit, thank me later!
