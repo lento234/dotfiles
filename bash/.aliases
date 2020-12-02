@@ -54,5 +54,5 @@ alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-
 # Default permissions
 # Files: chmod 664 <filename>
 # Direc: chmod 775 <dirname>
-
+alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch'
 
