@@ -45,6 +45,9 @@ alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-
 # Clone all forks from github
 # curl -s "https://api.github.com/users/lento234/repos?page=1&per_page=100&fork=True" |  grep -e 'git_url*' | cut -d \" -f4
 
+# Download file
+# wget -e robots=off -r -nc -np -A <filetype1,filetype2,...> <url>
+
 # Some must use commands:
 # garbage:      cointop, cash, spt, weather
 # productivity: calcurses, mc
@@ -56,3 +59,4 @@ alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-
 # Direc: chmod 775 <dirname>
 alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch'
 
+magiccow() { echo 'Yes,Moooo!,Mooost likely,Connot predict cow,Without a doubt,My horses say no,Ask again latte' | tr ',' '\n' | sort -R | head -1 | { cowsay 2> /dev/null || cat; } | { lolcat 2>/dev/null || cat; }; } # Magic Cow answers for all. Works better with cowsay and lolcat.

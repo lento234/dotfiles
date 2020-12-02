@@ -51,7 +51,7 @@ let g:gruvbox_contrast_dark='medium'
 syntax on
 set autoindent
 set number
-set encoding=utf-8
+" set encoding=utf-8
 
 "
 " highlight matches
