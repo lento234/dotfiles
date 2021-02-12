@@ -1,6 +1,6 @@
 # dotfiles
   
-  My personal dotfiles (bash, vim)
+My personal dotfiles (bash/zsh, vim)
   
 ## Installation
 
@@ -17,7 +17,7 @@
     ./vimsetup.sh
     ```
 
-3. Link the bash aliases to your bash conf
+3. Link the bash aliases to your `.bashrc` or `.zshrc`
     
     ```bash
     ln -s bash/.aliases ~/.aliases
