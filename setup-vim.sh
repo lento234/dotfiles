@@ -1,5 +1,4 @@
 #!/bin/bash
-# Script to setup vim
 
 echo "Setting up vim ..."
 
@@ -23,8 +22,5 @@ git submodule update
 
 # Install all plugins
 vim +PluginInstall +qall
-
-# Cleanup
-unset CURRENT_DIR
 
 echo "Done!"
