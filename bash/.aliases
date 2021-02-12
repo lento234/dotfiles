@@ -1,16 +1,7 @@
-# Shell aliases
+# shell aliases
 
-# Zip, tar, untar, unzip, gunzip, dipshit
-targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # Standard
-tarcheck()  { tar -ztf $1 > /dev/null; } # Verify the tar
-targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # Tar and verify the content
-pgzip()     { time tar cvf - $1 | pigz > $1.tar.gz; } # Parallel tar
-untargz()   { time tar -zxvf $1 $2;} # Untar
-
-# Helper function
-cheat()     { curl cht.sh/$1; } # Cool apps
-
-# Aliases
+##############################
+# OS specific aliases
 
 if [[ "$OSTYPE" = "darwin"* ]]; then
     # MAC OSX
@@ -24,17 +15,32 @@ elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
     alias upgrade='sudo apt upgrade'
 fi
 
-##### Useless things
+
+##############################
+# Non-Useless things
+
+# Zip, tar, untar, unzip, gunzip, dipshit
+targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # Standard
+tarcheck()  { tar -ztf $1 > /dev/null; } # Verify the tar
+targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # Tar and verify the content
+pgzip()     { time tar cvf - $1 | pigz > $1.tar.gz; } # Parallel tar
+untargz()   { time tar -zxvf $1 $2;} # Untar
+
+cheat()     { curl cht.sh/$1; } # online man pages
+alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"  # Best git log tree
+alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-mem' # show system perf
+alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
+#alias open_sesame='ssh -TfN -R 43212:localhost:22 mlento@ela1.cscs.ch'
+
+##############################
+# Useless things (just for fun)
 
 alias meteo='curl v2.wttr.in'
 alias please='sudo' # Let's be nicer 
+magiccow() { echo 'Yes,Moooo!,Mooost likely,Connot predict cow,Without a doubt,My horses say no,Ask again latte' | tr ',' '\n' | sort -R | head -1 | { cowsay 2> /dev/null || cat; } | { lolcat 2>/dev/null || cat; }; } # Magic Cow answers for all. Works better with cowsay and lolcat.
 
-##### Non-Useless things
-
-alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"
-alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-mem'
-
-#######  Miscs useful shit, thank me later!
+##############################
+# Miscs useful things, thank me later!!
 
 # Convert png files to mp4 movie using avconv/ffmpeg
 # avconv -r 1 -start_number 1 -i <filename>_%04d.png -vf scale=1920:-1 <output_filename>.mp4
@@ -51,12 +57,9 @@ alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-
 # Some must use commands:
 # garbage:      cointop, cash, spt, weather
 # productivity: calcurses, mc
-# networking:   ping, dig, traceroute, nmap, iftop, arp, speed-test, netstat
+# networking:   ping, dig, traceroute, nmap, iftop, arp, speed-test, netstat, nslookup
 # system:       htop, glances, screenfetch, neofetch, exa, yank
 
 # Default permissions
 # Files: chmod 664 <filename>
 # Direc: chmod 775 <dirname>
-alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch'
-
-magiccow() { echo 'Yes,Moooo!,Mooost likely,Connot predict cow,Without a doubt,My horses say no,Ask again latte' | tr ',' '\n' | sort -R | head -1 | { cowsay 2> /dev/null || cat; } | { lolcat 2>/dev/null || cat; }; } # Magic Cow answers for all. Works better with cowsay and lolcat.
