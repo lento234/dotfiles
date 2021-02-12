@@ -1,6 +1,10 @@
+<div align="center">
+
 # dotfiles
-  
-My personal dotfiles (bash/zsh, vim)
+
+My personal dotfiles (bash/zsh, vim, tmux, ...)
+
+</div>
   
 ## Installation
 
