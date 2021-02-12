@@ -23,6 +23,8 @@ Plugin 'powerline/powerline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'valloric/youcompleteme'
+Plugin 'cespare/vim-toml'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
