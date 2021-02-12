@@ -1,0 +1,15 @@
+bash-completion
+cask
+coreutils
+exa
+ffmpeg
+git
+git-lfs
+glances
+htop
+nmap
+screenfetch
+tmux
+tree
+vim
+wget
