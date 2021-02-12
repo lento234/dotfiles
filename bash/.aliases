@@ -3,16 +3,20 @@
 ##############################
 # OS specific aliases
 
+get_os() { hostnamectl | egrep 'System' | cut -d ' ' -f5 }
+
 if [[ "$OSTYPE" = "darwin"* ]]; then
     # MAC OSX
     #echo "Welcome to Mac"
     alias update='brew update && brew upgrade && brew cleanup;'
-elif [[ "$(lsb_release -si)" = "Ubuntu" ]]; then
+elif [[ get_os = "Ubuntu" ]]; then
     #echo "Welcome to Ubuntu"
     alias nomore='sudo shutdown -h now'
     alias open='xdg-open'
     alias update='sudo apt update && apt list --upgradable'
     alias upgrade='sudo apt upgrade'
+elif [[ get_os = "Arch" ]]; then
+    alias update='sudo pacman -Syu'
 fi
 
 
