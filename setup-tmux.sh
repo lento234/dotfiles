@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "Setting up tmux ..."
-
 CURRENT_DIR=$(pwd)
 
-TMUX_CONFIG=.tmux.conf
+# Cloning tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Backup old files
 if [ -f ~/.tmux.conf ]; then
