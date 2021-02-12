@@ -1,8 +1,8 @@
 <div align="center">
 
-# dotfiles
+# `.dotfiles`
 
-My personal dotfiles (bash/zsh, vim, tmux, ...)
+***My personal dotfiles (bash/zsh, vim, tmux, ...)***
 
 </div>
   
