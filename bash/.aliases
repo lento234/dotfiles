@@ -36,6 +36,8 @@ alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-
 alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
 #alias open_sesame='ssh -TfN -R 43212:localhost:22 mlento@ela1.cscs.ch'
 alias publicip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias gpg-list='gpg --list-secret-keys --keyid-format LONG'
+alias gpg-export='gpg --armor --export'
 alias ta='tmux a -t'
 
 ##############################
