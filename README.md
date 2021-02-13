@@ -22,8 +22,13 @@
     $ ./setup-vim.sh
     $ ./setup-tmux.sh
     ```
+3. Install all apps from `list_of_apps.txt`:
 
-3. *(Optional)* Additional customization: `zsh` and custom prompt:
+    ```bash
+    cat apt/list_of_apps.txt | xargs sudo apt install -y
+    ```
+
+4. *(Optional)* Additional customization: `zsh` and custom prompt:
 
     1. [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh): A delightful community-driven (with 1700+ contributors) framework for managing your zsh configuration. 
     2. [Powerline fonts](https://github.com/powerline/fonts):  Patched fonts for Powerline users. 
