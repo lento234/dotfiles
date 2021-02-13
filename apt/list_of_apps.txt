@@ -18,6 +18,7 @@ gnome-tweaks
 gnupg
 htop
 moreutils
+neovim
 nmap
 pigz
 screenfetch
