@@ -19,6 +19,9 @@ elif [[ $(find_os_name) = "Arch" ]]; then
     alias update='sudo pacman -Syu'
 fi
 
+##############################
+# Setup environment
+export GPG_TTY=$(tty)
 
 ##############################
 # Non-Useless things
