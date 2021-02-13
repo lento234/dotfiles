@@ -4,8 +4,10 @@ cask
 coreutils
 exa
 ffmpeg
+fzf
 git
 git-lfs
+gnupg
 glances
 htop
 nmap
