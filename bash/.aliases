@@ -3,19 +3,19 @@
 ##############################
 # OS specific aliases
 
-get_os() { hostnamectl | egrep 'System' | cut -d ' ' -f5 }
+find_os_name() { hostnamectl | egrep 'System' | cut -d ' ' -f5 }
 
 if [[ "$OSTYPE" = "darwin"* ]]; then
     # MAC OSX
     #echo "Welcome to Mac"
     alias update='brew update && brew upgrade && brew cleanup;'
-elif [[ $(get_os) = "Ubuntu" ]]; then
+elif [[ $(find_os_name) = "Ubuntu" ]]; then
     #echo "Welcome to Ubuntu"
     alias nomore='sudo shutdown -h now'
     alias open='xdg-open'
     alias update='sudo apt update && apt list --upgradable'
     alias upgrade='sudo apt upgrade'
-elif [[ $(get_os) = "Arch" ]]; then
+elif [[ $(find_os_name) = "Arch" ]]; then
     alias update='sudo pacman -Syu'
 fi
 
@@ -46,7 +46,18 @@ alias please='sudo' # Let's be nicer
 magiccow() { echo 'Yes,Moooo!,Mooost likely,Connot predict cow,Without a doubt,My horses say no,Ask again latte' | tr ',' '\n' | sort -R | head -1 | { cowsay 2> /dev/null || cat; } | { lolcat 2>/dev/null || cat; }; } # Magic Cow answers for all. Works better with cowsay and lolcat.
 
 ##############################
+# Personal wiki 
 # Miscs useful things, thank me later!!
+
+# A collection of handy tools
+# system        : htop, glances, screenfetch, neofetch, exa, yank
+# networking    : ping, dig, traceroute, nmap, iftop, arp, speed-test, netstat, nslookup
+# productivity  : clcurses, mc
+# misc          : cointop, cash, spt, weather
+
+# Default permissions
+# Files: chmod 664 <filename>
+# Direc: chmod 775 <dirname>
 
 # Convert png files to mp4 movie using avconv/ffmpeg
 # avconv -r 1 -start_number 1 -i <filename>_%04d.png -vf scale=1920:-1 <output_filename>.mp4
@@ -60,12 +71,3 @@ magiccow() { echo 'Yes,Moooo!,Mooost likely,Connot predict cow,Without a doubt,M
 # Download file
 # wget -e robots=off -r -nc -np -A <filetype1,filetype2,...> <url>
 
-# Some must use commands:
-# garbage:      cointop, cash, spt, weather
-# productivity: calcurses, mc
-# networking:   ping, dig, traceroute, nmap, iftop, arp, speed-test, netstat, nslookup
-# system:       htop, glances, screenfetch, neofetch, exa, yank
-
-# Default permissions
-# Files: chmod 664 <filename>
-# Direc: chmod 775 <dirname>
