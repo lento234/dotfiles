@@ -14,9 +14,11 @@ git-lfs
 git
 glances
 gnome-tweaks
+gnupg
 htop
 moreutils
 nmap
+pigz
 screenfetch
 texlive
 tmux
