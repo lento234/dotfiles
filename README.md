@@ -2,7 +2,7 @@
 
 # `.dotfiles`
 
-***My personal dotfiles (bash/zsh, vim, tmux, ...)***
+***My personal dotfiles for bash/zsh, vim, tmux, apt, brew***
 
 </div>
   
