@@ -10,9 +10,11 @@ git-lfs
 gnupg
 glances
 htop
+mas
 nmap
 screenfetch
 tmux
 tree
 vim
+watch
 wget
