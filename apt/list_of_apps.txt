@@ -3,6 +3,7 @@ bash
 binutils
 build-essential
 coreutils
+curl
 docker
 dstat
 ethtool
@@ -14,11 +15,14 @@ git
 glances
 gnome-tweaks
 htop
+moreutils
 nmap
 screenfetch
 texlive
 tmux
 tree
+unzip
 vim
 vlc
+wget
 zsh
