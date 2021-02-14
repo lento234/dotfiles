@@ -32,6 +32,7 @@ filetype plugin indent on    " required
 " Plugin 'scrooloose/nerdtree'
 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+" set rtp+=/usr/local/opt/fzf
 
 " Colorschemes
 colorscheme gruvbox

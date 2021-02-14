@@ -1,6 +1,29 @@
 # shell aliases
 
 ##############################
+# not so useless things
+
+cheat()     { curl cht.sh/$1; } # online man pages
+pgzip()     { time tar cvf - $1 | pigz > $1.tar.gz; } # parallel tar gzip
+tarcheck()  { tar -ztf $1 > /dev/null; } # verify the tar
+targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # standard
+targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # tar-zip and verify the content
+untargz()   { time tar -zxvf $1 $2;} # untar
+
+alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"  # Best git log tree
+alias gpg-list='gpg --list-secret-keys --keyid-format LONG'
+alias gpg-export='gpg --armor --export'
+alias meteo='curl v2.wttr.in'
+alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
+#alias open_sesame='ssh -TfN -R 43212:localhost:22 mlento@ela1.cscs.ch'
+alias please='sudo' # Let's be nicer 
+alias publicip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-mem' # show system perf
+alias ta='tmux attach -t'
+alias tl='tmux ls'
+alias ts='tmux new-session -s'
+
+##############################
 # OS specific aliases
 
 find_os_name() { hostnamectl | egrep 'System' | cut -d ' ' -f5 }
@@ -22,33 +45,6 @@ fi
 ##############################
 # Setup environment
 export GPG_TTY=$(tty)
-
-##############################
-# Non-Useless things
-
-# Zip, tar, untar, unzip, gunzip, dipshit
-targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # Standard
-tarcheck()  { tar -ztf $1 > /dev/null; } # Verify the tar
-targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # Tar and verify the content
-pgzip()     { time tar cvf - $1 | pigz > $1.tar.gz; } # Parallel tar
-untargz()   { time tar -zxvf $1 $2;} # Untar
-
-cheat()     { curl cht.sh/$1; } # online man pages
-alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"  # Best git log tree
-alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-mem' # show system perf
-alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
-#alias open_sesame='ssh -TfN -R 43212:localhost:22 mlento@ela1.cscs.ch'
-alias publicip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias gpg-list='gpg --list-secret-keys --keyid-format LONG'
-alias gpg-export='gpg --armor --export'
-alias ta='tmux a -t'
-
-##############################
-# Useless things (just for fun)
-
-alias meteo='curl v2.wttr.in'
-alias please='sudo' # Let's be nicer 
-magiccow() { echo 'Yes,Moooo!,Mooost likely,Connot predict cow,Without a doubt,My horses say no,Ask again latte' | tr ',' '\n' | sort -R | head -1 | { cowsay 2> /dev/null || cat; } | { lolcat 2>/dev/null || cat; }; } # Magic Cow answers for all. Works better with cowsay and lolcat.
 
 ##############################
 # Personal wiki 
