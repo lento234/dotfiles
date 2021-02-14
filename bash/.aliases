@@ -13,6 +13,10 @@ untargz()   { time tar -zxvf $1 $2;} # untar
 alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"  # Best git log tree
 alias gpg-list='gpg --list-secret-keys --keyid-format LONG'
 alias gpg-export='gpg --armor --export'
+alias l='exa -la'
+alias la='exa -la'
+alias lg='exa -lah --git'
+alias ll='exa -l'
 alias meteo='curl v2.wttr.in'
 alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
 #alias open_sesame='ssh -TfN -R 43212:localhost:22 mlento@ela1.cscs.ch'
