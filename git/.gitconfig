@@ -15,4 +15,4 @@
     gpgsign = true
 [color "status"]
     changed = yellow
-    untracked = magenta
+    untracked = blue
