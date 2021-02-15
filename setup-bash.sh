@@ -19,7 +19,7 @@ if [ -f ~/.aliases ]; then
 fi
 
 # Link new files
-ln -sv $CURRENT_DIR/bash/.aliases ~/.aliases
+ln -sv $CURRENT_DIR/bash/aliases ~/.aliases
 
 if [ -f ~/.bashrc ]; then
     cp -v ~/.bashrc ~/.bashrc.old
