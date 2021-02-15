@@ -12,6 +12,6 @@ if [ -f ~/.tmux.conf ]; then
 fi
 
 # Link new files
-ln -sv $CURRENT_DIR/tmux/.tmux.conf ~/.tmux.conf
+ln -sv $CURRENT_DIR/tmux/tmux.conf ~/.tmux.conf
 
 echo "Done!"
