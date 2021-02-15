@@ -13,8 +13,8 @@ if [ -f ~/.vimrc ]; then
 fi
 
 # Link new files
-ln -sv $CURRENT_DIR/vim/.vim ~/.vim
-ln -sv $CURRENT_DIR/vim/.vimrc ~/.vimrc
+ln -sv $CURRENT_DIR/vim ~/.vim
+ln -sv $CURRENT_DIR/vim/vimrc ~/.vimrc
 
 # Install vundle and other submodules
 git submodule init
