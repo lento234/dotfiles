@@ -30,19 +30,19 @@ alias ts='tmux new-session -s'
 ##############################
 # OS specific aliases
 
-find_os_name() { hostnamectl | egrep 'System' | cut -d ' ' -f5 }
+OS_NAME=`hostnamectl | egrep 'System' | cut -d ' ' -f5`
 
 if [[ "$OSTYPE" = "darwin"* ]]; then
     # MAC OSX
     #echo "Welcome to Mac"
     alias update='brew update && brew upgrade && brew cleanup;'
-elif [[ $(find_os_name) = "Ubuntu" ]]; then
+elif [[ $OS_NAME = "Ubuntu" ]]; then
     #echo "Welcome to Ubuntu"
     alias nomore='sudo shutdown -h now'
     alias open='xdg-open'
     alias update='sudo apt update && apt list --upgradable'
     alias upgrade='sudo apt upgrade'
-elif [[ $(find_os_name) = "Arch" ]]; then
+elif [[ $OS_NAME = "Arch" ]]; then
     alias update='sudo pacman -Syu'
 fi
 
