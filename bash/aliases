@@ -31,7 +31,6 @@ alias ts='tmux new-session -s'
 # OS specific aliases
 
 OS_NAME=`hostnamectl | egrep 'System' | cut -d ' ' -f5`
-
 if [[ "$OSTYPE" = "darwin"* ]]; then
     # MAC OSX
     #echo "Welcome to Mac"
@@ -45,6 +44,7 @@ elif [[ $OS_NAME = "Ubuntu" ]]; then
 elif [[ $OS_NAME = "Arch" ]]; then
     alias update='sudo pacman -Syu'
 fi
+unset OS_NAME
 
 ##############################
 # Setup environment
