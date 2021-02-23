@@ -76,6 +76,10 @@ export GPG_TTY=$(tty)
 # Download file
 # wget -e robots=off -r -nc -np -A <filetype1,filetype2,...> <url>
 
+# Slurm
+# scontrol update nodename=hades state=resume # bring a node up
+# sinfo, salloc, srun, smap
+
 # hardware
 # lspci | grep Root # show pci root complex
 # lspci -tv | show pci topology
