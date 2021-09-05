@@ -56,7 +56,7 @@ export GPG_TTY=$(tty)
 
 # A collection of handy tools
 # system        : htop, glances, screenfetch, neofetch, exa, yank
-# networking    : ping, dig, traceroute, nmap, iftop, arp, speed-test, netstat, nslookup
+# networking    : ping, dig, traceroute, nmap, iftop, arp, speed-test, netstat, nslookup, dog, gping
 # productivity  : clcurses, mc
 # misc          : cointop, cash, spt, weather
 
