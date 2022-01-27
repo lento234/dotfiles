@@ -16,7 +16,8 @@ Plugin 'preservim/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-sensible'
 
-Plugin 'morhetz/gruvbox'
+" Plugin 'morhetz/gruvbox'
+Plugin 'arcticicestudio/nord-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'powerline/powerline'
@@ -39,17 +40,18 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 " set rtp+=/usr/local/opt/fzf
 
 " Colorschemes
-colorscheme gruvbox
 " colorscheme Tomorrow-Night
 " colorscheme adaryn
 " colorscheme midnight
+" colorscheme gruvbox
+colorscheme nord
 
 " dark background
 set background=dark
 
 let g:airline_powerline_fonts=1
-let g:airline_theme='gruvbox'
-let g:gruvbox_contrast_dark='medium'
+let g:airline_theme='nord'
+" let g:gruvbox_contrast_dark='medium'
 
 "
 " ----------------- Standard customization ----------------------
@@ -86,7 +88,7 @@ hi CursorLineNr term=bold cterm=bold
 
 " Custom coloring
 " hi vertsplit ctermfg=238 ctermbg=235
-hi LineNr ctermfg=237 
+" hi LineNr ctermfg=237 
 " hi StatusLine ctermfg=235 ctermbg=245
 " hi StatusLineNC ctermfg=235 ctermbg=237
 " hi Search ctermbg=58 ctermfg=15

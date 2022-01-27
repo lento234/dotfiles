@@ -16,3 +16,11 @@
 [color "status"]
     changed = yellow
     untracked = blue
+[init]
+    defaultBranch = main
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
