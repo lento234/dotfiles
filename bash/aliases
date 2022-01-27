@@ -13,14 +13,14 @@ untargz()   { time tar -zxvf $1 $2;} # untar
 alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"  # Best git log tree
 alias gpg-list='gpg --list-secret-keys --keyid-format LONG'
 alias gpg-export='gpg --armor --export'
-alias l='exa -la'
-alias la='exa -la'
-alias lg='exa -lah --git'
-alias ll='exa -l'
+#alias l='exa -la'
+#alias la='exa -la'
+#alias lg='exa -lah --git'
+#alias ll='exa -l'
 alias meteo='curl v2.wttr.in'
 alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
 #alias open_sesame='ssh -TfN -R 43212:localhost:22 mlento@ela1.cscs.ch'
-alias please='sudo' # Let's be nicer 
+#alias please='sudo' # Let's be nicer 
 alias publicip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-mem' # show system perf
 alias ta='tmux attach -t'
@@ -43,6 +43,9 @@ elif [[ $OS_NAME = "Ubuntu" ]]; then
     alias upgrade='sudo apt upgrade'
 elif [[ $OS_NAME = "Arch" ]]; then
     alias update='sudo pacman -Syu'
+elif [[ $OS_NAME = "Rocky" ]]; then
+    alias update='sudo dnf update'
+    alias upgrade='sudo dnf upgrade'
 fi
 unset OS_NAME
 
