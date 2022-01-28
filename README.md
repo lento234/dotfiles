@@ -2,6 +2,8 @@
 
 # `.dotfiles`
 
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square&labelColor=000000)](#license)
+
 ***My personal dotfiles for bash/zsh, vim, tmux, apt, brew.***
 
 </div>
