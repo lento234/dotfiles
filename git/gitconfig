@@ -1,7 +1,6 @@
 [user]
-	name = Mrlento234
+	name = MrLento234
 	email = lento.manickathan@gmail.com
-	signingkey = EF2E40EB896B86BA
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
