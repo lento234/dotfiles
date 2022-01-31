@@ -10,12 +10,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'tpope/vim-fugitive'
 Plugin 'preservim/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-sensible'
-
 " Plugin 'morhetz/gruvbox'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'vim-airline/vim-airline'
@@ -25,24 +23,16 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'cespare/vim-toml'
-
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" Plugin 'powerline/powerline'
-" Plugin 'scrooloose/nerdtree'
 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-" set rtp+=/usr/local/opt/fzf
 
 " Colorschemes
-" colorscheme Tomorrow-Night
-" colorscheme adaryn
-" colorscheme midnight
 " colorscheme gruvbox
 colorscheme nord
 
@@ -51,7 +41,6 @@ set background=dark
 
 let g:airline_powerline_fonts=1
 let g:airline_theme='nord'
-" let g:gruvbox_contrast_dark='medium'
 
 "
 " ----------------- Standard customization ----------------------
@@ -61,10 +50,17 @@ syntax on
 set autoindent
 set number
 set encoding=utf-8
+set showmatch
+
+" Also highlight all tabs and trailing whitespace characters.
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$\|\t/
 
 "
 " highlight matches
 set hlsearch
+set ignorecase          " Make searching case insensitive
+set smartcase           " ... unless the query has capital letters.
 
 set mouse=a
 
@@ -78,29 +74,11 @@ set shiftwidth=4
 set expandtab
 
 set statusline=%=&P\ %f\ %m
-" set fillchars=vert:\ ,stl:\ ,stlnc:\ 
-" set laststatus=2
-" set noshowmode
 
 " Cursorline customization
 set cursorline
 hi CursorLineNr term=bold cterm=bold
 
-" Custom coloring
-" hi vertsplit ctermfg=238 ctermbg=235
-" hi LineNr ctermfg=237 
-" hi StatusLine ctermfg=235 ctermbg=245
-" hi StatusLineNC ctermfg=235 ctermbg=237
-" hi Search ctermbg=58 ctermfg=15
-" hi Default ctermfg=1
-" hi clear SignColumn
-" hi SignColumn ctermbg=235
-" hi GitGutterAdd ctermbg=235 ctermfg=245
-" hi GitGutterChange ctermbg=235 ctermfg=245
-" hi GitGutterDelete ctermbg=235 ctermfg=245
-" hi GitGutterChangeDelete ctermbg=235 ctermfg=245
-" hi EndOfBuffer ctermfg=237 ctermbg=235
-" 
 "
 " ---------------- Keyboard mapping -----------------------
 "
@@ -154,33 +132,33 @@ else
     \ }
 endif
 
+" "
+" " --- YouCompleteMe ---
+" "
 "
-" --- YouCompleteMe ---
+" " don't seek confirmation every time ycm_conf file is found
+" let g:ycm_confirm_extra_conf = 0
+" " let g:ycm_auto_trigger = 0
+" let g:ycm_key_list_stop_completion=['<CR>']
 "
-
-" don't seek confirmation every time ycm_conf file is found
-let g:ycm_confirm_extra_conf = 0
-" let g:ycm_auto_trigger = 0
-let g:ycm_key_list_stop_completion=['<CR>']
-
-" go to definition of variable/type/function under cursor
-nnoremap <leader>d  ::YcmCompleter GoTo<CR>
-" print type of symbol under the cursor
-nnoremap <leader>t  ::YcmCompleter GetType<CR>
-" print type of symbol under the cursor
-nnoremap <leader>f  ::YcmCompleter FixIt<CR>
-" refactor the name under the cursor
-nnoremap <leader>r  ::YcmCompleter RefactorRename<space>
-
-" Warning highlights 
-let g:syntastic_warning_symbol = '⚠'
-highlight YcmWarningSign    ctermfg=14
-highlight YcmWarningSection ctermfg=14
-highlight YcmWarningSection cterm=bold
-
-" Error highlights
-let g:syntastic_error_symbol = '✗'
-highlight YcmErrorSign      ctermfg=1
-highlight YcmErrorSection   ctermfg=1
-highlight YcmErrorSection   cterm=bold
+" " go to definition of variable/type/function under cursor
+" nnoremap <leader>d  ::YcmCompleter GoTo<CR>
+" " print type of symbol under the cursor
+" nnoremap <leader>t  ::YcmCompleter GetType<CR>
+" " print type of symbol under the cursor
+" nnoremap <leader>f  ::YcmCompleter FixIt<CR>
+" " refactor the name under the cursor
+" nnoremap <leader>r  ::YcmCompleter RefactorRename<space>
+"
+" " Warning highlights
+" let g:syntastic_warning_symbol = '⚠'
+" highlight YcmWarningSign    ctermfg=14
+" highlight YcmWarningSection ctermfg=14
+" highlight YcmWarningSection cterm=bold
+"
+" " Error highlights
+" let g:syntastic_error_symbol = '✗'
+" highlight YcmErrorSign      ctermfg=1
+" highlight YcmErrorSection   ctermfg=1
+" highlight YcmErrorSection   cterm=bold
 
