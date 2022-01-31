@@ -2,7 +2,7 @@
 
 echo "Setting up vim ..."
 
-CURRENT_DIR=$(pwd) 
+CURRENT_DIR=$(pwd)
 
 # Backup old files
 if [ -f ~/.vim ]; then

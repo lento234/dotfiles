@@ -9,7 +9,7 @@
 ***My personal dotfiles for bash/zsh, vim, tmux, apt, brew.***
 
 </div>
-  
+
 ## Installation
 
 1. Clone the dotfiles to your computer:
@@ -34,7 +34,7 @@
 
 4. *(Optional)* Additional customization: `zsh` and custom prompt:
 
-    1. [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh): A delightful community-driven (with 1700+ contributors) framework for managing your zsh configuration. 
-    2. [Powerline fonts](https://github.com/powerline/fonts):  Patched fonts for Powerline users. 
+    1. [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh): A delightful community-driven (with 1700+ contributors) framework for managing your zsh configuration.
+    2. [Powerline fonts](https://github.com/powerline/fonts):  Patched fonts for Powerline users.
     3. [powerlevel10k](https://github.com/romkatv/powerlevel10k): A Zsh theme
-    4. [liquidprompt](https://github.com/nojhan/liquidprompt):  A full-featured & carefully designed adaptive prompt for Bash & Zsh 
+    4. [liquidprompt](https://github.com/nojhan/liquidprompt):  A full-featured & carefully designed adaptive prompt for Bash & Zsh.
