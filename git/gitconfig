@@ -1,11 +1,11 @@
 [user]
-	name = MrLento234
-	email = lento.manickathan@gmail.com
+    name = MrLento234
+    email = lento.manickathan@gmail.com
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
 [core]
     editor = vim
 [credential]
@@ -18,8 +18,8 @@
 [init]
     defaultBranch = main
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
-	prompt = false
+    prompt = false
 [alias]
-	d = difftool
+    d = difftool
