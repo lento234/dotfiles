@@ -132,6 +132,11 @@ else
     \ }
 endif
 
+"
+" -- vim-pandoc
+"
+let g:pandoc#modules#disabled = ["folding"]
+
 " "
 " " --- YouCompleteMe ---
 " "
