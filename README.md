@@ -22,7 +22,7 @@
 2. Setup `bash` (or `zsh`), `vim`, `tmux`:
 
     ```bash
-    $ ./setup-bash.sh
+    $ ./setup-zsh.sh
     $ ./setup-vim.sh
     $ ./setup-tmux.sh
     ```

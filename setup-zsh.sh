@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Setting up bash ..."
+echo "Setting up zsh ..."
 
 CURRENT_DIR=$(pwd)
 
@@ -14,8 +14,8 @@ if [ -f ~/.zsh_env ]; then
 fi
 
 # Link new files
-ln -sv $CURRENT_DIR/bash/aliases ~/.aliases
-ln -sv $CURRENT_DIR/bash/zsh_env.$(hostname) ~/.zsh_env
+ln -sv $CURRENT_DIR/zsh/aliases ~/.aliases
+ln -sv $CURRENT_DIR/zsh/zsh_env.$(hostname) ~/.zsh_env
 
 if [ -f ~/.bashrc ]; then
     cp -v ~/.bashrc ~/.bashrc.old
