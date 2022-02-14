@@ -20,3 +20,7 @@ unset __conda_setup
 # shell aliases
 alias update='sudo dnf update'
 alias open='xdg-open'
+
+export PATH="/home/lento/.local/bin:$PATH"
+
+export GPG_TTY=$(tty)
