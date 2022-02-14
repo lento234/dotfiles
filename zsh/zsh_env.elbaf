@@ -19,3 +19,4 @@ unset __conda_setup
 
 # shell aliases
 alias update='sudo dnf update'
+alias open='xdg-open'
