@@ -18,6 +18,7 @@ alias gpg-export='gpg --armor --export'
 #alias lg='exa -lah --git'
 #alias ll='exa -l'
 alias meteo='curl v2.wttr.in'
+alias open='xdg-open'
 alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
 #alias open_sesame='ssh -TfN -R 43212:localhost:22 mlento@ela1.cscs.ch'
 #alias please='sudo' # Let's be nicer
@@ -41,12 +42,11 @@ if [[ "$OSTYPE" = "darwin"* ]]; then
 elif [[ $OS_NAME = "Ubuntu" ]]; then
     #echo "Welcome to Ubuntu"
     alias nomore='sudo shutdown -h now'
-    alias open='xdg-open'
     alias update='sudo apt update && apt list --upgradable'
     alias upgrade='sudo apt upgrade'
 elif [[ $OS_NAME = "Arch" ]]; then
     alias update='sudo pacman -Syu'
-elif [[ $OS_NAME = "Rocky" ]]; then
+else #if [[ $OS_NAME = "Rocky" ]]; then
     alias update='sudo dnf update'
     alias upgrade='sudo dnf upgrade'
 fi
@@ -57,7 +57,7 @@ unset OS_NAME
 export GPG_TTY=$(tty)
 
 ##############################
-# Personal wiki 
+# Personal wiki
 # Miscs useful things, thank me later!!
 
 # A collection of handy tools
