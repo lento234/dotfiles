@@ -34,7 +34,9 @@ alias kubectl="minikube kubectl --"
 ##############################
 # OS specific aliases
 
-OS_NAME=`hostnamectl | egrep 'System' | cut -d ' ' -f5`
+if [[ -x "$(command -v hostnamectl)" ]]; then
+    OS_NAME=`hostnamectl | egrep 'System' | cut -d ' ' -f5`
+fi
 if [[ "$OSTYPE" = "darwin"* ]]; then
     # MAC OSX
     #echo "Welcome to Mac"
