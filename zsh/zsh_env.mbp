@@ -1,0 +1,53 @@
+# Environment variables
+export PATH=/opt/homebrew/bin/:$PATH
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH="/usr/local/sbin:$PATH"
+#export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+
+#export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# ssh
+DEFAULT_USER=$USER
+export SSH_KEY_PATH="~/.ssh/id_ed25519"
+ssh-add -K ~/.ssh/id_ed25519 &> /dev/null
+
+# colors
+if [ -x /usr/local/opt/coreutils/libexec/gnubin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+
+## >>> conda initialize >>>
+## !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/Users/Lento/lib/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/Users/Lento/lib/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/Users/Lento/lib/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/Users/Lento/lib/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+## <<< conda initialize <<<
+
+#source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.aliases ] && source ~/.aliases
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+alias start_rdp_tunnel='ssh -vL 3389:localhost:43210 mlento@ela1.cscs.ch -N'
