@@ -15,6 +15,9 @@ export CXX=g++-11
 export PATH=/opt/homebrew/Cellar/coreutils/9.1/libexec/gnubin:$PATH
 export MANPATH=/opt/homebrew/Cellar/coreutils/9.1/libexec/gnuman:$MANPATH
 
+# Created by `pipx` on 2022-07-07 09:28:35
+export PATH="$PATH:/Users/lento/.local/bin"
+
 # ssh
 DEFAULT_USER=$USER
 export SSH_KEY_PATH="~/.ssh/id_ed25519"
@@ -42,19 +45,24 @@ alias start_rdp_tunnel='ssh -vL 3389:localhost:43210 hades.tailscale -N'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+. "$HOME/.cargo/env"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/lento/lib/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/lento/lib/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/lento/lib/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/lento/lib/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/lento/lib/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/Users/lento/lib/mambaforge/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/lento/lib/miniconda3/bin:$PATH"
+        export PATH="/Users/lento/lib/mambaforge/bin:$PATH"
     fi
 fi
 unset __conda_setup
+
+if [ -f "/Users/lento/lib/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/Users/lento/lib/mambaforge/etc/profile.d/mamba.sh"
+fi
 # <<< conda initialize <<<
 
-. "$HOME/.cargo/env"
