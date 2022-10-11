@@ -21,7 +21,7 @@ export PATH="$PATH:/Users/lento/.local/bin"
 # ssh
 DEFAULT_USER=$USER
 export SSH_KEY_PATH="~/.ssh/id_ed25519"
-ssh-add -K ~/.ssh/id_ed25519 &> /dev/null
+#ssh-add -K ~/.ssh/id_ed25519 &> /dev/null
 
 # colors
 if [ -x /opt/homebrew/Cellar/coreutils/9.1/libexec/gnubin/dircolors ]; then
