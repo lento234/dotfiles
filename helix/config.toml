@@ -1,0 +1,13 @@
+theme = "nord"
+
+[editor]
+rulers = [120]
+cursorline = true
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "underline"
+
+[editor.indent-guides]
+render = true
