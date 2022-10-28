@@ -4,8 +4,29 @@
 # not so useless things
 
 cheat()     { curl cht.sh/$1; } # online man pages
-pgzip()     { time tar cf - ${1%/} | pv | pigz > ${1%/}.tar.gz; } # parallel tar gzip
-tarcheck()  { tar -ztf $1 > /dev/null && echo -e "\e[32mOk!\e[0m" || echo -e "\e[31mFailed!\e[0m"; } # verify the tar
+#pgzip()     { time tar cf - ${1%/} | pv | pigz > ${1%/}.tar.gz; } # parallel tar gzip
+#tarcheck()  { tar -ztf $1 > /dev/null && echo -e "\e[32mOk!\e[0m" || echo -e "\e[31mFailed!\e[0m"; } # verify the tar
+
+# parallel tar gzip
+targzparallel() {
+    TARDIR=${1%/}
+    BYTES="$(du -sb $TARDIR | cut -f1)"
+    tar cf - $TARDIR \
+    | tqdm --bytes --total "$BYTES" --desc Processing \
+    | pigz \
+    | tqdm --bytes --total "$BYTES" --desc Compressed --position 1 \
+    > $TARDIR.tar.gz;
+    unset TARDIR
+}
+
+# verify the tar
+tarcheck() {
+    tar -ztf $1 \
+    | tqdm --unit files --desc Processing > /dev/null \
+    && echo -e "\e[32mOk!\e[0m" \
+    || echo -e "\e[31mFailed!\e[0m"
+}
+
 targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # standard
 targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # tar-zip and verify the content
 untargz()   { time tar -zxvf $1 $2;} # untar
