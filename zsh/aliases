@@ -22,9 +22,7 @@ targzparallel() {
 # verify the tar
 tarcheck() {
     tar -ztf $1 \
-    | tqdm --unit files --desc Processing > /dev/null \
-    && echo -e "\e[32mOk!\e[0m" \
-    || echo -e "\e[31mFailed!\e[0m"
+    | tqdm --unit files --desc Processing > /dev/null
 }
 
 targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # standard
