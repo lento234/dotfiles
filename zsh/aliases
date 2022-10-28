@@ -4,8 +4,8 @@
 # not so useless things
 
 cheat()     { curl cht.sh/$1; } # online man pages
-pgzip()     { time tar cvf - $1 | pigz > $1.tar.gz; } # parallel tar gzip
-tarcheck()  { tar -ztf $1 > /dev/null; } # verify the tar
+pgzip()     { time tar cf - ${1%/} | pv | pigz > ${1%/}.tar.gz; } # parallel tar gzip
+tarcheck()  { tar -ztf $1 > /dev/null && echo -e "\e[32mOk!\e[0m" || echo -e "\e[31mFailed!\e[0m"; } # verify the tar
 targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # standard
 targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # tar-zip and verify the content
 untargz()   { time tar -zxvf $1 $2;} # untar
