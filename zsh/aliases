@@ -89,6 +89,9 @@ export GPG_TTY=$(tty)
 # productivity  : clcurses, mc
 # misc          : cointop, cash, spt, weather
 
+# Sysadmin
+# lscpu, df, mount, fdisk, lsusb, lspci, free, dmidecode, hwinfo
+
 # Default permissions
 # Files: chmod 664 <filename>
 # Direc: chmod 775 <dirname>
