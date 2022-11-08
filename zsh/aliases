@@ -30,6 +30,7 @@ targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev
 untargz()   { time tar -zxvf $1 $2;} # untar
 
 alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"  # Best git log tree
+alias glgl="git log --oneline --decorate --graph --all"
 alias gpg-list='gpg --list-secret-keys --keyid-format LONG'
 alias gpg-export='gpg --armor --export'
 #alias l='exa -la'
@@ -85,7 +86,7 @@ export GPG_TTY=$(tty)
 
 # A collection of handy tools
 # system        : htop, glances, screenfetch, neofetch, exa, yank
-# networking    : ping, dig, traceroute, nmap, iftop, arp, speed-test, netstat, nslookup, dog, gping
+# networking    : ping, dig, traceroute, nmap, iftop, arp, speed-test, netstat, nslookup, dog, gping, nmcli
 # productivity  : clcurses, mc
 # misc          : cointop, cash, spt, weather
 
