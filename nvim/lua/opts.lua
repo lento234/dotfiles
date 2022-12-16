@@ -11,7 +11,7 @@ opt.expandtab = true
 opt.autoindent = true
 
 -- line wrapping
-opt.wrap = false
+opt.wrap = true
 
 -- filetypes
 opt.encoding = 'utf8'
@@ -24,6 +24,7 @@ opt.incsearch = true
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
+opt.undofile = true
 
 -- splits
 opt.splitright = true
@@ -34,6 +35,7 @@ opt.syntax = "ON"
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
+vim.o.updatetime = 250
 
 -- vim.cmd([[colorscheme moonfly]])
 -- vim.cmd([[colorscheme gruvbox]])

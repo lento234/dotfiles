@@ -3,7 +3,8 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- general keymaps
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+-- keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader><Space>", ":nohl<CR>")
 keymap.set("n", "<leader>+", "<C-a>")
 keymap.set("n", "<leader>-", "<C-x>")
 

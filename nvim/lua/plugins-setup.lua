@@ -14,23 +14,26 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   -- package manager
   use 'wbthomason/packer.nvim'
+  
   -- colorscheme
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'bluz71/vim-moonfly-colors'
   use 'navarasu/onedark.nvim'
   -- use 'EdenEast/nightfox.nvim'
+
   -- file explorer
-  use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-          'nvim-tree/nvim-web-devicons', -- optional, for file icone
-      },
-  }
+  use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons'} }
+  
   -- status line
   use 'nvim-lualine/lualine.nvim'
-  -- git signs
-  use 'lewis6991/gitsigns.nvim'
 
+  -- Git plugins
+  use 'lewis6991/gitsigns.nvim' -- git signs
+  use 'tpope/vim-fugitive' -- Git commands for nvim.
+
+  -- commenting (gcc, gcap)
+  use 'tpope/vim-commentary'
+ 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
