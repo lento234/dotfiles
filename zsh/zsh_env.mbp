@@ -66,3 +66,13 @@ if [ -f "/Users/lento/lib/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+activate_llvm() {
+  export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+}
+
+alias vi=nvim
+#alias vim=nvim
