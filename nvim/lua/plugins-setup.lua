@@ -33,7 +33,10 @@ return require('packer').startup(function(use)
 
   -- commenting (gcc, gcap)
   use 'tpope/vim-commentary'
- 
+
+  -- telescope for file, search, ...
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, search results, open buffers...)
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
