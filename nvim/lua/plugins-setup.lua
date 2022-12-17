@@ -37,6 +37,11 @@ return require('packer').startup(function(use)
   -- telescope for file, search, ...
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, search results, open buffers...)
 
+  use 'nvim-treesitter/nvim-treesitter' -- Highlight, edit, and navigate code using a fast incremental parsing library.
+
+  -- A bar that will show at the top of you nvim containing your open buffers.
+  use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'} }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
