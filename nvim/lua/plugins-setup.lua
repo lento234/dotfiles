@@ -42,6 +42,10 @@ return require('packer').startup(function(use)
   -- A bar that will show at the top of you nvim containing your open buffers.
   use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'} }
 
+
+  -- Replace text (go replace word: grw)
+  use 'vim-scripts/ReplaceWithRegister'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

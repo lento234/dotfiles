@@ -9,9 +9,10 @@ opt.shiftwidth = 2
 opt.tabstop = 2
 opt.expandtab = true
 opt.autoindent = true
+opt.backspace = "indent,eol,start"
 
 -- line wrapping
-opt.wrap = true
+opt.wrap = false
 
 -- filetypes
 opt.encoding = 'utf8'
@@ -36,6 +37,7 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 vim.o.updatetime = 250
+opt.cursorline = true
 
 -- vim.cmd([[colorscheme moonfly]])
 -- vim.cmd([[colorscheme gruvbox]])
