@@ -8,8 +8,14 @@ local ensure_packer = function()
   end
   return false
 end
-
 local packer_bootstrap = ensure_packer()
+
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins-setup.lua source <afile> | PackerCompile
+  augroup end
+]])
 
 return require('packer').startup(function(use)
   -- package manager
@@ -18,8 +24,8 @@ return require('packer').startup(function(use)
   -- colorscheme
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'bluz71/vim-moonfly-colors'
-  use 'navarasu/onedark.nvim'
   -- use 'EdenEast/nightfox.nvim'
+  use 'navarasu/onedark.nvim'
 
   -- file explorer
   use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons'} }
