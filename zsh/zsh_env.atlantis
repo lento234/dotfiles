@@ -1,16 +1,13 @@
 # Local specific environment vars
 # Aliases
 [ -f ~/.aliases ] && source ~/.aliases
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # PATHS
 export PATH="/home/lento/.local/bin:$PATH"
 
-# CUDA
-export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
 # Rust
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -31,4 +28,6 @@ if [ -f "/home/lento/lib/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-alias vi=nvim
+# Local aliases
+alias vim=nvim
+
