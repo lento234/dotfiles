@@ -46,6 +46,7 @@ alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-
 alias ta='tmux attach -t'
 alias tl='tmux ls'
 alias ts='tmux new-session -s'
+alias icat='kitty +kitten icat'
 
 # k8s aliases
 alias kubectl="minikube kubectl --"

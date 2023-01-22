@@ -1,7 +1,8 @@
 # Local specific environment vars
 # Aliases
 [ -f ~/.aliases ] && source ~/.aliases
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 # PATHS
 export PATH="/home/lento/.local/bin:$PATH"
