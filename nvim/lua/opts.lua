@@ -42,8 +42,8 @@ opt.cursorline = true
 
 -- vim.cmd([[colorscheme moonfly]])
 -- vim.cmd([[colorscheme gruvbox]])
-vim.cmd([[colorscheme nord]])
--- require('onedark').load()
+-- vim.cmd([[colorscheme nord]])
+require('onedark').load()
 
 -- Highlight on yank (copy)
 vim.api.nvim_exec(

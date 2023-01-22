@@ -1,5 +1,5 @@
-# theme = "onedark"
-theme = "nord"
+theme = "onedark"
+# theme = "nord"
 
 [editor]
 # rulers = [120]
