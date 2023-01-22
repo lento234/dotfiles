@@ -40,8 +40,6 @@ opt.signcolumn = "yes"
 vim.o.updatetime = 250
 opt.cursorline = true
 
--- vim.cmd([[colorscheme moonfly]])
--- vim.cmd([[colorscheme gruvbox]])
 -- vim.cmd([[colorscheme nord]])
 require('onedark').load()
 

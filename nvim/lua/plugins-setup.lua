@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'bluz71/vim-moonfly-colors'
   -- use 'EdenEast/nightfox.nvim'
-  use 'arcticicestudio/nord-vim'
+  -- use 'arcticicestudio/nord-vim'
   use 'navarasu/onedark.nvim'
 
   -- file explorer
