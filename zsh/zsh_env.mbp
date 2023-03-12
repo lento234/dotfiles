@@ -5,8 +5,11 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export CC=gcc-11
-export CXX=g++-11
+export CC=gcc-12
+export CXX=g++-12
+
+export LD_LIBRARY_PATH=/opt/homebrew/lib:$LD_LIBRARY_PATH
+export CPATH=/opt/homebrew/include:$CPATH
 
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
 #export PATH="/usr/local/sbin:$PATH"
@@ -22,6 +25,7 @@ export PATH="$PATH:/Users/lento/.local/bin"
 DEFAULT_USER=$USER
 export SSH_KEY_PATH="~/.ssh/id_ed25519"
 #ssh-add -K ~/.ssh/id_ed25519 &> /dev/null
+alias add_ssh_key='ssh-add -K ~/.ssh/id_ed25519 &> /dev/null'
 
 # colors
 if [ -x /opt/homebrew/Cellar/coreutils/9.1/libexec/gnubin/dircolors ]; then
@@ -74,5 +78,4 @@ activate_llvm() {
   export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 }
 
-alias vi=nvim
-#alias vim=nvim
+alias vim=nvim
