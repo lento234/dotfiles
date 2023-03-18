@@ -12,8 +12,8 @@ opt.autoindent = true
 opt.backspace = "indent,eol,start"
 
 -- line wrapping
-opt.wrap = true
-opt.breakindent = true
+opt.wrap = false
+-- opt.breakindent = true
 
 -- filetypes
 opt.encoding = 'utf8'

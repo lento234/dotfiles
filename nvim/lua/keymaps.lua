@@ -6,8 +6,10 @@ local keymap = vim.keymap
 keymap.set("n", "<leader><BS>", ":nohl<CR>") -- deselect all highlights
 -- keymap.set("n", "<leader>+", "<C-a>") -- increment number
 -- keymap.set("n", "<leader>-", "<C-x>") -- decrement number 
-keymap.set("n", "j", "ddp") -- move line down
-keymap.set("n", "k", "dd<up>P") -- move line up
+-- keymap.set("n", "j", "ddp") -- move line down
+-- keymap.set("n", "k", "dd<up>P") -- move line up
+keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- move line down
+keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- move line up
 
 -- window
 keymap.set("n", "<leader>sv", "<C-w>v") -- split vertical
