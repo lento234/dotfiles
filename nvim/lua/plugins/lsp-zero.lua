@@ -1,4 +1,4 @@
-local lsp = require('lsp-zero')
+local lsp = require('lsp-zero').preset({})
 
 -- local lsp = require('lsp-zero').preset({
 --   name = 'minimal',
@@ -9,14 +9,14 @@ local lsp = require('lsp-zero')
 -- })
 
 -- preset
-lsp.preset('recommended')
+-- lsp.preset('recommended')
 
 -- (Optional) Configure lua language server for neovim
 -- lsp.nvim_workspace()
 
-lsp.setup()
 
 lsp.on_attach(function(client, bufnr)
+  -- lsp.default_keymaps({buffer = bufnr})
   local opts = {buffer = bufnr, remap = false}
 
   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
@@ -37,9 +37,10 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  -- vim.keymap.set('n', '<leader>f', function()
-  --   vim.lsp.buf.format { async = true }
-  -- end, opts)
+  vim.keymap.set('n', '<leader>f', function()
+    vim.lsp.buf.format { async = true }
+  end, opts)
 
 end)
 
+lsp.setup()
