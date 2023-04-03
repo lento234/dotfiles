@@ -20,17 +20,18 @@ vim.cmd([[
 return require('packer').startup(function(use)
   -- package manager
   use 'wbthomason/packer.nvim'
-  
+
   -- colorscheme
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'bluz71/vim-moonfly-colors'
   -- use 'EdenEast/nightfox.nvim'
   -- use 'arcticicestudio/nord-vim'
-  use 'navarasu/onedark.nvim'
+  -- use 'navarasu/onedark.nvim'
+  use 'rmehri01/onenord.nvim'
 
   -- file explorer
   use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons'} }
-  
+
   -- status line
   use 'nvim-lualine/lualine.nvim'
 
@@ -62,12 +63,7 @@ return require('packer').startup(function(use)
   -- Replace text (go replace word: grw)
   use 'vim-scripts/ReplaceWithRegister'
 
-  -- -- LSP
-  -- use {
-  --   "williamboman/mason.nvim",
-  --   "williamboman/mason-lspconfig.nvim",
-  --   "neovim/nvim-lspconfig",
-  -- }
+  -- LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -89,7 +85,30 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},             -- Required
       -- {'rafamadriz/friendly-snippets'}, -- Optional
     }
-  }    
+  }
+
+  -- alpha: greeter for neovim
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+      require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
+  }
+
+  -- which-key
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
 
   -- Automatically set up your configuration after cloning packer.nvim
