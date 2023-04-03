@@ -24,10 +24,10 @@ return require('packer').startup(function(use)
   -- colorscheme
   -- use 'ellisonleao/gruvbox.nvim'
   -- use 'bluz71/vim-moonfly-colors'
-  -- use 'EdenEast/nightfox.nvim'
+  use 'EdenEast/nightfox.nvim'
   -- use 'arcticicestudio/nord-vim'
   -- use 'navarasu/onedark.nvim'
-  use 'rmehri01/onenord.nvim'
+  -- use 'rmehri01/onenord.nvim'
 
   -- file explorer
   use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons'} }
