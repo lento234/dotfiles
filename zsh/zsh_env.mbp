@@ -15,8 +15,10 @@ export CPATH=/opt/homebrew/include:$CPATH
 #export PATH="/usr/local/sbin:$PATH"
 #export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
-export PATH=/opt/homebrew/Cellar/coreutils/9.1/libexec/gnubin:$PATH
-export MANPATH=/opt/homebrew/Cellar/coreutils/9.1/libexec/gnuman:$MANPATH
+_coreutils=9.2
+
+export PATH=/opt/homebrew/Cellar/coreutils/${_coreutils}/libexec/gnubin:$PATH
+export MANPATH=/opt/homebrew/Cellar/coreutils/${_coreutils}/libexec/gnuman:$MANPATH
 
 # Created by `pipx` on 2022-07-07 09:28:35
 export PATH="$PATH:/Users/lento/.local/bin"
@@ -28,13 +30,15 @@ export SSH_KEY_PATH="~/.ssh/id_ed25519"
 alias add_ssh_key='ssh-add -K ~/.ssh/id_ed25519 &> /dev/null'
 
 # colors
-if [ -x /opt/homebrew/Cellar/coreutils/9.1/libexec/gnubin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+if [ -x /opt/homebrew/Cellar/coreutils/${_coreutils}/libexec/gnubin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+unset _coreutils
 
 [ -f ~/.aliases ] && source ~/.aliases
 
@@ -51,24 +55,41 @@ alias start_rdp_tunnel='ssh -vL 3389:localhost:43210 hades.tailscale -N'
 
 . "$HOME/.cargo/env"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/lento/lib/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/lento/lib/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/lento/lib/mambaforge/etc/profile.d/conda.sh" ]; then
+#         . "/Users/lento/lib/mambaforge/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/lento/lib/mambaforge/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# 
+# if [ -f "/Users/lento/lib/mambaforge/etc/profile.d/mamba.sh" ]; then
+#     . "/Users/lento/lib/mambaforge/etc/profile.d/mamba.sh"
+# fi
+# # <<< conda initialize <<<
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/opt/homebrew/opt/micromamba/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/Users/lento/lib/micromamba";
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+    eval "$__mamba_setup"
 else
-    if [ -f "/Users/lento/lib/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/Users/lento/lib/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/Users/lento/lib/micromamba/etc/profile.d/micromamba.sh" ]; then
+        . "/Users/lento/lib/micromamba/etc/profile.d/micromamba.sh"
     else
-        export PATH="/Users/lento/lib/mambaforge/bin:$PATH"
+        export  PATH="/Users/lento/lib/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
     fi
 fi
-unset __conda_setup
-
-if [ -f "/Users/lento/lib/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/Users/lento/lib/mambaforge/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
+unset __mamba_setup
+# <<< mamba initialize <<<
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -79,3 +100,4 @@ activate_llvm() {
 }
 
 alias vim=nvim
+
