@@ -40,10 +40,6 @@ opt.signcolumn = "yes"
 vim.o.updatetime = 250
 opt.cursorline = true
 
--- vim.cmd([[colorscheme nord]])
--- require('onedark').load()
-require('onenord').setup()
-
 -- Highlight on yank (copy)
 vim.api.nvim_exec(
   [[
