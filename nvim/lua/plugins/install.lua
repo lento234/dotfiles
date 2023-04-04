@@ -29,11 +29,28 @@ return require('packer').startup(function(use)
   -- use 'navarasu/onedark.nvim'
   -- use 'rmehri01/onenord.nvim'
 
-  -- file explorer
-  use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons'} }
+  -- icons
+  use 'nvim-tree/nvim-web-devicons'
 
   -- status line
-  use 'nvim-lualine/lualine.nvim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true}
+  }
+
+  -- blankline
+  use "lukas-reineke/indent-blankline.nvim"
+  
+  -- A bar that will show at the top of you nvim containing your open buffers.
+  use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+  -- use 'nanozuki/tabby.nvim'
+
+
+  -- file explorer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = { 'nvim-tree/nvim-web-devicons'}
+  }
 
   -- Git plugins
   use 'lewis6991/gitsigns.nvim' -- git signs
@@ -43,7 +60,10 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'
 
   -- telescope for file, search, ...
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, search results, open buffers...)
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { 'nvim-lua/plenary.nvim' }
+  } -- UI to select things (files, search results, open buffers...)
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library.
   use {
@@ -56,9 +76,6 @@ return require('packer').startup(function(use)
 
   -- auto closing
   use 'windwp/nvim-autopairs'
-
-  -- A bar that will show at the top of you nvim containing your open buffers.
-  use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'} }
 
   -- Replace text (go replace word: grw)
   use 'vim-scripts/ReplaceWithRegister'
@@ -110,9 +127,10 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- blankline
-  use "lukas-reineke/indent-blankline.nvim"
-
+  -- terminal
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
