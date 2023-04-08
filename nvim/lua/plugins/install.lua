@@ -40,11 +40,10 @@ return require('packer').startup(function(use)
 
   -- blankline
   use "lukas-reineke/indent-blankline.nvim"
-  
+
   -- A bar that will show at the top of you nvim containing your open buffers.
   use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
   -- use 'nanozuki/tabby.nvim'
-
 
   -- file explorer
   use {
@@ -131,6 +130,8 @@ return require('packer').startup(function(use)
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end}
+
+  use 'NoahTheDuke/vim-just'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
