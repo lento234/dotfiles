@@ -5,8 +5,8 @@ opt.number = true
 -- opt.relativenumber = true
 
 -- tab & indentation
-opt.shiftwidth = 2
-opt.tabstop = 2
+opt.shiftwidth = 4
+opt.tabstop = 4
 opt.expandtab = true
 opt.autoindent = true
 opt.backspace = "indent,eol,start"
