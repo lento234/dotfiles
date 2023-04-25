@@ -94,7 +94,7 @@ return require('packer').startup(function(use)
       {'hrsh7th/cmp-nvim-lsp'},     -- Required
       -- {'hrsh7th/cmp-buffer'},       -- Optional
       -- {'hrsh7th/cmp-path'},         -- Optional
-      -- {'saadparwaiz1/cmp_luasnip'}, -- Optional
+      {'saadparwaiz1/cmp_luasnip'}, -- Optional
       -- {'hrsh7th/cmp-nvim-lua'},     -- Optional
 
       -- Snippets
@@ -102,6 +102,8 @@ return require('packer').startup(function(use)
       -- {'rafamadriz/friendly-snippets'}, -- Optional
     }
   }
+
+  -- use 'folke/neodev.nvim'
 
   -- alpha: greeter for neovim
   use {
@@ -133,9 +135,13 @@ return require('packer').startup(function(use)
 
   use 'NoahTheDuke/vim-just'
 
+  -- tabstop and shiftwidth automatically
+  use 'tpope/vim-sleuth'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
+
