@@ -6,6 +6,7 @@
 
 # PATHS
 export PATH="/home/lento/.local/bin:$PATH"
+export PATH="/home/lento/lib/zig/zig-latest:$PATH"
 
 # Rust
 source "$HOME/.cargo/env"
