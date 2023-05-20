@@ -2,21 +2,22 @@
 require('plugins.install')
 
 -- Themes
--- vim.cmd([[colorscheme nord]])
--- require('onedark').load()
--- require('onenord').setup()
-require('nightfox').setup({
-  options = {
-    -- Compiled file's destination location
-    styles = {               -- Style to be applied to different syntax groups
-      functions = "bold", -- "NONE",
-      keywords = "bold", --"NONE",
-    },
-  },
-})
+-- -- vim.cmd([[colorscheme nord]])
+-- -- require('onedark').load()
+-- -- require('onenord').setup()
+-- require('nightfox').setup({
+--   options = {
+--     -- Compiled file's destination location
+--     styles = {               -- Style to be applied to different syntax groups
+--       functions = "bold", -- "NONE",
+--       keywords = "bold", --"NONE",
+--     },
+--   },
+-- })
 
 -- setup must be called before loading
-vim.cmd("colorscheme nordfox")
+-- vim.cmd("colorscheme nordfox")
+vim.cmd("colorscheme gruvbox")
 
 -- Initialize plugins
 require('lualine').setup()

@@ -22,9 +22,9 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- colorscheme
-  -- use 'ellisonleao/gruvbox.nvim'
+  use 'ellisonleao/gruvbox.nvim'
   -- use 'bluz71/vim-moonfly-colors'
-  use 'EdenEast/nightfox.nvim'
+  -- use 'EdenEast/nightfox.nvim'
   -- use 'arcticicestudio/nord-vim'
   -- use 'navarasu/onedark.nvim'
   -- use 'rmehri01/onenord.nvim'
@@ -128,10 +128,10 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- terminal
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-  end}
+  -- -- terminal
+  -- use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+  --   require("toggleterm").setup()
+  -- end}
 
   use 'NoahTheDuke/vim-just'
 
