@@ -5,8 +5,8 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export CC=gcc-12
-export CXX=g++-12
+#export CC=gcc-13
+#export CXX=g++-13
 
 export LD_LIBRARY_PATH=/opt/homebrew/lib:$LD_LIBRARY_PATH
 export CPATH=/opt/homebrew/include:$CPATH
@@ -15,7 +15,7 @@ export CPATH=/opt/homebrew/include:$CPATH
 #export PATH="/usr/local/sbin:$PATH"
 #export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
-_coreutils=9.2
+_coreutils=9.3
 
 export PATH=/opt/homebrew/Cellar/coreutils/${_coreutils}/libexec/gnubin:$PATH
 export MANPATH=/opt/homebrew/Cellar/coreutils/${_coreutils}/libexec/gnuman:$MANPATH
