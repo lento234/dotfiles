@@ -22,11 +22,11 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- colorscheme
-  use 'ellisonleao/gruvbox.nvim'
+  -- use 'ellisonleao/gruvbox.nvim'
   -- use 'bluz71/vim-moonfly-colors'
   -- use 'EdenEast/nightfox.nvim'
   -- use 'arcticicestudio/nord-vim'
-  -- use 'navarasu/onedark.nvim'
+  use 'navarasu/onedark.nvim'
   -- use 'rmehri01/onenord.nvim'
 
   -- icons
@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
 
   -- Git plugins
   use 'lewis6991/gitsigns.nvim' -- git signs
-  -- use 'tpope/vim-fugitive' -- Git commands for nvim.
+  use 'tpope/vim-fugitive' -- Git commands for nvim.
 
   -- commenting (gcc, gcap)
   use 'tpope/vim-commentary'
@@ -128,6 +128,11 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- debugger (DAP)
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'theHamsta/nvim-dap-virtual-text'
+  use 'mfussenegger/nvim-dap-python'
   -- -- terminal
   -- use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   --   require("toggleterm").setup()
