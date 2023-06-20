@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
 
   -- Git plugins
   use 'lewis6991/gitsigns.nvim' -- git signs
-  -- use 'tpope/vim-fugitive' -- Git commands for nvim.
+  use 'tpope/vim-fugitive' -- Git commands for nvim.
 
   -- commenting (gcc, gcap)
   use 'tpope/vim-commentary'

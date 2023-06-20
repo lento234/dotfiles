@@ -51,6 +51,8 @@ alias icat='kitty +kitten icat'
 # k8s aliases
 alias kubectl="minikube kubectl --"
 
+alias vimdiff='vim -d'
+
 ##############################
 # OS specific aliases
 
