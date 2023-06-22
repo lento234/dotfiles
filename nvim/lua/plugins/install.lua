@@ -22,11 +22,11 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- colorscheme
-  -- use 'ellisonleao/gruvbox.nvim'
+  use 'ellisonleao/gruvbox.nvim'
   -- use 'bluz71/vim-moonfly-colors'
   -- use 'EdenEast/nightfox.nvim'
   -- use 'arcticicestudio/nord-vim'
-  use 'navarasu/onedark.nvim'
+  -- use 'navarasu/onedark.nvim'
   -- use 'rmehri01/onenord.nvim'
 
   -- icons
@@ -142,6 +142,10 @@ return require('packer').startup(function(use)
 
   -- tabstop and shiftwidth automatically
   use 'tpope/vim-sleuth'
+
+
+  -- Git diff view
+  use "sindrets/diffview.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

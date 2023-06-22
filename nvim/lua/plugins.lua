@@ -3,7 +3,7 @@ require('plugins.install')
 
 -- Themes
 -- vim.cmd([[colorscheme nord]])
-require('onedark').load()
+-- require('onedark').load()
 -- require('onenord').setup()
 -- require('nightfox').setup({
 --   options = {
@@ -17,7 +17,7 @@ require('onedark').load()
 
 -- setup must be called before loading
 -- vim.cmd("colorscheme nordfox")
--- vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme gruvbox")
 
 -- Initialize plugins
 require('lualine').setup()
