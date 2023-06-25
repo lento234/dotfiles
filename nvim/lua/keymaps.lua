@@ -40,3 +40,8 @@ keymap.set('n', '<leader>fh', builtin.help_tags, {}) -- search help
 -- plugin: nvim lspconfig
 -- keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 
+-- hardmode on
+keymap.set('n', "<Left>", "")
+keymap.set('n', "<Right>", "")
+keymap.set('n', "<Up>", "")
+keymap.set('n', "<Down>", "")
