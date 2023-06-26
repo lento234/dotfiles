@@ -64,6 +64,20 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' }
   } -- UI to select things (files, search results, open buffers...)
 
+
+  -- Fuzzy Finder Algorithm which requires local dependencies to be built.
+  -- Only load if `make` is available. Make sure you have the system
+  -- requirements installed.
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    -- NOTE: If you are having trouble with this installation,
+    --       refer to the README for telescope-fzf-native for more instructions.
+    build = 'make',
+    cond = function()
+      return vim.fn.executable 'make' == 1
+    end,
+  }
+
   -- Highlight, edit, and navigate code using a fast incremental parsing library.
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -99,11 +113,18 @@ return require('packer').startup(function(use)
 
       -- Snippets
       {'L3MON4D3/LuaSnip'},             -- Required
-      -- {'rafamadriz/friendly-snippets'}, -- Optional
+      {'rafamadriz/friendly-snippets'}, -- Optional
     }
   }
 
-  -- use 'folke/neodev.nvim'
+
+  -- Useful status update for LSP
+  use {
+    'j-hui/fidget.nvim',
+    branch = 'legacy'
+  }
+
+  use 'folke/neodev.nvim'
 
   -- alpha: greeter for neovim
   use {

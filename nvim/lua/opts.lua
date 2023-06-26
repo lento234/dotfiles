@@ -32,7 +32,7 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 
---  Theme and Appearances
+--  Theme and Appearancesopts
 opt.syntax = "ON"
 opt.termguicolors = true
 opt.background = "dark"
@@ -50,4 +50,7 @@ vim.api.nvim_exec(
 ]],
   false
 )
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
 

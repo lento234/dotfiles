@@ -1,3 +1,8 @@
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
 local lsp = require('lsp-zero').preset({})
 
 -- local lsp = require('lsp-zero').preset({
@@ -59,3 +64,6 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+require"fidget".setup{}
+
