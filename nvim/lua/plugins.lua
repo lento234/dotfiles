@@ -2,9 +2,9 @@
 require('plugins.install')
 
 -- Themes
--- -- vim.cmd([[colorscheme nord]])
--- -- require('onedark').load()
--- -- require('onenord').setup()
+-- vim.cmd([[colorscheme nord]])
+-- require('onedark').load()
+-- require('onenord').setup()
 -- require('nightfox').setup({
 --   options = {
 --     -- Compiled file's destination location
@@ -27,3 +27,5 @@ require('plugins.treesitter')
 require('plugins.nvim-tree')
 require('plugins.lsp-zero')
 require('plugins.indent-blankline')
+require('plugins.dap')
+require('plugins.telescope')

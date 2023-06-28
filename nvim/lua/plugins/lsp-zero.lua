@@ -1,3 +1,8 @@
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
 local lsp = require('lsp-zero').preset({})
 
 -- local lsp = require('lsp-zero').preset({
@@ -11,8 +16,8 @@ local lsp = require('lsp-zero').preset({})
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  -- ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  -- ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
   ['<Tab>'] = cmp.mapping.confirm({ select = true }),
   -- ["<Tab>"] = cmp.mapping.complete(),
 })
@@ -20,7 +25,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
-
 
 -- preset
 -- lsp.preset('recommended')
@@ -36,9 +40,10 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-  vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+  vim.keymap.set('n', '<leader>q', "<cmd>Telescope diagnostics<cr>", opts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
@@ -58,3 +63,6 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+require"fidget".setup{}
+

@@ -11,24 +11,23 @@ export PATH="/home/lento/lib/zig/zig-latest:$PATH"
 # Rust
 source "$HOME/.cargo/env"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/lento/lib/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/home/lento/.local/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/home/lento/lib/micromamba";
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+    eval "$__mamba_setup"
 else
-    if [ -f "/home/lento/lib/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/lento/lib/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/home/lento/micromamba/etc/profile.d/micromamba.sh" ]; then
+        . "/home/lento/micromamba/etc/profile.d/micromamba.sh"
     else
-        export PATH="/home/lento/lib/mambaforge/bin:$PATH"
+        export  PATH="/home/lento/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
     fi
 fi
-unset __conda_setup
-
-if [ -f "/home/lento/lib/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/home/lento/lib/mambaforge/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
+unset __mamba_setup
+# <<< mamba initialize <<<
+alias conda=micromamba
 
 # Local aliases
 alias vim=nvim
