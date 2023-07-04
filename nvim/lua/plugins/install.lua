@@ -166,6 +166,8 @@ return require('packer').startup(function(use)
   -- tabstop and shiftwidth automatically
   use 'tpope/vim-sleuth'
 
+  -- surround
+  use 'tpope/vim-surround'
 
   -- Git diff view
   use "sindrets/diffview.nvim"
