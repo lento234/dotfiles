@@ -61,3 +61,12 @@ keymap.set('n', "<Left>", "")
 keymap.set('n', "<Right>", "")
 keymap.set('n', "<Up>", "")
 keymap.set('n', "<Down>", "")
+
+keymap.set('v', "<Left>", "")
+keymap.set('v', "<Right>", "")
+keymap.set('v', "<Up>", "")
+keymap.set('v', "<Down>", "")
+
+-- remap undo
+keymap.set('n', "u", "")
+keymap.set('n', "<C-u>", ":u<CR>")
