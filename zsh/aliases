@@ -53,6 +53,7 @@ alias kubectl="minikube kubectl --"
 
 alias vimdiff='vim -d'
 
+
 ##############################
 # OS specific aliases
 
@@ -76,6 +77,9 @@ else # [[ "$OS_NAME" = "Fedora Linux" ]]; then
     alias open='xdg-open'
     alias update='sudo dnf update && dnf needs-restarting -r'
     alias upgrade='sudo dnf upgrade'
+    # clipboard
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
 fi
 unset OS_NAME
 

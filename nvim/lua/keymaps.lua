@@ -8,8 +8,8 @@ keymap.set("n", "<leader><BS>", ":nohl<CR>") -- deselect all highlights
 -- keymap.set("n", "<leader>-", "<C-x>") -- decrement number
 -- keymap.set("n", "j", "ddp") -- move line down
 -- keymap.set("n", "k", "dd<up>P") -- move line up
-keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- move line down
-keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- move line up
+keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv") -- move line down
+keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv") -- move line up
 
 -- window
 keymap.set("n", "<leader>sv", "<C-w>v")     -- split vertical
@@ -22,6 +22,9 @@ keymap.set("n", "<leader>to", ":tabnew<CR>")   -- open new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab
 keymap.set("n", "<leader>tn", ":tabn<CR>")     -- next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>")     -- previous tab
+
+keymap.set("n", "<leader>bn", ":BufferNext<CR>")     -- next tab
+keymap.set("n", "<leader>bp", ":BufferPrevious<CR>")     -- previous tab
 
 -- buffer
 keymap.set("n", "<C-q>", ":BufferClose<CR>")
@@ -69,4 +72,4 @@ keymap.set('v', "<Down>", "")
 
 -- remap undo
 keymap.set('n', "u", "")
-keymap.set('n', "<C-u>", ":u<CR>")
+keymap.set('n', "U", ":u<CR>")

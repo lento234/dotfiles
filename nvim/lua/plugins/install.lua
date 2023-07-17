@@ -172,6 +172,9 @@ return require('packer').startup(function(use)
   -- Git diff view
   use "sindrets/diffview.nvim"
 
+  -- whitespace
+  use 'ntpeters/vim-better-whitespace'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
