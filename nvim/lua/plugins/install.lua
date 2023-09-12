@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
 
   -- Git plugins
   use 'lewis6991/gitsigns.nvim' -- git signs
-  use 'tpope/vim-fugitive' -- Git commands for nvim.
+  -- use 'tpope/vim-fugitive' -- Git commands for nvim.
 
   -- commenting (gcc, gcap)
   use 'tpope/vim-commentary'
@@ -126,7 +126,7 @@ return require('packer').startup(function(use)
 
   use 'folke/neodev.nvim'
 
-  -- alpha: greeter for neovim
+  -- -- alpha: greeter for neovim
   use {
     'goolord/alpha-nvim',
     requires = { 'nvim-tree/nvim-web-devicons' },
@@ -149,19 +149,19 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- debugger (DAP)
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
-  use 'theHamsta/nvim-dap-virtual-text'
-  -- use 'mfussenegger/nvim-dap-python'
-  use 'ldelossa/nvim-dap-projects'
+  -- -- debugger (DAP)
+  -- use 'mfussenegger/nvim-dap'
+  -- use 'rcarriga/nvim-dap-ui'
+  -- use 'theHamsta/nvim-dap-virtual-text'
+  -- -- use 'mfussenegger/nvim-dap-python'
+  -- use 'ldelossa/nvim-dap-projects'
 
   -- -- terminal
   -- use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   --   require("toggleterm").setup()
   -- end}
 
-  use 'NoahTheDuke/vim-just'
+  -- use 'NoahTheDuke/vim-just'
 
   -- tabstop and shiftwidth automatically
   use 'tpope/vim-sleuth'
@@ -170,7 +170,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
 
   -- Git diff view
-  use "sindrets/diffview.nvim"
+  -- use "sindrets/diffview.nvim"
 
   -- whitespace
   use 'ntpeters/vim-better-whitespace'
