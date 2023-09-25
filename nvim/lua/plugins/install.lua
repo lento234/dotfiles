@@ -175,6 +175,9 @@ return require('packer').startup(function(use)
   -- whitespace
   use 'ntpeters/vim-better-whitespace'
 
+  -- go development
+  use 'fatih/vim-go'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
