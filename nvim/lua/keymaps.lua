@@ -11,6 +11,9 @@ keymap.set("n", "<leader><BS>", ":nohl<CR>") -- deselect all highlights
 keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv") -- move line down
 keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv") -- move line up
 
+-- line numbers
+vim.keymap.set('n', '<C-l>', ":set invrelativenumber<CR>")
+
 -- window
 keymap.set("n", "<leader>sv", "<C-w>v")     -- split vertical
 keymap.set("n", "<leader>sh", "<C-w>s")     -- split horizontal
@@ -52,9 +55,9 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Find [G]it [F]iles' })
 keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
 keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
-keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[S]ind current [W]ord' })
+keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
 keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
-keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
+-- keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 
 -- plugin: nvim lspconfig
 -- keymap.set('n', '<leader>e', vim.diagnostic.open_float)
