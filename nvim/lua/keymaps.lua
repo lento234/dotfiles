@@ -35,6 +35,12 @@ keymap.set("n", "<C-q>", ":BufferClose<CR>")
 -- plugin: nvim tree
 keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>") -- toggle tree
 
+-- barbar
+-- Move to previous/next
+keymap.set('n',  '<A-,>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true })
+keymap.set('n',  '<A-.>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true })
+-- Magic buffer-picking mode
+keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', { noremap = true, silent = true })
 -- plugin: telescope
 -- local builtin = require('telescope.builtin')
 -- keymap.set('n', '<leader><space>', builtin.git_files, {}) -- find files

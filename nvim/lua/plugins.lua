@@ -20,7 +20,7 @@ require('plugins.install')
 vim.cmd("colorscheme gruvbox")
 
 -- Initialize plugins
-require('lualine').setup()
+require('lualine').setup({})
 require('nvim-autopairs').setup()
 require('plugins.gitsigns')
 require('plugins.treesitter')
