@@ -15,13 +15,15 @@ export CPATH=/opt/homebrew/include:$CPATH
 #export PATH="/usr/local/sbin:$PATH"
 #export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
-_coreutils=9.3
+_coreutils=9.4
 
 export PATH=/opt/homebrew/Cellar/coreutils/${_coreutils}/libexec/gnubin:$PATH
 export MANPATH=/opt/homebrew/Cellar/coreutils/${_coreutils}/libexec/gnuman:$MANPATH
 
 # Created by `pipx` on 2022-07-07 09:28:35
 export PATH="$PATH:/Users/lento/.local/bin"
+
+export PATH=/opt/homebrew/Cellar/gnu-getopt/2.39.2/bin:$PATH
 
 # ssh
 DEFAULT_USER=$USER
@@ -101,3 +103,7 @@ activate_llvm() {
 
 alias vim=nvim
 
+export PATH="/Users/lento/lib/zig/zig-latest:${PATH}"
+
+export GOPATH="/Users/lento/lib/go"
+export PATH="${GOPATH}/bin:${PATH}"
