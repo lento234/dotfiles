@@ -5,11 +5,15 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-#export CC=gcc-13
-#export CXX=g++-13
+# export cc=gcc-13
+# export CC=gcc-13
+# export CXX=g++-13
 
 export LD_LIBRARY_PATH=/opt/homebrew/lib:$LD_LIBRARY_PATH
 export CPATH=/opt/homebrew/include:$CPATH
+
+export LDFLAGS="-L/opt/homebrew/lib"
+export CPPFLAGS="-I/opt/homebrew/include"
 
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
 #export PATH="/usr/local/sbin:$PATH"
