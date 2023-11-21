@@ -14,7 +14,7 @@ treesitter.setup({
     'c',
     'cpp',
     'dockerfile',
-    'help',
+    -- 'help',
     'lua',
     'markdown',
     'python',
