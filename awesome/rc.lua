@@ -71,7 +71,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
+    awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
@@ -95,6 +95,7 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "open browser", browser },
                                     { "open terminal", terminal }
                                   }
                         })
@@ -173,7 +174,29 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    -- awful.tag({ "1", "2", "3", "4", "5"}, s, awful.layout.layouts[1])
+
+    -- Each screen has its own tag table.
+    -- local names = {"main", "www", "code", "terminal"}
+    -- local l = awful.layout.suit  -- Just to save some typing: use an alias.
+    -- local layouts = { l.floating, l.tile, l.floating, l.fair}
+    -- awful.tag(names, s, layouts)
+
+    -- layouts = awful.layout.layouts
+    local l = awful.layout.suit  -- Just to save some typing: use an alias.
+    local tags = {
+        settings = {
+            {
+                names = {"status", "music", "chat"},
+                layouts = { l.floating, l.max, l.max}
+            },
+            {
+                names = {"main", "www", "code", "terminal"},
+                layouts = { l.floating, l.tile, l.floating, l.fair}
+            }
+        }
+    }
+    tags[s] = awful.tag(tags.settings[s.index].names, s, tags.settings[s.index].layouts)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -207,14 +230,14 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            -- kylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            -- mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -332,7 +355,12 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+
+    -- lock
+    -- awful.key({ modkey }, "F14", function () awful.spawn("slock") end,
+    awful.key({ modkey }, "F12", function () awful.spawn{ "slock" } end,
+              {description = "lock screen", group = "awesome"})
 )
 
 clientkeys = gears.table.join(
