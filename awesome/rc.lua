@@ -53,7 +53,11 @@ end
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 local theme_path = gears.filesystem.get_configuration_dir() .. "themes/"
+
+-- https://github.com/lnus/awesome-wm-gruvbox-theme.git
 -- beautiful.init(theme_path .. "gruvbox/theme.lua")
+
+-- https://github.com/lcpz/awesome-copycats.git
 beautiful.init(theme_path .. "multicolor/theme.lua")
 -- beautiful.init(theme_path .. "rainbow/theme.lua")
 
