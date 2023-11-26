@@ -367,9 +367,28 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- lock
-    -- awful.key({ modkey }, "F14", function () awful.spawn("slock") end,
-    awful.key({ modkey }, "F12", function () awful.spawn{ "slock" } end,
-              {description = "lock screen", group = "awesome"})
+    awful.key({ }, "XF86Launch5", function () awful.spawn{ "slock" } end,
+              {description = "lock screen", group = "awesome"}),
+
+    -- ALSA volume control
+    awful.key({ }, "XF86AudioRaiseVolume",
+        function ()
+            os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume up", group = "hotkeys"}),
+    awful.key({ }, "XF86AudioLowerVolume",
+        function ()
+            os.execute(string.format("amixer -q set %s 5%%-", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume down", group = "hotkeys"}),
+    awful.key({ }, "XF86AudioMute",
+        function ()
+            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "toggle mute", group = "hotkeys"})
 )
 
 clientkeys = gears.table.join(
