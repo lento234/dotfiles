@@ -263,14 +263,55 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+-- Non-empty tag browsing
+-- direction in {-1, 1} <-> {previous, next} non-empty tag
+local function tag_view_nonempty(direction,sc)
+    direction  = direction or 1
+    local s    = sc or awful.screen.focused()
+    local tags = s.tags
+    local sel  = s.selected_tag
+
+    local i = sel.index
+    repeat
+        i = i + direction
+
+        -- Wrap around when we reach one of the bound
+        if i > #tags then
+            i = i - #tags
+        end
+        if i < 1 then
+            i = i + #tags
+        end
+
+        local t = tags[i]
+
+        -- Stop when we get back to where we started
+        if t == sel then
+            break
+        end
+
+        -- If it's The One, view it.
+        if #t:clients() > 0 then
+            t:view_only()
+            return
+        end
+    until false
+end
+
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
+    -- Non-empty tag browsing
+    -- awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    --           {description = "view previous", group = "tag"}),
+    -- awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    --           {description = "view next", group = "tag"}),
+    awful.key({ modkey }, "Left", function () tag_view_nonempty(-1) end,
+              {description = "view  previous nonempty", group = "tag"}),
+    awful.key({ modkey }, "Right", function () tag_view_nonempty(1) end,
+              {description = "view  previous nonempty", group = "tag"}),
+
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
