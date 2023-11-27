@@ -78,12 +78,12 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     -- awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
     awful.layout.suit.floating,
+    awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
@@ -200,12 +200,12 @@ awful.screen.connect_for_each_screen(function(s)
     local tags = {
         settings = {
             {
-                names = {"status", "music", "chat"},
-                layouts = { l.floating, l.max, l.max}
+                names = {"main", "www", "code", "terminal"},
+                layouts = { l.floating, l.tile.left, l.tile.left, l.tile.left}
             },
             {
-                names = {"main", "www", "code", "terminal"},
-                layouts = { l.floating, l.tile, l.floating, l.fair}
+                names = {"status", "music", "chat"},
+                layouts = { l.floating, l.max, l.max}
             }
         }
     }
@@ -332,20 +332,6 @@ globalkeys = gears.table.join(
         {description = "focus previous by index", group = "client"}
     ),
 
-    -- By-direction client focus
-    awful.key({ modkey }, "h",
-        function()
-            awful.client.focus.global_bydirection("left")
-            if client.focus then client.focus:raise() end
-        end,
-        {description = "focus left", group = "client"}),
-    awful.key({ modkey }, "l",
-        function()
-            awful.client.focus.global_bydirection("right")
-            if client.focus then client.focus:raise() end
-        end,
-        {description = "focus right", group = "client"}),
-
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
@@ -390,10 +376,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    -- awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
-    --           {description = "increase master width factor", group = "layout"}),
-    -- awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
-    --           {description = "decrease master width factor", group = "layout"}),
+    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+              {description = "increase master width factor", group = "layout"}),
+    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+              {description = "decrease master width factor", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
@@ -438,7 +424,7 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- lock
-    awful.key({ }, "XF86Launch5", function () awful.spawn{ "slock" } end,
+    awful.key({ }, "XF86Launch5", function ()  awful.spawn("slock") end,
               {description = "lock screen", group = "awesome"}),
 
     -- ALSA volume control
@@ -696,4 +682,7 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- awful.spawn.once('xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"')
+
 -- }}}
