@@ -14,6 +14,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local lain = require("lain")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -52,13 +53,18 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-local theme_path = gears.filesystem.get_configuration_dir() .. "themes/"
+local markup = lain.util.markup
+local theme = {}
+theme.confdir = gears.filesystem.get_configuration_dir() .. "themes/multicolor"
+theme.path = theme.confdir .. "/" .. "theme.lua"
+-- gears.filesystem.get_configuration_dir() .. "themes/"
 
 -- https://github.com/lnus/awesome-wm-gruvbox-theme.git
 -- beautiful.init(theme_path .. "gruvbox/theme.lua")
 
 -- https://github.com/lcpz/awesome-copycats.git
-beautiful.init(theme_path .. "multicolor/theme.lua")
+-- beautiful.init(theme_path .. "multicolor/theme.lua")
+beautiful.init(theme.path)
 -- beautiful.init(theme_path .. "rainbow/theme.lua")
 
 
@@ -125,7 +131,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -182,6 +187,44 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+-- widgets
+theme.widget_cpu = theme.confdir .. "/icons/cpu.png"
+theme.widget_mem = theme.confdir .. "/icons/mem.png"
+theme.widget_vol = theme.confdir .. "/icons/spkr.png"
+theme.widget_clock = theme.confdir .. "/icons/clock.png"
+
+-- CPU
+local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
+local cpu = lain.widget.cpu({
+    settings = function()
+        widget:set_markup(markup.fontfg(theme.font, "#e33a6e", cpu_now.usage .. "% "))
+    end
+})
+-- MEM
+local memicon = wibox.widget.imagebox(theme.widget_mem)
+local memory = lain.widget.mem({
+    settings = function()
+        widget:set_markup(markup.fontfg(theme.font, "#e0da37", tonumber(string.format("%.1f ", mem_now.used / 1000)) .. " GB"))
+    end
+})
+
+-- ALSA volume
+local volicon = wibox.widget.imagebox(theme.widget_vol)
+theme.volume = lain.widget.alsa({
+    settings = function()
+        if volume_now.status == "off" then
+            -- volume_now.level = volume_now.level .. "M"
+             widget:set_markup(markup.fontfg(theme.font, "#7493d2", "M "))
+        else
+           widget:set_markup(markup.fontfg(theme.font, "#7493d2", volume_now.level .. "% "))
+        end
+    end
+})
+
+-- clock
+local clockicon = wibox.widget.imagebox(theme.widget_clock)
+local mytextclock = wibox.widget.textclock(markup("#aaaaaa", "%A, %d %B ") .. markup("#ab7367", "|") .. markup("#de5e1e", " %H:%M "))
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
@@ -200,8 +243,8 @@ awful.screen.connect_for_each_screen(function(s)
     local tags = {
         settings = {
             {
-                names = {"main", "www", "code", "terminal"},
-                layouts = { l.floating, l.tile.left, l.tile.left, l.tile.left}
+                names = {"1", "2", "status", "www"},
+                layouts = { l.tile.left, l.tile.left, l.floating, l.tile.left}
             },
             {
                 names = {"status", "music", "chat"},
@@ -252,6 +295,13 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
             wibox.widget.systray(),
+            cpuicon,
+            cpu.widget,
+            memicon,
+            memory.widget,
+            volicon,
+            theme.volume.widget,
+            clockicon,
             mytextclock,
             s.mylayoutbox,
         },
@@ -424,7 +474,7 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- lock
-    awful.key({ }, "XF86Launch5", function ()  awful.spawn("slock") end,
+    awful.key({ }, "XF86Launch5", function ()  awful.spawn("i3lock --color 000000") end,
               {description = "lock screen", group = "awesome"}),
 
     -- ALSA volume control
@@ -683,6 +733,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- awful.spawn.once('xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"')
+awful.spawn.once('xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"')
 
 -- }}}
