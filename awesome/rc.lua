@@ -243,12 +243,12 @@ awful.screen.connect_for_each_screen(function(s)
     local tags = {
         settings = {
             {
-                names = {"1", "2", "status", "www"},
-                layouts = { l.tile.left, l.tile.left, l.floating, l.tile.left}
+                names = {"1", "2", "3", "www"},
+                layouts = { l.tile.left, l.tile.left, l.tile.left, l.tile.left}
             },
             {
-                names = {"status", "music", "chat"},
-                layouts = { l.floating, l.max, l.max}
+                names = {"status", "music", "chat", "notes"},
+                layouts = { l.max, l.max, l.max, l.floating}
             }
         }
     }
@@ -475,7 +475,12 @@ globalkeys = gears.table.join(
 
     -- lock
     awful.key({ }, "XF86Launch5", function ()  awful.spawn("i3lock --color 000000") end,
-              {description = "lock screen", group = "awesome"}),
+              {description = "lock screen", group = "hotkeys"}),
+
+    -- printscreen
+    -- awful.key({ }, "Print", function ()  awful.spawn("xfce4-screenshooter --region") end,
+    awful.key({ }, "Print", function ()  awful.spawn("ksnip --rectarea") end,
+              {description = "take screenshot", group = "hotkeys"}),
 
     -- ALSA volume control
     awful.key({ }, "XF86AudioRaiseVolume",
