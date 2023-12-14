@@ -25,6 +25,7 @@ keymap.set("n", "<leader>to", ":tabnew<CR>")   -- open new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab
 keymap.set("n", "<leader>tn", ":tabn<CR>")     -- next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>")     -- previous tab
+keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>") -- open terminal
 
 keymap.set("n", "<leader>bn", ":BufferNext<CR>")     -- next tab
 keymap.set("n", "<leader>bp", ":BufferPrevious<CR>")     -- previous tab

@@ -156,10 +156,10 @@ return require('packer').startup(function(use)
   -- -- use 'mfussenegger/nvim-dap-python'
   -- use 'ldelossa/nvim-dap-projects'
 
-  -- -- terminal
-  -- use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-  --   require("toggleterm").setup()
-  -- end}
+  -- terminal
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
 
   -- use 'NoahTheDuke/vim-just'
 
@@ -177,6 +177,9 @@ return require('packer').startup(function(use)
 
   -- go development
   use 'fatih/vim-go'
+
+  -- zig
+  use 'ziglang/zig.vim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
