@@ -170,7 +170,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
 
   -- Git diff view
-  -- use "sindrets/diffview.nvim"
+  use "sindrets/diffview.nvim"
 
   -- whitespace
   use 'ntpeters/vim-better-whitespace'

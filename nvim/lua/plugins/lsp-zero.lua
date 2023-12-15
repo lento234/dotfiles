@@ -12,6 +12,9 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({ buffer = bufnr })
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', '<leader>q', "<cmd>Telescope diagnostics<cr>", opts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   --   K: Displays hover information about the symbol under the cursor in a floating window. See :help vim.lsp.buf.hover().
   --   gd: Jumps to the definition of the symbol under the cursor. See :help vim.lsp.buf.definition().
   --   gD: Jumps to the declaration of the symbol under the cursor. Some servers don't implement this feature. See :help vim.lsp.buf.declaration().
@@ -54,3 +57,17 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
 })
+
+-- python
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          maxLineLength = 88
+        }
+      }
+    }
+  }
+}
+
