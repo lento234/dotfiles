@@ -89,13 +89,11 @@ keymap.set('n', "U", ":u<CR>")
 -- harpoon
 local harpoon = require("harpoon")
 
-vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
-
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<A-3>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<A-4>", function() harpoon:list():select(4) end)
-
-vim.keymap.set("n", "<A-h>", function() harpoon:list():prev() end)
-vim.keymap.set("n", "<A-l>", function() harpoon:list():next() end)
+vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "[A]ppend file to harpoon" })
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "[E]xplore harpoon menulist" })
+vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Select item [1] in harpoon" })
+vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end, { desc = "Select item [2] in harpoon" })
+vim.keymap.set("n", "<A-3>", function() harpoon:list():select(3) end, { desc = "Select item [3] in harpoon" })
+vim.keymap.set("n", "<A-4>", function() harpoon:list():select(4) end, { desc = "Select item [4] in harpoon" })
+vim.keymap.set("n", "<A-h>", function() harpoon:list():prev() end, { desc = "Toggle prev item in harpoon" })
+vim.keymap.set("n", "<A-l>", function() harpoon:list():next() end, { desc = "Toggle next item in harpoon" })
