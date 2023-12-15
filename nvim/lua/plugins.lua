@@ -32,3 +32,4 @@ require('plugins.indent-blankline')
 require('plugins.telescope')
 
 require('fidget').setup()
+require('harpoon').setup()

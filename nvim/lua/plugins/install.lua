@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
   -- use 'EdenEast/nightfox.nvim'
   -- use 'arcticicestudio/nord-vim'
   -- use 'navarasu/onedark.nvim'
-  -- use 'rmehri01/onenord.nvim'
+  -- use 'rmehi01/onenord.nvim'
 
   -- icons
   use 'nvim-tree/nvim-web-devicons'
@@ -147,6 +147,25 @@ return require('packer').startup(function(use)
         -- refer to the configuration section below
       }
     end
+  }
+
+  -- sessions
+  -- use {
+  --   'rmagatti/auto-session',
+  --   config = function()
+  --     require("auto-session").setup {
+  --       log_level = "error",
+  --       auto_session_suppress_dirs = { "~/", "~/projects", "~/Downloads", "/"},
+  --     }
+  --   end
+  -- }
+  --
+  use {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    require = {
+      { "nvim-lua/plenary.nvim" }
+    }
   }
 
   -- -- debugger (DAP)
