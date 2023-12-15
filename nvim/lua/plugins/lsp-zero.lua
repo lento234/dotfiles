@@ -56,18 +56,22 @@ cmp.setup({
     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
+  sources = {
+    { name = 'path' },
+    { name = 'buffer' }
+  }
 })
 
--- python
-require'lspconfig'.pylsp.setup{
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          maxLineLength = 88
-        }
-      }
-    }
-  }
-}
+-- -- python
+-- require'lspconfig'.pylsp.setup{
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         pycodestyle = {
+--           maxLineLength = 88
+--         }
+--       }
+--     }
+--   }
+-- }
 
