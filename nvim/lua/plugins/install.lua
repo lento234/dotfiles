@@ -96,7 +96,7 @@ return require('packer').startup(function(use)
   -- LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},             -- Required
@@ -108,12 +108,12 @@ return require('packer').startup(function(use)
       {'hrsh7th/cmp-nvim-lsp'},     -- Required
       -- {'hrsh7th/cmp-buffer'},       -- Optional
       -- {'hrsh7th/cmp-path'},         -- Optional
-      {'saadparwaiz1/cmp_luasnip'}, -- Optional
+      -- {'saadparwaiz1/cmp_luasnip'}, -- Optional
       -- {'hrsh7th/cmp-nvim-lua'},     -- Optional
 
       -- Snippets
       {'L3MON4D3/LuaSnip'},             -- Required
-      {'rafamadriz/friendly-snippets'}, -- Optional
+      -- {'rafamadriz/friendly-snippets'}, -- Optional
     }
   }
 
@@ -124,7 +124,7 @@ return require('packer').startup(function(use)
     branch = 'legacy'
   }
 
-  use 'folke/neodev.nvim'
+  -- use 'folke/neodev.nvim'
 
   -- -- alpha: greeter for neovim
   use {

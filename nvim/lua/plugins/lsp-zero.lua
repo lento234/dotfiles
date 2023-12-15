@@ -1,91 +1,56 @@
--- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
-})
-
-local lsp = require('lsp-zero').preset({})
-
--- local lsp = require('lsp-zero').preset({
---   name = 'minimal',
---   name = 'minimal',
---   set_lsp_keymaps = true,
---   manage_nvim_cmp = true,
---   suggest_lsp_servers = true,
+-- -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+-- require("neodev").setup({
+--   -- add any options here, or leave empty to use the default settings
 -- })
 
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-  -- ["<Tab>"] = cmp.mapping.complete(),
-})
+local lsp_zero = require('lsp-zero')
 
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
-
--- preset
--- lsp.preset('recommended')
-
--- (Optional) Configure lua language server for neovim
--- lsp.nvim_workspace()
-
-
-lsp.on_attach(function(client, bufnr)
-  -- lsp.default_keymaps({buffer = bufnr})
-  local opts = {buffer = bufnr, remap = false}
-
-  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-  vim.keymap.set('n', '<leader>q', "<cmd>Telescope diagnostics<cr>", opts)
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, opts)
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  local opts = { buffer = bufnr, remap = false }
+  -- to learn the available actions
+  lsp_zero.default_keymaps({ buffer = bufnr })
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-  -- vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-  -- vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-  -- vim.keymap.set('n', '<leader>wl', function()
-  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  -- end, opts)
-  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', '<leader>F', function()
-    vim.lsp.buf.format { async = true }
-  end, opts)
-
+  vim.keymap.set('n', '<leader>q', "<cmd>Telescope diagnostics<cr>", opts)
+  --   K: Displays hover information about the symbol under the cursor in a floating window. See :help vim.lsp.buf.hover().
+  --   gd: Jumps to the definition of the symbol under the cursor. See :help vim.lsp.buf.definition().
+  --   gD: Jumps to the declaration of the symbol under the cursor. Some servers don't implement this feature. See :help vim.lsp.buf.declaration().
+  --   gi: Lists all the implementations for the symbol under the cursor in the quickfix window. See :help vim.lsp.buf.implementation().
+  --   go: Jumps to the definition of the type of the symbol under the cursor. See :help vim.lsp.buf.type_definition().
+  --   gr: Lists all the references to the symbol under the cursor in the quickfix window. See :help vim.lsp.buf.references().
+  --   gs: Displays signature information about the symbol under the cursor in a floating window. See :help vim.lsp.buf.signature_help(). If a mapping already exists for this key this function is not bound.
+  --   <F2>: Renames all references to the symbol under the cursor. See :help vim.lsp.buf.rename().
+  --   <F3>: Format code in current buffer. See :help vim.lsp.buf.format().
+  --   <F4>: Selects a code action available at the current cursor position. See :help vim.lsp.buf.code_action().
+  --   gl: Show diagnostics in a floating window. See :help vim.diagnostic.open_float().
+  --   [d: Move to the previous diagnostic in the current buffer. See :help vim.diagnostic.goto_prev().
+  --   ]d: Move to the next diagnostic. See :help vim.diagnostic.goto_next().
 end)
 
-lsp.setup()
-
-require"fidget".setup{}
-
-require'lspconfig'.pylsp.setup{
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          maxLineLength = 88
-        }
-      }
-    }
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {},
+  handlers = {
+    lsp_zero.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
   }
-}
+})
 
-local lspconfig = require('lspconfig')
-local on_attach = function(_, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  require('completion').on_attach()
-end
-local servers = {'zls'}
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-  }
-end
+local cmp = require('cmp')
+local cmp_format = lsp_zero.cmp_format()
+local cmp_action = lsp_zero.cmp_action()
+
+cmp.setup({
+  formatting = cmp_format,
+  mapping = cmp.mapping.preset.insert({
+    -- scroll up and down the documentation window
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+})
