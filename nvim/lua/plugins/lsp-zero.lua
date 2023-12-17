@@ -44,7 +44,7 @@ require('mason-lspconfig').setup({
 
 local cmp = require('cmp')
 local cmp_format = lsp_zero.cmp_format()
-local cmp_action = lsp_zero.cmp_action()
+-- local cmp_action = lsp_zero.cmp_action()
 
 cmp.setup({
   formatting = cmp_format,
@@ -52,14 +52,14 @@ cmp.setup({
     -- scroll up and down the documentation window
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    ['<Tab>'] = cmp_action.luasnip_supertab(),
-    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    -- ['<Tab>'] = cmp_action.luasnip_supertab(),
+    -- ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
   }),
-  sources = {
-    { name = 'path' },
-    { name = 'buffer' }
-  }
+  -- sources = {
+  --   { name = 'path' },
+  --   { name = 'buffer' }
+  -- }
 })
 
 -- -- python

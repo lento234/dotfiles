@@ -40,8 +40,8 @@ keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>") -- toggle tree
 -- Move to previous/next
 -- keymap.set('n',  '<A-,>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true })
 -- keymap.set('n',  '<A-.>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true })
-keymap.set('n',  '<A-j>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true })
-keymap.set('n',  '<A-k>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true })
+keymap.set('n',  '<A-h>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true })
+keymap.set('n',  '<A-l>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true })
 -- Magic buffer-picking mode
 keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', { noremap = true, silent = true })
 -- plugin: telescope
@@ -95,5 +95,5 @@ vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "
 vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end, { desc = "Select item [2] in harpoon" })
 vim.keymap.set("n", "<A-3>", function() harpoon:list():select(3) end, { desc = "Select item [3] in harpoon" })
 vim.keymap.set("n", "<A-4>", function() harpoon:list():select(4) end, { desc = "Select item [4] in harpoon" })
-vim.keymap.set("n", "<A-h>", function() harpoon:list():prev() end, { desc = "Toggle prev item in harpoon" })
-vim.keymap.set("n", "<A-l>", function() harpoon:list():next() end, { desc = "Toggle next item in harpoon" })
+vim.keymap.set("n", "<A-k>", function() harpoon:list():prev() end, { desc = "Toggle prev item in harpoon" })
+vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end, { desc = "Toggle next item in harpoon" })
