@@ -173,7 +173,7 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-dap-ui'
   use 'theHamsta/nvim-dap-virtual-text'
   -- -- use 'mfussenegger/nvim-dap-python'
-  use 'ldelossa/nvim-dap-projects'
+  -- use 'ldelossa/nvim-dap-projects'
 
   -- terminal
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()

@@ -15,5 +15,14 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
+dap.adapters.python = {
+    type = 'executable',
+    command = vim.fn.stdpath('data') .. '/mason/bin/debugpy-adapter',
+    options = {
+        source_filetype = 'python',
+    }
+}
 
-require('nvim-dap-projects').search_project_config()
+
+-- require('nvim-dap-projects').search_project_config()
+require('dap.ext.vscode').load_launchjs(nil, {})
