@@ -1,12 +1,6 @@
 require("dapui").setup()
 require("nvim-dap-virtual-text").setup()
 
-vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
-vim.keymap.set("n", "<F10>", ":lua require'dap'.step_over()<CR>")
-vim.keymap.set("n", "<F11>", ":lua require'dap'.step_into()<CR>")
-
-vim.keymap.set("n", "<leader>B", ":lua require'dap'.toggle_breakpoint()<CR>")
-
 -- require('dap-python').setup('~/.local/pipx/venvs/python-lsp-server/bin/python')
 -- require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
 

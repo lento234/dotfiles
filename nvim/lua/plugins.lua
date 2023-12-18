@@ -28,7 +28,7 @@ require('plugins.nvim-tree')
 require('plugins.lsp-zero')
 -- require('plugins.lsp-zero-old')
 require('plugins.indent-blankline')
--- require('plugins.dap')
+require('plugins.dap')
 require('plugins.telescope')
 
 require('fidget').setup()
