@@ -21,14 +21,14 @@ keymap.set("n", "<leader>se", "<C-w>=")     -- equal the split
 keymap.set("n", "<leader>sx", ":close<CR>") -- close split window
 
 -- tab
-keymap.set("n", "<leader>to", ":tabnew<CR>")   -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab
-keymap.set("n", "<leader>tn", ":tabn<CR>")     -- next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>")     -- previous tab
-keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>") -- open terminal
+keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = '[t]ab [o]pen' }) -- open new tab
+keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = '[t]ab e[x]it '}) -- close tab
+keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = '[t]ab [n]ext' })     -- next tab
+keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = '[t]ab [p]revious ' }) -- previous tab
+keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { desc = '[t]oggle [t]erminal ' }) -- open terminal
 
-keymap.set("n", "<leader>bn", ":BufferNext<CR>")     -- next tab
-keymap.set("n", "<leader>bp", ":BufferPrevious<CR>")     -- previous tab
+-- keymap.set("n", "<leader>bn", ":BufferNext<CR>")     -- next tab
+-- keymap.set("n", "<leader>bp", ":BufferPrevious<CR>")     -- previous tab
 
 -- buffer
 keymap.set("n", "<C-q>", ":BufferClose<CR>")
@@ -103,5 +103,18 @@ vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end, { desc = "Tog
 vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
 vim.keymap.set("n", "<F10>", ":lua require'dap'.step_over()<CR>")
 vim.keymap.set("n", "<F11>", ":lua require'dap'.step_into()<CR>")
+vim.keymap.set("n", "<F12>", ":lua require'dap'.step_into()<CR>")
 
-vim.keymap.set("n", "<leader>bb", ":lua require'dap'.toggle_breakpoint()<CR>", { desc = '[bb] Toggle breakpoint' })
+vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = 'dap: continue' })
+vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = 'dap: step over' })
+vim.keymap.set('n', '<F11>', function() require('dap').step_into() end, { desc = 'dap: step into' })
+vim.keymap.set('n', '<F12>', function() require('dap').step_out() end, { desc = 'dap: step out' })
+
+-- vim.keymap.set("n", "<leader>bb", ":lua require'dap'.toggle_breakpoint()<CR>", { desc = 'DAP: [bb] Toggle breakpoint' })
+vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end, { desc = 'dap: toggle [b]reakpoint' })
+vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end, { desc = 'dap: set [B]reakpoint ' })
+-- vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end, { desc = 'DAP: [d]ap [r]epl open' })
+vim.keymap.set('n', '<Leader>dr', function() require('dap').restart() end, { desc = '[d]ap: [r]estart session' })
+vim.keymap.set('n', '<Leader>dx', function() require('dap').terminate() end, { desc = '[d]ap: e[x]it' })
+vim.keymap.set('n', '<Leader>dl', function() require('dap.ext.vscode').load_launchjs(nil, {}) end, { desc = '[d]ap: start debug using vscode [l]aunch.json' })
+

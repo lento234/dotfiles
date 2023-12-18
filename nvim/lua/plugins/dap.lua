@@ -25,4 +25,4 @@ dap.adapters.python = {
 
 
 -- require('nvim-dap-projects').search_project_config()
-require('dap.ext.vscode').load_launchjs(nil, {})
+-- require('dap.ext.vscode').load_launchjs(nil, {})
