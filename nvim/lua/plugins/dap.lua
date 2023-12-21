@@ -23,6 +23,7 @@ dap.adapters.python = {
     }
 }
 
+require('dap-go').setup()
 
 -- require('nvim-dap-projects').search_project_config()
 -- require('dap.ext.vscode').load_launchjs(nil, {})

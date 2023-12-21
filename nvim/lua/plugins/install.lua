@@ -174,6 +174,7 @@ return require('packer').startup(function(use)
   use 'theHamsta/nvim-dap-virtual-text'
   -- -- use 'mfussenegger/nvim-dap-python'
   -- use 'ldelossa/nvim-dap-projects'
+  use 'leoluz/nvim-dap-go' -- Install the plugin with Packer
 
   -- terminal
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
