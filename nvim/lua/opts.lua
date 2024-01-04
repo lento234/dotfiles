@@ -32,7 +32,7 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 
---  Theme and Appearancesopts
+--  Theme and Appearances opts
 opt.syntax = "ON"
 opt.termguicolors = true
 opt.background = "dark"
