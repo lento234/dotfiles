@@ -29,19 +29,13 @@ require("lazy").setup({
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        -- config = function()
-        --     require("lualine").setup()
-        -- end,
+        config = true,
     },
     -- indent lines
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
-        config = function()
-            require("ibl").setup({
-                scope = { enabled = false },
-            })
-        end,
+        config = true,
     },
     -- open buffer bar
     {
@@ -70,9 +64,7 @@ require("lazy").setup({
     -- fidget
     {
         "j-hui/fidget.nvim",
-        config = function()
-            require("fidget").setup()
-        end,
+        config = true,
     },
     -- neodev
     "folke/neodev.nvim",
@@ -81,7 +73,7 @@ require("lazy").setup({
         "goolord/alpha-nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function ()
-            require("alpha").setup(require'alpha.themes.startify'.config)
+            require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
 
@@ -111,7 +103,7 @@ require("lazy").setup({
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-            require("which-key").setup {}
+            require("which-key").setup()
         end
     },
     -- treesitter
@@ -122,6 +114,10 @@ require("lazy").setup({
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
         build = ':TSUpdate',
+    },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     -- terminal
     {
@@ -229,9 +225,6 @@ require("lazy").setup({
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("harpoon").setup()
-        end,
     },
 
     -- LSP

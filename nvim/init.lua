@@ -1,11 +1,7 @@
--- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
+-- general options
+require('opts')
 -- plugins
 require('plugins')
-
--- options
-require('opts')
+-- keymaps
 require('keymaps')
 
