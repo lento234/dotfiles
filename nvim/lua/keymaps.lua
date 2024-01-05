@@ -16,8 +16,8 @@ keymap.set('n', "U", ":u<CR>")
 -- deselect all highlights
 keymap.set("n", "<leader><BS>", ":nohl<CR>", { desc = 'clear all highlights' })
 -- move lines
-keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { desc = 'move line down' })
-keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = 'move line up' })
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'move line down' })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'move line up' })
 -- toggle line numbers
 vim.keymap.set('n', '<C-l>', ":set invrelativenumber<CR>", { desc = 'toggle relative line number' })
 

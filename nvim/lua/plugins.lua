@@ -39,6 +39,7 @@ require("lazy").setup({
     {
         "romgrk/barbar.nvim",
         dependencies = { "nvim-web-devicons" },
+        opts = {},
     },
     -- file explorer
     {
@@ -59,10 +60,6 @@ require("lazy").setup({
             })
         end,
     },
-    -- fidget
-    { "j-hui/fidget.nvim",     opts = {} },
-    -- neodev
-    "folke/neodev.nvim",
     -- alpha: greeter for neovim
     {
         "goolord/alpha-nvim",
@@ -95,11 +92,11 @@ require("lazy").setup({
     -- Useful plugin to show you pending keybinds.
     {
         "folke/which-key.nvim",
-        config = function()
+        init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-            require("which-key").setup()
-        end
+        end,
+        opts = {},
     },
     -- treesitter
     {
@@ -215,30 +212,35 @@ require("lazy").setup({
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {},
     },
 
-    -- LSP
+    -- LSP configuration and plugings
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
+        "neovim/nvim-lspconfig",
         dependencies = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-            { 'williamboman/mason.nvim' },           -- Optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            -- {'hrsh7th/cmp-buffer'},       -- Optional
-            -- {'hrsh7th/cmp-path'},         -- Optional
-            -- {'saadparwaiz1/cmp_luasnip'}, -- Optional
-            -- {'hrsh7th/cmp-nvim-lua'},     -- Optional
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' }, -- Required
-            -- {'rafamadriz/friendly-snippets'}, -- Optional
-        }
+            -- automatic install lsp
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            -- shows update status for LSP
+            { "j-hui/fidget.nvim", opts = {} },
+            -- neodev
+            "folke/neodev.nvim",
+        },
+    },
+    -- auto completion
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            -- snippet engine
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            -- add lsp completion
+            "hrsh7th/nvim-cmp",
+            "hrsh7th/cmp-nvim-lsp",
+            -- user friendly snippets
+            "rafamadriz/friendly-snippets",
+        },
     },
 
     -- go development
@@ -259,5 +261,6 @@ require("lazy").setup({
 -- plugin configurations
 require('plugins.telescope')
 require('plugins.treesitter')
-require('plugins.lsp-zero')
+-- require('plugins.lsp-zero')
+require('plugins.lsp')
 require('plugins.dap')
