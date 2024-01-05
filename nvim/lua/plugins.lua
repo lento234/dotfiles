@@ -1,14 +1,14 @@
 -- bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -23,19 +23,17 @@ require("lazy").setup({
             vim.cmd("colorscheme gruvbox")
         end,
     },
-    -- icons
-    "nvim-tree/nvim-web-devicons",
     -- status line
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = true,
+        opts = {},
     },
     -- indent lines
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
-        config = true,
+        opts = {},
     },
     -- open buffer bar
     {
@@ -45,7 +43,7 @@ require("lazy").setup({
     -- file explorer
     {
         "nvim-tree/nvim-tree.lua",
-        dependencies = { 'nvim-tree/nvim-web-devicons'},
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
             require("nvim-tree").setup({
                 renderer = {
@@ -62,17 +60,14 @@ require("lazy").setup({
         end,
     },
     -- fidget
-    {
-        "j-hui/fidget.nvim",
-        config = true,
-    },
+    { "j-hui/fidget.nvim",     opts = {} },
     -- neodev
     "folke/neodev.nvim",
     -- alpha: greeter for neovim
     {
         "goolord/alpha-nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function ()
+        config = function()
             require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
@@ -123,17 +118,12 @@ require("lazy").setup({
     {
         "akinsho/toggleterm.nvim",
         version = '*',
-        config = true,
+        opts = {},
     },
     -- commenting (gcc, gcap)
     "tpope/vim-commentary",
     -- auto closing
-    {
-        "windwp/nvim-autopairs",
-        config = function()
-            require('nvim-autopairs').setup()
-        end,
-    },
+    { "windwp/nvim-autopairs", opts = {} },
     -- surround
     "tpope/vim-surround",
     -- whitespace
@@ -233,20 +223,20 @@ require("lazy").setup({
         branch = 'v3.x',
         dependencies = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},         -- Required
-            {'hrsh7th/cmp-nvim-lsp'},     -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
             -- {'hrsh7th/cmp-buffer'},       -- Optional
             -- {'hrsh7th/cmp-path'},         -- Optional
             -- {'saadparwaiz1/cmp_luasnip'}, -- Optional
             -- {'hrsh7th/cmp-nvim-lua'},     -- Optional
 
             -- Snippets
-            {'L3MON4D3/LuaSnip'},             -- Required
+            { 'L3MON4D3/LuaSnip' }, -- Required
             -- {'rafamadriz/friendly-snippets'}, -- Optional
         }
     },

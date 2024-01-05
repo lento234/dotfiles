@@ -4,4 +4,3 @@ require('opts')
 require('plugins')
 -- keymaps
 require('keymaps')
-
