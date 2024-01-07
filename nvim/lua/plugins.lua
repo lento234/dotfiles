@@ -33,7 +33,9 @@ require("lazy").setup({
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
-        opts = {},
+        opts = {
+            scope = { enabled = false },
+        },
     },
     -- open buffer bar
     {
@@ -118,7 +120,11 @@ require("lazy").setup({
         opts = {},
     },
     -- commenting (gcc, gcap)
-    "tpope/vim-commentary",
+    -- "tpope/vim-commentary",
+    {
+        "numToStr/Comment.nvim",
+        opts = {},
+    },
     -- auto closing
     { "windwp/nvim-autopairs", opts = {} },
     -- surround
