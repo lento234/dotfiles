@@ -119,6 +119,21 @@ require("lazy").setup({
         version = '*',
         opts = {},
     },
+    -- markdown viewer
+    {
+        "ellisonleao/glow.nvim",
+        cmd = "Glow",
+        opts = {
+            width = 200,
+        }
+    },
+    -- another markdown preview
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
     -- commenting (gcc, gcap)
     -- "tpope/vim-commentary",
     {
