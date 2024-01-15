@@ -20,6 +20,12 @@ require("lazy").setup({
         priority = 1000,
         config = function()
             -- load the colorscheme here
+            require("gruvbox").setup({
+                contrast = "hard",
+                overrides = {
+                    SignColumn = { bg = "#1d2021" },
+                },
+            })
             vim.cmd("colorscheme gruvbox")
         end,
     },
