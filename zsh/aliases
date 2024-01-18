@@ -34,12 +34,13 @@ alias glgl="git log --oneline --decorate --graph --all"
 alias gll="git log --oneline --decorate"
 alias gpg-list='gpg --list-secret-keys --keyid-format LONG'
 alias gpg-export='gpg --armor --export'
+alias git-dry-merge='git merge --no-commit --no-ff'
 #alias l='exa -la'
 #alias la='exa -la'
 #alias lg='exa -lah --git'
 #alias ll='exa -l'
 alias meteo='curl v2.wttr.in'
-alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
+# alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
 #alias open_sesame='ssh -TfN -R 43212:localhost:22 mlento@ela1.cscs.ch'
 #alias please='sudo' # Let's be nicer
 alias publicip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -50,10 +51,11 @@ alias ts='tmux new-session -s'
 alias icat='kitty +kitten icat'
 
 # k8s aliases
-alias kubectl="minikube kubectl --"
+# alias kubectl="minikube kubectl --"
 
-alias vimdiff='vim -d'
-
+# vim
+alias vimdiff='nvim -d'
+alias vim=nvim
 
 ##############################
 # OS specific aliases
@@ -130,4 +132,4 @@ export GPG_TTY=$(tty)
 # sudo setsebool -P selinuxuser_execmod 1
 
 # iptables
-alias enable_gateway='sudo iptables -t nat -A POSTROUTING -o enp0s25 -j MASQUERADE && sudo iptables -A FORWARD -i bond0 -o enp0s25 -j ACCEPT && sudo iptables -A FORWARD -i enp0s25 -o bond0 -m state --state RELATED,ESTABLISHED -j ACCEPT'
+# alias enable_gateway='sudo iptables -t nat -A POSTROUTING -o enp0s25 -j MASQUERADE && sudo iptables -A FORWARD -i bond0 -o enp0s25 -j ACCEPT && sudo iptables -A FORWARD -i enp0s25 -o bond0 -m state --state RELATED,ESTABLISHED -j ACCEPT'
