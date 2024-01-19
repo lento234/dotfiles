@@ -78,6 +78,15 @@ require("lazy").setup({
             require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
+    {
+        "NvChad/nvim-colorizer.lua",
+        opts = {},
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {},
+    },
 
     -- telescope for file, search, ...
     {

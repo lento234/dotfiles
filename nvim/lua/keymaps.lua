@@ -68,6 +68,7 @@ keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '
 keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[f]ind current [w]ord' })
 keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[f]ind by [g]rep' })
 keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { desc = '[f]ind by [k]keymaps' })
+keymap.set('n', '<leader>ft', ":TodoTelescope<CR>", { desc = '[f]ind [t]odo' })
 -- keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 
 -- plugin: nvim lspconfig
