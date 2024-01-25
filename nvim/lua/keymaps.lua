@@ -101,3 +101,6 @@ vim.keymap.set('n', '<Leader>dr', function() require('dap').restart() end, { des
 vim.keymap.set('n', '<Leader>dx', function() require('dap').terminate() end, { desc = '[d]ap: e[x]it' })
 vim.keymap.set('n', '<Leader>dl', function() require('dap.ext.vscode').load_launchjs(nil, {}) end,
   { desc = '[d]ap: start debug using vscode [l]aunch.json' })
+
+-- neogit
+keymap.set('n', '<leader>gg', ':Neogit<CR>', { desc = '[g]o launch neo[g]it' })
