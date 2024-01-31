@@ -55,7 +55,7 @@ vim.api.nvim_exec(
   false
 )
 
--- Highlight on yank (copy)
+-- remove whitespace warning in terminal
 vim.api.nvim_exec(
   [[
   augroup vimrc
@@ -67,3 +67,12 @@ vim.api.nvim_exec(
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- format on save
+vim.api.nvim_exec(
+  [[
+  augroup FormatOnSave
+    autocmd BufWritePre * lua vim.lsp.buf.format()
+  augroup end
+  ]],
+  false
+)
