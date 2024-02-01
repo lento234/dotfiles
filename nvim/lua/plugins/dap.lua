@@ -1,3 +1,6 @@
+-- change the default json parser
+require("dap.ext.vscode").json_decode = require("json5").parse
+
 -- modify dap ui layout
 require("dapui").setup({
   layouts = {
@@ -9,15 +12,16 @@ require("dapui").setup({
         { id = "watches",     size = 0.20 },
         { id = "repl",        size = 0.20 },
       },
-      position = "left",
-      size = 60
+      -- position = "left",
+      position = "right",
+      size = 80
     },
     {
       elements = {
         { id = "console", size = 1.0 },
       },
       position = "bottom",
-      size = 10
+      size = 0.2,
     }
   },
 })

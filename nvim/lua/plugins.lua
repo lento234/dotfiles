@@ -302,6 +302,11 @@ require("lazy").setup({
             "mfussenegger/nvim-dap",
             "theHamsta/nvim-dap-virtual-text",
             -- use 'ldelossa/nvim-dap-projects'
+            -- custom json parser (for .vscode/launch.json)
+            {
+                "Joakker/lua-json5",
+                build = "./install.sh",
+            },
         },
     },
     -- go development
