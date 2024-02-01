@@ -307,6 +307,13 @@ require("lazy").setup({
                 "Joakker/lua-json5",
                 build = "./install.sh",
             },
+            {
+                "Weissle/persistent-breakpoints.nvim",
+                opts = {
+                    load_breakpoints_event = { "BufReadPost" }
+                },
+            },
+            "nvim-telescope/telescope-dap.nvim",
         },
     },
     -- go development

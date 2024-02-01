@@ -77,32 +77,44 @@ keymap.set('n', '<leader>ft', ":TodoTelescope<CR>", { desc = '[f]ind [t]odo' })
 -- plugin: harpoon
 local harpoon = require("harpoon")
 
-vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "[a]ppend file to harpoon" })
-vim.keymap.set("n", "<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "[a]ppend file to harpoon" })
+keymap.set("n", "<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
   { desc = "[E]xplore harpoon menulist" })
-vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Select item [1] in harpoon" })
-vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end, { desc = "Select item [2] in harpoon" })
-vim.keymap.set("n", "<A-3>", function() harpoon:list():select(3) end, { desc = "Select item [3] in harpoon" })
-vim.keymap.set("n", "<A-4>", function() harpoon:list():select(4) end, { desc = "Select item [4] in harpoon" })
-vim.keymap.set("n", "<A-5>", function() harpoon:list():select(5) end, { desc = "Select item [5] in harpoon" })
-vim.keymap.set("n", "<A-6>", function() harpoon:list():select(6) end, { desc = "Select item [6] in harpoon" })
+
+for i = 1, 9 do
+  keymap.set("n", "<A-" .. i .. ">", function() harpoon:list():select(i) end,
+    { desc = "Select item [" .. i .. "] in harpoon" })
+end
 -- vim.keymap.set("n", "<A-k>", function() harpoon:list():prev() end, { desc = "Toggle prev item in harpoon" })
 -- vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end, { desc = "Toggle next item in harpoon" })
 
 -- dap
-vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = 'dap: continue' })
-vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = 'dap: step over' })
-vim.keymap.set('n', '<F11>', function() require('dap').step_into() end, { desc = 'dap: step into' })
-vim.keymap.set('n', '<F12>', function() require('dap').step_out() end, { desc = 'dap: step out' })
+keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = 'dap: continue' })
+keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = 'dap: step over' })
+keymap.set('n', '<F11>', function() require('dap').step_into() end, { desc = 'dap: step into' })
+keymap.set('n', '<F12>', function() require('dap').step_out() end, { desc = 'dap: step out' })
 
 -- vim.keymap.set("n", "<leader>bb", ":lua require'dap'.toggle_breakpoint()<CR>", { desc = 'DAP: [bb] Toggle breakpoint' })
-vim.keymap.set('n', '<leader>b', function() require('dap').toggle_breakpoint() end, { desc = 'dap: toggle [b]reakpoint' })
-vim.keymap.set('n', '<leader>B', function() require('dap').set_breakpoint() end, { desc = 'dap: set [B]reakpoint ' })
-vim.keymap.set('n', '<leader>do', function() require('dap').repl.open() end, { desc = 'DAP: [d]ap [r]epl open' })
+-- vim.keymap.set('n', '<leader>b', function() require('dap').toggle_breakpoint() end, { desc = 'dap: toggle [b]reakpoint' })
+-- vim.keymap.set('n', '<leader>B', function() require('dap').set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
+--   { desc = 'dap: set [B]reakpoint condition' })
+
+-- Save breakpoints to file automatically.
+vim.keymap.set("n", "<leader>b", function() require("persistent-breakpoints.api").toggle_breakpoint() end,
+  { desc = "dap: toggle [b]reakpoint" })
+vim.keymap.set("n", "<leader>B", function() require("persistent-breakpoints.api").set_conditional_breakpoint() end,
+  { desc = "dap: set conditional [B]reakpoint" })
+vim.keymap.set("n", "<leader>dcb", function() require("persistent-breakpoints.api").clear_all_breakpoints() end,
+  { desc = "[d]ap: [c]lear all [b]reakpoints" })
+
+vim.keymap.set('n', '<leader>do', function() require('dap').repl.open() end, { desc = '[d]ap: [r]epl [o]pen' })
 vim.keymap.set('n', '<leader>dr', function() require('dap').restart() end, { desc = '[d]ap: [r]estart session' })
-vim.keymap.set('n', '<leader>dx', function() require('dap').terminate() end, { desc = '[d]ap: e[x]it' })
+vim.keymap.set('n', '<leader>dx', function() require('dap').terminate() end, { desc = '[d]ap: e[x]it session' })
 vim.keymap.set('n', '<leader>dl', function() require('dap.ext.vscode').load_launchjs(nil, {}) end,
   { desc = '[d]ap: start debug using vscode [l]aunch.json' })
+vim.keymap.set('n', '<leader>df', ":Telescope dap frames<CR>", { desc = '[d]ap: telescope list [f]rames' })
+vim.keymap.set('n', '<leader>db', ":Telescope dap list_breakpoints<CR>", { desc = '[d]ap: telescope list [b]reakpoints' })
+
 vim.keymap.set('n', '<M-k>', function() require('dapui').eval() end, { desc = 'dap: [k]eval' })
 
 -- neogit

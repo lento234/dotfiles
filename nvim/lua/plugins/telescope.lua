@@ -12,7 +12,7 @@ require('telescope').setup {
 }
 
 -- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('dap')
 
 -- require("telescope").load_extension('harpoon')
-
