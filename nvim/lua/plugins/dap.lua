@@ -1,4 +1,26 @@
-require("dapui").setup()
+-- modify dap ui layout
+require("dapui").setup({
+  layouts = {
+    {
+      elements = {
+        { id = "scopes",      size = 0.20 },
+        { id = "breakpoints", size = 0.20 },
+        { id = "stacks",      size = 0.20 },
+        { id = "watches",     size = 0.20 },
+        { id = "repl",        size = 0.20 },
+      },
+      position = "left",
+      size = 60
+    },
+    {
+      elements = {
+        { id = "console", size = 1.0 },
+      },
+      position = "bottom",
+      size = 10
+    }
+  },
+})
 require("nvim-dap-virtual-text").setup()
 
 -- require('dap-python').setup('~/.local/pipx/venvs/python-lsp-server/bin/python')
@@ -16,11 +38,11 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 dap.adapters.python = {
-    type = 'executable',
-    command = vim.fn.stdpath('data') .. '/mason/bin/debugpy-adapter',
-    options = {
-        source_filetype = 'python',
-    }
+  type = 'executable',
+  command = vim.fn.stdpath('data') .. '/mason/bin/debugpy-adapter',
+  options = {
+    source_filetype = 'python',
+  }
 }
 
 require('dap-go').setup()

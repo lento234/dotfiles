@@ -1,5 +1,13 @@
 -- mason package manger
-require("neodev").setup()
+require("neodev").setup({
+  library = {
+    plugins = {
+      "nvim-dap-ui"
+    },
+    types = true,
+  }
+})
+
 require("mason").setup()
 
 -- [[ Configure LSP]]
@@ -26,6 +34,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
   nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
   nmap('<leader>q', "<cmd>Telescope diagnostics<cr>", 'diagnostics')
+  nmap('<leader>x', vim.diagnostic.open_float, "open float")
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
