@@ -1,8 +1,0 @@
-bitwarden
-firefox
-mattermost
-mendeley
-onyx
-signal
-spotify
-vlc
