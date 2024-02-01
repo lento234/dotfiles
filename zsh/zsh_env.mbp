@@ -50,8 +50,6 @@ unset _coreutils
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-
 #alias start_rdp_tunnel='ssh -vL 3389:localhost:43210 mlento@ela1.cscs.ch -N'
 alias start_rdp_tunnel='ssh -vL 3389:localhost:43210 hades.tailscale -N'
 
@@ -74,7 +72,7 @@ alias start_rdp_tunnel='ssh -vL 3389:localhost:43210 hades.tailscale -N'
 #     fi
 # fi
 # unset __conda_setup
-# 
+#
 # if [ -f "/Users/lento/lib/mambaforge/etc/profile.d/mamba.sh" ]; then
 #     . "/Users/lento/lib/mambaforge/etc/profile.d/mamba.sh"
 # fi
@@ -108,6 +106,7 @@ activate_llvm() {
 alias vim=nvim
 
 export PATH="/Users/lento/lib/zig/zig-latest:${PATH}"
+export PATH="/Users/lento/lib/zig/zls/zig-out/bin:${PATH}"
 
 export GOPATH="/Users/lento/lib/go"
 export PATH="${GOPATH}/bin:${PATH}"
