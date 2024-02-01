@@ -1,0 +1,50 @@
+default:
+  loglevel: all
+
+tmux:
+  description: setup tmux dotfiles
+  script:
+    # Cloning tmux plugin manager
+    - git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    # Backup old files
+    - |
+      if [ -f ~/.tmux.conf ]; then
+          mv -v ~/.tmux.conf ~/.tmux.conf.old
+      fi
+    # Link new files
+    - ln -sv ${PWD}/tmux/tmux.conf ~/.tmux.conf
+
+
+nvim:
+  description: setup nvim dotfiles
+  script:
+    # Backup old files
+    - |
+      if [ -f ~/.config/nvim ]; then
+          mv -v ~/.config/nvim ~/.config/nvim.old
+      fi
+    # Link new files
+    - ln -sv ${PWD}/nvim ~/.config/nvim
+
+shell:
+  description: setup shell dotfiles
+  args:
+    - shell: bash
+  script:
+    - |
+      _shell={{ shell }}
+      [[ "${_shell}" == "zsh" || "${_shell}" == "bash" ]]\
+        || (echo "'${_shell}' not valid shell"; exit 1)
+    # Backup old files and link new files
+    - |
+      if [ -f ~/.aliases ]; then
+          mv -v ~/.aliases ~/.aliases.old
+      fi
+      ln -sv ${PWD}/{{ shell }}/aliases ~/.aliases
+    # Add aliases into {bash,zsh}rc
+    - |
+      if [ -f ~/.{{ shell }}rc ]; then
+          cp -v ~/.{{ shell }}rc ~/.{{ shell }}rc.old
+          echo "[ -f ~/.aliases ] && source ~/.aliases " >> ~/.{{ shell }}rc
+      fi
+
