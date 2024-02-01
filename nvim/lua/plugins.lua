@@ -249,8 +249,8 @@ require("lazy").setup({
     {
         "NeogitOrg/neogit",
         dependencies = {
-            "nvim-lua/plenary.nvim",         -- required
-            "sindrets/diffview.nvim",        -- optional - Diff integration
+            "nvim-lua/plenary.nvim",  -- required
+            "sindrets/diffview.nvim", -- optional - Diff integration
 
             -- Only one of these is needed, not both.
             "nvim-telescope/telescope.nvim", -- optional
@@ -294,18 +294,22 @@ require("lazy").setup({
         },
     },
 
+    -- debugger (DAP)
+    "mfussenegger/nvim-dap",
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "theHamsta/nvim-dap-virtual-text",
+            -- use 'ldelossa/nvim-dap-projects'
+        },
+    },
     -- go development
+    "leoluz/nvim-dap-go", -- Install the plugin with Packer
     "fatih/vim-go",
     -- zig
     "ziglang/zig.vim",
-
-    -- debugger (DAP)
-    "mfussenegger/nvim-dap",
-    "rcarriga/nvim-dap-ui",
-    "theHamsta/nvim-dap-virtual-text",
     -- -- use 'mfussenegger/nvim-dap-python'
-    -- use 'ldelossa/nvim-dap-projects'
-    "leoluz/nvim-dap-go", -- Install the plugin with Packer
 
 }, {})
 
