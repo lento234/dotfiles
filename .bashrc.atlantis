@@ -1,0 +1,66 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+export GTK_THEME=Adwaita:dark
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+
+# General aliases
+
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+alias l='ls -l'
+
+# Custom modifications
+
+eval "$(starship init bash)"
+
+# Module
+. "/home/lento/lib/modulefiles/activate.sh"
+
+export HISTSIZE=100000
+export EDITOR=nvim
+alias vim=nvim
+alias slack='flatpak run com.slack.Slack'
+alias spotify='flatpak run com.spotify.Client'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# GO
+export GOROOT=/home/lento/lib/golang/go-latest
+export GOPATH=${GOROOT}/packages
+export PATH=${GOPATH}/bin:${GOROOT}/bin:${PATH}
+
+# Zig
+export PATH=/home/lento/lib/ziglang/zig-latest:${PATH}
+
+# Rust
+. "$HOME/.cargo/env"
+
+# mess completion
+source /home/lento/projects/sysadmin/mess/completions/mess.bash
+# complete -C $(which mess) mess
+# complete -C $(which mess) -o bashdefault -o default mess
