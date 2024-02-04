@@ -39,8 +39,12 @@ keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { desc = '[t]og
 keymap.set("n", "<C-q>", ":BufferClose<CR>", { desc = 'buffer close' })
 keymap.set('n', '<A-h>', '<Cmd>BufferPrevious<CR>', { desc = 'buffer prev', noremap = true, silent = true })
 keymap.set('n', '<A-l>', '<Cmd>BufferNext<CR>', { desc = 'buffer next', noremap = true, silent = true })
+keymap.set('n', '<A-S-h>', '<Cmd>BufferMovePrevious<CR>', { desc = 'buffer move to prev', noremap = true, silent = true })
+keymap.set('n', '<A-S-l>', '<Cmd>BufferMoveNext<CR>', { desc = 'buffer move to next', noremap = true, silent = true })
+
 -- Magic buffer-picking mode
 keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', { desc = 'buffer [p]ick', noremap = true, silent = true })
+keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', { desc = 'buffer pin', noremap = true, silent = true })
 
 -- plugin: nvim tree
 keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>") -- toggle tree

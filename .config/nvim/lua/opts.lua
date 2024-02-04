@@ -43,7 +43,7 @@ opt.background = "dark"
 opt.signcolumn = "yes"
 vim.o.updatetime = 250
 opt.cursorline = true
-opt.scrolloff = 8
+opt.scrolloff = 4
 
 -- Highlight on yank (copy)
 vim.api.nvim_exec(

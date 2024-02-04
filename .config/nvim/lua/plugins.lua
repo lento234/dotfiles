@@ -72,7 +72,7 @@ require("lazy").setup({
                 if mark_idx ~= nil then
                     current_mark = tostring(mark_idx)
                 end
-                return string.format("↗ %s/%d", current_mark, total_marks)
+                return string.format("➚ %s/%d", current_mark, total_marks)
             end
             require('lualine').setup {
                 sections = {
@@ -92,8 +92,10 @@ require("lazy").setup({
     -- open buffer bar
     {
         "romgrk/barbar.nvim",
-        dependencies = { "nvim-web-devicons" },
-        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            animation = false,
+        },
     },
     -- file explorer
     {
