@@ -787,6 +787,7 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
-awful.spawn.once('xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"')
+-- awful.spawn.once('xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"')
+awful.spawn('xrandr --output "HDMI-0" --mode "1920x1080" --left-of "DP-0"')
 
 -- }}}

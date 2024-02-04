@@ -6,11 +6,11 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square&labelColor=000000)](#license)
 
-***My personal dotfiles for bash/zsh, vim, tmux, apt, brew.***
+***My personal dotfiles for shell (bash, zsh), neovim, tmux, and awesomewm.***
 
 </div>
 
-## Installation
+## Setup
 
 1. Clone the dotfiles to your computer:
 
@@ -19,30 +19,21 @@
     $ cd dotfiles
     ```
 
-2. Setup `bash` (or `zsh`), `vim`, `tmux`:
+2. Configure dotfiles:
 
     ```bash
-    $ ./setup-zsh.sh
-    $ ./setup-vim.sh
-    $ ./setup-tmux.sh
-    ```
-3. Install all apps from `list_of_apps.txt`:
-
-    ```bash
-    cat apt/list_of_apps.txt | xargs sudo apt install -y
+    $ ./setup.sh --help
     ```
 
-4. Copy gitconfig to home dir and add your gpg key ID into gitconfig
+## Links
 
-    ```bash
-    $ gpg --list-secret-keys --keyid-format=long # show your gpg key IDs
-    $ git config --global user.signingkey <GPG_KEY_ID> # add gpg key ID into gitconfi
-    ```
+### Themeing
 
-5. *(Optional)* Additional customization: `zsh` and custom prompt:
+- [Powerline fonts](https://github.com/powerline/fonts):  Patched fonts for Powerline users.
 
-    1. [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh): A delightful community-driven (with 1700+ contributors) framework for managing your zsh configuration.
-    2. [Powerline fonts](https://github.com/powerline/fonts):  Patched fonts for Powerline users.
-    3. [powerlevel10k](https://github.com/romkatv/powerlevel10k): A Zsh theme
-    4. [liquidprompt](https://github.com/nojhan/liquidprompt):  A full-featured & carefully designed adaptive prompt for Bash & Zsh.
+### Prompts
+
+- [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh): A delightful community-driven (with 1700+ contributors) framework for managing your zsh configuration.
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k): A Zsh theme
+- [liquidprompt](https://github.com/nojhan/liquidprompt):  A full-featured & carefully designed adaptive prompt for Bash & Zsh.
 

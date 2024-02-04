@@ -1,0 +1,52 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Bash
+export HISTSIZE=100000
+
+# variables
+export GTK_THEME=Adwaita:dark
+
+# General aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+# prompt
+eval "$(starship init bash)"
+# fuzzy-search
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# lmod module
+. "/home/lento/lib/modulefiles/activate.sh"
+
+# apps
+alias slack='flatpak run com.slack.Slack'
+alias spotify='flatpak run com.spotify.Client'
+
+# Languages
+
+# golang
+export GOROOT=/home/lento/lib/golang/go-latest
+export GOPATH=${GOROOT}/packages
+export PATH=${GOPATH}/bin:${GOROOT}/bin:${PATH}
+
+# zig
+export PATH=/home/lento/lib/ziglang/zig-latest:${PATH}
+
+# rust
+. "$HOME/.cargo/env"
+
+# mess
+MESSPATH="/home/lento/projects/sysadmin/mess"
+source "${MESSPATH}/completions/mess.bash"

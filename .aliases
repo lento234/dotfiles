@@ -49,6 +49,7 @@ alias ta='tmux attach -t'
 alias tl='tmux ls'
 alias ts='tmux new-session -s'
 alias icat='kitty +kitten icat'
+alias l='ls -l'
 
 # k8s aliases
 # alias kubectl="minikube kubectl --"
@@ -56,6 +57,7 @@ alias icat='kitty +kitten icat'
 # vim
 alias vimdiff='nvim -d'
 alias vim=nvim
+export EDITOR=nvim
 
 ##############################
 # OS specific aliases
