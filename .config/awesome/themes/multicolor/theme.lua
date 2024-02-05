@@ -5,80 +5,80 @@
 
 --]]
 
-local gears = require("gears")
-local lain  = require("lain")
-local awful = require("awful")
-local wibox = require("wibox")
-local dpi   = require("beautiful.xresources").apply_dpi
+local gears                                     = require("gears")
+local lain                                      = require("lain")
+local awful                                     = require("awful")
+local wibox                                     = require("wibox")
+local dpi                                       = require("beautiful.xresources").apply_dpi
 
-local os = os
-local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
+local os                                        = os
+local my_table                                  = awful.util.table or gears.table -- 4.{0,1} compatibility
 
-local Gruvbox = {}
-Gruvbox.palette = {
-  dark0_hard = "#1d2021",
-  dark0 = "#282828",
-  dark0_soft = "#32302f",
-  dark1 = "#3c3836",
-  dark2 = "#504945",
-  dark3 = "#665c54",
-  dark4 = "#7c6f64",
-  light0_hard = "#f9f5d7",
-  light0 = "#fbf1c7",
-  light0_soft = "#f2e5bc",
-  light1 = "#ebdbb2",
-  light2 = "#d5c4a1",
-  light3 = "#bdae93",
-  light4 = "#a89984",
-  bright_red = "#fb4934",
-  bright_green = "#b8bb26",
-  bright_yellow = "#fabd2f",
-  bright_blue = "#83a598",
-  bright_purple = "#d3869b",
-  bright_aqua = "#8ec07c",
-  bright_orange = "#fe8019",
-  neutral_red = "#cc241d",
-  neutral_green = "#98971a",
-  neutral_yellow = "#d79921",
-  neutral_blue = "#458588",
-  neutral_purple = "#b16286",
-  neutral_aqua = "#689d6a",
-  neutral_orange = "#d65d0e",
-  faded_red = "#9d0006",
-  faded_green = "#79740e",
-  faded_yellow = "#b57614",
-  faded_blue = "#076678",
-  faded_purple = "#8f3f71",
-  faded_aqua = "#427b58",
-  faded_orange = "#af3a03",
-  dark_red_hard = "#792329",
-  dark_red = "#722529",
-  dark_red_soft = "#7b2c2f",
-  light_red_hard = "#fc9690",
-  light_red = "#fc9487",
-  light_red_soft = "#f78b7f",
-  dark_green_hard = "#5a633a",
-  dark_green = "#62693e",
-  dark_green_soft = "#686d43",
-  light_green_hard = "#d3d6a5",
-  light_green = "#d5d39b",
-  light_green_soft = "#cecb94",
-  dark_aqua_hard = "#3e4934",
-  dark_aqua = "#49503b",
-  dark_aqua_soft = "#525742",
-  light_aqua_hard = "#e6e9c1",
-  light_aqua = "#e8e5b5",
-  light_aqua_soft = "#e1dbac",
-  gray = "#928374",
+local Gruvbox                                   = {}
+Gruvbox.palette                                 = {
+    dark0_hard = "#1d2021",
+    dark0 = "#282828",
+    dark0_soft = "#32302f",
+    dark1 = "#3c3836",
+    dark2 = "#504945",
+    dark3 = "#665c54",
+    dark4 = "#7c6f64",
+    light0_hard = "#f9f5d7",
+    light0 = "#fbf1c7",
+    light0_soft = "#f2e5bc",
+    light1 = "#ebdbb2",
+    light2 = "#d5c4a1",
+    light3 = "#bdae93",
+    light4 = "#a89984",
+    bright_red = "#fb4934",
+    bright_green = "#b8bb26",
+    bright_yellow = "#fabd2f",
+    bright_blue = "#83a598",
+    bright_purple = "#d3869b",
+    bright_aqua = "#8ec07c",
+    bright_orange = "#fe8019",
+    neutral_red = "#cc241d",
+    neutral_green = "#98971a",
+    neutral_yellow = "#d79921",
+    neutral_blue = "#458588",
+    neutral_purple = "#b16286",
+    neutral_aqua = "#689d6a",
+    neutral_orange = "#d65d0e",
+    faded_red = "#9d0006",
+    faded_green = "#79740e",
+    faded_yellow = "#b57614",
+    faded_blue = "#076678",
+    faded_purple = "#8f3f71",
+    faded_aqua = "#427b58",
+    faded_orange = "#af3a03",
+    dark_red_hard = "#792329",
+    dark_red = "#722529",
+    dark_red_soft = "#7b2c2f",
+    light_red_hard = "#fc9690",
+    light_red = "#fc9487",
+    light_red_soft = "#f78b7f",
+    dark_green_hard = "#5a633a",
+    dark_green = "#62693e",
+    dark_green_soft = "#686d43",
+    light_green_hard = "#d3d6a5",
+    light_green = "#d5d39b",
+    light_green_soft = "#cecb94",
+    dark_aqua_hard = "#3e4934",
+    dark_aqua = "#49503b",
+    dark_aqua_soft = "#525742",
+    light_aqua_hard = "#e6e9c1",
+    light_aqua = "#e8e5b5",
+    light_aqua_soft = "#e1dbac",
+    gray = "#928374",
 }
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
 -- theme.wallpaper                                 = theme.confdir .. "/wall.png"
 -- theme.wallpaper                                 = "/home/lento/Pictures/wallpapers/wallhaven-yxk33x.jpg"
--- theme.wallpaper                                 = "/home/lento/Pictures/wallpapers/wallhaven-kxrjjm.jpg"
+theme.wallpaper                                 = "/home/lento/Pictures/wallpapers/wallhaven-kxrjjm.jpg"
 -- theme.wallpaper                                 = "/home/lento/Pictures/wallpapers/wallhaven-vq3v2m.jpg"
-theme.wallpaper                                 = "/home/lento/Pictures/wallpapers/wallhaven-yxk33x.jpg"
+-- theme.wallpaper                                 = "/home/lento/Pictures/wallpapers/wallhaven-yxk33x.jpg"
 -- theme.font                                      = "Terminus 8"
 -- theme.font                                      = "FiraCode NerdFont 10"
 theme.font                                      = "FiraCode NerdFont Bold 10"
@@ -158,12 +158,13 @@ theme.titlebar_maximized_button_focus_inactive  = theme.confdir .. "/icons/title
 theme.titlebar_maximized_button_normal_active   = theme.confdir .. "/icons/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active    = theme.confdir .. "/icons/titlebar/maximized_focus_active.png"
 
-local markup = lain.util.markup
+local markup                                    = lain.util.markup
 
 -- Textclock
 os.setlocale(os.getenv("LANG")) -- to localize the clock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
-local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#ab7367", ">") .. markup("#de5e1e", " %H:%M "))
+local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") ..
+    markup("#ab7367", ">") .. markup("#de5e1e", " %H:%M "))
 mytextclock.font = theme.font
 
 -- Calendar
@@ -300,7 +301,7 @@ theme.mpd = lain.widget.mpd({
     settings = function()
         mpd_notification_preset = {
             text = string.format("%s [%s] - %s\n%s", mpd_now.artist,
-                   mpd_now.album, mpd_now.date, mpd_now.title)
+                mpd_now.album, mpd_now.date, mpd_now.title)
         }
 
         if mpd_now.state == "play" then
@@ -311,8 +312,8 @@ theme.mpd = lain.widget.mpd({
             artist = "mpd "
             title  = "paused "
         else
-            artist = ""
-            title  = ""
+            artist                 = ""
+            title                  = ""
             --mpdicon:set_image() -- not working in 4.0
             mpdicon._private.image = nil
             mpdicon:emit_signal("widget::redraw_needed")
@@ -342,11 +343,11 @@ function theme.at_screen_connect(s)
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
     s.mylayoutbox:buttons(my_table.join(
-                           awful.button({}, 1, function () awful.layout.inc( 1) end),
-                           awful.button({}, 2, function () awful.layout.set( awful.layout.layouts[1] ) end),
-                           awful.button({}, 3, function () awful.layout.inc(-1) end),
-                           awful.button({}, 4, function () awful.layout.inc( 1) end),
-                           awful.button({}, 5, function () awful.layout.inc(-1) end)))
+        awful.button({}, 1, function() awful.layout.inc(1) end),
+        awful.button({}, 2, function() awful.layout.set(awful.layout.layouts[1]) end),
+        awful.button({}, 3, function() awful.layout.inc(-1) end),
+        awful.button({}, 4, function() awful.layout.inc(1) end),
+        awful.button({}, 5, function() awful.layout.inc(-1) end)))
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
 
@@ -398,7 +399,15 @@ function theme.at_screen_connect(s)
     }
 
     -- Create the bottom wibox
-    s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = dpi(20), bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mybottomwibox = awful.wibar({
+        position = "bottom",
+        screen = s,
+        border_width = 0,
+        height = dpi(20),
+        bg = theme
+            .bg_normal,
+        fg = theme.fg_normal
+    })
 
     -- Add widgets to the bottom wibox
     s.mybottomwibox:setup {
@@ -407,7 +416,7 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
         },
         s.mytasklist, -- Middle widget
-        { -- Right widgets
+        {             -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             s.mylayoutbox,
         },
