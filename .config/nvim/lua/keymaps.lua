@@ -128,3 +128,14 @@ keymap.set('n', '<leader>gg', ':Neogit<CR>', { desc = '[g]o launch neo[g]it' })
 
 -- colorizer
 keymap.set('n', '<leader>tc', ':Lazy load nvim-colorizer.lua<CR>:ColorizerToggle<CR>', { desc = '[t]oggle [c]olorized' })
+
+-- trouble
+-- Lua
+keymap.set("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "[x]trouble: [x]toggle" })
+keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end,
+  { desc = "[x]trouble: [w]orkspace" })
+keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end,
+  { desc = "[x]trouble: [d]iagnostics" })
+keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, { desc = "[x]trouble: [q]uickfix" })
+keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end, { desc = "[x]trouble: [l]oclist" })
+-- keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "[x]trouble: [x]toggle" })
