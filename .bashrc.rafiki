@@ -1,0 +1,61 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+export HISTSIZE=10000
+export GTK_THEME=Adwaita:dark
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# prompt
+eval "$(starship init bash)"
+
+# Aliases
+[ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+unlock_strongbox () {
+    sudo cryptsetup -v luksOpen /dev/sda1 strongbox
+    sudo mount /dev/mapper/strongbox /mnt/strongbox
+}
+alias strongbox='cd /mnt/strongbox/'
+alias renderman='cd /mnt/strongbox/projects/RendermanBuild'
+alias obsidian='cd ~/Documents/obsidian-vault'
+
+# Activate spack
+alias activate_spack='source /opt/spack/spack/share/spack/setup-env.sh'
+
+start_ssh_agent() {
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+}
+
+# golang
+export GOPATH='/home/lento/lib/golang/go-latest'
+export PATH="${GOPATH}/bin:${PATH}"
+
+
+# zig
+export PATH="/home/lento/lib/ziglang/zig-latest:${PATH}"
+export PATH="/home/lento/lib/ziglang/zls/zig-out/bin:${PATH}"
+
+# conda
+if [ -f "/home/lento/lib/miniforge/etc/profile.d/conda.sh" ]; then
+    . "/home/lento/lib/miniforge/etc/profile.d/conda.sh"
+fi
+
+# 1password agent sock binding only if local and non-root
+if (( EUID != 0 )) && [ ! $SSH_TTY ]; then
+    export SSH_AUTH_SOCK=~/.1password/agent.sock
+fi
+
+# xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"
+# mess
+source /home/lento/projects/se/mess/completions/mess.bash
