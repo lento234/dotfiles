@@ -1,3 +1,6 @@
+# # Wait 10 milliseconds for starship to check files under the current directory.
+# scan_timeout = 10
+
 [aws]
 symbol = "  "
 
@@ -7,23 +10,37 @@ symbol = " "
 [c]
 symbol = " "
 
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+error_symbol = '[✗](bold red) '
+
 [conda]
 symbol = " "
+
+[crystal]
+symbol = " "
 
 [dart]
 symbol = " "
 
 [directory]
 read_only = " 󰌾"
+format = "[ $path ]($style)"
+truncation_length = 8
+truncation_symbol = "…/"
 
 [docker_context]
 symbol = " "
 
 [elixir]
-symbol = " "
+symbol = " "
 
 [elm]
 symbol = " "
+
+[fennel]
+symbol = " "
 
 [fossil_branch]
 symbol = " "
@@ -55,6 +72,9 @@ symbol = " "
 [julia]
 symbol = " "
 
+[kotlin]
+symbol = " "
+
 [lua]
 symbol = " "
 
@@ -72,6 +92,9 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+
+[ocaml]
+symbol = " "
 
 [os.symbols]
 Alpaquita = " "
@@ -117,6 +140,12 @@ Windows = "󰍲 "
 [package]
 symbol = "󰏗 "
 
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
 [pijul_channel]
 symbol = " "
 
@@ -134,3 +163,10 @@ symbol = " "
 
 [scala]
 symbol = " "
+
+[swift]
+symbol = " "
+
+[zig]
+symbol = " "
+
