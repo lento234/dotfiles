@@ -52,8 +52,8 @@ if [ -f "/home/lento/lib/miniforge/etc/profile.d/conda.sh" ]; then
 fi
 
 # 1password agent sock binding only if local and non-root
-if (( EUID != 0 )) && [ ! $SSH_TTY ]; then
-    export SSH_AUTH_SOCK=~/.1password/agent.sock
+if (( EUID != 0 )) && [ ! ${SSH_TTY} ] && [ -z ${SSH_CLIENT} ]; then
+    export SSH_AUTH_SOCK=${HOME}/.1password/agent.sock
 fi
 
 # xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"
