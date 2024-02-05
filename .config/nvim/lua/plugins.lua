@@ -67,16 +67,16 @@ require("lazy").setup({
                 if total_marks == 0 then
                     return ""
                 end
-                local current_mark = "-"
+                local current_mark = ""
                 local mark_idx = get_current_mark()
                 if mark_idx ~= nil then
                     current_mark = tostring(mark_idx)
                 end
-                return string.format("➚ %s/%d", current_mark, total_marks)
+                return string.format("󱡅 %s/%d", current_mark, total_marks)
             end
             require('lualine').setup {
                 sections = {
-                    lualine_b = { 'branch', 'diff', harpoon_component, 'diagnostics' },
+                    lualine_b = { harpoon_component, 'branch', 'diff', 'diagnostics' },
                 },
             }
         end,
