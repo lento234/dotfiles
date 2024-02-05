@@ -47,7 +47,8 @@ keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', { desc = 'buffer [p]ick', norema
 keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', { desc = 'buffer pin', noremap = true, silent = true })
 
 -- plugin: nvim tree
-keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>") -- toggle tree
+keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>")    -- toggle tree
+keymap.set("n", "<leader>gn", ":NvimTreeFindFile<CR>") -- open current file in nvim tree
 
 -- plugin: telescope
 -- local builtin = require('telescope.builtin')
@@ -73,6 +74,7 @@ keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc =
 keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[f]ind by [g]rep' })
 keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { desc = '[f]ind by [k]keymaps' })
 keymap.set('n', '<leader>ft', ":TodoTelescope<CR>", { desc = '[f]ind [t]odo' })
+keymap.set('n', '<leader>fr', require('telescope.builtin').registers, { desc = '[f]ind [r]egister' })
 -- keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 
 -- plugin: nvim lspconfig
