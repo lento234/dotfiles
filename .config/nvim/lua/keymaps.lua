@@ -21,6 +21,9 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'move line up' })
 -- toggle line numbers
 vim.keymap.set('n', '<C-l>', ":set invrelativenumber<CR>", { desc = 'toggle relative line number' })
 
+-- toggle format on save
+vim.keymap.set('n', '<leader>tf', ":call ToggleFormatOnSave()<CR>", { desc = '[t]oggle disable format on save' })
+
 -- window
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = '[s]plit [v]ertical' })   -- split vertical
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = '[s]plit [h]orizontal' }) -- split horizontal

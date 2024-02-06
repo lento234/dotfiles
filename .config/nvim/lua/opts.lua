@@ -68,12 +68,22 @@ vim.api.nvim_exec(
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+
 -- format on save
 vim.api.nvim_exec(
   [[
-  augroup FormatOnSave
-    autocmd BufWritePre * lua vim.lsp.buf.format()
-  augroup end
+  function! ToggleFormatOnSave()
+      if !exists('#FormatOnSave#BufWritePre')
+        augroup FormatOnSave
+          autocmd BufWritePre * lua vim.lsp.buf.format()
+        augroup end
+      else
+        augroup FormatOnSave
+          autocmd!
+        augroup END
+      endif
+  endfunction
+  call ToggleFormatOnSave()
   ]],
   false
 )

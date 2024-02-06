@@ -56,6 +56,7 @@ require("lazy").setup({
         dependencies = {
             "nvim-tree/nvim-web-devicons",
             "ThePrimeagen/harpoon",
+            "rmagatti/auto-session",
         },
         -- opts = {},
         config = function()
