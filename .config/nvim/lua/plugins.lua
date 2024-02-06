@@ -38,6 +38,18 @@ require("lazy").setup({
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
     },
+    -- session manager
+    {
+        "rmagatti/auto-session",
+        config = function()
+            require("auto-session").setup({
+                log_level = "error",
+                auto_session_supress_dirs = {
+                    "~/", "~/Downloads", "/",
+                }
+            })
+        end,
+    },
     -- status line
     {
         "nvim-lualine/lualine.nvim",
@@ -77,6 +89,7 @@ require("lazy").setup({
             require('lualine').setup {
                 sections = {
                     lualine_b = { harpoon_component, 'branch', 'diff', 'diagnostics' },
+                    lualine_c = { require('auto-session.lib').current_session_name, 'filename', },
                 },
             }
         end,
@@ -117,14 +130,15 @@ require("lazy").setup({
         end,
     },
     -- alpha: greeter for neovim
-    {
-        "goolord/alpha-nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("alpha").setup(require("alpha.themes.startify").config)
-        end,
-    },
-    -- optional
+    -- {
+    --     "goolord/alpha-nvim",
+    --     priority = -100,
+    --     dependencies = { "nvim-tree/nvim-web-devicons" },
+    --     config = function()
+    --         require("alpha").setup(require("alpha.themes.startify").config)
+    --     end,
+    -- },
+    -- color text
     {
         "NvChad/nvim-colorizer.lua",
         opts = {},

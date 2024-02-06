@@ -67,14 +67,14 @@ keymap.set('n', '<leader>/', function()
     previewer = false,
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
-keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Find [g]it [f]iles' })
+keymap.set('n', '<leader>fg', require('telescope.builtin').git_files, { desc = '[f]ind [g]it files' })
 keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[f]ind [f]iles' })
 keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[f]ind [h]elp' })
 keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[f]ind current [w]ord' })
-keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[f]ind by [g]rep' })
 keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { desc = '[f]ind by [k]keymaps' })
 keymap.set('n', '<leader>ft', ":TodoTelescope<CR>", { desc = '[f]ind [t]odo' })
 keymap.set('n', '<leader>fr', require('telescope.builtin').registers, { desc = '[f]ind [r]egister' })
+keymap.set('n', '<leader>gw', require('telescope.builtin').live_grep, { desc = 'live [g]rep [w]ord' })
 -- keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 
 -- plugin: nvim lspconfig
@@ -139,3 +139,8 @@ keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_dia
 keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, { desc = "[x]trouble: [q]uickfix" })
 keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end, { desc = "[x]trouble: [l]oclist" })
 -- keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "[x]trouble: [x]toggle" })
+
+-- auto-session
+keymap.set("n", "<leader>ss", ":SessionSave<CR>", { desc = "[s]session: [s]ave" })
+keymap.set("n", "<leader>sd", ":SessionDelete<CR>", { desc = "[s]session: [d]elete" })
+keymap.set("n", "<leader>sr", ":SessionRestore<CR>", { desc = "[s]session: [r]estore" })
