@@ -95,6 +95,15 @@ require("lazy").setup({
             }
         end,
     },
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {},
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    },
     -- indent lines
     {
         "lukas-reineke/indent-blankline.nvim",
