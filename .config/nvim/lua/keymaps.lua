@@ -50,8 +50,8 @@ keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', { desc = 'buffer [p]ick', norema
 keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', { desc = 'buffer pin', noremap = true, silent = true })
 
 -- plugin: nvim tree
-keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>")    -- toggle tree
-keymap.set("n", "<leader>gn", ":NvimTreeFindFile<CR>") -- open current file in nvim tree
+keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", { desc = "tree: toggle[n]" })               -- toggle tree
+keymap.set("n", "<leader>fe", ":NvimTreeFindFile<CR>", { desc = "tree: [f]ind in [e]xplorer" }) -- open current file in nvim tree
 
 -- plugin: telescope
 -- local builtin = require('telescope.builtin')
@@ -116,7 +116,8 @@ vim.keymap.set("n", "<leader>B", function() require("persistent-breakpoints.api"
 vim.keymap.set("n", "<leader>dcb", function() require("persistent-breakpoints.api").clear_all_breakpoints() end,
   { desc = "[d]ap: [c]lear all [b]reakpoints" })
 
-vim.keymap.set('n', '<leader>do', function() require('dap').repl.open() end, { desc = '[d]ap: [r]epl [o]pen' })
+vim.keymap.set('n', '<leader>do', function() require('dapui').open() end, { desc = '[d]ap: [o]pen' })
+vim.keymap.set('n', '<leader>dc', function() require('dapui').close() end, { desc = '[d]ap: [c]lose' })
 vim.keymap.set('n', '<leader>dr', function() require('dap').restart() end, { desc = '[d]ap: [r]estart session' })
 vim.keymap.set('n', '<leader>dx', function() require('dap').terminate() end, { desc = '[d]ap: e[x]it session' })
 vim.keymap.set('n', '<leader>dl', function() require('dap.ext.vscode').load_launchjs(nil, {}) end,
