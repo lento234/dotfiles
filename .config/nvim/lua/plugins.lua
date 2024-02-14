@@ -26,6 +26,7 @@ require("lazy").setup({
                     SignColumn = { bg = "#1d2021" },
                     TabLineFill = { bg = "#1d2021" },
                     TabLineSel = { bg = "#1d2021" },
+                    CursorLine = { bg = "#282828" },
                 },
             })
             vim.cmd("colorscheme gruvbox")
