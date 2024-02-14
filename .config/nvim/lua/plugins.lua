@@ -98,10 +98,14 @@ require("lazy").setup({
     {
         "folke/noice.nvim",
         event = "VeryLazy",
-        opts = {},
+        opts = {
+            presets = {
+                command_palette = true, -- position the cmdline and popupmenu together
+            },
+        },
         dependencies = {
             "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
+            -- "rcarriga/nvim-notify",
         }
     },
     -- indent lines
