@@ -50,8 +50,8 @@ keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', { desc = 'buffer [p]ick', norema
 keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', { desc = 'buffer pin', noremap = true, silent = true })
 
 -- plugin: nvim tree
-keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", { desc = "tree: toggle[n]" })               -- toggle tree
-keymap.set("n", "<leader>fe", ":NvimTreeFindFile<CR>", { desc = "tree: [f]ind in [e]xplorer" }) -- open current file in nvim tree
+keymap.set("n", "<leader>n", ":NvimTreeFindFileToggle<CR>", { desc = "tree: show file in [n]vim-tree" }) -- open current file in nvim tree
+keymap.set("n", "<leader>tn", ":NvimTreeToggle<CR>", { desc = "tree: [t]oggle [n]vim-tree" })            -- toggle tree
 
 -- plugin: telescope
 -- local builtin = require('telescope.builtin')
@@ -98,7 +98,10 @@ end
 -- vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end, { desc = "Toggle next item in harpoon" })
 
 -- dap
-keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = 'dap: continue' })
+keymap.set('n', '<F5>', function()
+  require('dap.ext.vscode').load_launchjs(nil, {})
+  require('dap').continue()
+end, { desc = 'dap: continue (or start + load launch json)' })
 keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = 'dap: step over' })
 keymap.set('n', '<F11>', function() require('dap').step_into() end, { desc = 'dap: step into' })
 keymap.set('n', '<F12>', function() require('dap').step_out() end, { desc = 'dap: step out' })
@@ -117,7 +120,7 @@ vim.keymap.set("n", "<leader>dcb", function() require("persistent-breakpoints.ap
   { desc = "[d]ap: [c]lear all [b]reakpoints" })
 
 vim.keymap.set('n', '<leader>do', function() require('dapui').open() end, { desc = '[d]ap: [o]pen' })
-vim.keymap.set('n', '<leader>dc', function() require('dapui').close() end, { desc = '[d]ap: [c]lose' })
+vim.keymap.set('n', '<leader>dC', function() require('dapui').close() end, { desc = '[d]ap: [C]lose' })
 vim.keymap.set('n', '<leader>dr', function() require('dap').restart() end, { desc = '[d]ap: [r]estart session' })
 vim.keymap.set('n', '<leader>dx', function() require('dap').terminate() end, { desc = '[d]ap: e[x]it session' })
 vim.keymap.set('n', '<leader>dl', function() require('dap.ext.vscode').load_launchjs(nil, {}) end,
