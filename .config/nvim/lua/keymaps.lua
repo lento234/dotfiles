@@ -13,6 +13,11 @@ keymap.set('v', "<Down>", "")
 -- remap undo
 keymap.set('n', "u", "")
 keymap.set('n', "U", ":u<CR>")
+-- move around
+keymap.set('n', "H", "^")
+keymap.set('n', "L", "$")
+keymap.set('v', "H", "^")
+keymap.set('v', "L", "$<left>")
 -- deselect all highlights
 keymap.set("n", "<leader><BS>", ":nohl<CR>", { desc = 'clear all highlights' })
 -- move lines
@@ -71,7 +76,9 @@ keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 keymap.set('n', '<leader>fg', require('telescope.builtin').git_files, { desc = '[f]ind [g]it files' })
-keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[f]ind [f]iles' })
+keymap.set('n', '<leader>ff', function()
+  require('telescope.builtin').find_files({ hidden = true, ignore = false })
+end, { desc = '[f]ind [f]iles' })
 keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[f]ind [h]elp' })
 keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[f]ind current [w]ord' })
 keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { desc = '[f]ind by [k]keymaps' })

@@ -1,6 +1,3 @@
 .DS_Store
 .netrwhist
-vim/bundle/*
-!vim/bundle/Vundle.vim
-
 nvim/lua/.luarc.json
