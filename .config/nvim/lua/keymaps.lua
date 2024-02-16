@@ -36,11 +36,14 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = '[s]plit [e]qual' })      -- eq
 keymap.set("n", "<leader>sx", ":close<CR>", { desc = '[s]plit close' })    -- close split window
 
 -- tab
-keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = '[t]ab [o]pen' })                             -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = '[t]ab e[x]it ' })                          -- close tab
-keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = '[t]ab [n]ext' })                               -- next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = '[t]ab [p]revious ' })                          -- previous tab
-keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { desc = '[t]oggle [t]erminal ' }) -- open terminal
+keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = '[t]ab [o]pen' })    -- open new tab
+keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = '[t]ab e[x]it ' }) -- close tab
+keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = '[t]ab [n]ext' })      -- next tab
+keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = '[t]ab [p]revious ' }) -- previous tab
+
+-- terminal
+keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { desc = 'terminal: [t]oggle [t]erminal ' }) -- open terminal
+keymap.set("t", "<esc>", [[<C-\><C-n>]], { desc = "terminal: escape to normal mode" })                        -- Enter normal mode while in a terminal
 
 -- plugin: barbar / buffer
 -- Move to previous/next
