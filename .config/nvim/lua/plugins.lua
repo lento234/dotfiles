@@ -37,7 +37,12 @@ require("lazy").setup({
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {},
+        opts = {
+            settings = {
+                -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
+                save_on_toggle = true,
+            }
+        },
     },
     -- session manager
     {
