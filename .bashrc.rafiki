@@ -29,6 +29,11 @@ alias strongbox='cd /mnt/strongbox/'
 alias renderman='cd /mnt/strongbox/projects/RendermanBuild'
 alias obsidian='cd ~/Documents/obsidian-vault'
 
+# slurm
+alias sq='squeue -o "%.8i %.9P %.15j %.9u %.9a %.8T %.12L %.12l %.6D %.3m %.4C %.8R %.22b %e"'
+alias sdebug='srun --cpus-per-task=4 --ntasks-per-node=1 --job-name=debug --mem=16G --time=00:30:00 --pty /bin/bash'
+alias spast='sacct --starttime=$(date --date="today -1 week" +"%Y-%m-%d") --format=User,JobID,Jobname%50,partition,state,time,start,end,elapsed,MaxRss,MaxVMSize,nnodes,ncpus,nodelist'
+
 # Activate spack
 alias activate_spack='source /opt/spack/spack/share/spack/setup-env.sh'
 
