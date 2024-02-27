@@ -64,3 +64,8 @@ fi
 # xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"
 # mess
 source /home/lento/projects/se/mess/completions/mess.bash
+
+# nvm / node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
