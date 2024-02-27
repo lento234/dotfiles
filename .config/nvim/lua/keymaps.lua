@@ -1,5 +1,6 @@
-local function noremap(mode, lhs, rhs, desc)
-  vim.keymap.set(mode, lhs, rhs, { desc = desc, noremap = true, silent = true })
+local function noremap(mode, lhs, rhs, desc, opts)
+  opts = opts or { silent = true }
+  vim.keymap.set(mode, lhs, rhs, { desc = desc, noremap = true, silent = opts["silent"] })
 end
 
 -- general keymaps
@@ -34,7 +35,7 @@ noremap("v", "K", ":m '<-2<CR>gv=gv", "move line up")
 noremap("n", "<C-l>", ":set invrelativenumber<CR>", "toggle relative line number")
 
 -- toggle format on save
-noremap("n", "<leader>tf", ":call ToggleFormatOnSave()<CR>", "[t]oggle disable format on save")
+noremap("n", "<leader>tf", ":call ToggleFormatOnSave()<CR>", "[t]oggle disable format on save", { silent = false })
 
 -- window
 noremap("n", "<leader>sv", "<C-w>v", "[s]plit [v]ertical")   -- split vertical
@@ -140,7 +141,8 @@ noremap("n", "<M-k>", function() require("dapui").eval() end, "dap: [k]eval")
 noremap("n", "<leader>gg", ":Neogit<CR>", "[g]o launch neo[g]it")
 
 -- plugin: colorizer
-noremap("n", "<leader>tc", ":Lazy load nvim-colorizer.lua<CR>:ColorizerToggle<CR>", "[t]oggle [c]olorized")
+noremap("n", "<leader>tc", ":Lazy load nvim-colorizer.lua<CR>:ColorizerToggle<CR>", "[t]oggle [c]olorized",
+  { silent = false })
 
 -- plugin: trouble
 noremap("n", "<leader>xx", function() require("trouble").toggle() end, "[x]trouble: [x]toggle")

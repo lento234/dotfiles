@@ -45,6 +45,9 @@ vim.o.updatetime = 250
 opt.cursorline = true
 opt.scrolloff = 4
 
+-- sessions
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- Highlight on yank (copy)
 vim.api.nvim_exec(
   [[
@@ -77,10 +80,12 @@ vim.api.nvim_exec(
         augroup FormatOnSave
           autocmd BufWritePre * lua vim.lsp.buf.format()
         augroup end
+	echo "enabled format on save"
       else
         augroup FormatOnSave
           autocmd!
         augroup END
+	echohl WarningMsg | echo "disabled format on save" | echohl None
       endif
   endfunction
   call ToggleFormatOnSave()
