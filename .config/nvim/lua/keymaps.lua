@@ -90,6 +90,7 @@ noremap("n", "<leader>fw",
   function()
     require("telescope.builtin").live_grep({ additional_args = { "--hidden" } })
   end, "telescope: [f]ind [w]ord")
+noremap("n", '<leader>fs', require('telescope.builtin').lsp_document_symbols, "telescope: [f]ind document [s]ymbols")
 noremap("n", '<leader>fk', require('telescope.builtin').keymaps, "telescope: [f]ind by [k]keymaps")
 noremap("n", '<leader>ft', ":TodoTelescope<CR>", "telescope: [f]ind [t]odo")
 noremap("n", '<leader>fr', require('telescope.builtin').registers, "telescope: [f]ind [r]egister")
