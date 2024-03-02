@@ -248,12 +248,12 @@ awful.screen.connect_for_each_screen(function(s)
     local tags = {
         settings = {
             {
-                names = { "1", "2", "3", "4", "5", "www", "chat", "music", "notes" },
-                layouts = { l.tile.left, l.tile.left, l.floating, l.floating, l.floating, l.tile.left, l.max, l.max, l.floating }
-            },
-            {
                 names = { "status", "misc" },   -- , "music", "chat", "notes"},
                 layouts = { l.max, l.floating } -- , l.max, l.max, l.floating}
+            },
+            {
+                names = { "1", "2", "3", "4", "5", "www", "chat", "music", "notes" },
+                layouts = { l.tile.left, l.tile.left, l.floating, l.floating, l.floating, l.tile.left, l.max, l.max, l.floating }
             },
         }
     }
