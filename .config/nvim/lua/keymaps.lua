@@ -35,7 +35,7 @@ noremap("v", "K", ":m '<-2<CR>gv=gv", "move line up")
 noremap("n", "<C-l>", ":set invrelativenumber<CR>", "toggle relative line number")
 
 -- toggle format on save
-noremap("n", "<leader>tf", ":call ToggleFormatOnSave()<CR>", "[t]oggle disable format on save", { silent = false })
+noremap("n", "<leader>tf", ":ToggleFormatOnSave<CR>", "[t]oggle disable format on save")
 
 -- window
 noremap("n", "<leader>sv", "<C-w>v", "[s]plit [v]ertical")   -- split vertical

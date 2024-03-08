@@ -118,10 +118,10 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete {},
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+    -- ['<CR>'] = cmp.mapping.confirm {
+    --   behavior = cmp.ConfirmBehavior.Replace,
+    --   select = true,
+    -- },
   }),
   sources = {
     { name = 'nvim_lsp' },
@@ -150,13 +150,6 @@ require('lspconfig').ruff_lsp.setup {
   on_attach = on_attach,
 }
 
--- ts/js/vue
-require('lspconfig').volar.setup({
-  on_attach = on_attach,
-  -- enable "take over mode" for typescript files as well: https://github.com/johnsoncodehk/volar/discussions/471
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
-})
-
 require('lspconfig').tsserver.setup {
   init_options = {
     plugins = {
@@ -169,3 +162,10 @@ require('lspconfig').tsserver.setup {
   },
   filetypes = { "javascript", "typescript", "vue" },
 }
+
+-- ts/js/vue
+require('lspconfig').volar.setup({
+  on_attach = on_attach,
+  -- enable "take over mode" for typescript files as well: https://github.com/johnsoncodehk/volar/discussions/471
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
+})

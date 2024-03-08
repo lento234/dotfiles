@@ -71,24 +71,20 @@ vim.api.nvim_exec(
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
-
 -- format on save
-vim.api.nvim_exec(
-  [[
-  function! ToggleFormatOnSave()
-      if !exists('#FormatOnSave#BufWritePre')
-        augroup FormatOnSave
-          autocmd BufWritePre * lua vim.lsp.buf.format()
-        augroup end
-	echo "enabled format on save"
-      else
-        augroup FormatOnSave
-          autocmd!
-        augroup END
-	echohl WarningMsg | echo "disabled format on save" | echohl None
-      endif
-  endfunction
-  call ToggleFormatOnSave()
-  ]],
-  false
+vim.g.format_on_save = true
+vim.api.nvim_create_user_command("ToggleFormatOnSave",
+  function()
+    vim.g.format_on_save = not vim.g.format_on_save
+    local fidget = require("fidget")
+    if vim.g.format_on_save then
+      fidget.notify("format on save", nil, { annote = "ENABLED", key = "formatonsave" })
+    else
+      fidget.notify("format on save", nil, { annote = "DISABLED", key = "formatonsave" })
+    end
+  end,
+  {
+    desc = "Toggle format-on-save",
+    bang = true,
+  }
 )
