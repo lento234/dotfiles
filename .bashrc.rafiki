@@ -57,7 +57,7 @@ if [ -f "/home/lento/lib/miniforge/etc/profile.d/conda.sh" ]; then
 fi
 
 # 1password agent sock binding only if local and non-root
-if (( EUID != 0 )) && [ ! ${SSH_TTY} ] && [ -z ${SSH_CLIENT} ]; then
+if [[ ((EUID != 0 )) && ! ${SSH_TTY} && -z ${SSH_CLIENT} ]]; then
     export SSH_AUTH_SOCK=${HOME}/.1password/agent.sock
 fi
 
