@@ -149,3 +149,23 @@ end
 require('lspconfig').ruff_lsp.setup {
   on_attach = on_attach,
 }
+
+-- ts/js/vue
+require('lspconfig').volar.setup({
+  on_attach = on_attach,
+  -- enable "take over mode" for typescript files as well: https://github.com/johnsoncodehk/volar/discussions/471
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
+})
+
+require('lspconfig').tsserver.setup {
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = require("lspconfig.util").path.join("$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin"),
+        languages = { "javascript", "typescript", "vue" },
+      },
+    },
+  },
+  filetypes = { "javascript", "typescript", "vue" },
+}
