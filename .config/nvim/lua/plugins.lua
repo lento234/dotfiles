@@ -183,9 +183,11 @@ require("lazy").setup({
         'stevearc/conform.nvim',
         opts = {
             formatters_by_ft = {
-                lua = { "stylua" },
                 -- Conform will run multiple formatters sequentially
-                python = { "ruff", "black" },
+                css = { "prettier" },
+                html = { "prettier" },
+                lua = { "stylua" },
+                python = { "ruff_lsp" },
                 -- Use a sub-list to run only the first available formatter
                 -- javascript = { { "prettierd", "prettier" } },
             },
