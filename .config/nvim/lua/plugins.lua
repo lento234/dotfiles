@@ -190,6 +190,8 @@ require("lazy").setup({
                 python = { "ruff_lsp" },
                 -- Use a sub-list to run only the first available formatter
                 -- javascript = { { "prettierd", "prettier" } },
+                javascript = { "prettier" },
+                typescript = { "prettier" },
             },
             format_on_save = function(bufnr)
                 if not vim.g.format_on_save then
@@ -405,6 +407,7 @@ require("lazy").setup({
         dependencies = {
             "mfussenegger/nvim-dap",
             "theHamsta/nvim-dap-virtual-text",
+            "nvim-neotest/nvim-nio",
             -- use 'ldelossa/nvim-dap-projects'
             -- custom json parser (for .vscode/launch.json)
             {
