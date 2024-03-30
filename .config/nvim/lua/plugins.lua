@@ -170,9 +170,16 @@ require("lazy").setup({
     -- },
     -- color text
     {
-        "NvChad/nvim-colorizer.lua",
-        opts = {},
-        lazy = true,
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup({
+                "css",
+                "javascript",
+                "vue",
+                "typescript",
+                "html",
+            })
+        end,
     },
     {
         "folke/todo-comments.nvim",
