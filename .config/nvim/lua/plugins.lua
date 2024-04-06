@@ -145,13 +145,18 @@ require("lazy").setup({
         "nvim-tree/nvim-tree.lua",
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
+            vim.g.loaded_netrw = 1
+            vim.g.loaded_netrwPlugin = 1
             require("nvim-tree").setup({
                 renderer = {
+                    indent_markers = {
+                        enable = true,
+                    },
                     icons = {
                         glyphs = {
                             folder = {
-                                arrow_closed = "",
-                                arrow_open = "",
+                                -- arrow_closed = "",
+                                -- arrow_open = "",
                             },
                         },
                     },
@@ -235,6 +240,7 @@ require("lazy").setup({
     -- Useful plugin to show you pending keybinds.
     {
         "folke/which-key.nvim",
+        event = "VeryLazy",
         init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
@@ -281,7 +287,25 @@ require("lazy").setup({
         opts = {},
     },
     -- auto closing
-    { "windwp/nvim-autopairs", opts = {} },
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+        },
+        config = function()
+            local autopairs = require("nvim-autopairs")
+            autopairs.setup({
+                check_ts = true,
+            })
+            local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+            local cmp = require('cmp')
+            cmp.event:on(
+                'confirm_done',
+                cmp_autopairs.on_confirm_done()
+            )
+        end
+    },
     -- surround
     "tpope/vim-surround",
     -- whitespace

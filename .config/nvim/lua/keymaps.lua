@@ -151,6 +151,7 @@ noremap("n", "<leader>xw", function() require("trouble").toggle("workspace_diagn
 noremap("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end, "[x]trouble: [d]iagnostics")
 noremap("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, "[x]trouble: [q]uickfix")
 noremap("n", "<leader>xl", function() require("trouble").toggle("loclist") end, "[x]trouble: [l]oclist")
+noremap("n", "<leader>xt", "<cmd>TodoTrouble<CR>", "[x]trouble: [t]odos")
 -- keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "[x]trouble: [x]toggle" })
 
 -- plugin: auto-session
