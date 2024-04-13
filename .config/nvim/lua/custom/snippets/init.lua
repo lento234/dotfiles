@@ -5,5 +5,5 @@ local languages = {
     "python",
 }
 for _, l in pairs(languages) do
-    require("snippets." .. l)
+    require("custom.snippets." .. l)
 end
