@@ -31,7 +31,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # gnu coreutils
-COREUTILS_VER=9.4
+COREUTILS_VER=9.5
 export PATH=/opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnubin:$PATH
 export MANPATH=/opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnuman:$MANPATH
 export PATH=/opt/homebrew/Cellar/gnu-getopt/2.39.2/bin:$PATH
@@ -103,4 +103,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+export CXX=/opt/homebrew/bin/g++-13
+export CC=/opt/homebrew/bin/gcc-13
 
