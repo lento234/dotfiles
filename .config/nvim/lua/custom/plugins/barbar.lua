@@ -1,10 +1,8 @@
 return {
   "romgrk/barbar.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  opts = {
-    animation = false,
-  },
   config = function()
+    require("barbar").setup({})
     local function noremap(mode, lhs, rhs, desc, opts)
       opts = opts or { silent = true }
       vim.keymap.set(mode, lhs, rhs, { desc = desc, noremap = true, silent = opts["silent"] })

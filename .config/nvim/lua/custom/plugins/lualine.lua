@@ -5,7 +5,6 @@ return {
     "ThePrimeagen/harpoon",
     "rmagatti/auto-session",
   },
-  -- opts = {},
   config = function()
     -- add hapoon tag
     local harpoon = require("harpoon")

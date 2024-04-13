@@ -2,13 +2,13 @@ return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
   dependencies = { "nvim-lua/plenary.nvim" },
-  opts = {
-    settings = {
-      -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
-      save_on_toggle = true,
-    }
-  },
   config = function()
+    require("harpoon").setup({
+      settings = {
+        -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
+        save_on_toggle = true,
+      }
+    })
     local function noremap(mode, lhs, rhs, desc, opts)
       opts = opts or { silent = true }
       vim.keymap.set(mode, lhs, rhs, { desc = desc, noremap = true, silent = opts["silent"] })
