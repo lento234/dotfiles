@@ -12,6 +12,21 @@
 
 set $mod Mod4
 
+# colors
+set $color_black #000000
+set $color_gray #928374
+set $color_bg #1d2021
+set $color_fg #eddbb2
+set $color_purple #b16286
+set $color_orange #ff8c00
+set $color_darkorange #d65d0e
+set $color_blue #458588
+# set $color_blue #83a598
+set $color_green #98971a
+# set $color_aqua #689d6a
+set $color_aqua #8ec07c
+set $color_red #af1d18
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:monospace 8
@@ -20,7 +35,7 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 # font pango:DejaVu Sans Mono 8
-font pango:Fira Code NerdFont Mono Bold 9
+font pango:FiraCode Nerd Font 9
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -31,7 +46,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color 00000
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color "$color_bg"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -67,7 +82,7 @@ bindsym $mod+Shift+q kill
 bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # lock screen
-bindsym $mod+Shift+f exec i3lock --color 000000
+bindsym $mod+Shift+f exec i3lock --color "$color_bg"
 
 # change focus
 bindsym $mod+h focus left
@@ -109,8 +124,8 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:home"
-set $ws2 "2:browser"
+set $ws1 "1: "
+set $ws2 "2: "
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -121,8 +136,8 @@ set $ws9 "9"
 set $ws10 "10"
 
 set $wsF1 "11:info"
-set $wsF2 "12:music"
-set $wsF3 "13:chat"
+set $wsF2 "12: music"
+set $wsF3 "13: chat"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -228,19 +243,6 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-set $color_black #000000
-set $color_gray #928374
-set $color_bg #1d2021
-set $color_fg #eddbb2
-set $color_purple #b16286
-set $color_orange #ff8c00
-set $color_darkorange #d65d0e
-set $color_blue #458588
-# set $color_blue #83a598
-set $color_green #98971a
-# set $color_aqua #689d6a
-set $color_aqua #8ec07c
-set $color_red #af1d18
 
 bar {
   position top
@@ -251,7 +253,7 @@ bar {
     statusline $color_fg
     separator $color_fg
 
-    focused_workspace  $color_bg $color_orange $color_fg
+    focused_workspace  $color_bg $color_orange $color_black
     active_workspace   $color_bg $color_bg $color_fg
     inactive_workspace $color_bg $color_bg $color_fg
     urgent_workspace   $color_bg $color_red $color_fg
