@@ -7,16 +7,6 @@
 # ß
 # If the above line is not correctly displayed, fix your editor first!
 
-general {
-  output_format = "i3bar"
-  color_good = "#689d6a"
-  color_bad = "#af1d18"
-  color_degraded = "#00dddd"
-  colors = false
-  interval = 5
-  markup = "pango"
-}
-
 # colors
 # black #000000
 # gray #928374
@@ -29,8 +19,16 @@ general {
 # green #98971a
 # aqua #689d6a
 # red #af1d18
-#
 
+general {
+  output_format = "i3bar"
+  color_good = "#689d6a"
+  color_bad = "#af1d18"
+  color_degraded = "#00dddd"
+  colors = false
+  interval = 5
+  markup = "pango"
+}
 
 order += "cpu_usage"
 order += "load"
@@ -70,7 +68,7 @@ disk "/" {
 }
 
 ethernet _first_ {
-  format_up = "<span bgcolor='#928374' foreground='black' size='large'> 󰈀 </span><span weight='bold' bgcolor='#928374' foreground='black'> %ip (%speed) </span>"
+  format_up = "<span bgcolor='#98971a' foreground='black' size='large'> 󰈀 </span><span weight='bold' bgcolor='#98971a' foreground='black'> %ip (%speed) </span>"
   format_down = " 󰈀 down "
   separator_block_width = 2
   separator = false
@@ -93,7 +91,7 @@ tztime localdate {
 }
 
 tztime localtime {
-  format = "<span bgcolor='#d65d0e' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#d65d0e' foreground='black'> %I:%M %p </span>"
+  format = "<span bgcolor='#928374' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#928374' foreground='black'> %I:%M %p </span>"
   separator_block_width = 2
   separator = false
 }
