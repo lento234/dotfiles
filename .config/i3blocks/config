@@ -1,0 +1,51 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+# colors
+# black #000000
+# gray #928374
+# bg #1d2021
+# fg #eddbb2
+# purple #b16286
+# orange #ff8c00
+# darkorange #d65d0e
+# blue #458588
+# green #98971a
+# aqua #689d6a
+# red #af1d18
+#
+
+# Query my default IP address only on startup
+[ip]
+command=hostname -I | awk '{ print "󰈀 " $1 }'
+interval=once
+color=#98971a
+
+# [public-ip]
+# command=wget -qO - icanhazip.com
+# interval=once
+
+# Guess the weather hourly
+[weather]
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo | awk '{ print "󰖐  " $1 "  " $2}'
+interval=3600
+color=#d65d0e
+
+[date]
+command=date '+%Y-%m-%d' | awk '{ print "  " $1 }'
+interval=3600
+color=#eddbb2
+
+[time]
+command=date '+%T'
+interval=1
+color=#689d6a

@@ -8,41 +8,93 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-  colors = true
+  output_format = "i3bar"
+  color_good = "#689d6a"
+  color_bad = "#af1d18"
+  color_degraded = "#00dddd"
+  colors = false
   interval = 5
+  markup = "pango"
 }
 
+# colors
+# black #000000
+# gray #928374
+# bg #1d2021
+# fg #eddbb2
+# purple #b16286
+# orange #ff8c00
+# darkorange #d65d0e
+# blue #458588
+# green #98971a
+# aqua #689d6a
+# red #af1d18
+#
+
+
+order += "cpu_usage"
 order += "load"
 order += "memory"
 order += "disk /"
 order += "ethernet _first_"
-order += "tztime date"
-order += "tztime time"
+order += "volume master"
+order += "tztime localdate"
+order += "tztime localtime"
 
+
+cpu_usage {
+  format = "<span bgcolor='#d65d0e' foreground='black' size='large'>  </span><span bgcolor='#d65d0e' weight='bold' foreground='black'> %usage </span>"
+  separator_block_width = 2
+  separator = false
+}
 
 load {
-  format = "  %1min (1m) / %5min (5m)"
+  format = "<span bgcolor='#b16286' foreground='black' size='large'>  </span><span bgcolor='#b16286' weight='bold' foreground='black'> %1min (1m) %5min (5m) </span>"
+  separator_block_width = 2
+  separator = false
 }
 
 memory {
-  format = " %used/%available"
-  threshold_degraded = "1G"
+  format = "<span bgcolor='#689d6a' foreground='#1d2021' size='large'>  </span><span weight='bold' bgcolor='#689d6a' foreground='#1d2021'> %used / %available </span>"
+  threshold_degraded = "10%"
   format_degraded = "MEMORY: %free"
+  separator_block_width = 2
+  separator = false
 }
 
 disk "/" {
-  format = " %avail (/)"
+  format = "<span bgcolor='#458588' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#458588' foreground='black'> %avail </span>"
+  prefix_type = custom
+  separator_block_width = 2
+  separator = false
 }
 
 ethernet _first_ {
-  format_up = "󰈀 %ip (%speed)"
-  format_down = "󰈀 down"
+  format_up = "<span bgcolor='#928374' foreground='black' size='large'> 󰈀 </span><span weight='bold' bgcolor='#928374' foreground='black'> %ip (%speed) </span>"
+  format_down = " 󰈀 down "
+  separator_block_width = 2
+  separator = false
 }
 
-tztime date {
-  format = "%Y-%m-%d"
+volume master {
+  format = "<span bgcolor='#00BFA5' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#00BFA5' foreground='black'> %volume </span>"
+  format_muted = "<span foreground='#D32F2F' size='large'>  </span><span weight='bold' foreground='#D32F2F'> %volume </span>"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
+  separator_block_width = 2
+  separator = false
 }
 
-tztime time {
-  format = "%H:%M:%S"
+tztime localdate {
+  format = "<span bgcolor='#F39C12' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#F39C12' foreground='black'> %a %d-%m-%Y </span>"
+  separator_block_width = 2
+  separator = false
 }
+
+tztime localtime {
+  format = "<span bgcolor='#d65d0e' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#d65d0e' foreground='black'> %I:%M %p </span>"
+  separator_block_width = 2
+  separator = false
+}
+
