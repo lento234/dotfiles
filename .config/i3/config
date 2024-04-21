@@ -57,7 +57,7 @@ bar {
     active_workspace   $color_bg $color_bg $color_fg
     inactive_workspace $color_bg $color_bg $color_fg
     urgent_workspace   $color_bg $color_red $color_fg
-    binding_mode       $color_bg $color_red $color_fg
+    binding_mode       $color_bg $color_blue $color_fg
   }
 }
 
@@ -176,7 +176,7 @@ assign [class="Slack"] $wsF3
 
 # custom app behaviours
 # for_window [class="1Password"] floating enable resize set 800 600; move position center; move to scratchpad
-for_window [class="1Password"] move to scratchpad
+for_window [class="1Password"] move to scratchpad focus
 for_window [class="org.gnome.Nautilus"] floating enable resize set 1280 720; move position center
 
 # resize window (you can also use the mouse for that)
@@ -269,6 +269,19 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window
 bindsym $mod+r mode "resize"
 
-# scratchpad
+# scratchpar
 bindsym $mod+d scratchpad show
 bindsym $mod+Shift+d move to scratchpad
+
+# open apps
+set $mode_launcher Launch: [f]irefox [h]top [g]lances
+bindsym $mod+o mode "$mode_launcher"
+
+mode "$mode_launcher" {
+  bindsym f exec firefox
+  bindsym h exec "kitty htop"
+  bindsym g exec "kitty glances"
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
