@@ -85,13 +85,13 @@ volume master {
 }
 
 tztime localdate {
-  format = "<span bgcolor='#F39C12' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#F39C12' foreground='black'> %a %d-%m-%Y </span>"
+  format = "<span bgcolor='#F39C12' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#F39C12' foreground='black'> %a %d %B </span>"
   separator_block_width = 2
   separator = false
 }
 
 tztime localtime {
-  format = "<span bgcolor='#928374' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#928374' foreground='black'> %I:%M %p </span>"
+  format = "<span bgcolor='#928374' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#928374' foreground='black'> %H:%M </span>"
   separator_block_width = 2
   separator = false
 }
