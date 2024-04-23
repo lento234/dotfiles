@@ -85,8 +85,9 @@ set $ws9 "9"
 set $ws10 "10"
 
 set $wsF1 "11:info"
-set $wsF2 "12: music"
-set $wsF3 "13: chat"
+set $wsF2 "12: chat"
+set $wsF3 "13: music"
+set $wsF4 "14: server"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -103,6 +104,7 @@ bindsym $mod+0 workspace number $ws10
 bindsym $mod+"F1" workspace number $wsF1
 bindsym $mod+"F2" workspace number $wsF2
 bindsym $mod+"F3" workspace number $wsF3
+bindsym $mod+"F4" workspace number $wsF4
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -119,6 +121,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+"F1" move container to workspace number $wsF1
 bindsym $mod+Shift+"F2" move container to workspace number $wsF2
 bindsym $mod+Shift+"F3" move container to workspace number $wsF3
+bindsym $mod+Shift+"F4" move container to workspace number $wsF4
 
 # Automatically putting workspaces on specific screens
 workspace $ws1 output $primary_monitor
@@ -128,6 +131,7 @@ workspace $ws3 output $primary_monitor
 workspace $wsF1 output $secondary_monitor
 workspace $wsF2 output $secondary_monitor
 workspace $wsF3 output $secondary_monitor
+workspace $wsF4 output $secondary_monitor
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -178,6 +182,7 @@ assign [class="Slack"] $wsF3
 # for_window [class="1Password"] floating enable resize set 800 600; move position center; move to scratchpad
 for_window [class="1Password"] move to scratchpad focus
 for_window [class="org.gnome.Nautilus"] floating enable resize set 1280 720; move position center
+for_window [class="obsidian"] move to scratchpad focus
 
 # Popup window handling
 # for_window [window_role="About"] floating enable
@@ -270,7 +275,7 @@ bindsym $mod+Shift+q kill
 bindcode $mod+33 exec --no-startup-id i3-dmenu-desktop
 
 # lock screen
-bindsym $mod+Shift+f exec i3lock --color "$color_bg"
+bindsym XF86Launch5 exec i3lock --color "$color_bg"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -284,19 +289,23 @@ bindsym $mod+r mode "resize"
 
 # scratchpad
 bindsym $mod+d scratchpad show
+bindsym $mod+n [class="obsidian"] scratchpad show
 bindsym $mod+Shift+d move to scratchpad
 
 # jump to urgent window
 bindsym $mod+x [urgent=latest] focus
 
+# screenshot
+bindsym Print exec ksnip -r
+
 # open apps
-set $mode_launcher Launch: [f]irefox [h]top [g]lances
+set $mode_launcher Launch: [f]irefox [g]lances [h]top
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
   bindsym f exec firefox
-  bindsym h exec "kitty htop"
   bindsym g exec "kitty glances"
+  bindsym h exec "kitty htop"
 
   bindsym Escape mode "default"
   bindsym Return mode "default"
