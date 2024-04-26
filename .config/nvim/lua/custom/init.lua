@@ -1,8 +1,8 @@
 -- general options
-require('custom.opts')
+require("custom.opts")
 -- plugins
-require('custom.lazy')
+require("custom.lazy")
 -- keymaps
-require('custom.keymaps')
+require("custom.keymaps")
 -- snippets
-require('custom.snippets')
+require("custom.snippets")

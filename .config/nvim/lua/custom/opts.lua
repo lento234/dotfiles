@@ -1,6 +1,6 @@
 -- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local opt = vim.opt
 
@@ -22,8 +22,8 @@ opt.wrap = false
 -- opt.breakindent = true
 
 -- filetypes
-opt.encoding = 'utf8'
-opt.fileencoding = 'utf8'
+opt.encoding = "utf8"
+opt.fileencoding = "utf8"
 
 -- search
 opt.ignorecase = true
@@ -52,41 +52,38 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 -- Highlight on yank (copy)
 vim.api.nvim_exec(
-  [[
+	[[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]],
-  false
+	false
 )
 
 -- remove whitespace warning in terminal
 vim.api.nvim_exec(
-  [[
+	[[
   augroup vimrc
     autocmd TermOpen * :DisableWhitespace
   augroup END
 ]],
-  false
+	false
 )
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- format on save
 vim.g.format_on_save = true
-vim.api.nvim_create_user_command("ToggleFormatOnSave",
-  function()
-    vim.g.format_on_save = not vim.g.format_on_save
-    local fidget = require("fidget")
-    if vim.g.format_on_save then
-      fidget.notify("format on save", nil, { annote = "ENABLED", key = "formatonsave" })
-    else
-      fidget.notify("format on save", nil, { annote = "DISABLED", key = "formatonsave" })
-    end
-  end,
-  {
-    desc = "Toggle format-on-save",
-    bang = true,
-  }
-)
+vim.api.nvim_create_user_command("ToggleFormatOnSave", function()
+	vim.g.format_on_save = not vim.g.format_on_save
+	local fidget = require("fidget")
+	if vim.g.format_on_save then
+		fidget.notify("format on save", nil, { annote = "ENABLED", key = "formatonsave" })
+	else
+		fidget.notify("format on save", nil, { annote = "DISABLED", key = "formatonsave" })
+	end
+end, {
+	desc = "Toggle format-on-save",
+	bang = true,
+})

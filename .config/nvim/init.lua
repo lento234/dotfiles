@@ -1,2 +1,2 @@
 -- custom configuration
-require('custom')
+require("custom")

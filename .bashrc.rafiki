@@ -35,7 +35,7 @@ alias obsidian='cd ~/Documents/obsidian-vault'
 # alias spast='sacct --starttime=$(date --date="today -1 week" +"%Y-%m-%d") --format=User,JobID,Jobname%50,partition,state,time,start,end,elapsed,MaxRss,MaxVMSize,nnodes,ncpus,nodelist'
 
 # Activate spack
-# alias activate_spack='source /opt/spack/spack/share/spack/setup-env.sh'
+alias activate_spack='source ${HOME}/lib/spack/share/spack/setup-env.sh'
 
 start_ssh_agent() {
     eval "$(ssh-agent -s)"
