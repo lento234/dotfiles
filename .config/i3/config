@@ -175,8 +175,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # assign apps to specific workspace
-assign [class="Spotify"] $wsF2
-assign [class="Slack"] $wsF3
+assign [class="Slack"] $wsF2
+assign [class="Spotify"] $wsF3
 
 # custom app behaviours
 # for_window [class="1Password"] floating enable resize set 800 600; move position center; move to scratchpad
