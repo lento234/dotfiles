@@ -27,8 +27,8 @@ eval "$(starship init bash)"
 # fuzzy-search
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# lmod module
-. "/home/lento/lib/modulefiles/activate.sh"
+# # lmod module
+# . "/home/lento/lib/modulefiles/activate.sh"
 
 # apps
 alias slack='flatpak run com.slack.Slack'
@@ -47,9 +47,9 @@ export PATH=/home/lento/lib/ziglang/zig-latest:${PATH}
 # rust
 . "$HOME/.cargo/env"
 
-# mess
-MESSPATH="/home/lento/projects/sysadmin/mess"
-source "${MESSPATH}/completions/mess.bash"
+# # mess
+# MESSPATH="/home/lento/projects/sysadmin/mess"
+# source "${MESSPATH}/completions/mess.bash"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

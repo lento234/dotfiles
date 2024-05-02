@@ -6,9 +6,22 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square&labelColor=000000)](#license)
 
-***My personal dotfiles for shell (bash, zsh), neovim, tmux, and awesomewm.***
+***My personal dotfiles for shell (bash, zsh), neovim, tmux, i3, and awesomewm.***
 
 </div>
+
+## Dependencies
+
+- bash
+- terminal: [kitty](https://sw.kovidgoyal.net/kitty/)
+- font: [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
+- compilers: [rust](https://www.rust-lang.org/), npm ([nvm](https://github.com/nvm-sh/nvm)), [golang](https://go.dev/), [zig](https://ziglang.org/), gcc
+- [neovim](https://neovim.io/) 0.9.5+
+- tmux
+- [starship](https://starship.rs/)
+- [fzf](https://github.com/junegunn/fzf)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fd](https://github.com/sharkdp/fd)
 
 ## Setup
 
@@ -59,3 +72,4 @@
 - [awesome](https://github.com/awesomeWM/awesome): https://github.com/awesomeWM/awesome
 - [awesome-copycats](https://github.com/lcpz/awesome-copycats): Awesome WM themes 
 - [yoru](https://github.com/rxyhn/yoru): 夜 - Yoru | Aesthetic and Beautiful Awesome Environment 🌓.
+

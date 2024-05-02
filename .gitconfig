@@ -23,3 +23,7 @@
     prompt = false
 [alias]
     d = difftool
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = /opt/1Password/op-ssh-sign
