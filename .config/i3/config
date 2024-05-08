@@ -6,8 +6,8 @@
 set $mod Mod4
 
 # set monitor aliases
-set $primary_monitor "DP-0"
-set $secondary_monitor "HDMI-0"
+set $primary_monitor "DP-4"
+set $secondary_monitor "DP-1"
 
 # colors
 set $color_black #000000
@@ -36,7 +36,7 @@ default_floating_border pixel $border_size
 for_window [class="^.*"] border pixel $border_size
 
 # Configure 5px of space between windows and to the screen edges.
-gaps inner 5
+# gaps inner 5
 
 # focus follows mouse
 focus_follows_mouse no
@@ -123,6 +123,9 @@ bindsym $mod+Shift+"F2" move container to workspace number $wsF2
 bindsym $mod+Shift+"F3" move container to workspace number $wsF3
 bindsym $mod+Shift+"F4" move container to workspace number $wsF4
 
+# change focus back to previous workspace
+bindsym $mod+b workspace back_and_forth
+
 # Automatically putting workspaces on specific screens
 workspace $ws1 output $primary_monitor
 workspace $ws2 output $primary_monitor
@@ -181,9 +184,10 @@ assign [class="Spotify"] $wsF3
 # custom app behaviours
 # for_window [class="1Password"] floating enable resize set 800 600; move position center; move to scratchpad
 for_window [class="1Password"] move to scratchpad focus
-for_window [class="org.gnome.Nautilus"] floating enable resize set 1280 720; move position center
 for_window [class="obsidian"] move to scratchpad focus
 for_window [class="Thunar"] floating enable resize set 860 600; move position center
+for_window [class="Org.gnome.Nautilus"] floating enable resize set 1280 720; move position center
+for_window [class="Matplotlib"] floating enable resize set 1280 720; move position center
 
 # Popup window handling
 # for_window [window_role="About"] floating enable
@@ -234,6 +238,12 @@ exec --no-startup-id nm-applet
 # exec_always xrandr --output $secondary_monitor --mode "1920x1080" --left-of $primary_monitor
 exec_always xrandr --output $primary_monitor --primary --right-of $secondary_monitor
 
+# system authentication
+exec_always /usr/libexec/polkit-gnome-authentication-agent-1
+
+# notification
+exec_always dunst
+
 # Change wallpaper
 set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-6dzvzw.jpg"
 exec_always feh --bg-fill $wallpaper
@@ -246,6 +256,12 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+## Media player controls
+#bindsym XF86AudioPlay exec playerctl play
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.

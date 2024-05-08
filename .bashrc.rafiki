@@ -69,10 +69,10 @@ export CMAKE_PREFIX_PATH="/usr/local/cuda:${CMAKE_PREFIX_PATH}"
 # export PATH="/home/lento/lib/ziglang/zig-latest:${PATH}"
 # export PATH="/home/lento/lib/ziglang/zls/zig-out/bin:${PATH}"
 
-# # conda
-# if [ -f "/home/lento/lib/miniforge/etc/profile.d/conda.sh" ]; then
-#     . "/home/lento/lib/miniforge/etc/profile.d/conda.sh"
-# fi
+# conda
+if [ -f "/home/lento/lib/miniforge3/etc/profile.d/conda.sh" ]; then
+    . "/home/lento/lib/miniforge3/etc/profile.d/conda.sh"
+fi
 
 # xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"
 

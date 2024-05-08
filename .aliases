@@ -49,6 +49,7 @@ alias ta='tmux attach -t'
 alias tl='tmux ls'
 alias ts='tmux new-session -s'
 alias icat='kitty +kitten icat'
+alias tmux_reset_ssh='eval $(tmux show-env -s | grep "^SSH_")'
 alias l='ls -l'
 
 # k8s aliases
