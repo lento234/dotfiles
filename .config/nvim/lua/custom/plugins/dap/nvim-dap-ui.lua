@@ -27,11 +27,11 @@ return {
 			layouts = {
 				{
 					elements = {
-						{ id = "scopes", size = 0.20 },
+						{ id = "scopes",      size = 0.20 },
 						{ id = "breakpoints", size = 0.20 },
-						{ id = "stacks", size = 0.20 },
-						{ id = "watches", size = 0.20 },
-						{ id = "repl", size = 0.20 },
+						{ id = "stacks",      size = 0.20 },
+						{ id = "watches",     size = 0.20 },
+						{ id = "repl",        size = 0.20 },
 					},
 					-- position = "left",
 					position = "right",
@@ -102,6 +102,30 @@ return {
 		noremap("n", "<leader>dcb", function()
 			require("persistent-breakpoints.api").clear_all_breakpoints()
 		end, "[d]ap: [c]lear all [b]reakpoints")
+
+		-- noremap("n", "<leader>gb", dap.run_to_cursor, "run to cursor")
+		noremap("n", "<leader>du", dap.up, "[d]ap: go [u]p in current stacktrace")
+		noremap("n", "<leader>dd", dap.up, "[d]ap: go [d]own in current stacktrace")
+		-- noremap("v", "<leader>p", dap.repl.execute, "dap: add and execute text in re[p]l")
+
+		local getVisualText = function()
+			vim.cmd('noau normal! "vy"')
+			local text = vim.fn.getreg("v")
+			vim.fn.setreg("v", {})
+			return text
+		end
+
+		noremap("v", "<leader>e", function()
+			dap.repl.execute(getVisualText())
+		end, "dap: [e]xecute text in repl")
+
+		noremap("v", "<leader>p", function()
+			dap.repl.execute("print(" .. getVisualText() .. ")")
+		end, "dap: [p]rint text in repl: print(text)")
+
+		noremap("v", "<leader>s", function()
+			dap.repl.execute("print(" .. getVisualText() .. ".shape)")
+		end, "dap: inspect [s]hape of variable in repl: print(text.shape)")
 
 		noremap("n", "<leader>do", function()
 			require("dapui").open()
