@@ -134,5 +134,9 @@ export GPG_TTY=$(tty)
 # selinux
 # sudo setsebool -P selinuxuser_execmod 1
 
+# network
+# check listening ports
+# lsof -nP -iTCP -sTCP:LISTEN
+
 # iptables
 # alias enable_gateway='sudo iptables -t nat -A POSTROUTING -o enp0s25 -j MASQUERADE && sudo iptables -A FORWARD -i bond0 -o enp0s25 -j ACCEPT && sudo iptables -A FORWARD -i enp0s25 -o bond0 -m state --state RELATED,ESTABLISHED -j ACCEPT'

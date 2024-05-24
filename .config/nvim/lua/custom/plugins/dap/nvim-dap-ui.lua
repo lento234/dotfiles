@@ -46,7 +46,9 @@ return {
 				},
 			},
 		})
-		require("nvim-dap-virtual-text").setup()
+		require("nvim-dap-virtual-text").setup({
+			virt_text_pos = 'eol'
+		})
 
 		-- ui customization
 		vim.fn.sign_define("DapBreakpoint", { text = "󰯯 ", texthl = "DapBreakpointSymbol" })
