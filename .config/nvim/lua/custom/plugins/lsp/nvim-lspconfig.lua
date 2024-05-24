@@ -23,7 +23,7 @@ return {
     require("mason").setup()
 
     -- [[ Configure LSP]]
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
       local nmap = function(keys, func, desc)
         if desc then
           desc = 'LSP: ' .. desc
@@ -52,15 +52,19 @@ return {
       vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
       end, { desc = 'Format current buffer with LSP' })
+
+      -- ruff + pyright
+      -- https://github.com/astral-sh/ruff/blob/main/crates/ruff_server/docs/setup/NEOVIM.md
+      if client.name == 'ruff' then
+        -- Disable hover in favor of Pyright
+        client.server_capabilities.hoverProvider = false
+      end
     end
 
     -- Enable language servers
     local servers = {
       clangd = {},
       gopls = {},
-      pyright = {},
-      ruff_lsp = {},
-      rust_analyzer = {},
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
@@ -69,6 +73,24 @@ return {
           -- diagnostics = { disable = { 'missing-fields' } },
         },
       },
+      prettier = {},
+      pyright = {
+        settings = {
+          pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              -- Ignore all files for analysis to exclusively use Ruff for linting
+              ignore = { '*' },
+            },
+          },
+        },
+      },
+      ruff = {},
+      -- ruff_lsp = {},
+      rust_analyzer = {},
     }
 
     -- autocompletion
@@ -92,24 +114,24 @@ return {
     })
 
     -- Configure `ruff-lsp`.
-    local configs = require 'lspconfig.configs'
-    if not configs.ruff_lsp then
-      configs.ruff_lsp = {
-        default_config = {
-          cmd = { 'ruff-lsp' },
-          filetypes = { 'python' },
-          root_dir = require('lspconfig').util.find_git_ancestor,
-          init_options = {
-            settings = {
-              args = {}
-            }
-          }
-        }
-      }
-    end
-    require('lspconfig').ruff_lsp.setup {
-      on_attach = on_attach,
-    }
+    -- local configs = require 'lspconfig.configs'
+    -- if not configs.ruff_lsp then
+    --   configs.ruff_lsp = {
+    --     default_config = {
+    --       cmd = { 'ruff-lsp' },
+    --       filetypes = { 'python' },
+    --       root_dir = require('lspconfig').util.find_git_ancestor,
+    --       init_options = {
+    --         settings = {
+    --           args = {}
+    --         }
+    --       }
+    --     }
+    --   }
+    -- end
+    -- require('lspconfig').ruff_lsp.setup {
+    --   on_attach = on_attach,
+    -- }
 
     require('lspconfig').tsserver.setup {
       init_options = {
