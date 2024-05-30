@@ -18,5 +18,8 @@ return {
     -- Magic buffer-picking mode
     noremap("n", "<C-p>", "<Cmd>BufferPick<CR>", "buffer [p]ick")
     noremap("n", "<A-p>", "<Cmd>BufferPin<CR>", "buffer pin")
+
+    -- close others
+    noremap("n", "<leader>cc", "<Cmd>BufferCloseAllButCurrent<CR>", "buffer [c]lose all but [c]current")
   end,
 }
