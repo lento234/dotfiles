@@ -73,7 +73,7 @@ return {
           -- diagnostics = { disable = { 'missing-fields' } },
         },
       },
-      prettier = {},
+      -- prettier = {},
       pyright = {
         settings = {
           pyright = {
