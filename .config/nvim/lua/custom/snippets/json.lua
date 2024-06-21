@@ -4,8 +4,8 @@ local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("json", {
-  s("godebug", fmt(
-    [[
+    s("godebug", fmt(
+        [[
 {{
     "version": "0.2.0",
     "configurations": [
@@ -19,6 +19,6 @@ ls.add_snippets("json", {
     ]
 }}
     ]], {
-      i(1, "name")
-    }))
+            i(1, "name")
+        }))
 })

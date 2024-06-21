@@ -38,13 +38,13 @@ noremap("n", "<leader>tl", ":set invrelativenumber<CR>", "[t]oggle relative [l]i
 noremap("n", "<leader>tf", ":ToggleFormatOnSave<CR>", "[t]oggle disable [f]ormat on save")
 
 -- window
-noremap("n", "<leader>sv", "<C-w>v", "[s]plit [v]ertical") -- split vertical
+noremap("n", "<leader>sv", "<C-w>v", "[s]plit [v]ertical")   -- split vertical
 noremap("n", "<leader>sh", "<C-w>s", "[s]plit [h]orizontal") -- split horizontal
-noremap("n", "<leader>se", "<C-w>=", "[s]plit [e]qual") -- equal the split
-noremap("n", "<leader>sx", ":close<CR>", "[s]plit close") -- close split window
+noremap("n", "<leader>se", "<C-w>=", "[s]plit [e]qual")      -- equal the split
+noremap("n", "<leader>sx", ":close<CR>", "[s]plit close")    -- close split window
 
 -- tab
-noremap("n", "<leader>to", ":tabnew<CR>", "[t]ab [o]pen") -- open new tab
+noremap("n", "<leader>to", ":tabnew<CR>", "[t]ab [o]pen")    -- open new tab
 noremap("n", "<leader>tx", ":tabclose<CR>", "[t]ab e[x]it ") -- close tab
-noremap("n", "<leader>tn", ":tabn<CR>", "[t]ab [n]ext") -- next tab
+noremap("n", "<leader>tn", ":tabn<CR>", "[t]ab [n]ext")      -- next tab
 noremap("n", "<leader>tp", ":tabp<CR>", "[t]ab [p]revious ") -- previous tab

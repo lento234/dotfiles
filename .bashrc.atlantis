@@ -59,3 +59,6 @@ export NVM_DIR="$HOME/.nvm"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+
+# neovim
+export PATH="/home/lento/lib/neovim/install/bin:$PATH"

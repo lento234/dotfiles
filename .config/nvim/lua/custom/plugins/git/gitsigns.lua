@@ -3,14 +3,6 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		current_line_blame_formatter = '<abbrev_sha>: <author>, <author_time:%Y-%m-%d> - <summary>',
-		-- See `:help gitsigns.txt`
-		-- signs = {
-		-- 	add = { text = "+" },
-		-- 	change = { text = "~" },
-		-- 	delete = { text = "_" },
-		-- 	topdelete = { text = "‾" },
-		-- 	changedelete = { text = "~" },
-		-- },
 		on_attach = function(bufnr)
 			local gitsigns = require("gitsigns")
 
