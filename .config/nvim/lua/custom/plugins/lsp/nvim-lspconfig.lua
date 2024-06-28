@@ -32,7 +32,7 @@ return {
       end
       -- keymaps
       nmap('K', vim.lsp.buf.hover, 'hover documentation')
-      nmap('<C-k>', vim.lsp.buf.signature_help, 'signature documentation')
+      nmap('<M-k>', vim.lsp.buf.signature_help, 'signature documentation')
 
       nmap('gd', require('telescope.builtin').lsp_definitions, '[g]oto [d]efinition')
       nmap('gD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')

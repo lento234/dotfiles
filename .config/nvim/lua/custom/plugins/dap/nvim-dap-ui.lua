@@ -147,7 +147,7 @@ return {
 		noremap("n", "<leader>df", ":Telescope dap frames<CR>", "[d]ap: telescope list [f]rames")
 		noremap("n", "<leader>db", ":Telescope dap list_breakpoints<CR>", "[d]ap: telescope list [b]reakpoints")
 		-- dapui
-		noremap("n", "<M-k>", function()
+		noremap("n", "<M-m>", function()
 			require("dapui").eval()
 		end, "dap: [k]eval")
 
