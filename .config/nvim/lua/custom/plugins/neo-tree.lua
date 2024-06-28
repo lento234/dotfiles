@@ -10,6 +10,6 @@ return {
 
 	keys = {
 		{ "<leader>n",  ":Neotree toggle current float reveal_force_cwd<cr>", desc = "tree: show file in floating [n]eo-tree", silent = true },
-		{ "<leader>tt", ":Neotree toggle reveal_force_cwd<cr>",               desc = "tree: show file in [n]eo-tree",          silent = true },
+		{ "<leader>tt", ":Neotree toggle left reveal_force_cwd<cr>",          desc = "tree: show file in [n]eo-tree",          silent = true },
 	},
 }
