@@ -7,7 +7,7 @@ return {
 	},
 	config = function()
 		require("auto-session").setup({
-			pre_save_cmds = { "NvimTreeClose" },
+			pre_save_cmds = { "NeoTree close" },
 			log_level = "error",
 			auto_session_supress_dirs = {
 				"~/",
