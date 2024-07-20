@@ -21,10 +21,11 @@ source $ZSH/oh-my-zsh.sh
 # homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
-export LD_LIBRARY_PATH=/opt/homebrew/lib:$LD_LIBRARY_PATH
-export CPATH=/opt/homebrew/include:$CPATH
-export LDFLAGS="-L/opt/homebrew/lib"
-export CPPFLAGS="-I/opt/homebrew/include"
+# export LD_LIBRARY_PATH=/opt/homebrew/lib:$LD_LIBRARY_PATH
+# export CPATH=/opt/homebrew/include:$CPATH
+# export LDFLAGS="-L/opt/homebrew/lib"
+# export CPPFLAGS="-I/opt/homebrew/include"
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
 
 # language environment
 export LC_ALL=en_US.UTF-8
@@ -34,7 +35,7 @@ export LANG=en_US.UTF-8
 COREUTILS_VER=9.5
 export PATH=/opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnubin:$PATH
 export MANPATH=/opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnuman:$MANPATH
-export PATH=/opt/homebrew/Cellar/gnu-getopt/2.39.2/bin:$PATH
+export PATH=/opt/homebrew/Cellar/gnu-getopt/2.40.1/bin:$PATH
 
 # colors
 if [ -x /opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnubin/dircolors ]; then
@@ -83,8 +84,8 @@ unset __mamba_setup
 # c++
 activate_llvm() {
   export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-  export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-  export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+  # export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+  # export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 }
 
 # zig
@@ -103,6 +104,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-export CXX=/opt/homebrew/bin/g++-13
-export CC=/opt/homebrew/bin/gcc-13
+export CXX=/opt/homebrew/bin/g++-14
+export CC=/opt/homebrew/bin/gcc-14
 
+# bun completions
+[ -s "/Users/lento/.bun/_bun" ] && source "/Users/lento/.bun/_bun"
