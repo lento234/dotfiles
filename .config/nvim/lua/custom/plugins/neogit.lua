@@ -9,7 +9,7 @@ return {
 		"nvim-telescope/telescope.nvim", -- optional
 	},
 	keys = {
-		{ "<leader>gg", ":Neogit<CR>", desc = "[g]o launch neo[g]it" },
+		{ "<leader>tg", ":Neogit<CR>", desc = "[t]oggle neo[g]it" },
 	},
 	config = true,
 }

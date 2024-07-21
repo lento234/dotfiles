@@ -8,7 +8,7 @@ return {
 			cpp = { "clang-format" },
 			html = { "prettier" },
 			lua = { "stylua" },
-			python = { "ruff_lsp" },
+			python = { "ruff_format", "ruff_organize_imports" },
 			-- Use a sub-list to run only the first available formatter
 			-- javascript = { { "prettierd", "prettier" } },
 			javascript = { "prettier" },

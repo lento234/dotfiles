@@ -91,6 +91,10 @@ return {
       ruff = {},
       -- ruff_lsp = {},
       rust_analyzer = {},
+      -- ts/js/vue
+      volar = {
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
+      }
     }
 
     -- autocompletion
@@ -113,26 +117,6 @@ return {
       end,
     })
 
-    -- Configure `ruff-lsp`.
-    -- local configs = require 'lspconfig.configs'
-    -- if not configs.ruff_lsp then
-    --   configs.ruff_lsp = {
-    --     default_config = {
-    --       cmd = { 'ruff-lsp' },
-    --       filetypes = { 'python' },
-    --       root_dir = require('lspconfig').util.find_git_ancestor,
-    --       init_options = {
-    --         settings = {
-    --           args = {}
-    --         }
-    --       }
-    --     }
-    --   }
-    -- end
-    -- require('lspconfig').ruff_lsp.setup {
-    --   on_attach = on_attach,
-    -- }
-
     require('lspconfig').tsserver.setup {
       init_options = {
         plugins = {
@@ -147,12 +131,5 @@ return {
       },
       filetypes = { "javascript", "typescript", "vue" },
     }
-
-    -- ts/js/vue
-    require('lspconfig').volar.setup({
-      on_attach = on_attach,
-      -- enable "take over mode" for typescript files as well: https://github.com/johnsoncodehk/volar/discussions/471
-      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
-    })
   end,
 }
