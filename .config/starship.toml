@@ -23,9 +23,6 @@ symbol = " "
 
 [directory]
 read_only = " 󰌾"
-format = "[ $path ]($style)"
-truncation_length = 8
-truncation_symbol = "../"
 
 [docker_context]
 symbol = " "
@@ -160,7 +157,7 @@ symbol = "󰟔 "
 symbol = " "
 
 [rust]
-symbol = " "
+symbol = "󱘗 "
 
 [scala]
 symbol = " "
