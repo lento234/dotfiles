@@ -49,6 +49,9 @@ export PATH=${GOPATH}/bin:${GOROOT}/bin:${PATH}
 # zig
 export PATH=/home/lento/lib/ziglang/zig-latest:${PATH}
 
+# c3
+export PATH=/home/lento/lib/c3/c3-latest:${PATH}
+
 # rust
 . "$HOME/.cargo/env"
 
