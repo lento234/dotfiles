@@ -2,7 +2,7 @@ return {
 	"lewis6991/gitsigns.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
-		current_line_blame_formatter = '<abbrev_sha>: <author>, <author_time:%Y-%m-%d> - <summary>',
+		current_line_blame_formatter = "<abbrev_sha>: <author>, <author_time:%Y-%m-%d> - <summary>",
 		on_attach = function(bufnr)
 			local gitsigns = require("gitsigns")
 
@@ -47,6 +47,9 @@ return {
 			map("n", "<leader>hb", function()
 				gitsigns.blame_line({ full = true })
 			end, { desc = "git blame line" })
+			map("n", "<leader>hB", function()
+				gitsigns.blame()
+			end, { desc = "git blame buffer" })
 			map("n", "<leader>hd", gitsigns.diffthis, { desc = "git diff against index" })
 			map("n", "<leader>hD", function()
 				gitsigns.diffthis("~")
