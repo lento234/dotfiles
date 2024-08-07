@@ -78,7 +78,9 @@ return {
 		noremap("n", "<leader>fk", require("telescope.builtin").keymaps, "telescope: [f]ind by [k]keymaps")
 		noremap("n", "<leader>ft", ":TodoTelescope<CR>", "telescope: [f]ind [t]odo")
 		noremap("n", "<leader>fr", require("telescope.builtin").registers, "telescope: [f]ind [r]egister")
-		noremap("n", "<leader>gw", require("telescope.builtin").grep_string, "telescope: [g]rep current [w]ord")
+		noremap("n", "<leader>fc", require("telescope.builtin").git_commits, "telescope: [f]ind git [c]ommits")
+		noremap("n", "<leader>gs", require("telescope.builtin").git_status, "telescope: [g]it [s]tatus")
+		-- noremap("n", "<leader>gw", require("telescope.builtin").grep_string, "telescope: [g]rep current [w]ord")
 		-- keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 	end,
 }
