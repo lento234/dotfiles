@@ -306,13 +306,14 @@ bindsym $mod+x [urgent=latest] focus
 bindsym Print exec ksnip -r
 
 # open apps
-set $mode_launcher Launch: [f]irefox [g]lances [h]top
+set $mode_launcher Launch: [f]irefox [g]lances [h]top [o]bsidian
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
   bindsym f exec firefox
   bindsym g exec "kitty glances"
   bindsym h exec "kitty htop"
+  bindsym o exec obsidian
 
   bindsym Escape mode "default"
   bindsym Return mode "default"
