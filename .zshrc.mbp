@@ -92,9 +92,13 @@ activate_llvm() {
 export PATH="/Users/lento/lib/zig/zig-latest:${PATH}"
 export PATH="/Users/lento/lib/zig/zls/zig-out/bin:${PATH}"
 
+alias zbr='zig build run --summary all'
+alias zb='zig build --summary all'
+alias zbt='zig build test --summary all'
+
 # golang
-export GOPATH="/Users/lento/lib/go"
-export PATH="${GOPATH}/bin:${PATH}"
+export GOROOT="/Users/lento/lib/go/go-latest"
+export PATH="${GOROOT}/bin:${PATH}"
 
 # mess
 source /Users/lento/projects/mess/completions/mess.bash
