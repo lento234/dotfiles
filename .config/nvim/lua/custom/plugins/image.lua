@@ -2,7 +2,6 @@ return {
 	{
 		"vhyrro/luarocks.nvim",
 		priority = 1001, -- this plugin needs to run before anything else
-		enabled = vim.fn.has("linux") == 1,
 		opts = {
 			rocks = { "magick" },
 		},
@@ -10,7 +9,6 @@ return {
 	{
 		"3rd/image.nvim",
 		dependencies = { "luarocks.nvim" },
-		enabled = vim.fn.has("linux") == 1,
 		config = function()
 			-- default config
 			require("image").setup({
