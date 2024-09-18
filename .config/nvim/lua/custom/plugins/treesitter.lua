@@ -19,16 +19,24 @@ return {
 			ensure_installed = {
 				"bash",
 				"c",
+				"cmake",
 				"cpp",
+				"css",
 				"go",
+				"html",
+				"javascript",
+				"json",
 				"lua",
+				"make",
 				"markdown",
 				"python",
+				"rust",
+				"toml",
+				"typescript",
 				"vim",
 				"yaml",
 			},
 			auto_install = true,
-
 			incremental_selection = {
 				enable = true,
 				keymaps = {
