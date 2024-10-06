@@ -67,8 +67,11 @@ return {
 		end, "telescope: [f]ind [f]iles")
 		noremap("n", "<leader>fh", require("telescope.builtin").help_tags, "telescope: [f]ind [h]elp")
 		noremap("n", "<leader>fw", function()
-			require("telescope.builtin").live_grep({ additional_args = { "--hidden" } })
+			require("telescope.builtin").live_grep()
 		end, "telescope: [f]ind [w]ord")
+		noremap("n", "<leader>faw", function()
+			require("telescope.builtin").live_grep({ additional_args = { "--hidden" } })
+		end, "telescope: [f]ind [a]ll [w]ord")
 		noremap(
 			"n",
 			"<leader>fs",

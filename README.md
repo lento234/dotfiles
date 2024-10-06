@@ -45,6 +45,14 @@
     $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     ```
 
+### Neovim setup
+
+Requirements:
+
+ - image.nvim:
+  - imagemagick
+  - pkg-config
+
 ## Links
 
 ### Themeing
