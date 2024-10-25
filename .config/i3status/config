@@ -30,12 +30,12 @@ general {
   markup = "pango"
 }
 
-order += "cpu_usage"
-order += "load"
-order += "memory"
-order += "disk /"
-order += "ethernet _first_"
-order += "volume master"
+# order += "cpu_usage"
+# order += "load"
+# order += "memory"
+# order += "disk /"
+# order += "ethernet _first_"
+# order += "volume master"
 order += "tztime localdate"
 order += "tztime localtime"
 
@@ -93,7 +93,7 @@ volume master {
 
 tztime localdate {
   # format = "<span bgcolor='#F39C12' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#F39C12' foreground='black'> %a %d %B </span>"
-  format = "<span weight='bold' bgcolor='#F39C12' foreground='black'> %a %d %B </span>"
+  format = "<span weight='bold' foreground='#eddbb2'> %a %d %B </span>"
   separator_block_width = 2
   separator = false
 }

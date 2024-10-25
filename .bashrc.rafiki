@@ -27,7 +27,7 @@ unlock_strongbox () {
 }
 alias strongbox='cd /mnt/strongbox/'
 alias renderman='cd /mnt/strongbox/projects/RendermanBuild'
-alias obsidian='cd ~/Documents/obsidian-vault'
+# alias obsidian='cd ~/Documents/obsidian-vault'
 
 # slurm
 # alias sq='squeue -o "%.8i %.9P %.15j %.9u %.9a %.8T %.12L %.12l %.6D %.3m %.4C %.8R %.22b %e"'
