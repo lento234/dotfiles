@@ -1,6 +1,7 @@
 [user]
     name = Lento Manickathan
     email = lento.manickathan@gmail.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBaxHjLqa71+eIoaqggFtS/SB8wr7OXPd1E0lNgZY2AS
 [filter "lfs"]
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process

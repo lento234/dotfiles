@@ -6,8 +6,8 @@
 set $mod Mod4
 
 # set monitor aliases
-set $primary_monitor "DP-4"
-set $secondary_monitor "DP-1"
+set $primary_monitor "DP-1"
+set $secondary_monitor "HDMI-1"
 
 # colors
 set $color_black #000000
@@ -36,7 +36,7 @@ default_floating_border pixel $border_size
 for_window [class="^.*"] border pixel $border_size
 
 # Configure 5px of space between windows and to the screen edges.
-# gaps inner 5
+gaps inner 5
 
 # focus follows mouse
 focus_follows_mouse no
@@ -81,13 +81,13 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws9 "9: music"
+set $ws10 "10: chat"
 
-set $wsF1 "11:info"
-set $wsF2 "12: chat"
-set $wsF3 "13: music"
-set $wsF4 "14: server"
+# set $wsF1 "12: chat"
+# set $wsF2 "13: music"
+# set $wsF3 "14: server"
+# set $wsF4 "11:info"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -101,10 +101,10 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-bindsym $mod+"F1" workspace number $wsF1
-bindsym $mod+"F2" workspace number $wsF2
-bindsym $mod+"F3" workspace number $wsF3
-bindsym $mod+"F4" workspace number $wsF4
+# bindsym $mod+"F1" workspace number $wsF1
+# bindsym $mod+"F2" workspace number $wsF2
+# bindsym $mod+"F3" workspace number $wsF3
+# bindsym $mod+"F4" workspace number $wsF4
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -118,10 +118,10 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-bindsym $mod+Shift+"F1" move container to workspace number $wsF1
-bindsym $mod+Shift+"F2" move container to workspace number $wsF2
-bindsym $mod+Shift+"F3" move container to workspace number $wsF3
-bindsym $mod+Shift+"F4" move container to workspace number $wsF4
+# bindsym $mod+Shift+"F1" move container to workspace number $wsF1
+# bindsym $mod+Shift+"F2" move container to workspace number $wsF2
+# bindsym $mod+Shift+"F3" move container to workspace number $wsF3
+# bindsym $mod+Shift+"F4" move container to workspace number $wsF4
 
 # change focus back to previous workspace
 bindsym $mod+b workspace back_and_forth
@@ -129,12 +129,12 @@ bindsym $mod+b workspace back_and_forth
 # Automatically putting workspaces on specific screens
 workspace $ws1 output $primary_monitor
 workspace $ws2 output $primary_monitor
-workspace $ws3 output $primary_monitor
+# workspace $ws3 output $primary_monitor
 
-workspace $wsF1 output $secondary_monitor
-workspace $wsF2 output $secondary_monitor
-workspace $wsF3 output $secondary_monitor
-workspace $wsF4 output $secondary_monitor
+# workspace $wsF1 output $secondary_monitor
+# workspace $wsF2 output $secondary_monitor
+# workspace $wsF3 output $secondary_monitor
+# workspace $wsF4 output $secondary_monitor
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -178,16 +178,19 @@ bindsym $mod+a focus parent
 # bindsym $mod+z focus child
 
 # assign apps to specific workspace
-assign [class="Slack"] $wsF2
-assign [class="Spotify"] $wsF3
+assign [class="Spotify"] $ws9
+assign [class="Slack"] $ws10
 
 # custom app behaviours
 # for_window [class="1Password"] floating enable resize set 800 600; move position center; move to scratchpad
 for_window [class="1Password"] move to scratchpad focus
 for_window [class="obsidian"] move to scratchpad focus
 for_window [class="Thunar"] floating enable resize set 860 600; move position center
-for_window [class="Org.gnome.Nautilus"] floating enable resize set 1280 720; move position center
+for_window [class="*.gnome.Nautilus"] floating enable resize set 1280 720; move position center
 for_window [class="Matplotlib"] floating enable resize set 1280 720; move position center
+for_window [class="^zoom$"] floating enable
+for_window [class="^IMGUI"] floating enable
+for_window [class="^napari$"] floating enable
 
 # Popup window handling
 # for_window [window_role="About"] floating enable
@@ -225,6 +228,9 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
+# polybar
+# exec --no-startup-id polybar
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color "$color_bg"
@@ -236,7 +242,7 @@ exec --no-startup-id nm-applet
 # Display resolution
 # exec_always xrandr --output $secondary_monitor --mode "1920x1080" --left-of $primary_monitor
 # exec_always xrandr --output $secondary_monitor --mode "1920x1080" --left-of $primary_monitor
-exec_always xrandr --output $primary_monitor --primary --right-of $secondary_monitor
+# exec_always xrandr --output $primary_monitor --primary --right-of $secondary_monitor
 
 # system authentication
 exec_always /usr/libexec/polkit-gnome-authentication-agent-1
@@ -245,7 +251,7 @@ exec_always /usr/libexec/polkit-gnome-authentication-agent-1
 exec_always dunst
 
 # Change wallpaper
-set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-6dzvzw.jpg"
+set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-gpedg3.jpg"
 exec_always feh --bg-fill $wallpaper
 
 # Shortcuts --------
