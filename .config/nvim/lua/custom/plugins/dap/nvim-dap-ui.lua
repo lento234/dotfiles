@@ -107,7 +107,7 @@ return {
 
 		-- noremap("n", "<leader>gb", dap.run_to_cursor, "run to cursor")
 		noremap("n", "<leader>du", dap.up, "[d]ap: go [u]p in current stacktrace")
-		noremap("n", "<leader>dd", dap.up, "[d]ap: go [d]own in current stacktrace")
+		noremap("n", "<leader>dd", dap.down, "[d]ap: go [d]own in current stacktrace")
 		-- noremap("v", "<leader>p", dap.repl.execute, "dap: add and execute text in re[p]l")
 
 		local getVisualText = function()
@@ -130,7 +130,7 @@ return {
 		end, "dap: inspect [s]hape of variable in repl: print(text.shape)")
 
 		noremap("n", "<leader>do", function()
-			require("dapui").open()
+			require("dapui").open({ reset = true })
 		end, "[d]ap: [o]pen")
 		noremap("n", "<leader>dC", function()
 			require("dapui").close()
