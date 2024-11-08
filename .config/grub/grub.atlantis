@@ -1,0 +1,8 @@
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="resume=UUID=890e5531-9e31-42e2-a53c-8767e3b1bda9 rhgb rd.driver.blacklist=nouveau modprobe.blacklist=nouveau amd_iommu=on vfio-pci.ids=10de:1e07,10de:10f7,10de:1ad6,10de:1ad7"
+GRUB_DISABLE_RECOVERY="true"
+GRUB_ENABLE_BLSCFG=true
