@@ -26,7 +26,7 @@ general {
   color_bad = "#af1d18"
   color_degraded = "#00dddd"
   colors = false
-  interval = 5
+  interval = 2
   markup = "pango"
 }
 
@@ -93,13 +93,13 @@ tztime localdate {
   # format = "<span bgcolor='#F39C12' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#F39C12' foreground='black'> %a %d %B </span>"
   format = "<span weight='bold' foreground='#eddbb2'> %a %d %B </span>"
   separator_block_width = 2
-  separator = false
+  separator = true
 }
 
 tztime localtime {
   # format = "<span bgcolor='#928374' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#928374' foreground='black'> %H:%M </span>"
-  format = "<span weight='bold' bgcolor='#F39C12' foreground='black'> %H:%M </span>"
+  # format = "<span weight='bold' bgcolor='#F39C12' foreground='black'> %H:%M </span>"
+  format = "<span weight='bold' foreground='#eddbb2'> %H:%M </span>"
   separator_block_width = 2
   separator = false
 }
-

@@ -15,9 +15,11 @@ set $color_gray #928374
 set $color_bg #1d2021
 set $color_fg #eddbb2
 set $color_purple #b16286
+set $color_darkpurple #8f3f71
 set $color_orange #ff8c00
 set $color_darkorange #d65d0e
 set $color_blue #458588
+set $color_darkblue #076678
 set $color_lightblue #83a598
 set $color_green #98971a
 set $color_aqua #8ec07c
@@ -46,14 +48,19 @@ focus_follows_mouse no
 
 bar {
   position top
-  status_command i3status
+  # status_command i3status
+  status_command i3status | ~/.config/i3status/curwin/curwin
   strip_workspace_numbers yes
+  tray_output none
+  workspace_min_width 30
+  binding_mode_indicator yes
+
   colors {
     background $color_bg
     statusline $color_fg
-    separator $color_fg
+    separator $color_darkblue
 
-    focused_workspace  $color_bg $color_orange $color_black
+    focused_workspace  $color_bg $color_blue $color_black
     active_workspace   $color_bg $color_bg $color_fg
     inactive_workspace $color_bg $color_bg $color_fg
     urgent_workspace   $color_bg $color_red $color_fg
@@ -63,7 +70,7 @@ bar {
 
 # window colors
 # class                 border  backgr. text    indicator child_border
-client.focused          $color_bg $color_bg $color_green $color_purple $color_purple
+client.focused          $color_bg $color_bg $color_green $color_darkblue $color_darkblue
 client.focused_inactive #333333 $color_bg $color_fg #484e50   #5f676a
 client.unfocused        #333333 $color_bg #888888 #292d2e   #222222
 client.urgent           #2f343a $color_red $color_fg $color_red   $color_red
@@ -81,8 +88,8 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9: music"
-set $ws10 "10: chat"
+set $ws9 "9: "
+set $ws10 "10: "
 
 # set $wsF1 "12: chat"
 # set $wsF2 "13: music"
