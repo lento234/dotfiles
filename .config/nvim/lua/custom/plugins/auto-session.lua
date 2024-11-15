@@ -10,11 +10,7 @@ return {
 			-- pre_save_cmds = { "NeoTree close" },
 			pre_save_cmds = { "NvimTreeClose" },
 			log_level = "error",
-			auto_session_supress_dirs = {
-				"~/",
-				"~/Downloads",
-				"/",
-			},
+			suppressed_dirs = { '~/', '~/Downloads', '/' },
 		})
 	end,
 }
