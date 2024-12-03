@@ -90,7 +90,7 @@ activate_llvm() {
 
 # zig
 export PATH="/Users/lento/lib/zig/zig-latest:${PATH}"
-export PATH="/Users/lento/lib/zig/zls/zig-out/bin:${PATH}"
+# export PATH="/Users/lento/lib/zig/zls/zig-out/bin:${PATH}"
 
 alias zbr='zig build run --summary all'
 alias zb='zig build --summary all'
