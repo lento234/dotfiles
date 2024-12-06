@@ -30,3 +30,9 @@
     program = /opt/1Password/op-ssh-sign
 [rebase]
     updateRefs = true
+
+[alias]
+    lognice=log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+    logstat=log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat
+    loggraph=log --oneline --decorate --graph --all
+    logshort=log --oneline --decorate --graph
