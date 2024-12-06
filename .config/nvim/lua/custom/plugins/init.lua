@@ -7,4 +7,6 @@ return {
 	-- tabstop and shiftwidth automatically
 	"tpope/vim-sleuth",
 	-- nvim-tmux navigation
+	-- partial diff
+	"ryutaro-asada/partial-diff.nvim",
 }

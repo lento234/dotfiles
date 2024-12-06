@@ -67,7 +67,7 @@ export PATH="${GOPATH}/bin:${PATH}"
 # export CMAKE_PREFIX_PATH="/usr/local/cuda:${CMAKE_PREFIX_PATH}"
 
 # zig
-# export PATH="/home/lento/lib/ziglang/zig-latest:${PATH}"
+export PATH="/home/lento/lib/ziglang/zig-latest:${PATH}"
 # export PATH="/home/lento/lib/ziglang/zls/zig-out/bin:${PATH}"
 
 # conda
