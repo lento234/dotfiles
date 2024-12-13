@@ -17,5 +17,5 @@ require("lazy").setup({
 	{ import = "custom.plugins.git" },
 	{ import = "custom.plugins.lsp" },
 	{ import = "custom.plugins.dap" },
-	{ import = "custom.plugins.jupyter" },
+	-- { import = "custom.plugins.jupyter" },
 })
