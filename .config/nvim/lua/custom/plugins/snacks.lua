@@ -29,10 +29,10 @@ return {
 				scroll = { enabled = true },
 				statuscolumn = { enabled = true },
 				-- terminal = { enabled = true },
-				words = {
-					debounce = 200, -- time in ms to wait before updating
-					-- enabled = true
-				},
+				-- words = {
+				-- 	debounce = 200, -- time in ms to wait before updating
+				-- 	-- enabled = true
+				-- },
 			}
 		)
 	end
