@@ -18,20 +18,18 @@ return {
 				-- or leave it empty to use the default settings
 				-- refer to the configuration section below
 				bigfile = { enabled = true },
-				indent = {
-					enabled = false, -- enable indent guides
-				},
+				-- indent = { enabled = true },
 				input = { enabled = true },
 				git = { enabled = true },
 				lazygit = { enabled = true },
-				notifier = { enabled = false },
+				-- notifier = { enabled = true },
 				quickfile = { enabled = true },
-				scroll = { enabled = true },
+				-- scroll = { enabled = true },
 				statuscolumn = { enabled = true },
 				-- terminal = { enabled = true },
 				-- words = {
-				-- 	debounce = 200, -- time in ms to wait before updating
-				-- 	-- enabled = true
+				-- 	-- 	debounce = 200, -- time in ms to wait before updating
+				-- 	enabled = true
 				-- },
 			}
 		)

@@ -1,5 +1,6 @@
 return {
 	"rmagatti/auto-session",
+	lazy = false,
 	keys = {
 		{ "<leader>ss", ":SessionSave<CR>",    desc = "[s]session: [s]ave" },
 		{ "<leader>sd", ":SessionDelete<CR>",  desc = "[s]session: [d]elete" },
