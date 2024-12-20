@@ -1,5 +1,11 @@
 return {
-	"fatih/vim-go",
+	{
+		"fatih/vim-go",
+		ft = "go",
+	},
 	-- zig
-	"ziglang/zig.vim",
+	{
+		"ziglang/zig.vim",
+		ft = "zig",
+	}
 }

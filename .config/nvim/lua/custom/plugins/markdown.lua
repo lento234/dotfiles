@@ -1,7 +1,8 @@
 return {
 	"OXY2DEV/markview.nvim",
 	lazy = false, -- Recommended
-	-- ft = "markdown" -- If you decide to lazy-load anyway
+	-- If you decide to lazy-load anyway
+	ft = "markdown",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons"
