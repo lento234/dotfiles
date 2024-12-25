@@ -1,0 +1,63 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+# prompt
+eval "$(starship init bash)"
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Bash
+export HISTSIZE=100000
+
+# variables
+export GTK_THEME=Adwaita:dark
+
+# General aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+alias update='sudo pacman -Syu && paru -Syu'
+
+# 1password agent sock binding only if local and non-root
+if [[ ((EUID != 0 )) && ! ${SSH_TTY} && -z ${SSH_CLIENT} ]]; then
+    export SSH_AUTH_SOCK=${HOME}/.1password/agent.sock
+fi
+
+# Languages
+
+# golang
+export GOROOT=/home/lento/lib/golang/go-latest
+export GOPATH=${GOROOT}/packages
+export PATH=${GOPATH}/bin:${GOROOT}/bin:${PATH}
+
+# zig
+export PATH=/home/lento/lib/ziglang/zig-latest:${PATH}
+
+# yazi
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
