@@ -1,22 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# iterm2
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-CASE_SENSITIVE="true"
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# # iterm2
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # homebrew
 export PATH="/opt/homebrew/bin:$PATH"
@@ -27,6 +10,9 @@ export PATH="/opt/homebrew/sbin:$PATH"
 # export CPPFLAGS="-I/opt/homebrew/include"
 export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
 
+# starship
+eval "$(starship init zsh)"
+
 # language environment
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -35,7 +21,7 @@ export LANG=en_US.UTF-8
 COREUTILS_VER=9.5
 export PATH=/opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnubin:$PATH
 export MANPATH=/opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnuman:$MANPATH
-export PATH=/opt/homebrew/Cellar/gnu-getopt/2.40.1/bin:$PATH
+export PATH=/opt/homebrew/Cellar/gnu-getopt/2.40.2/bin:$PATH
 
 # colors
 if [ -x /opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnubin/dircolors ]; then
@@ -47,9 +33,10 @@ if [ -x /opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnubin/dircolors
 fi
 unset COREUTILS_VER
 
+alias ll='ls -l'
 
-# Created by `pipx` on 2022-07-07 09:28:35
-export PATH="$PATH:/Users/lento/.local/bin"
+# # Created by `pipx` on 2022-07-07 09:28:35
+# export PATH="$PATH:/Users/lento/.local/bin"
 
 # ssh
 DEFAULT_USER=$USER
@@ -63,23 +50,6 @@ alias add_ssh_key='ssh-add -K ~/.ssh/id_ed25519 &> /dev/null'
 
 # rust
 . "$HOME/.cargo/env"
-
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="/opt/homebrew/opt/micromamba/bin/micromamba";
-export MAMBA_ROOT_PREFIX="/Users/lento/lib/micromamba";
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    if [ -f "/Users/lento/lib/micromamba/etc/profile.d/micromamba.sh" ]; then
-        . "/Users/lento/lib/micromamba/etc/profile.d/micromamba.sh"
-    else
-        export  PATH="/Users/lento/lib/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
-    fi
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
 
 # c++
 activate_llvm() {
@@ -100,9 +70,6 @@ alias zbt='zig build test --summary all'
 export GOROOT="/Users/lento/lib/go/go-latest"
 export PATH="${GOROOT}/bin:${PATH}"
 
-# mess
-source /Users/lento/projects/mess/completions/mess.bash
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -113,3 +80,12 @@ export CC=/opt/homebrew/bin/gcc-14
 
 # bun completions
 [ -s "/Users/lento/.bun/_bun" ] && source "/Users/lento/.bun/_bun"
+
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
