@@ -72,14 +72,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- remove whitespace warning in terminal
-vim.api.nvim_exec(
-	[[
-  augroup vimrc
-    autocmd TermOpen * :DisableWhitespace
-  augroup END
-]],
-	false
-)
+-- vim.api.nvim_exec(
+-- 	[[
+--   augroup vimrc
+--     autocmd TermOpen * :DisableWhitespace
+--   augroup END
+-- ]],
+-- 	false
+-- )
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 
