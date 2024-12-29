@@ -1,2 +1,6 @@
-theme = GruvboxDark
+# help: ghostty +show-config --default --docs
+background = #1D2021
+cursor-style = bar
+font-family = JetBrainsMono Nerd Font
+theme = GruvboxDarkHard
 window-decoration = false

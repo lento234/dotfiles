@@ -3,6 +3,6 @@ return {
 	version = false,
 	config = function()
 		require('mini.statusline').setup()
-		-- require('mini.trailspace').setup()
+		require('mini.trailspace').setup()
 	end
 }
