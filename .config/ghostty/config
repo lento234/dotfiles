@@ -1,13 +1,17 @@
 # help: ghostty +show-config --default --docs
-adjust-cell-height = 10%
+adjust-cell-height = 18%
 background = #1D2021
 background-blur-radius = 15
 background-opacity = 0.95
+copy-on-select = true
 cursor-style = bar
 # font-family = JetBrainsMono Nerd Font
 font-family = FiraCode Nerd Font
 font-size = 11
+font-thicken = true
+mouse-scroll-multiplier = 0.75
 theme = GruvboxDarkHard
+window-colorspace = display-p3
 window-decoration = false
 
 # keybinds
