@@ -1,0 +1,83 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Bash
+export HISTSIZE=100000
+
+# variables
+export GTK_THEME=Adwaita:dark
+
+# General aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+# prompt
+eval "$(starship init bash)"
+
+# fuzzy-search
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# # # lmod module
+# # . "/home/lento/lib/modulefiles/activate.sh"
+
+# apps
+# alias slack='flatpak run com.slack.Slack'
+alias spotify='flatpak run com.spotify.Client'
+
+# 1password agent sock binding only if local and non-root
+if [[ ((EUID != 0 )) && ! ${SSH_TTY} && -z ${SSH_CLIENT} ]]; then
+    export SSH_AUTH_SOCK=${HOME}/.1password/agent.sock
+fi
+
+# Languages
+
+# golang
+export GOROOT=/home/lento/lib/golang/go-latest
+export GOPATH=${GOROOT}/packages
+export PATH=${GOPATH}/bin:${GOROOT}/bin:${PATH}
+
+# zig
+export PATH=/home/lento/lib/ziglang/zig-latest:${PATH}
+# 
+# # c3
+# export PATH=/home/lento/lib/c3/c3-latest:${PATH}
+
+# rust
+. "$HOME/.cargo/env"
+
+# # # mess
+# # MESSPATH="/home/lento/projects/sysadmin/mess"
+# # source "${MESSPATH}/completions/mess.bash"
+# 
+# # nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# 
+# # bun
+# export BUN_INSTALL="$HOME/.bun"
+# export PATH=$BUN_INSTALL/bin:$PATH
+# 
+# # neovim
+# export PATH="/home/lento/lib/neovim/install/bin:$PATH"
+# 
+# # yazi
+# function y() {
+#     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+#     yazi "$@" --cwd-file="$tmp"
+#     if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+#         builtin cd -- "$cwd"
+#     fi
+#     rm -f -- "$tmp"
+# }
