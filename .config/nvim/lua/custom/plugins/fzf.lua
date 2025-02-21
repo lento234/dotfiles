@@ -27,6 +27,7 @@ return {
 		noremap("n", "<leader>fg", "<cmd>FzfLua git_files<cr>", "fzf-lua: [f]ind [g]it files")
 		noremap("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>", "fzf-lua: [f]ind [k]keymaps")
 		noremap("n", "<leader>fw", "<cmd>FzfLua grep_project<cr>", "fzf-lua: [f]ind [w]ord in project")
+		noremap("n", "<leader>fm", "<cmd>FzfLua marks<cr>", "fzf-lua: [f]ind [m]arks")
 
 
 		-- git

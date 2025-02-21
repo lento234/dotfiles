@@ -9,4 +9,6 @@ return {
 	-- nvim-tmux navigation
 	-- partial diff
 	"ryutaro-asada/partial-diff.nvim",
+	-- substitution
+	"tpope/vim-abolish",
 }

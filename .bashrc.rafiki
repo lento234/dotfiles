@@ -61,9 +61,9 @@ fi
 # kitty
 export PATH="${HOME}/.local/kitty.app/bin:${PATH}"
 
-# neovim
-# export PATH="${HOME}/lib/nvim-linux64/bin:${PATH}"
-export PATH="${HOME}/lib/neovim/install/bin:${PATH}"
+# # neovim
+# # export PATH="${HOME}/lib/nvim-linux64/bin:${PATH}"
+# export PATH="${HOME}/lib/neovim/install/bin:${PATH}"
 
 # golang
 export GOPATH="${HOME}/lib/golang/go-latest"

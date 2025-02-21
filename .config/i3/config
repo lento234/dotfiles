@@ -91,11 +91,6 @@ set $ws8 "8"
 set $ws9 "9: "
 set $ws10 "10: "
 
-# set $wsF1 "12: chat"
-# set $wsF2 "13: music"
-# set $wsF3 "14: server"
-# set $wsF4 "11:info"
-
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -107,11 +102,6 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-
-# bindsym $mod+"F1" workspace number $wsF1
-# bindsym $mod+"F2" workspace number $wsF2
-# bindsym $mod+"F3" workspace number $wsF3
-# bindsym $mod+"F4" workspace number $wsF4
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -311,9 +301,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+r mode "resize"
 
 # scratchpad
-bindsym $mod+d scratchpad show
+bindsym $mod+minus scratchpad show
 bindsym $mod+n [class="obsidian"] scratchpad show
-bindsym $mod+Shift+d move to scratchpad
+bindsym $mod+Shift+minus move to scratchpad
 
 # jump to urgent window
 bindsym $mod+x [urgent=latest] focus
