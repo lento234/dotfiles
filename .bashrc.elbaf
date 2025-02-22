@@ -64,14 +64,11 @@ export PATH=/home/lento/lib/ziglang/zig-latest:${PATH}
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# 
-# # bun
-# export BUN_INSTALL="$HOME/.bun"
-# export PATH=$BUN_INSTALL/bin:$PATH
-# 
-# # neovim
-# export PATH="/home/lento/lib/neovim/install/bin:$PATH"
-# 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+
 # # yazi
 # function y() {
 #     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
