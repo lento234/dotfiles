@@ -61,10 +61,6 @@ fi
 # kitty
 export PATH="${HOME}/.local/kitty.app/bin:${PATH}"
 
-# # neovim
-# # export PATH="${HOME}/lib/nvim-linux64/bin:${PATH}"
-# export PATH="${HOME}/lib/neovim/install/bin:${PATH}"
-
 # golang
 export GOPATH="${HOME}/lib/golang/go-latest"
 export PATH="${GOPATH}/bin:${PATH}"
@@ -101,5 +97,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
 # Terraform, aws
-complete -C /home/lento/lib/golang/go1.23.0/bin/terraform terraform
-. <(awsmyid completion)
+if command -v awsmyid 2>&1 > /dev/null; then
+    complete -C ${GOPATH}/bin/terraform terraform
+    . <(awsmyid completion)
+fi

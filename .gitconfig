@@ -2,37 +2,45 @@
     name = Lento Manickathan
     email = lento.manickathan@gmail.com
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBaxHjLqa71+eIoaqggFtS/SB8wr7OXPd1E0lNgZY2AS
-[filter "lfs"]
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
-[core]
-    editor = nvim
-[credential]
-    helper = cache --timeout=36000
-[commit]
-    gpgsign = true
-[color "status"]
-    changed = yellow
-    untracked = blue
-[init]
-    defaultBranch = main
-[diff]
-    tool = vimdiff
-[difftool]
-    prompt = false
-[alias]
-    d = difftool
 [gpg]
-    format = ssh
+  format = ssh
 [gpg "ssh"]
-    program = /opt/1Password/op-ssh-sign
+  program = "/opt/1Password/op-ssh-sign"
+  allowedSignersFile = /home/lento/.ssh/allowed_signers
+[commit]
+  gpgsign = true
+  verbose = true
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+[core]
+  editor = nvim
+[credential]
+  helper = cache --timeout=36000
+[color "status"]
+  changed = yellow
+  untracked = blue
+[init]
+  defaultBranch = main
+[diff]
+  colorMoved = default
+  algorithm = histogram
 [rebase]
     updateRefs = true
-
 [alias]
-    lognice=log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
-    logstat=log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat
-    loggraph=log --oneline --decorate --graph --all
-    logshort=log --oneline --decorate --graph
+  lognice=log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+  logstat=log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat
+  loggraph=log --oneline --decorate --graph --all
+  logshort=log --oneline --decorate --graph
+  type = cat-file -t
+  dump = cat-file -p
+[tag]
+  sort = version:refname
+[branch]
+  sort = -committerdate
+[push]
+  autoSetupRemote = true
+[merge]
+  conflictstyle = zdiff3
