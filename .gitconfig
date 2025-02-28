@@ -1,7 +1,7 @@
 [user]
-    name = Lento Manickathan
-    email = lento.manickathan@gmail.com
-    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBaxHjLqa71+eIoaqggFtS/SB8wr7OXPd1E0lNgZY2AS
+  name = Lento Manickathan
+  email = lento.manickathan@gmail.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBaxHjLqa71+eIoaqggFtS/SB8wr7OXPd1E0lNgZY2AS
 [gpg]
   format = ssh
 [gpg "ssh"]
@@ -17,6 +17,19 @@
   clean = git-lfs clean -- %f
 [core]
   editor = nvim
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  syntax-theme = gruvbox-dark
+  dark = true
+  hunk-header-style = omit
+  inline-hint-style = syntax
+  navigate = true
+  line-numbers = true
+  line-numbers-minus-style = brightred
+  line-numbers-plus-style = brightgreen
+  ; side-by-side = true
 [credential]
   helper = cache --timeout=36000
 [color "status"]
