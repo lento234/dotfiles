@@ -18,10 +18,10 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # gnu coreutils
-COREUTILS_VER=9.5
+COREUTILS_VER=9.6
 export PATH=/opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnubin:$PATH
 export MANPATH=/opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnuman:$MANPATH
-export PATH=/opt/homebrew/Cellar/gnu-getopt/2.40.2/bin:$PATH
+export PATH=/opt/homebrew/Cellar/gnu-getopt/2.40.4/bin:$PATH
 
 # colors
 if [ -x /opt/homebrew/Cellar/coreutils/${COREUTILS_VER}/libexec/gnubin/dircolors ]; then
