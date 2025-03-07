@@ -96,6 +96,9 @@ focus_follows_mouse no
     # Start your launcher
     bindsym $mod+p exec $menu
 
+    # screenshot and sent to clipboard (wayland)
+    bindsym $mod+Shift+x exec grim -g "$(slurp)" - | wl-copy
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
