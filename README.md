@@ -75,7 +75,7 @@ Requirements:
 - [liquidprompt](https://github.com/nojhan/liquidprompt):  A full-featured &
   carefully designed adaptive prompt for Bash & Zsh.
 - [startship](https://starship.rs): The minimal, blazing-fast, and infinitely
-  customizable prompt for any shell! 
+customizable prompt for any shell!
 
 ### Awesomewm
 
