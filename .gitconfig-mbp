@@ -1,0 +1,65 @@
+[user]
+  name = Lento Manickathan
+  email = lento.manickathan@gmail.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEszrt1vVbfa0AT3T7nrd3MJKxg9VHbz0pC8i8cx5XxE
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = /home/lento/.ssh/allowed_signers
+[commit]
+  gpgsign = true
+  verbose = true
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+[core]
+  editor = nvim
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  syntax-theme = gruvbox-dark
+  dark = true
+  hunk-header-style = omit
+  inline-hint-style = syntax
+  navigate = true
+  line-numbers = true
+  line-numbers-minus-style = brightred
+  line-numbers-plus-style = brightgreen
+  ; side-by-side = true
+[credential]
+  helper = cache --timeout=36000
+[color "status"]
+  changed = yellow
+  untracked = blue
+[init]
+  defaultBranch = main
+[diff]
+  colorMoved = default
+  algorithm = histogram
+[rebase]
+    updateRefs = true
+[difftool]
+    prompt = false
+[alias]
+  lognice=log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+  logstat=log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat
+  loggraph=log --oneline --decorate --graph --all
+  logshort=log --oneline --decorate --graph
+  type = cat-file -t
+  dump = cat-file -p
+    d = difftool
+[tag]
+  sort = version:refname
+[branch]
+  sort = -committerdate
+[push]
+  autoSetupRemote = true
+[merge]
+  conflictstyle = zdiff3
+
+[includeIf "gitdir:~/projects/drs/**"]
+    path = ~/projects/drs/.gitconfig
