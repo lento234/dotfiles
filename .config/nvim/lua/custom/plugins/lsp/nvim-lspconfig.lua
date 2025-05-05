@@ -7,19 +7,9 @@ return {
     'williamboman/mason-lspconfig.nvim',
     -- shows update status for LSP
     { "j-hui/fidget.nvim", opts = {} },
-    -- neodev
-    "folke/neodev.nvim",
   },
   config = function()
     -- mason package manger
-    require("neodev").setup({
-      library = {
-        plugins = {
-          "nvim-dap-ui"
-        },
-        types = true,
-      }
-    })
     require("mason").setup()
 
     -- [[ Configure LSP]]
@@ -34,17 +24,17 @@ return {
       nmap('K', vim.lsp.buf.hover, 'hover documentation')
       nmap('<M-k>', vim.lsp.buf.signature_help, 'signature documentation')
 
-      nmap('gd', require('fzf-lua').lsp_definitions, '[g]oto [d]efinition')
-      nmap('gD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')
-      nmap('gr', require('fzf-lua').lsp_references, '[g]oto [r]eferences')
-      nmap('gI', require('fzf-lua').lsp_implementations, '[g]oto [I]mplementation')
+      nmap('grd', require('fzf-lua').lsp_definitions, '[g]oto [d]efinition')
+      nmap('grD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')
+      nmap('grr', require('fzf-lua').lsp_references, '[g]oto [r]eferences')
+      nmap('gri', require('fzf-lua').lsp_implementations, '[g]oto [i]mplementation')
       -- nmap('gI', vim.lsp.buf.implementation, '[g]oto [I]mplementation')
 
-      nmap('<leader>D', require('fzf-lua').lsp_typedefs, 'Type [D]efinition')
-      nmap('<leader>ds', require('fzf-lua').lsp_document_symbols, '[d]ocument [s]ymbols')
-      -- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[w]orkspace [s]ymbols')
-      nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
-      nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
+      nmap('grt', require('fzf-lua').lsp_typedefs, '[g]oto [t]ype definition')
+      nmap('gO', require('fzf-lua').lsp_document_symbols, '[g]oto [d]ocument [s]ymbols')
+      nmap('gW', require('fzf-lua').lsp_workspace_symbols, '[g]oto [w]orkspace [s]ymbols')
+      nmap('gra', vim.lsp.buf.code_action, '[g]oto code [a]ction')
+      nmap('grn', vim.lsp.buf.rename, '[g]o [r]e[n]ame')
       nmap('<leader>q', require('fzf-lua').lsp_document_diagnostics, 'diagnostics')
       nmap('<leader>x', vim.diagnostic.open_float, "open float")
 

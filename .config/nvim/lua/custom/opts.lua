@@ -31,7 +31,9 @@ opt.smartcase = true
 opt.incsearch = true
 
 -- clipboard
-opt.clipboard:append("unnamedplus")
+vim.schedule(function()
+	opt.clipboard = "unnamedplus"
+end)
 opt.undofile = true
 
 -- splits
