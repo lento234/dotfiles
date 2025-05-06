@@ -20,6 +20,7 @@ return {
 				bigfile = { enabled = true },
 				-- indent = { enabled = true },
 				input = { enabled = true },
+				image = { enabled = true },
 				git = { enabled = true },
 				lazygit = { enabled = true },
 				-- notifier = { enabled = true },
