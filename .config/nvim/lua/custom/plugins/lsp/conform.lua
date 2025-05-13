@@ -1,6 +1,7 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
 	opts = {
 		formatters_by_ft = {
 			-- Conform will run multiple formatters sequentially
@@ -24,4 +25,7 @@ return {
 			return { timeout_ms = 500, lsp_fallback = true }
 		end,
 	},
+	keys = {
+		{ "<leader>F", function() require("conform").format({ async = true, lsp_format = "fallback" }) end, mode = "", desc = "[F]ormat buffer" },
+	}
 }
