@@ -103,6 +103,7 @@ return {
     -- Enable language servers
     local servers = {
       clangd = {},
+      eslint = {},
       gopls = {},
       lua_ls = {
         Lua = {
@@ -112,7 +113,7 @@ return {
           -- diagnostics = { disable = { 'missing-fields' } },
         },
       },
-      -- prettier = {},
+      prettier = {},
       pyright = {
         settings = {
           pyright = {
@@ -131,6 +132,7 @@ return {
       -- ruff_lsp = {},
       rust_analyzer = {},
       -- ts/js/vue
+      ts_ls = {},
       volar = {
         filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
       }
@@ -162,19 +164,19 @@ return {
       }
     })
 
-    -- require('lspconfig').ts_ls.setup {
-    --   init_options = {
-    --     plugins = {
-    --       {
-    --         name = "@vue/typescript-plugin",
-    --         location = vim.fn.expand(
-    --           require("lspconfig.util").path.join("$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin")
-    --         ),
-    --         languages = { "javascript", "typescript", "vue" },
-    --       },
-    --     },
-    --   },
-    --   filetypes = { "javascript", "typescript", "vue" },
-    -- }
+    require('lspconfig').ts_ls.setup {
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vim.fn.expand(
+              require("lspconfig.util").path.join("$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin")
+            ),
+            languages = { "javascript", "typescript", "vue" },
+          },
+        },
+      },
+      filetypes = { "javascript", "typescript", "vue" },
+    }
   end,
 }
