@@ -38,7 +38,7 @@ default_floating_border pixel $border_size
 for_window [class="^.*"] border pixel $border_size
 
 # Configure 5px of space between windows and to the screen edges.
-gaps inner 5
+# gaps inner 5
 
 # focus follows mouse
 focus_follows_mouse no
@@ -48,8 +48,8 @@ focus_follows_mouse no
 
 bar {
   position top
-  # status_command i3status
-  status_command i3status | ~/.config/i3status/curwin/curwin
+  status_command i3status
+  # status_command i3status | ~/.config/i3status/curwin/curwin
   strip_workspace_numbers yes
   tray_output none
   workspace_min_width 30
@@ -58,19 +58,19 @@ bar {
   colors {
     background $color_bg
     statusline $color_fg
-    separator $color_darkblue
+    separator $color_darkpurple
 
-    focused_workspace  $color_bg $color_blue $color_black
+    focused_workspace  $color_bg $color_purple $color_black
     active_workspace   $color_bg $color_bg $color_fg
     inactive_workspace $color_bg $color_bg $color_fg
     urgent_workspace   $color_bg $color_red $color_fg
-    binding_mode       $color_bg $color_blue $color_fg
+    binding_mode       $color_bg $color_darkpurple $color_fg
   }
 }
 
 # window colors
 # class                 border  backgr. text    indicator child_border
-client.focused          $color_bg $color_bg $color_green $color_darkblue $color_darkblue
+client.focused          $color_bg $color_bg $color_green $color_darkpurple $color_darkpurple
 client.focused_inactive #333333 $color_bg $color_fg #484e50   #5f676a
 client.unfocused        #333333 $color_bg #888888 #292d2e   #222222
 client.urgent           #2f343a $color_red $color_fg $color_red   $color_red
@@ -187,9 +187,27 @@ for_window [class="obsidian"] move to scratchpad focus
 for_window [class="Thunar"] floating enable resize set 860 600; move position center
 for_window [class="*.gnome.Nautilus"] floating enable resize set 1280 720; move position center
 for_window [class="Matplotlib"] floating enable resize set 1280 720; move position center
-for_window [class="^zoom$"] floating enable
+for_window [class="zoom"] floating enable
 for_window [class="^IMGUI"] floating enable
 for_window [class="^napari$"] floating enable
+for_window [class="F5 VPN"] floating enable
+for_window [title="(?i)zoom"] floating enable
+
+# renderman it viewer
+for_window [class="^it$"] floating enable
+
+# swapshop
+assign [title="menu$"] $ws8
+assign [title="(?i)loading$"] $ws8
+assign [title="^image$"] $ws8
+assign [title="^swap$"] $ws8
+assign [title="(?i)dialog$"] $ws8
+for_window [title="menu$"] floating enable
+for_window [title="(?i)loading$"] floating enable
+for_window [title="^image$"] floating enable
+for_window [title="^swap$"] floating enable
+for_window [title="(?i)dialog$"] floating enable
+
 
 # Popup window handling
 for_window [window_role="About"] floating enable
@@ -251,15 +269,16 @@ exec_always /usr/libexec/polkit-gnome-authentication-agent-1
 exec_always dunst
 
 # Change wallpaper
-set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-gpedg3.jpg"
+# set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-o5zx65.jpg"
+set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-7pyqqy.png"
 exec_always feh --bg-fill $wallpaper
 
 # Shortcuts --------
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +0.50% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -0.50% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -274,7 +293,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec ghostty
+# bindsym $mod+Return exec ghostty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -288,7 +308,9 @@ bindsym $mod+Shift+q kill
 bindcode $mod+33 exec --no-startup-id i3-dmenu-desktop
 
 # lock screen
-bindsym XF86Launch5 exec i3lock --color "$color_bg"
+# bindsym XF86Launch5 exec i3lock --color "$color_black"
+# bindsym $mod+Shift+XF86Tools exec i3lock --color "$color_black"
+bindsym $mod+XF86Tools exec i3lock --color "$color_black"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -309,7 +331,8 @@ bindsym $mod+Shift+minus move to scratchpad
 bindsym $mod+x [urgent=latest] focus
 
 # screenshot
-bindsym Print exec ksnip -r
+# bindsym Print exec ksnip -r
+bindsym XF86Tools exec ksnip -r
 
 # open apps
 set $mode_launcher Launch: [f]irefox [g]lances [h]top [o]bsidian
