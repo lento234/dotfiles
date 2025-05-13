@@ -11,6 +11,7 @@ return {
 			{ "<leader>f", group = "[F]ind" },
 			{ "<leader>d", group = "[D]ap" },
 			{ "<leader>x", group = "Trouble" },
+			{ "<leader>t", group = "Toggle" },
 		},
 	},
 }
