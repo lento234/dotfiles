@@ -2,7 +2,7 @@ return {
 	'stevearc/overseer.nvim',
 	opts = {},
 	keys = {
-		{ "<leader>or", ":OverseerRun<CR>",    desc = "[o]verseer [r]un",    silent = true },
-		{ "<leader>ot", ":OverseerToggle<CR>", desc = "[o]verseer [t]oggle", silent = true },
+		{ "<leader>rr", ":OverseerRun<CR>",    desc = "oversee[r] [r]un",    silent = true },
+		{ "<leader>rt", ":OverseerToggle<CR>", desc = "oversee[r] [t]oggle", silent = true },
 	},
 }

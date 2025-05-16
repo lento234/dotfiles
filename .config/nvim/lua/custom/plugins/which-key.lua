@@ -12,6 +12,8 @@ return {
 			{ "<leader>d", group = "[D]ap" },
 			{ "<leader>x", group = "Trouble" },
 			{ "<leader>t", group = "Toggle" },
+			{ "<leader>o", group = "Obsidian" },
+			{ "<leader>r", group = "Overseer" },
 		},
 	},
 }

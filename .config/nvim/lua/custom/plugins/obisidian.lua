@@ -19,13 +19,18 @@ return {
 	opts = {
 		workspaces = {
 			{
-				name = "personal",
-				path = "~/Documents/obsidian",
+				name = "work",
+				path = "~/Documents/obsidian-vault",
 			},
-			-- {
-			-- 	name = "work",
-			-- 	path = "~/vaults/work",
-			-- },
 		},
+		daily_notes = {
+			folder = "Dailies",
+			date_format = "%Y-%m-W%W",
+		},
+	},
+	keys = {
+		{ "<leader>oo", "<CMD>Obsidian<CR>",        desc = "[o]sidian" },
+		{ "<leader>ot", "<CMD>Obsidian today<CR>",  desc = "[o]sidian [t]oday daily notes" },
+		{ "<leader>os", "<CMD>Obsidian search<CR>", desc = "[o]sidian [s]earch" },
 	},
 }
