@@ -24,7 +24,7 @@ return {
 		},
 		daily_notes = {
 			folder = "Dailies",
-			date_format = "%Y-%m-W%W",
+			date_format = "%Y-%m-W%V",
 		},
 	},
 	keys = {
