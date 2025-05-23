@@ -98,6 +98,6 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 # Terraform, aws
 if command -v awsmyid 2>&1 > /dev/null; then
-    complete -C ${GOPATH}/bin/terraform terraform
+    complete -C $(which terraform) terraform
     . <(awsmyid completion)
 fi
