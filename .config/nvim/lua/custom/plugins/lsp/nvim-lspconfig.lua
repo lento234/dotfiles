@@ -103,7 +103,9 @@ return {
     -- Enable language servers
     local servers = {
       clangd = {},
+      debugpy = {},
       eslint = {},
+      glsl_analyzer = {},
       gopls = {},
       lua_ls = {
         Lua = {
@@ -129,13 +131,12 @@ return {
         },
       },
       ruff = {},
-      -- ruff_lsp = {},
       rust_analyzer = {},
+      stylua = {},
       -- ts/js/vue
       ts_ls = {},
-      volar = {
-        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
-      }
+      vue_ls = {},
+      zls = {},
     }
 
     -- autocompletion
@@ -164,19 +165,20 @@ return {
       }
     })
 
+    -- local vue_language_server_path = table.concat({ "$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin" })
+    local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
+        '/vue-language-server' .. '/node_modules/@vue/language-server'
     require('lspconfig').ts_ls.setup {
       init_options = {
         plugins = {
           {
             name = "@vue/typescript-plugin",
-            location = vim.fn.expand(
-              require("lspconfig.util").path.join("$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin")
-            ),
-            languages = { "javascript", "typescript", "vue" },
+            location = vue_language_server_path,
+            languages = { "vue" },
           },
         },
       },
-      filetypes = { "javascript", "typescript", "vue" },
+      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
     }
   end,
 }

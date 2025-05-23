@@ -32,9 +32,10 @@ alias ll='ls -l'
 # export PATH="$PATH:/Users/lento/.local/bin"
 
 # ssh
-DEFAULT_USER=$USER
-export SSH_KEY_PATH="~/.ssh/id_ed25519"
-alias add_ssh_key='ssh-add -K ~/.ssh/id_ed25519 &> /dev/null'
+# DEFAULT_USER=$USER
+# export SSH_KEY_PATH="~/.ssh/id_ed25519"
+# alias add_ssh_key='ssh-add -K ~/.ssh/id_ed25519 &> /dev/null'
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 # awesome aliases
 [ -f ~/.aliases ] && source ~/.aliases

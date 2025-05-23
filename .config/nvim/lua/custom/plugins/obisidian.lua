@@ -19,7 +19,7 @@ return {
 		workspaces = {
 			{
 				name = "work",
-				path = "~/Documents/obsidian-vault",
+				path = vim.fn.has("macos") and "~/projects/drs/obsidian-vault" or "~/Documents/obsidian-vault",
 			},
 		},
 		daily_notes = {
