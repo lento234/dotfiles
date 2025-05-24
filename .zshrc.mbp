@@ -61,7 +61,7 @@ alias zb='zig build --summary all'
 alias zbt='zig build test --summary all'
 
 # golang
-export GOPATH="/Users/lento/lib/go/go-latest"
+export GOPATH="/Users/lento/lib/go/gopath"
 export GOROOT="/Users/lento/lib/go/go-latest"
 export PATH="${GOROOT}/bin:${PATH}"
 
