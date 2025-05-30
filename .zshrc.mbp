@@ -56,9 +56,9 @@ activate_llvm() {
 export PATH="/Users/lento/lib/zig/zig-latest:${PATH}"
 # export PATH="/Users/lento/lib/zig/zls/zig-out/bin:${PATH}"
 
-alias zbr='zig build run --summary all'
-alias zb='zig build --summary all'
-alias zbt='zig build test --summary all'
+# alias zbr='zig build run --summary all'
+# alias zb='zig build --summary all'
+# alias zbt='zig build test --summary all'
 
 # golang
 export GOPATH="/Users/lento/lib/go/gopath"
@@ -66,15 +66,15 @@ export GOROOT="/Users/lento/lib/go/go-latest"
 export PATH="${GOROOT}/bin:${PATH}"
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # export CXX=/opt/homebrew/bin/g++-14
 # export CC=/opt/homebrew/bin/gcc-14
 
 # bun completions
-[ -s "/Users/lento/.bun/_bun" ] && source "/Users/lento/.bun/_bun"
+# [ -s "/Users/lento/.bun/_bun" ] && source "/Users/lento/.bun/_bun"
 
 function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
