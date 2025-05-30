@@ -2,59 +2,59 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local opt = vim.opt
-
 -- line numbers
-opt.number = true
-opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- tab & indentation
-opt.shiftwidth = 2
-opt.tabstop = 2
-opt.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
 
-opt.expandtab = true
-opt.autoindent = true
-opt.backspace = "indent,eol,start"
+vim.o.expandtab = true
+vim.o.autoindent = true
+vim.o.backspace = "indent,eol,start"
 
 -- line wrapping
-opt.wrap = false
+vim.o.wrap = false
 -- opt.breakindent = true
 
 -- filetypes
-opt.encoding = "utf8"
-opt.fileencoding = "utf8"
+vim.o.encoding = "utf8"
+vim.o.fileencoding = "utf8"
 
 -- search
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.incsearch = true
+
+vim.o.confirm = true
 
 -- clipboard
 vim.schedule(function()
-	opt.clipboard = "unnamedplus"
+  vim.o.clipboard = "unnamedplus"
 end)
-opt.undofile = true
+vim.o.undofile = true
 
 -- splits
-opt.splitright = true
-opt.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 --  Theme and Appearances opts
-opt.syntax = "ON"
-opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
+vim.o.syntax = "ON"
+vim.o.termguicolors = true
+vim.o.background = "dark"
+vim.o.signcolumn = "yes"
 vim.o.updatetime = 250
-opt.cursorline = true
-opt.scrolloff = 4
+vim.o.cursorline = true
+vim.o.scrolloff = 4
 
 -- sessions
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Highlight on yank (copy)
 local function augroup(name)
-	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 -- vim.api.nvim_exec(
 -- 	[[
@@ -67,10 +67,10 @@ end
 -- )
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = augroup("highlight_yank"),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+  group = augroup("highlight_yank"),
+  callback = function()
+    vim.hl.on_yank()
+  end,
 })
 
 -- remove whitespace warning in terminal
@@ -88,14 +88,14 @@ vim.o.completeopt = "menuone,noselect"
 -- format on save
 vim.g.format_on_save = true
 vim.api.nvim_create_user_command("ToggleFormatOnSave", function()
-	vim.g.format_on_save = not vim.g.format_on_save
-	local fidget = require("fidget")
-	if vim.g.format_on_save then
-		fidget.notify("format on save", nil, { annote = "ENABLED", key = "formatonsave" })
-	else
-		fidget.notify("format on save", nil, { annote = "DISABLED", key = "formatonsave" })
-	end
+  vim.g.format_on_save = not vim.g.format_on_save
+  local fidget = require("fidget")
+  if vim.g.format_on_save then
+    fidget.notify("format on save", nil, { annote = "ENABLED", key = "formatonsave" })
+  else
+    fidget.notify("format on save", nil, { annote = "DISABLED", key = "formatonsave" })
+  end
 end, {
-	desc = "Toggle format-on-save",
-	bang = true,
+  desc = "Toggle format-on-save",
+  bang = true,
 })
