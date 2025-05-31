@@ -134,7 +134,7 @@ return {
       rust_analyzer = {},
       stylua = {},
       -- ts/js/vue
-      ts_ls = {},
+      -- ts_ls = {},
       vue_ls = {},
       zls = {},
     }
@@ -165,20 +165,31 @@ return {
       }
     })
 
-    -- local vue_language_server_path = table.concat({ "$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin" })
-    local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
-        '/vue-language-server' .. '/node_modules/@vue/language-server'
-    require('lspconfig').ts_ls.setup {
+    -- -- local vue_language_server_path = table.concat({ "$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin" })
+    -- local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
+    --     '/vue-language-server' .. '/node_modules/@vue/language-server'
+    -- require('lspconfig').ts_ls.setup {
+    --   init_options = {
+    --     plugins = {
+    --       {
+    --         name = "@vue/typescript-plugin",
+    --         location = vue_language_server_path,
+    --         languages = { "vue", "javascript", "typescript" },
+    --       },
+    --     },
+    --   },
+    --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    -- }
+    --
+    vim.lsp.config('vue_ls', {
+      -- add filetypes for typescript, javascript and vue
+      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
       init_options = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vue_language_server_path,
-            languages = { "vue", "javascript", "typescript" },
-          },
+        vue = {
+          -- disable hybrid mode
+          hybridMode = false,
         },
       },
-      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-    }
+    })
   end,
 }
