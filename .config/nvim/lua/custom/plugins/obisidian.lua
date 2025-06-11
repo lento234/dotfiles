@@ -15,21 +15,31 @@ return {
     -- Required.
     "nvim-lua/plenary.nvim",
   },
-  opts = {
-    workspaces = {
-      {
-        name = "work",
-        path = "~/Documents/obsidian-vault",
-      },
-    },
-    daily_notes = {
-      folder = "Dailies",
-      date_format = "%Y-%m-W%V",
-    },
-  },
   keys = {
     { "<leader>oo", "<CMD>Obsidian<CR>",        desc = "[o]sidian" },
     { "<leader>ot", "<CMD>Obsidian today<CR>",  desc = "[o]sidian [t]oday daily notes" },
     { "<leader>os", "<CMD>Obsidian search<CR>", desc = "[o]sidian [s]earch" },
   },
+  config = function()
+    local workspace_path = function()
+      if vim.fn.has("macos") then
+        return "~/projects/drs/obsidian-vault/"
+      else
+        return "~/Documents/obsidian-vault"
+      end
+    end
+    require("obsidian").setup({
+      workspaces = {
+        {
+          name = "work",
+          path = workspace_path(),
+        },
+      },
+      daily_notes = {
+        folder = "Dailies",
+        date_format = "%Y-%m-W%V",
+        workdays_only = true,
+      },
+    })
+  end
 }
