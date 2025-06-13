@@ -22,7 +22,7 @@ return {
   },
   config = function()
     local workspace_path = function()
-      if vim.fn.has("macos") then
+      if vim.fn.has("macos") == 1 then
         return "~/projects/drs/obsidian-vault/"
       else
         return "~/Documents/obsidian-vault"
@@ -36,6 +36,7 @@ return {
         },
       },
       daily_notes = {
+        default = false,
         folder = "Dailies",
         date_format = "%Y-%m-W%V",
         workdays_only = true,
