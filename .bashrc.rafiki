@@ -37,7 +37,8 @@ unlock_strongbox () {
     sudo mount /dev/mapper/strongbox /mnt/strongbox
 }
 alias strongbox='cd /mnt/strongbox/'
-alias renderman='cd /mnt/strongbox/projects/RendermanBuild'
+# alias renderman='cd /mnt/strongbox/projects/RendermanBuild'
+alias renderman='cd ~/projects/rendering/renderman/RendermanBuild'
 # alias obsidian='cd ~/Documents/obsidian-vault'
 
 # slurm
