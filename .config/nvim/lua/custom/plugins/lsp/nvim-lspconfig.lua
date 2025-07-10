@@ -165,31 +165,29 @@ return {
       }
     })
 
-    -- -- local vue_language_server_path = table.concat({ "$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin" })
-    -- local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
-    --     '/vue-language-server' .. '/node_modules/@vue/language-server'
-    -- require('lspconfig').ts_ls.setup {
-    --   init_options = {
-    --     plugins = {
-    --       {
-    --         name = "@vue/typescript-plugin",
-    --         location = vue_language_server_path,
-    --         languages = { "vue", "javascript", "typescript" },
-    --       },
-    --     },
-    --   },
-    --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-    -- }
-    --
-    vim.lsp.config('vue_ls', {
-      -- add filetypes for typescript, javascript and vue
-      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    local vue_language_server_path = table.concat({ "$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin" })
+    require('lspconfig').ts_ls.setup {
       init_options = {
-        vue = {
-          -- disable hybrid mode
-          hybridMode = false,
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vue_language_server_path,
+            languages = { "vue", "javascript", "typescript" },
+          },
         },
       },
-    })
+      filetypes = { 'typescript', 'javascript', 'vue' },
+    }
+    --
+    -- vim.lsp.config('vue_ls', {
+    --   -- add filetypes for typescript, javascript and vue
+    --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    --   init_options = {
+    --     vue = {
+    --       -- disable hybrid mode
+    --       hybridMode = false,
+    --     },
+    --   },
+    -- })
   end,
 }
