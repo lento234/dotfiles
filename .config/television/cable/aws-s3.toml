@@ -1,0 +1,6 @@
+[metadata]
+name = "aws-s3"
+description = "List AWS buckets"
+
+[source]
+command = "aws s3 ls"

@@ -102,3 +102,6 @@ if command -v awsmyid 2>&1 > /dev/null; then
     complete -C $(which terraform) terraform
     . <(awsmyid completion)
 fi
+
+# tv
+eval "$(tv init bash)"

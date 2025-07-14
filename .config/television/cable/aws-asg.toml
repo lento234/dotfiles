@@ -1,0 +1,9 @@
+[metadata]
+name = "aws-asg"
+description = "List Instances in the autoscaling group"
+
+[source]
+command = "aws autoscaling describe-auto-scaling-instances --output json | jq '.AutoScalingInstances[].InstanceId'"
+
+[preview]
+command = "aws autoscaling describe-auto-scaling-instances --output json"
