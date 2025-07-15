@@ -164,7 +164,7 @@ return {
         end,
       }
     })
-
+    vim.lsp.enable('vue_ls')
     local vue_language_server_path = table.concat({ "$NVM_BIN/../lib/node_modules", "@vue/typescript-plugin" })
     require('lspconfig').ts_ls.setup {
       init_options = {
