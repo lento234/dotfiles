@@ -134,7 +134,7 @@ return {
       rust_analyzer = {},
       stylua = {},
       -- ts/js/vue
-      -- ts_ls = {},
+      ts_ls = {},
       vue_ls = {},
       zls = {},
     }
