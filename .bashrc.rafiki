@@ -74,9 +74,9 @@ export PATH="${GOPATH}/bin:${PATH}"
 # export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/cuda/lib64"
 # export CMAKE_PREFIX_PATH="/usr/local/cuda:${CMAKE_PREFIX_PATH}"
 
-# zig
-export PATH="/home/lento/lib/ziglang/zig-latest:${PATH}"
-# export PATH="/home/lento/lib/ziglang/zls/zig-out/bin:${PATH}"
+# # zig
+# export PATH="/home/lento/lib/ziglang/zig-latest:${PATH}"
+# # export PATH="/home/lento/lib/ziglang/zls/zig-out/bin:${PATH}"
 
 # conda
 if [ -f "/home/lento/lib/miniforge3/etc/profile.d/conda.sh" ]; then
