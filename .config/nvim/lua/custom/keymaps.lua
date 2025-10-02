@@ -1,6 +1,6 @@
 local function noremap(mode, lhs, rhs, desc, opts)
-  opts = opts or { silent = true }
-  vim.keymap.set(mode, lhs, rhs, { desc = desc, noremap = true, silent = opts["silent"] })
+	opts = opts or { silent = true }
+	vim.keymap.set(mode, lhs, rhs, { desc = desc, noremap = true, silent = opts["silent"] })
 end
 
 -- general keymaps
@@ -38,10 +38,10 @@ noremap("n", "<leader>tl", ":set invrelativenumber<CR>", "[t]oggle relative [l]i
 noremap("n", "<leader>tf", ":ToggleFormatOnSave<CR>", "[t]oggle disable [f]ormat on save")
 
 -- window
-noremap("n", "<leader>sv", "<C-w>v", "[s]plit [v]ertical")   -- split vertical
+noremap("n", "<leader>sv", "<C-w>v", "[s]plit [v]ertical") -- split vertical
 noremap("n", "<leader>sh", "<C-w>s", "[s]plit [h]orizontal") -- split horizontal
-noremap("n", "<leader>se", "<C-w>=", "[s]plit [e]qual")      -- equal the split
-noremap("n", "<leader>sx", ":close<CR>", "[s]plit close")    -- close split window
+noremap("n", "<leader>se", "<C-w>=", "[s]plit [e]qual") -- equal the split
+noremap("n", "<leader>sx", ":close<CR>", "[s]plit close") -- close split window
 
 -- marks
 noremap("n", "<leader>mda", ":delmarks a-zA-Z0-9<CR>", "[m]arks: [d]elete [a]ll")

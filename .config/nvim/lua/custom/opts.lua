@@ -32,7 +32,7 @@ vim.o.confirm = true
 
 -- clipboard
 vim.schedule(function()
-  vim.o.clipboard = "unnamedplus"
+	vim.o.clipboard = "unnamedplus"
 end)
 vim.o.undofile = true
 
@@ -52,9 +52,12 @@ vim.o.scrolloff = 4
 -- sessions
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- disable swap file (keep in memory)
+vim.o.swapfile = false
+
 -- Highlight on yank (copy)
 local function augroup(name)
-  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 -- vim.api.nvim_exec(
 -- 	[[
@@ -67,10 +70,10 @@ end
 -- )
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
-  callback = function()
-    vim.hl.on_yank()
-  end,
+	group = augroup("highlight_yank"),
+	callback = function()
+		vim.hl.on_yank()
+	end,
 })
 
 -- remove whitespace warning in terminal
@@ -88,14 +91,14 @@ vim.o.completeopt = "menuone,noselect"
 -- format on save
 vim.g.format_on_save = true
 vim.api.nvim_create_user_command("ToggleFormatOnSave", function()
-  vim.g.format_on_save = not vim.g.format_on_save
-  local fidget = require("fidget")
-  if vim.g.format_on_save then
-    fidget.notify("format on save", nil, { annote = "ENABLED", key = "formatonsave" })
-  else
-    fidget.notify("format on save", nil, { annote = "DISABLED", key = "formatonsave" })
-  end
+	vim.g.format_on_save = not vim.g.format_on_save
+	local fidget = require("fidget")
+	if vim.g.format_on_save then
+		fidget.notify("format on save", nil, { annote = "ENABLED", key = "formatonsave" })
+	else
+		fidget.notify("format on save", nil, { annote = "DISABLED", key = "formatonsave" })
+	end
 end, {
-  desc = "Toggle format-on-save",
-  bang = true,
+	desc = "Toggle format-on-save",
+	bang = true,
 })

@@ -19,6 +19,15 @@ targzparallel() {
     unset TARDIR
 }
 
+# tar (no compression)
+tarbuf() {
+    TARDIR=${1%/}
+    tar --sort=name --record-size=64K -c -f - $TARDIR \
+    | mbuffer -m 1G \
+    > $TARDIR.tar;
+    unset TARDIR
+}
+
 # verify the tar
 tarcheck() {
     tar -ztf $1 \

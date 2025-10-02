@@ -103,5 +103,8 @@ if command -v awsmyid 2>&1 > /dev/null; then
     . <(awsmyid completion)
 fi
 
+# terragrunt
+complete -C /home/lento/lib/golang/go1.25.1/bin/terragrunt terragrunt
+
 # tv
 eval "$(tv init bash)"
