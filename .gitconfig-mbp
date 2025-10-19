@@ -51,7 +51,11 @@
   logshort=log --oneline --decorate --graph
   type = cat-file -t
   dump = cat-file -p
-    d = difftool
+  d = difftool
+  # Difftastic aliases, so `git dlog` is `git log` with difftastic and so on.
+  dlog = -c diff.external=difft log -p --ext-diff
+  dshow = -c diff.external=difft show --ext-diff
+  ddiff = -c diff.external=difft diff
 [tag]
   sort = version:refname
 [branch]

@@ -10,7 +10,8 @@ font-family = FiraCode Nerd Font
 font-size = 11
 font-thicken = true
 # mouse-scroll-multiplier = 0.75
-theme = GruvboxDarkHard
+# theme = GruvboxDarkHard
+theme = gruvbox-dark-hard-contrast
 window-colorspace = display-p3
 window-decoration = false
 

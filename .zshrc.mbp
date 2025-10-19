@@ -53,8 +53,9 @@ activate_llvm() {
 }
 
 # zig
-export PATH="/Users/lento/lib/zig/zig-latest:${PATH}"
+# export PATH="/Users/lento/lib/zig/zig-latest:${PATH}"
 # export PATH="/Users/lento/lib/zig/zls/zig-out/bin:${PATH}"
+export PATH="/Users/lento/lib/zigup/zig-out/bin:${PATH}"
 
 # alias zbr='zig build run --summary all'
 # alias zb='zig build --summary all'
@@ -70,8 +71,8 @@ export NVM_DIR="$HOME/.nvm"
 # [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# export CXX=/opt/homebrew/bin/g++-14
-# export CC=/opt/homebrew/bin/gcc-14
+# export CXX=/opt/homebrew/bin/g++-15
+# export CC=/opt/homebrew/bin/gcc-15
 
 # bun completions
 # [ -s "/Users/lento/.bun/_bun" ] && source "/Users/lento/.bun/_bun"
