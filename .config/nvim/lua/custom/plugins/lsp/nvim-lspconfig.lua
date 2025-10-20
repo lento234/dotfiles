@@ -19,6 +19,7 @@ return {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 				-- keymaps
+				map("<space>lr", "<cmd>LspRestart<cr>", "restart lsp")
 				-- documentation
 				map("K", vim.lsp.buf.hover, "hover documentation")
 				map("<M-k>", vim.lsp.buf.signature_help, "signature documentation")
