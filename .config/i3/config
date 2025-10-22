@@ -58,19 +58,19 @@ bar {
   colors {
     background $color_bg
     statusline $color_fg
-    separator $color_darkpurple
+    separator $color_darkorange
 
-    focused_workspace  $color_bg $color_purple $color_black
+    focused_workspace  $color_bg $color_darkorange $color_black
     active_workspace   $color_bg $color_bg $color_fg
     inactive_workspace $color_bg $color_bg $color_fg
     urgent_workspace   $color_bg $color_red $color_fg
-    binding_mode       $color_bg $color_darkpurple $color_fg
+    binding_mode       $color_bg $color_darkorange $color_fg
   }
 }
 
 # window colors
 # class                 border  backgr. text    indicator child_border
-client.focused          $color_bg $color_bg $color_green $color_darkpurple $color_darkpurple
+client.focused          $color_bg $color_bg $color_green $color_bg $color_bg
 client.focused_inactive #333333 $color_bg $color_fg #484e50   #5f676a
 client.unfocused        #333333 $color_bg #888888 #292d2e   #222222
 client.urgent           #2f343a $color_red $color_fg $color_red   $color_red
@@ -270,7 +270,8 @@ exec_always dunst
 
 # Change wallpaper
 # set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-o5zx65.jpg"
-set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-7pyqqy.png"
+# set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-7pyqqy.png"
+set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-xe85j3.jpg"
 exec_always feh --bg-fill $wallpaper
 
 # Shortcuts --------
