@@ -17,7 +17,7 @@
 - prompt: [starship](https://starship.rs/)
 - font: [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 - compilers: [rust](https://www.rust-lang.org/), npm ([nvm](https://github.com/nvm-sh/nvm)), [golang](https://go.dev/), [zig](https://ziglang.org/), gcc
-- [neovim](https://neovim.io/) 0.10.+
+- [neovim](https://neovim.io/) 0.11.+
 - [tmux](https://github.com/tmux/tmux)
 - [fzf](https://github.com/junegunn/fzf)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
