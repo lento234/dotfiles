@@ -269,9 +269,7 @@ exec_always /usr/libexec/polkit-gnome-authentication-agent-1
 exec_always dunst
 
 # Change wallpaper
-# set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-o5zx65.jpg"
-# set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-7pyqqy.png"
-set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-xe85j3.jpg"
+set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-7pyqqy.png"
 exec_always feh --bg-fill $wallpaper
 
 # Shortcuts --------

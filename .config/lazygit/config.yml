@@ -1,108 +1,108 @@
 # Config relating to git
 git:
-    # # See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
-    # paging:
-    #   # Value of the --color arg in the git diff command. Some pagers want this to be set to 'always' and some want it set to 'never'
-    #   colorArg: always
-    #
-    #   # e.g.
-    #   # diff-so-fancy
-    #   # delta --dark --paging=never
-    #   # ydiff -p cat -s --wrap --width={{columnWidth}}
-    #   pager: ""
-    #
-    #   # If true, Lazygit will use whatever pager is specified in `$GIT_PAGER`, `$PAGER`, or your *git config*. If the pager ends with something like ` | less` we will strip that part out, because less doesn't play nice with our rendering approach. If the custom pager uses less under the hood, that will also break rendering (hence the `--paging=never` flag for the `delta` pager).
-    #   useConfig: false
-    #
-    #   # e.g. 'difft --color=always'
-    #   externalDiffCommand: ""
-    #
-    # # Config relating to committing
-    # commit:
-    #   # If true, pass '--signoff' flag when committing
-    #   signOff: false
-    #
-    #   # Automatic WYSIWYG wrapping of the commit message as you type
-    #   autoWrapCommitMessage: true
-    #
-    #   # If autoWrapCommitMessage is true, the width to wrap to
-    #   autoWrapWidth: 72
-    #
-    # # Config relating to merging
-    # merging:
-    #   # If true, run merges in a subprocess so that if a commit message is required, Lazygit will not hang
-    #   # Only applicable to unix users.
-    #   manualCommit: false
-    #
-    #   # Extra args passed to `git merge`, e.g. --no-ff
-    #   args: ""
-    #
-    #   # The commit message to use for a squash merge commit. Can contain "{{selectedRef}}" and "{{currentBranch}}" placeholders.
-    #   squashMergeMessage: Squash merge {{selectedRef}} into {{currentBranch}}
-    #
-    # # list of branches that are considered 'main' branches, used when displaying commits
-    # mainBranches:
-    #   - master
-    #   - main
-    #
-    # # Prefix to use when skipping hooks. E.g. if set to 'WIP', then pre-commit hooks will be skipped when the commit message starts with 'WIP'
-    # skipHookPrefix: WIP
+  # # See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
+  # paging:
+  #   # Value of the --color arg in the git diff command. Some pagers want this to be set to 'always' and some want it set to 'never'
+  #   colorArg: always
+  #
+  #   # e.g.
+  #   # diff-so-fancy
+  #   # delta --dark --paging=never
+  #   # ydiff -p cat -s --wrap --width={{columnWidth}}
+  #   pager: ""
+  #
+  #   # If true, Lazygit will use whatever pager is specified in `$GIT_PAGER`, `$PAGER`, or your *git config*. If the pager ends with something like ` | less` we will strip that part out, because less doesn't play nice with our rendering approach. If the custom pager uses less under the hood, that will also break rendering (hence the `--paging=never` flag for the `delta` pager).
+  #   useConfig: false
+  #
+  #   # e.g. 'difft --color=always'
+  #   externalDiffCommand: ""
+  #
+  # # Config relating to committing
+  # commit:
+  #   # If true, pass '--signoff' flag when committing
+  #   signOff: false
+  #
+  #   # Automatic WYSIWYG wrapping of the commit message as you type
+  #   autoWrapCommitMessage: true
+  #
+  #   # If autoWrapCommitMessage is true, the width to wrap to
+  #   autoWrapWidth: 72
+  #
+  # # Config relating to merging
+  # merging:
+  #   # If true, run merges in a subprocess so that if a commit message is required, Lazygit will not hang
+  #   # Only applicable to unix users.
+  #   manualCommit: false
+  #
+  #   # Extra args passed to `git merge`, e.g. --no-ff
+  #   args: ""
+  #
+  #   # The commit message to use for a squash merge commit. Can contain "{{selectedRef}}" and "{{currentBranch}}" placeholders.
+  #   squashMergeMessage: Squash merge {{selectedRef}} into {{currentBranch}}
+  #
+  # # list of branches that are considered 'main' branches, used when displaying commits
+  # mainBranches:
+  #   - master
+  #   - main
+  #
+  # # Prefix to use when skipping hooks. E.g. if set to 'WIP', then pre-commit hooks will be skipped when the commit message starts with 'WIP'
+  # skipHookPrefix: WIP
 
-    # If true, periodically fetch from remote
-    autoFetch: false
-    # If true, periodically refresh files and submodules
-    autoRefresh: false
-    # # If true, pass the --all arg to git fetch
-    # fetchAll: true
-    #
-    # # Command used when displaying the current branch git log in the main window
-    # branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
-    #
-    # # Command used to display git log of all branches in the main window.
-    # # Deprecated: User `allBranchesLogCmds` instead.
-    # allBranchesLogCmd: git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
-    #
-    # # If true, do not spawn a separate process when using GPG
-    # overrideGpg: false
-    #
-    # # If true, do not allow force pushes
-    # disableForcePushing: false
-    #
-    # # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-commit-message-prefix
-    # commitPrefix:
-    #   # pattern to match on. E.g. for 'feature/AB-123' to match on the AB-123 use "^\\w+\\/(\\w+-\\w+).*"
-    #   pattern: ""
-    #
-    #   # Replace directive. E.g. for 'feature/AB-123' to start the commit message with 'AB-123 ' use "[$1] "
-    #   replace: ""
-    #
-    # # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-branch-name-prefix
-    # branchPrefix: ""
-    #
-    # # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
-    # # (This should really be under 'gui', not 'git')
-    # parseEmoji: false
+  # If true, periodically fetch from remote
+  autoFetch: false
+  # If true, periodically refresh files and submodules
+  autoRefresh: false
+  # # If true, pass the --all arg to git fetch
+  # fetchAll: true
+  #
+  # # Command used when displaying the current branch git log in the main window
+  # branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
+  #
+  # # Command used to display git log of all branches in the main window.
+  # # Deprecated: User `allBranchesLogCmds` instead.
+  # allBranchesLogCmd: git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
+  #
+  # # If true, do not spawn a separate process when using GPG
+  # overrideGpg: false
+  #
+  # # If true, do not allow force pushes
+  # disableForcePushing: false
+  #
+  # # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-commit-message-prefix
+  # commitPrefix:
+  #   # pattern to match on. E.g. for 'feature/AB-123' to match on the AB-123 use "^\\w+\\/(\\w+-\\w+).*"
+  #   pattern: ""
+  #
+  #   # Replace directive. E.g. for 'feature/AB-123' to start the commit message with 'AB-123 ' use "[$1] "
+  #   replace: ""
+  #
+  # # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-branch-name-prefix
+  # branchPrefix: ""
+  #
+  # # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
+  # # (This should really be under 'gui', not 'git')
+  # parseEmoji: false
 
-    # Config for showing the log in the commits view
-    log:
-        # # One of: 'date-order' | 'author-date-order' | 'topo-order' | 'default'
-        # # 'topo-order' makes it easier to read the git log graph, but commits may not
-        # # appear chronologically. See https://git-scm.com/docs/
-        # #
-        # # Deprecated: Configure this with `Log menu -> Commit sort order` (<c-l> in the commits window by default).
-        # order: topo-order
+  # Config for showing the log in the commits view
+  log:
+    # # One of: 'date-order' | 'author-date-order' | 'topo-order' | 'default'
+    # # 'topo-order' makes it easier to read the git log graph, but commits may not
+    # # appear chronologically. See https://git-scm.com/docs/
+    # #
+    # # Deprecated: Configure this with `Log menu -> Commit sort order` (<c-l> in the commits window by default).
+    # order: topo-order
 
-        # This determines whether the git graph is rendered in the commits panel
-        # One of 'always' | 'never' | 'when-maximised'
-        #
-        # Deprecated: Configure this with `Log menu -> Show git graph` (<c-l> in the commits window by default).
-        showGraph: always
-        # # displays the whole git graph by default in the commits view (equivalent to passing the `--all` argument to `git log`)
-        # # showWholeGraph: false
-        # showWholeGraph: true
-    # # When copying commit hashes to the clipboard, truncate them to this
-    # # length. Set to 40 to disable truncation.
-    # truncateCopiedCommitHashesTo: 12
+    # This determines whether the git graph is rendered in the commits panel
+    # One of 'always' | 'never' | 'when-maximised'
+    #
+    # Deprecated: Configure this with `Log menu -> Show git graph` (<c-l> in the commits window by default).
+    showGraph: always
+    # # displays the whole git graph by default in the commits view (equivalent to passing the `--all` argument to `git log`)
+    # # showWholeGraph: false
+    # showWholeGraph: true
+  # # When copying commit hashes to the clipboard, truncate them to this
+  # # length. Set to 40 to disable truncation.
+  # truncateCopiedCommitHashesTo: 12
 # # Periodic update checks
 # update:
 #   # One of: 'prompt' (default) | 'background' | 'never'
@@ -195,164 +195,164 @@ git:
 
 # Keybindings
 keybinding:
-    universal:
-        quit: q
-        quit-alt1: <c-c>
-        return: <esc>
-        quitWithoutChangingDirectory: Q
-        togglePanel: <tab>
-        prevItem: <up>
-        nextItem: <down>
-        prevItem-alt: k
-        nextItem-alt: j
-        prevPage: ','
-        nextPage: .
-        scrollLeft: H
-        scrollRight: L
-        gotoTop: <
-        gotoBottom: '>'
-        toggleRangeSelect: v
-        rangeSelectDown: <s-down>
-        rangeSelectUp: <s-up>
-        prevBlock: <left>
-        nextBlock: <right>
-        prevBlock-alt: h
-        nextBlock-alt: l
-        nextBlock-alt2: <tab>
-        prevBlock-alt2: <backtab>
-        jumpToBlock:
-            - "1"
-            - "2"
-            - "3"
-            - "4"
-            - "5"
-        nextMatch: "n"
-        prevMatch: "N"
-        startSearch: /
-        optionMenu: <disabled>
-        optionMenu-alt1: '?'
-        select: <space>
-        goInto: <enter>
-        confirm: <enter>
-        confirmInEditor: <a-enter>
-        remove: d
-        new: "n"
-        edit: e
-        openFile: o
-        scrollUpMain: <pgup>
-        scrollDownMain: <pgdown>
-        scrollUpMain-alt1: K
-        scrollDownMain-alt1: J
-        scrollUpMain-alt2: <c-u>
-        scrollDownMain-alt2: <c-d>
-        executeShellCommand: ':'
-        createRebaseOptionsMenu: m
-        # 'Files' appended for legacy reasons
-        pushFiles: P
-        # 'Files' appended for legacy reasons
-        pullFiles: p
-        refresh: R
-        createPatchOptionsMenu: <c-p>
-        nextTab: ']'
-        prevTab: '['
-        nextScreenMode: +
-        prevScreenMode: _
-        undo: z
-        redo: <c-z>
-        filteringMenu: <c-s>
-        diffingMenu: W
-        diffingMenu-alt: <c-e>
-        copyToClipboard: <c-o>
-        openRecentRepos: <c-r>
-        submitEditorText: <enter>
-        extrasMenu: '@'
-        toggleWhitespaceInDiffView: <c-w>
-        increaseContextInDiffView: '}'
-        decreaseContextInDiffView: '{'
-        increaseRenameSimilarityThreshold: )
-        decreaseRenameSimilarityThreshold: (
-        openDiffTool: <c-t>
-    status:
-        checkForUpdate: u
-        recentRepos: <enter>
-        allBranchesLogGraph: a
-    files:
-        commitChanges: c
-        commitChangesWithoutHook: w
-        amendLastCommit: A
-        commitChangesWithEditor: C
-        findBaseCommitForFixup: <c-f>
-        confirmDiscard: x
-        ignoreFile: i
-        refreshFiles: r
-        stashAllChanges: s
-        viewStashOptions: S
-        toggleStagedAll: a
-        viewResetOptions: D
-        fetch: f
-        toggleTreeView: '`'
-        openMergeTool: M
-        openStatusFilter: <c-b>
-        copyFileInfoToClipboard: "y"
-    branches:
-        createPullRequest: o
-        viewPullRequestOptions: O
-        copyPullRequestURL: <c-y>
-        checkoutBranchByName: c
-        forceCheckoutBranch: F
-        rebaseBranch: r
-        renameBranch: R
-        mergeIntoCurrentBranch: M
-        viewGitFlowOptions: i
-        fastForward: f
-        createTag: T
-        pushTag: P
-        setUpstream: u
-        fetchRemote: f
-        sortOrder: s
-    worktrees:
-        viewWorktreeOptions: w
-    commits:
-        squashDown: s
-        renameCommit: r
-        renameCommitWithEditor: R
-        viewResetOptions: g
-        markCommitAsFixup: f
-        createFixupCommit: F
-        squashAboveCommits: S
-        moveDownCommit: <c-j>
-        moveUpCommit: <c-k>
-        amendToCommit: A
-        resetCommitAuthor: a
-        pickCommit: p
-        revertCommit: t
-        cherryPickCopy: C
-        pasteCommits: V
-        markCommitAsBaseForRebase: B
-        tagCommit: T
-        checkoutCommit: <space>
-        resetCherryPick: <c-R>
-        copyCommitAttributeToClipboard: "y"
-        openLogMenu: <c-l>
-        openInBrowser: o
-        viewBisectOptions: b
-        startInteractiveRebase: i
-    amendAttribute:
-        resetAuthor: a
-        setAuthor: A
-        addCoAuthor: c
-    stash:
-        popStash: g
-        renameStash: r
-    commitFiles:
-        checkoutCommitFile: c
-    main:
-        toggleSelectHunk: a
-        pickBothHunks: b
-        editSelectHunk: E
-    submodules:
-        init: i
-        update: u
-        bulkMenu: b
-    commitMessage:
-        commitMenu: <c-o>
+  universal:
+    quit: q
+    quit-alt1: <c-c>
+    return: <esc>
+    quitWithoutChangingDirectory: Q
+    togglePanel: <tab>
+    prevItem: <up>
+    nextItem: <down>
+    prevItem-alt: k
+    nextItem-alt: j
+    prevPage: ','
+    nextPage: .
+    scrollLeft: H
+    scrollRight: L
+    gotoTop: <
+    gotoBottom: '>'
+    toggleRangeSelect: v
+    rangeSelectDown: <s-down>
+    rangeSelectUp: <s-up>
+    prevBlock: <left>
+    nextBlock: <right>
+    prevBlock-alt: h
+    nextBlock-alt: l
+    nextBlock-alt2: <tab>
+    prevBlock-alt2: <backtab>
+    jumpToBlock:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+    nextMatch: "n"
+    prevMatch: "N"
+    startSearch: /
+    optionMenu: <disabled>
+    optionMenu-alt1: '?'
+    select: <space>
+    goInto: <enter>
+    confirm: <enter>
+    confirmInEditor: <a-enter>
+    remove: d
+    new: "n"
+    edit: e
+    openFile: o
+    scrollUpMain: <pgup>
+    scrollDownMain: <pgdown>
+    scrollUpMain-alt1: K
+    scrollDownMain-alt1: J
+    scrollUpMain-alt2: <c-u>
+    scrollDownMain-alt2: <c-d>
+    executeShellCommand: ':'
+    createRebaseOptionsMenu: m
+    # 'Files' appended for legacy reasons
+    pushFiles: P
+    # 'Files' appended for legacy reasons
+    pullFiles: p
+    refresh: R
+    createPatchOptionsMenu: <c-p>
+    nextTab: ']'
+    prevTab: '['
+    nextScreenMode: +
+    prevScreenMode: _
+    undo: z
+    redo: <c-z>
+    filteringMenu: <c-s>
+    diffingMenu: W
+    diffingMenu-alt: <c-e>
+    copyToClipboard: <c-o>
+    openRecentRepos: <c-r>
+    submitEditorText: <enter>
+    extrasMenu: '@'
+    toggleWhitespaceInDiffView: <c-w>
+    increaseContextInDiffView: '}'
+    decreaseContextInDiffView: '{'
+    increaseRenameSimilarityThreshold: )
+    decreaseRenameSimilarityThreshold: (
+    openDiffTool: <c-t>
+  status:
+    checkForUpdate: u
+    recentRepos: <enter>
+    allBranchesLogGraph: a
+  files:
+    commitChanges: c
+    commitChangesWithoutHook: w
+    amendLastCommit: A
+    commitChangesWithEditor: C
+    findBaseCommitForFixup: <c-f>
+    confirmDiscard: x
+    ignoreFile: i
+    refreshFiles: r
+    stashAllChanges: s
+    viewStashOptions: S
+    toggleStagedAll: a
+    viewResetOptions: D
+    fetch: f
+    toggleTreeView: '`'
+    openMergeOptions: M
+    openStatusFilter: <c-b>
+    copyFileInfoToClipboard: "y"
+  branches:
+    createPullRequest: o
+    viewPullRequestOptions: O
+    copyPullRequestURL: <c-y>
+    checkoutBranchByName: c
+    forceCheckoutBranch: F
+    rebaseBranch: r
+    renameBranch: R
+    mergeIntoCurrentBranch: M
+    viewGitFlowOptions: i
+    fastForward: f
+    createTag: T
+    pushTag: P
+    setUpstream: u
+    fetchRemote: f
+    sortOrder: s
+  worktrees:
+    viewWorktreeOptions: w
+  commits:
+    squashDown: s
+    renameCommit: r
+    renameCommitWithEditor: R
+    viewResetOptions: g
+    markCommitAsFixup: f
+    createFixupCommit: F
+    squashAboveCommits: S
+    moveDownCommit: <c-j>
+    moveUpCommit: <c-k>
+    amendToCommit: A
+    resetCommitAuthor: a
+    pickCommit: p
+    revertCommit: t
+    cherryPickCopy: C
+    pasteCommits: V
+    markCommitAsBaseForRebase: B
+    tagCommit: T
+    checkoutCommit: <space>
+    resetCherryPick: <c-R>
+    copyCommitAttributeToClipboard: "y"
+    openLogMenu: <c-l>
+    openInBrowser: o
+    viewBisectOptions: b
+    startInteractiveRebase: i
+  amendAttribute:
+    resetAuthor: a
+    setAuthor: A
+    addCoAuthor: c
+  stash:
+    popStash: g
+    renameStash: r
+  commitFiles:
+    checkoutCommitFile: c
+  main:
+    toggleSelectHunk: a
+    pickBothHunks: b
+    editSelectHunk: E
+  submodules:
+    init: i
+    update: u
+    bulkMenu: b
+  commitMessage:
+    commitMenu: <c-o>
