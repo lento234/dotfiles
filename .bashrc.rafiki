@@ -32,20 +32,6 @@ eval "$(starship init bash)"
 [ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-unlock_strongbox () {
-    sudo cryptsetup -v luksOpen /dev/sda1 strongbox
-    sudo mount /dev/mapper/strongbox /mnt/strongbox
-}
-alias strongbox='cd /mnt/strongbox/'
-# alias renderman='cd /mnt/strongbox/projects/RendermanBuild'
-alias renderman='cd ~/projects/rendering/renderman/RendermanBuild'
-# alias obsidian='cd ~/Documents/obsidian-vault'
-
-# slurm
-# alias sq='squeue -o "%.8i %.9P %.15j %.9u %.9a %.8T %.12L %.12l %.6D %.3m %.4C %.8R %.22b %e"'
-# alias sdebug='srun --cpus-per-task=4 --ntasks-per-node=1 --job-name=debug --mem=16G --time=00:30:00 --pty /bin/bash'
-# alias spast='sacct --starttime=$(date --date="today -1 week" +"%Y-%m-%d") --format=User,JobID,Jobname%50,partition,state,time,start,end,elapsed,MaxRss,MaxVMSize,nnodes,ncpus,nodelist'
-
 # Activate spack
 alias activate_spack='source ${HOME}/lib/spack/share/spack/setup-env.sh'
 
@@ -69,19 +55,9 @@ export PATH="${GOPATH}/bin:${PATH}"
 # rust
 . "$HOME/.cargo/env"
 
-# cuda
-# export PATH="/usr/local/cuda/bin:${PATH}"
-# export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/cuda/lib64"
-# export CMAKE_PREFIX_PATH="/usr/local/cuda:${CMAKE_PREFIX_PATH}"
-
 # # zig
 # export PATH="/home/lento/lib/ziglang/zig-latest:${PATH}"
 # # export PATH="/home/lento/lib/ziglang/zls/zig-out/bin:${PATH}"
-
-# # conda
-# if [ -f "/home/lento/lib/miniforge3/etc/profile.d/conda.sh" ]; then
-#     . "/home/lento/lib/miniforge3/etc/profile.d/conda.sh"
-# fi
 
 # xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"
 
@@ -109,6 +85,3 @@ complete -C /home/lento/lib/golang/go1.25.1/bin/terragrunt terragrunt
 # tv
 eval "$(tv init bash)"
 # source /home/lento/.config/op/plugins.sh
-#
-# env
-[ -f ~/.env ] && source ~/.env

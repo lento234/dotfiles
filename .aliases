@@ -4,6 +4,31 @@
 # not so useless things
 
 cheat()     { curl cht.sh/$1; } # online man pages
+
+# basic ---------------------------------------------------------------------------------------------------------------
+#alias l='exa -la'
+#alias la='exa -la'
+#alias lg='exa -lah --git'
+alias l='ls -l'
+alias ll='ls -lA'
+alias dush='du -sh $(ls -A) | sort -h'
+
+# vim -----------------------------------------------------------------------------------------------------------------
+alias vimdiff='nvim -d'
+alias vim=nvim
+export EDITOR=nvim
+
+# tmux  ---------------------------------------------------------------------------------------------------------------
+alias ta='tmux attach -t'
+alias tl='tmux ls'
+alias ts='tmux new-session -s'
+alias tmux_reset_ssh='eval $(tmux show-env -s | grep "^SSH_")'
+
+# kitty  --------------------------------------------------------------------------------------------------------------
+alias icat='kitty +kitten icat'
+
+# tar/compress --------------------------------------------------------------------------------------------------------
+
 #pgzip()     { time tar cf - ${1%/} | pv | pigz > ${1%/}.tar.gz; } # parallel tar gzip
 #tarcheck()  { tar -ztf $1 > /dev/null && echo -e "\e[32mOk!\e[0m" || echo -e "\e[31mFailed!\e[0m"; } # verify the tar
 
@@ -38,37 +63,28 @@ targz()     { tar -zcvf ${1%/}.tar.gz ${1%/}; gzip -lv ${1%/}.tar.gz; } # standa
 targzsafe() { time tar -zcvf ${1%/}.tar.gz ${1%/}; tar -ztf ${1%/}.tar.gz > /dev/null; } # tar-zip and verify the content
 untargz()   { time tar -zxvf $1 $2;} # untar
 
-alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"  # Best git log tree
+# git -----------------------------------------------------------------------------------------------------------------
+# Best git log tree
+alias glgs="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --stat"
 alias glgl="git log --oneline --decorate --graph --all"
 alias gll="git log --oneline --decorate --graph"
-# alias gll="git log --oneline --decorate"
+alias git-dry-merge='git merge --no-commit --no-ff'
+
+# gpg -----------------------------------------------------------------------------------------------------------------
 alias gpg-list='gpg --list-secret-keys --keyid-format LONG'
 alias gpg-export='gpg --armor --export'
-alias git-dry-merge='git merge --no-commit --no-ff'
-#alias l='exa -la'
-#alias la='exa -la'
-#alias lg='exa -lah --git'
-#alias ll='exa -l'
+export GPG_TTY=$(tty)
+
+# misc  ---------------------------------------------------------------------------------------------------------------
 alias meteo='curl v2.wttr.in'
-# alias open_sesame='ssh -v -T -R 43212:localhost:22 mlento@ela1.cscs.ch' # Ali Baba
-#alias open_sesame='ssh -TfN -R 43212:localhost:22 mlento@ela1.cscs.ch'
-#alias please='sudo' # Let's be nicer
 alias publicip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-mem' # show system perf
-alias ta='tmux attach -t'
-alias tl='tmux ls'
-alias ts='tmux new-session -s'
-alias icat='kitty +kitten icat'
-alias tmux_reset_ssh='eval $(tmux show-env -s | grep "^SSH_")'
-alias l='ls -l'
+
+# monitor ------------------------------------------------------------------------------------------------------------
+# show system perf
+alias showstat='dstat --cpu --mem --proc --page --disk --top-cpu --top-io --top-mem'
 
 # k8s aliases
 # alias kubectl="minikube kubectl --"
-
-# vim
-alias vimdiff='nvim -d'
-alias vim=nvim
-export EDITOR=nvim
 
 ##############################
 # OS specific aliases
@@ -100,11 +116,7 @@ fi
 unset OS_NAME
 
 ##############################
-# Setup environment
-export GPG_TTY=$(tty)
-
-##############################
-# Personal wiki
+# Personal cheatsheet
 # Miscs useful things, thank me later!!
 
 # A collection of handy tools
@@ -133,7 +145,7 @@ export GPG_TTY=$(tty)
 # wget -e robots=off -r -nc -np -A <filetype1,filetype2,...> <url>
 
 # Slurm
-# scontrol update nodename=hades state=resume # bring a node up
+# scontrol update nodename=nodename state=resume # bring a node up
 # sinfo, salloc, srun, smap
 
 # hardware
