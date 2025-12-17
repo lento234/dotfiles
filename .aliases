@@ -11,7 +11,7 @@ cheat()     { curl cht.sh/$1; } # online man pages
 #alias lg='exa -lah --git'
 alias l='ls -l'
 alias ll='ls -lA'
-alias dush='du -sh $(ls -A) | sort -h'
+alias dush='du -sh --exclude "." --exclude ".." * .* | sort -h'
 
 # vim -----------------------------------------------------------------------------------------------------------------
 alias vimdiff='nvim -d'

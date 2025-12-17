@@ -4,13 +4,6 @@ return {
 	lazy = false,
 	keys = {
 		{
-			"<leader>z",
-			function()
-				Snacks.zen()
-			end,
-			desc = "Toggle Zen Mode",
-		},
-		{
 			"<leader>gB",
 			function()
 				Snacks.gitbrowse()
