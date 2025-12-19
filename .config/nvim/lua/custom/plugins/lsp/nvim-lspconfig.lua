@@ -105,7 +105,7 @@ return {
 			clangd = {},
 			debugpy = {},
 			eslint = {},
-			glsl_analyzer = {},
+			-- glsl_analyzer = {},
 			gopls = {},
 			lua_ls = {
 				Lua = {
