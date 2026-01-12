@@ -223,4 +223,11 @@ return {
 		})
 	end,
 	vim.lsp.enable({ "vtsls", "vue_ls" }),
+
+	vim.lsp.config("zls", {
+		cmd = { "/home/lento/.local/bin/zls" },
+		filetypes = { "zig" },
+		root_markers = { "build.zig" },
+	}),
+	vim.lsp.enable("zls"),
 }
