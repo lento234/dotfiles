@@ -192,6 +192,8 @@ for_window [class="^IMGUI"] floating enable
 for_window [class="^napari$"] floating enable
 for_window [class="F5 VPN"] floating enable
 for_window [title="(?i)zoom"] floating enable
+for_window [class="USD Skeleton Viewer"] floating enable
+
 
 # renderman it viewer
 for_window [class="^it$"] floating enable

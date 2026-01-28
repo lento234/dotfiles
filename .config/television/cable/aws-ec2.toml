@@ -1,0 +1,12 @@
+[metadata]
+name = "aws-ec2"
+description = "List AWS EC2 instances"
+requirements = ["aws", "jq"]
+
+[source]
+command = "aws ec2 describe-instances --filters 'Name=instance-state-name,Values=running' --query 'Reservations[*].Instances[*].{Name: Tags[?Key==`Name`].Value | [0], PrivateIpAddress: PrivateIpAddress, InstanceId: InstanceId}' --output text"
+output = "{split:\t:-1}"
+
+[preview]
+command = "aws ec2 describe-instances --instance-ids='{split:\t:0}' | jq -C"
+

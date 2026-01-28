@@ -253,6 +253,7 @@ fallback_channel = "files"
 "git-repos" = ["nvim", "code", "hx", "git clone"]
 "aws-asg" = ["aws autoscaling"]
 "aws-s3" = ["aws s3"]
+"aws-ec2" = ["aws ec2"]
 
 
 [shell_integration.keybindings]
