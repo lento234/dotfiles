@@ -346,6 +346,10 @@ workspace "2" {}
 workspace "3" {}
 workspace "4" {}
 workspace "5" {}
+workspace "6" {}
+workspace "7" {}
+workspace "8" {}
+workspace "9" {}
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
@@ -368,28 +372,28 @@ window-rule {
   // - Flatpak Firefox (app-id is "org.mozilla.firefox")
   match app-id=r#"firefox$"# title="^Picture-in-Picture$"
   open-floating true
-  open-maximized true
-  open-on-workspace "2"
+  // open-maximized true
+  // open-on-workspace "2"
 }
 
 // Open ghostty terminal
 window-rule {
   match app-id="google-chrome"
-  open-on-workspace "1"
-  open-maximized true
+  // open-on-workspace "1"
+  // open-maximized true
 }
 
 // Open ghostty terminal
 window-rule {
   match app-id="com.mitchellh.ghostty"
-  open-maximized true
+  // open-maximized true
 }
 
 window-rule {
   match app-id="1password"
   exclude title="^1Password$"
   open-floating true
-  open-on-workspace "5"
+  // open-on-workspace "9"
   default-column-width { fixed 1024; }
   default-window-height { fixed 720; }
 }
@@ -447,7 +451,7 @@ binds {
   // Suggested binds for running programs: terminal, app launcher, screen locker.
   Mod+Return hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty"; }
   Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-  Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+  Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "--color" "000000" "-e";}
 
   // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
   // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
