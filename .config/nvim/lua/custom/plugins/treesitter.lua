@@ -3,7 +3,10 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
+		{
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			branch = "main",
+		},
 		"windwp/nvim-ts-autotag",
 		"OXY2DEV/markview.nvim",
 	},
@@ -11,65 +14,76 @@ return {
 	keys = {
 		{ "<leader>tm", ":Markview<CR>", desc = "[t]oggle [m]arkdown", silent = true },
 	},
-	config = function()
-		local treesitter = require("nvim-treesitter.configs")
-		treesitter.setup({
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
-			indent = { enable = true },
-			autotag = { enable = true },
-			ensure_installed = {
-				"bash",
-				"c",
-				"cmake",
-				"cpp",
-				"css",
-				"go",
-				"html",
-				"javascript",
-				"json",
-				"lua",
-				"make",
-				"markdown",
-				"python",
-				"rust",
-				"toml",
-				"typescript",
-				"vim",
-				"yaml",
-			},
-			auto_install = true,
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<c-space>",
-					node_incremental = "<c-space>",
-					scope_incremental = "<c-s>",
-					node_decremental = "<M-space>",
-				},
-			},
-			move = {
-				enable = true,
-				set_jumps = true, -- whether to set jumps in the jumplist
-				goto_next_start = {
-					["]m"] = "@function.outer",
-					["]]"] = "@class.outer",
-				},
-				goto_next_end = {
-					["]M"] = "@function.outer",
-					["]["] = "@class.outer",
-				},
-				goto_previous_start = {
-					["[m"] = "@function.outer",
-					["[["] = "@class.outer",
-				},
-				goto_previous_end = {
-					["[M"] = "@function.outer",
-					["[]"] = "@class.outer",
-				},
-			},
+	init = function()
+		-- config = function()
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function()
+				-- Enable treesitter highlighting and disable regex syntax
+				pcall(vim.treesitter.start)
+				-- Enable treesitter-based indentation
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
 		})
 	end,
+	-- config = function()
+	-- 	local treesitter = require("nvim-treesitter.configs")
+	-- 	treesitter.setup({
+	-- 		highlight = {
+	-- 			enable = true,
+	-- 			additional_vim_regex_highlighting = false,
+	-- 		},
+	-- 		indent = { enable = true },
+	-- 		autotag = { enable = true },
+	-- 		ensure_installed = {
+	-- 			"bash",
+	-- 			"c",
+	-- 			"cmake",
+	-- 			"cpp",
+	-- 			"css",
+	-- 			"go",
+	-- 			"html",
+	-- 			"javascript",
+	-- 			"json",
+	-- 			"lua",
+	-- 			"make",
+	-- 			"markdown",
+	-- 			"python",
+	-- 			"rust",
+	-- 			"toml",
+	-- 			"typescript",
+	-- 			"vim",
+	-- 			"yaml",
+	-- 		},
+	-- 		auto_install = true,
+	-- 		incremental_selection = {
+	-- 			enable = true,
+	-- 			keymaps = {
+	-- 				init_selection = "<c-space>",
+	-- 				node_incremental = "<c-space>",
+	-- 				scope_incremental = "<c-s>",
+	-- 				node_decremental = "<M-space>",
+	-- 			},
+	-- 		},
+	-- 		move = {
+	-- 			enable = true,
+	-- 			set_jumps = true, -- whether to set jumps in the jumplist
+	-- 			goto_next_start = {
+	-- 				["]m"] = "@function.outer",
+	-- 				["]]"] = "@class.outer",
+	-- 			},
+	-- 			goto_next_end = {
+	-- 				["]M"] = "@function.outer",
+	-- 				["]["] = "@class.outer",
+	-- 			},
+	-- 			goto_previous_start = {
+	-- 				["[m"] = "@function.outer",
+	-- 				["[["] = "@class.outer",
+	-- 			},
+	-- 			goto_previous_end = {
+	-- 				["[M"] = "@function.outer",
+	-- 				["[]"] = "@class.outer",
+	-- 			},
+	-- 		},
+	-- })
+	-- end,
 }

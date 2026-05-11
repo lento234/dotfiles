@@ -27,11 +27,11 @@ return {
 			layouts = {
 				{
 					elements = {
-						{ id = "scopes",      size = 0.20 },
+						{ id = "scopes", size = 0.20 },
 						{ id = "breakpoints", size = 0.20 },
-						{ id = "stacks",      size = 0.20 },
-						{ id = "watches",     size = 0.20 },
-						{ id = "repl",        size = 0.20 },
+						{ id = "stacks", size = 0.20 },
+						{ id = "watches", size = 0.20 },
+						{ id = "repl", size = 0.20 },
 					},
 					-- position = "left",
 					position = "right",
@@ -47,7 +47,7 @@ return {
 			},
 		})
 		require("nvim-dap-virtual-text").setup({
-			virt_text_pos = 'eol'
+			virt_text_pos = "eol",
 		})
 
 		-- ui customization
@@ -55,15 +55,17 @@ return {
 
 		-- require('dap-python').setup('~/.local/pipx/venvs/python-lsp-server/bin/python')
 		-- require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
-
 		local dap, dapui = require("dap"), require("dapui")
-		dap.listeners.after.event_initialized["dapui_config"] = function()
+		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
 		end
-		dap.listeners.before.event_terminated["dapui_config"] = function()
+		dap.listeners.before.launch.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated.dapui_config = function()
 			dapui.close()
 		end
-		dap.listeners.before.event_exited["dapui_config"] = function()
+		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
 		end
 
@@ -82,7 +84,7 @@ return {
 
 		-- plugin: dap
 		noremap("n", "<F5>", function()
-			require("dap.ext.vscode").load_launchjs(nil, {})
+			-- require("dap.ext.vscode").load_launchjs(nil, {})
 			require("dap").continue()
 		end, "dap: continue (or start + load launch json)")
 		noremap("n", "<F10>", function()
@@ -141,9 +143,7 @@ return {
 		noremap("n", "<leader>dx", function()
 			require("dap").terminate()
 		end, "[d]ap: e[x]it session")
-		noremap("n", "<leader>dl", function()
-			require("dap.ext.vscode").load_launchjs(nil, {})
-		end, "[d]ap: start debug using vscode [l]aunch.json")
+		noremap("n", "<leader>dl", function() end, "[d]ap: start debug using vscode [l]aunch.json")
 		noremap("n", "<leader>df", ":Telescope dap frames<CR>", "[d]ap: telescope list [f]rames")
 		noremap("n", "<leader>db", ":Telescope dap list_breakpoints<CR>", "[d]ap: telescope list [b]reakpoints")
 		-- dapui
