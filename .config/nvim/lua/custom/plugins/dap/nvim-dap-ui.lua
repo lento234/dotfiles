@@ -27,31 +27,39 @@ return {
 			layouts = {
 				{
 					elements = {
-						{ id = "scopes", size = 0.20 },
-						{ id = "breakpoints", size = 0.20 },
-						{ id = "stacks", size = 0.20 },
-						{ id = "watches", size = 0.20 },
-						{ id = "repl", size = 0.20 },
+						{ id = "scopes", size = 0.25 },
+						{ id = "breakpoints", size = 0.25 },
+						{ id = "stacks", size = 0.25 },
+						{ id = "watches", size = 0.25 },
 					},
-					-- position = "left",
 					position = "right",
 					size = 80,
+				},
+				{
+					elements = {
+						{ id = "repl", size = 1.0 },
+					},
+					position = "top",
+					size = 10,
 				},
 				{
 					elements = {
 						{ id = "console", size = 1.0 },
 					},
 					position = "bottom",
-					size = 0.2,
+					size = 10,
 				},
 			},
 		})
+
 		require("nvim-dap-virtual-text").setup({
 			virt_text_pos = "eol",
+			all_frames = true,
 		})
 
 		-- ui customization
 		vim.fn.sign_define("DapBreakpoint", { text = "󰯯 ", texthl = "DapBreakpointSymbol" })
+		vim.fn.sign_define("DapBreakpointCondition", { text = "󰯲 ", texthl = "DapBreakpointSymbol" })
 
 		-- require('dap-python').setup('~/.local/pipx/venvs/python-lsp-server/bin/python')
 		-- require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
@@ -97,10 +105,10 @@ return {
 			require("dap").step_out()
 		end, "dap: step out")
 		-- save breakpoints to file automatically.
-		noremap("n", "<leader>b", function()
+		noremap("n", "<leader>db", function()
 			require("persistent-breakpoints.api").toggle_breakpoint()
 		end, "dap: toggle [b]reakpoint")
-		noremap("n", "<leader>B", function()
+		noremap("n", "<leader>dB", function()
 			require("persistent-breakpoints.api").set_conditional_breakpoint()
 		end, "dap: set conditional [B]reakpoint")
 		noremap("n", "<leader>dcb", function()
@@ -143,13 +151,25 @@ return {
 		noremap("n", "<leader>dx", function()
 			require("dap").terminate()
 		end, "[d]ap: e[x]it session")
-		noremap("n", "<leader>dl", function() end, "[d]ap: start debug using vscode [l]aunch.json")
-		noremap("n", "<leader>df", ":Telescope dap frames<CR>", "[d]ap: telescope list [f]rames")
-		noremap("n", "<leader>db", ":Telescope dap list_breakpoints<CR>", "[d]ap: telescope list [b]reakpoints")
+		-- noremap("n", "<leader>dl", function() end, "[d]ap: start debug using vscode [l]aunch.json")
+		-- noremap("n", "<leader>dlf", ":Telescope dap frames<CR>", "[d]ap: telescope list [f]rames")
+		-- noremap("n", "<leader>dlb", ":Telescope dap list_breakpoints<CR>", "[d]ap: telescope list [b]reakpoints")
 		-- dapui
 		noremap("n", "<M-m>", function()
 			require("dapui").eval()
 		end, "dap: [k]eval")
+
+		noremap("n", "<leader>dR", function()
+			for _, win in ipairs(vim.api.nvim_list_wins()) do
+				local buf = vim.api.nvim_win_get_buf(win)
+				local ft = vim.bo[buf].filetype
+				if ft == "dap-repl" then
+					vim.api.nvim_set_current_win(win)
+					return
+				end
+				require("dapui").open({ reset = true })
+			end
+		end, "[d]ap: jump to [R]epl")
 
 		-- require('nvim-dap-projects').search_project_config()
 		-- require('dap.ext.vscode').load_launchjs(nil, {})
