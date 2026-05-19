@@ -175,8 +175,8 @@ bindsym $mod+a focus parent
 # bindsym $mod+z focus child
 
 # assign apps to specific workspace
-assign [class="Blender" title="^Blender*"] $ws8
-assign [class="Blender" title="^Blender Render$"] $ws8
+assign [class="(?i)blender"] $ws8
+assign [class="UV/Image Editor"] $ws8
 assign [class="Spotify"] $ws9
 assign [class="Slack"] $ws10
 

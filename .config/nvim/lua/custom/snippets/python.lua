@@ -3,10 +3,11 @@ local s = ls.snippet
 local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
-
 ls.add_snippets("json", {
-    s({ trig = "pydebug", dscr = "snippet for python debug launch.json" }, fmt(
-        [[
+	s(
+		{ trig = "pydebug", dscr = "snippet for python debug launch.json" },
+		fmt(
+			[[
 {{
     "version": "0.2.0",
     "configurations": [
@@ -18,12 +19,20 @@ ls.add_snippets("json", {
             "console": "integratedTerminal",
             "python": "python",
             "justMyCode": true,
-            "args": ["{}"]
+            "args": ["{}"],
+            "env": {{
+              "{}": "{}",
+            }}
         }}
     ]
 }}
-    ]], {
-            i(1, "Python debugging"),
-            i(2, "arg")
-        }))
+    ]],
+			{
+				i(1, "Python debugging"),
+				i(2, "arg"),
+				i(3, "ENV_VAR_KEY"),
+				i(4, "ENV_VAR_VALUE"),
+			}
+		)
+	),
 })

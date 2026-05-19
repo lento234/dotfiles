@@ -64,6 +64,9 @@ export PATH="${GOPATH}/bin:${PATH}"
 # # mess
 # source /home/lento/projects/se/mess/completions/mess.bash
 
+# zoxide
+eval "$(zoxide init bash)"
+
 # nvm / node
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

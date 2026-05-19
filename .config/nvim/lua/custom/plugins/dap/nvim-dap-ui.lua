@@ -16,7 +16,7 @@ return {
 				load_breakpoints_event = { "BufReadPost" },
 			},
 		},
-		"nvim-telescope/telescope-dap.nvim",
+		"ibhagwan/fzf-lua",
 	},
 	config = function()
 		-- change the default json parser
@@ -152,8 +152,8 @@ return {
 			require("dap").terminate()
 		end, "[d]ap: e[x]it session")
 		-- noremap("n", "<leader>dl", function() end, "[d]ap: start debug using vscode [l]aunch.json")
-		-- noremap("n", "<leader>dlf", ":Telescope dap frames<CR>", "[d]ap: telescope list [f]rames")
-		-- noremap("n", "<leader>dlb", ":Telescope dap list_breakpoints<CR>", "[d]ap: telescope list [b]reakpoints")
+		noremap("n", "<leader>dlf", ":FzfLua dap_frames<CR>", "[d]ap: list [f]rames")
+		noremap("n", "<leader>dlb", ":FzfLua dap_breakpoints<CR>", "[d]ap: list [b]reakpoints")
 		-- dapui
 		noremap("n", "<M-m>", function()
 			require("dapui").eval()
