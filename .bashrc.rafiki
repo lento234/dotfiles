@@ -88,3 +88,6 @@ complete -C /home/lento/lib/golang/go1.25.1/bin/terragrunt terragrunt
 # tv
 eval "$(tv init bash)"
 # source /home/lento/.config/op/plugins.sh
+
+# # Pi
+# export PATH="/home/lento/.nvm/versions/node/v22.14.0/bin:$PATH"

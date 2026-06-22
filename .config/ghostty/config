@@ -1,6 +1,7 @@
 # help: ghostty +show-config --default --docs
 # adjust-cell-height = 18%
 background = #1D2021
+clipboard-read = allow
 background-blur-radius = 15
 background-opacity = 0.95
 copy-on-select = true
