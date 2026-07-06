@@ -4,19 +4,87 @@
 // documentation: https://zed.dev/docs/configuring-zed
 //
 // To see all of Zed's default settings without changing your
-// custom settings, run the `zed: Open Default Settings` command
-// from the command palette
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "disable_ai": false,
   "telemetry": {
     "diagnostics": true,
-    "metrics": false
+    "metrics": false,
+  },
+  "inlay_hints": {
+    "enabled": false,
+    "show_background": true,
+  },
+  "edit_predictions": {
+    "open_ai_compatible_api": {
+      "model": "",
+      "api_url": "",
+    },
+    "allow_data_collection": "no",
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "vim": {
+    "toggle_relative_line_numbers": false,
+  },
+  "relative_line_numbers": "enabled",
+  "proxy": "",
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+    "opencode": {
+      "favorite_config_option_values": {
+        "model": [
+          "amazon-bedrock/global.anthropic.claude-opus-4-6-v1"
+        ]
+      },
+      "type": "registry",
+    },
+  },
+  "ssh_connections": [
+    {
+      "host": "rafiki",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/lento/projects/layout/worldbox"],
+        },
+      ],
+    },
+  ],
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "use_modifier_to_send": true,
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
   },
   "vim_mode": true,
+  "base_keymap": "VSCode",
   "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "buffer_font_size": 14,
+  "ui_font_family": "FiraCode Nerd Font",
+  "terminal": {
+    "font_family": "FiraCode Nerd Font",
+    "font_size": 11,
+  },
   "theme": {
     "mode": "system",
-    "light": "Gruvbox Dark",
-    "dark": "One Dark"
-  }
+    "light": "Gruvbox Dark Hard",
+    "dark": "Gruvbox Dark Hard",
+  },
 }

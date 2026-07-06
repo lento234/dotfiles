@@ -64,7 +64,7 @@ export PATH="/Users/lento/lib/zigup/zig-out/bin:${PATH}"
 # golang
 export GOPATH="/Users/lento/lib/go/gopath"
 export GOROOT="/Users/lento/lib/go/go-latest"
-export PATH="${GOROOT}/bin:${PATH}"
+export PATH="${GOROOT}/bin:${GOPATH}/bin:${PATH}"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -77,6 +77,9 @@ export NVM_DIR="$HOME/.nvm"
 # bun completions
 # [ -s "/Users/lento/.bun/_bun" ] && source "/Users/lento/.bun/_bun"
 
+# bun
+export PATH="/Users/lento/.bun/bin:$PATH"
+
 # completions
 autoload -Uz compinit && compinit
 
@@ -88,3 +91,9 @@ function y() {
     fi
     rm -f -- "$tmp"
 }
+
+# launch
+export LAUNCH_HOME="$HOME/.launch"
+export PATH="$LAUNCH_HOME/bin:$PATH"
+# launch completions
+[ -s "$LAUNCH_HOME/complete/_launch" ] && source "$LAUNCH_HOME/complete/_launch"
