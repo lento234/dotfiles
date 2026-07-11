@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+	"autoupdate": "notify",
+	"model": "anthropic/claude-sonnet-4-5",
+	"snapshot": false,
+	"share": "disabled",
+	"lsp": false,
+	"formatter": false,
+	"permission": {
+    "edit": "ask"
+	},
+  "mcp": {
+    "blender": {
+      "enabled": false,
+      "type": "local",
+      "command": ["uv", "--directory", "/home/lento/lib/mcp/blender_mcp/mcp", "run", "blender-mcp"]
+    }
+  }
+}

@@ -263,6 +263,7 @@ exec --no-startup-id nm-applet
 # exec_always xrandr --output $secondary_monitor --mode "1920x1080" --left-of $primary_monitor
 # exec_always xrandr --output $secondary_monitor --mode "1920x1080" --left-of $primary_monitor
 # exec_always xrandr --output $primary_monitor --primary --right-of $secondary_monitor
+exec xrandr --output DP-4 --mode 3440x1440 --rate 99.98
 
 # system authentication
 exec_always /usr/libexec/polkit-gnome-authentication-agent-1

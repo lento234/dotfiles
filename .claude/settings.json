@@ -1,3 +1,15 @@
 {
-  "theme": "dark"
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "Bash(gh search *)"
+    ]
+  },
+  "theme": "dark",
+  "remoteControlAtStartup": true,
+  "voiceEnabled": true,
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  }
 }
