@@ -2,6 +2,6 @@
   "lastChangelogVersion": "0.80.6",
   "theme": "dark",
   "defaultProvider": "anthropic",
-  "defaultModel": "claude-sonnet-4-5",
+  "defaultModel": "claude-opus-4-8",
   "defaultThinkingLevel": "medium"
 }

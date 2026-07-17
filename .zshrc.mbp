@@ -97,3 +97,19 @@ export LAUNCH_HOME="$HOME/.launch"
 export PATH="$LAUNCH_HOME/bin:$PATH"
 # launch completions
 [ -s "$LAUNCH_HOME/complete/_launch" ] && source "$LAUNCH_HOME/complete/_launch"
+
+vpnconnect() {
+  /opt/cisco/secureclient/bin/vpn -s connect "https://sslvpn.ethz.ch/service-inf-drz" <<EOF
+$(op read 'op://Employee/DRS VPN/radius-id')
+$(op read 'op://Employee/DRS VPN/password')
+$(op item get 'DRS VPN' --otp)
+EOF
+}
+
+vpndisconnect() {
+  /opt/cisco/secureclient/bin/vpn disconnect
+}
+
+vpnstatus() {
+  /opt/cisco/secureclient/bin/vpn status
+}
