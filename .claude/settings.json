@@ -3,9 +3,12 @@
     "allow": [
       "WebFetch",
       "Bash(gh search *)"
+    ],
+    "deny": [
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   },
-  "model": "opus[1m]",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
   },
