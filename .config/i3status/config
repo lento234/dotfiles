@@ -11,7 +11,7 @@
 # black #000000
 # gray #928374
 # bg #1d2021
-# fg #eddbb2
+# fg #f6c177
 # purple #b16286
 # orange #ff8c00
 # darkorange #d65d0e
@@ -22,9 +22,9 @@
 
 general {
   output_format = "i3bar"
-  color_good = "#689d6a"
-  color_bad = "#af1d18"
-  color_degraded = "#00dddd"
+  color_good = "#3e8fb0"
+  color_bad = "#eb6f92"
+  color_degraded = "#9ccfd8"
   colors = false
   interval = 2
   markup = "pango"
@@ -80,8 +80,8 @@ order += "tztime localtime"
 # }
 
 volume master {
-  format = "<span foreground='#eddbb2' size='large'>  </span><span weight='bold' foreground='#eddbb2'> %volume </span>"
-  format_muted = "<span foreground='#D32F2F' size='large'>  </span>"
+  format = "<span foreground='#f6c177' size='large'>  </span><span weight='bold' foreground='#f6c177'> %volume </span>"
+  format_muted = "<span foreground='#eb6f92' size='large'>  </span>"
   device = "default"
   mixer = "Master"
   mixer_idx = 0
@@ -91,7 +91,7 @@ volume master {
 
 tztime localdate {
   # format = "<span bgcolor='#F39C12' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#F39C12' foreground='black'> %a %d %B </span>"
-  format = "<span weight='bold' foreground='#eddbb2'> %a %d %B </span>"
+  format = "<span weight='bold' foreground='#f6c177'> %a %d %B </span>"
   separator_block_width = 2
   separator = true
 }
@@ -99,7 +99,7 @@ tztime localdate {
 tztime localtime {
   # format = "<span bgcolor='#928374' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#928374' foreground='black'> %H:%M </span>"
   # format = "<span weight='bold' bgcolor='#F39C12' foreground='black'> %H:%M </span>"
-  format = "<span weight='bold' foreground='#eddbb2'> %H:%M </span>"
+  format = "<span weight='bold' foreground='#f6c177'> %H:%M </span>"
   separator_block_width = 2
   separator = false
 }

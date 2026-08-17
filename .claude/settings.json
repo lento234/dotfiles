@@ -1,16 +1,24 @@
 {
   "permissions": {
-    "allow": [
-      "WebFetch",
-      "Bash(gh search *)"
-    ],
     "deny": [
       "Bash(git commit:*)",
       "Bash(git push:*)"
-    ]
+    ],
+    "disableBypassPermissionsMode": "disable"
   },
+  "model": "opus[1m]",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "allowWrite": [
+        "/tmp/build"
+      ]
+    }
   },
   "effortLevel": "high",
   "voice": {
@@ -18,7 +26,5 @@
     "mode": "hold"
   },
   "skipWorkflowUsageWarning": true,
-  "theme": "dark",
-  "remoteControlAtStartup": true,
-  "voiceEnabled": true
+  "theme": "dark"
 }

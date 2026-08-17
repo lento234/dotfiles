@@ -11,20 +11,12 @@ set $secondary_monitor "HDMI-1"
 
 # colors
 set $color_black #000000
-set $color_gray #928374
-set $color_bg #1d2021
-set $color_fg #eddbb2
-set $color_purple #b16286
-set $color_darkpurple #8f3f71
-set $color_orange #ff8c00
-set $color_darkorange #d65d0e
-set $color_blue #458588
-set $color_darkblue #076678
-set $color_lightblue #83a598
-set $color_green #98971a
-set $color_aqua #8ec07c
-set $color_darkaqua #689d6a
-set $color_red #af1d18
+set $color_bg #232136
+set $color_fg #e0def4
+set $color_gold #f6c177
+set $color_rose #ea9a97
+set $color_green #3e8fb0
+set $color_red #eb6f92
 
 # Appearances --------
 
@@ -58,13 +50,13 @@ bar {
   colors {
     background $color_bg
     statusline $color_fg
-    separator $color_darkorange
+    separator $color_rose
 
-    focused_workspace  $color_bg $color_darkorange $color_black
+    focused_workspace  $color_bg $color_rose $color_black
     active_workspace   $color_bg $color_bg $color_fg
     inactive_workspace $color_bg $color_bg $color_fg
     urgent_workspace   $color_bg $color_red $color_fg
-    binding_mode       $color_bg $color_darkorange $color_fg
+    binding_mode       $color_bg $color_rose $color_fg
   }
 }
 
@@ -251,6 +243,9 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # polybar
 # exec --no-startup-id polybar
 
+# idle timeout
+exec --no-startup-id xset s 120 5
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color "$color_bg"
@@ -272,7 +267,7 @@ exec_always /usr/libexec/polkit-gnome-authentication-agent-1
 exec_always dunst
 
 # Change wallpaper
-set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-7pyqqy.png"
+set $wallpaper "/home/lento/Pictures/wallpapers/wallhaven-k81oj1.png"
 exec_always feh --bg-fill $wallpaper
 
 # Shortcuts --------
@@ -312,7 +307,8 @@ bindcode $mod+33 exec --no-startup-id i3-dmenu-desktop
 # lock screen
 # bindsym XF86Launch5 exec i3lock --color "$color_black"
 # bindsym $mod+Shift+XF86Tools exec i3lock --color "$color_black"
-bindsym $mod+XF86Tools exec i3lock --color "$color_black"
+# bindsym $mod+XF86Tools exec i3lock --color "$color_black"
+bindsym $mod+XF86Tools exec --no-startup-id xset s activate
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

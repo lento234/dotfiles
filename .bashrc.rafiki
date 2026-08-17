@@ -83,7 +83,7 @@ if command -v awsmyid 2>&1 > /dev/null; then
 fi
 
 # terragrunt
-complete -C /home/lento/lib/golang/go1.25.1/bin/terragrunt terragrunt
+complete -C terragrunt terragrunt
 
 # tv
 eval "$(tv init bash)"
@@ -91,3 +91,9 @@ eval "$(tv init bash)"
 
 # # Pi
 # export PATH="/home/lento/.nvm/versions/node/v22.14.0/bin:$PATH"
+
+# launch
+export LAUNCH_HOME="$HOME/.launch"
+export PATH="$LAUNCH_HOME/bin:$PATH"
+# launch completions
+[ -s "$LAUNCH_HOME/complete/launch.bash" ] && source "$LAUNCH_HOME/complete/launch.bash"
