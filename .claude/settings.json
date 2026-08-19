@@ -6,7 +6,7 @@
     ],
     "disableBypassPermissionsMode": "disable"
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5[1m]",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
   },

@@ -7,22 +7,26 @@
 # ß
 # If the above line is not correctly displayed, fix your editor first!
 
-# colors
-# black #000000
-# gray #928374
-# bg #1d2021
-# fg #f6c177
-# purple #b16286
-# orange #ff8c00
-# darkorange #d65d0e
-# blue #458588
-# green #98971a
-# aqua #689d6a
-# red #af1d18
-
+# set primary Rosé Pine colorscheme colors
+# base           #191724
+# surface        #1f1d2e
+# overlay        #26233a
+# muted          #6e6a86
+# subtle         #908caa
+# text           #e0def4
+# love           #eb6f92
+# gold           #f6c177
+# rose           #ebbcba
+# pine           #31748f
+# foam           #9ccfd8
+# iris           #c4a7e7
+# highlightlow   #21202e
+# highlightmed   #403d52
+# highlighthigh  #524f67S
+#
 general {
   output_format = "i3bar"
-  color_good = "#3e8fb0"
+  color_good = "#31748f"
   color_bad = "#eb6f92"
   color_degraded = "#9ccfd8"
   colors = false
@@ -30,57 +34,12 @@ general {
   markup = "pango"
 }
 
-# order += "cpu_usage"
-# order += "load"
-# order += "memory"
-# order += "disk /"
-# order += "ethernet _first_"
 order += "volume master"
 order += "tztime localdate"
 order += "tztime localtime"
 
-
-# cpu_usage {
-#   # format = "<span bgcolor='#d65d0e' foreground='black' size='large'>   </span><span bgcolor='#d65d0e' weight='bold' foreground='black'> %usage  </span>"
-#   format = "<span bgcolor='#d65d0e' foreground='black' size='large'> CPU:</span><span bgcolor='#d65d0e' weight='bold' foreground='black'> %usage </span>"
-#   separator_block_width = 2
-#   separator = false
-# }
-
-# load {
-#   # format = "<span bgcolor='#b16286' foreground='black' size='large'>  </span><span bgcolor='#b16286' weight='bold' foreground='black'> %1min (1m) %5min (5m) </span>"
-#   format = "<span bgcolor='#b16286' foreground='black' size='large'> LOAD:</span><span bgcolor='#b16286' weight='bold' foreground='black'> %1min (1m) %5min (5m) </span>"
-#   separator_block_width = 2
-#   separator = false
-# }
-#
-# memory {
-#   # format = "<span bgcolor='#689d6a' foreground='#1d2021' size='large'>  </span><span weight='bold' bgcolor='#689d6a' foreground='#1d2021'> %used / %available </span>"
-#   format = "<span bgcolor='#689d6a' foreground='#1d2021' size='large'> MEM:</span><span weight='bold' bgcolor='#689d6a' foreground='#1d2021'> %used / %available </span>"
-#   threshold_degraded = "10%"
-#   format_degraded = "MEMORY: %free"
-#   separator_block_width = 2
-#   separator = false
-# }
-#
-# disk "/" {
-#   # format = "<span bgcolor='#458588' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#458588' foreground='black'> %avail </span>"
-#   format = "<span bgcolor='#458588' foreground='black' size='large'> DISK:</span><span weight='bold' bgcolor='#458588' foreground='black'> %avail </span>"
-#   prefix_type = custom
-#   separator_block_width = 2
-#   separator = false
-# }
-#
-# ethernet _first_ {
-#   # format_up = "<span bgcolor='#98971a' foreground='black' size='large'> 󰈀 </span><span weight='bold' bgcolor='#98971a' foreground='black'> %ip (%speed) </span>"
-#   format_up = "<span bgcolor='#98971a' foreground='black' size='large'> ETH:</span><span weight='bold' bgcolor='#98971a' foreground='black'> %ip (%speed) </span>"
-#   format_down = " 󰈀 down "
-#   separator_block_width = 2
-#   separator = false
-# }
-
 volume master {
-  format = "<span foreground='#f6c177' size='large'>  </span><span weight='bold' foreground='#f6c177'> %volume </span>"
+  format = "<span foreground='#ebbcba' size='large'>  </span><span weight='bold' foreground='#ebbcba'> %volume </span>"
   format_muted = "<span foreground='#eb6f92' size='large'>  </span>"
   device = "default"
   mixer = "Master"
@@ -90,16 +49,13 @@ volume master {
 }
 
 tztime localdate {
-  # format = "<span bgcolor='#F39C12' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#F39C12' foreground='black'> %a %d %B </span>"
-  format = "<span weight='bold' foreground='#f6c177'> %a %d %B </span>"
+  format = "<span weight='bold' foreground='#ebbcba'> %a %d %B </span>"
   separator_block_width = 2
   separator = true
 }
 
 tztime localtime {
-  # format = "<span bgcolor='#928374' foreground='black' size='large'>  </span><span weight='bold' bgcolor='#928374' foreground='black'> %H:%M </span>"
-  # format = "<span weight='bold' bgcolor='#F39C12' foreground='black'> %H:%M </span>"
-  format = "<span weight='bold' foreground='#f6c177'> %H:%M </span>"
+  format = "<span weight='bold' foreground='#ebbcba'> %H:%M </span>"
   separator_block_width = 2
   separator = false
 }
