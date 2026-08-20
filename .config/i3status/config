@@ -8,27 +8,39 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 # set primary Rosé Pine colorscheme colors
-# base           #191724
-# surface        #1f1d2e
-# overlay        #26233a
-# muted          #6e6a86
-# subtle         #908caa
-# text           #e0def4
-# love           #eb6f92
-# gold           #f6c177
-# rose           #ebbcba
-# pine           #31748f
-# foam           #9ccfd8
-# iris           #c4a7e7
-# highlightlow   #21202e
-# highlightmed   #403d52
-# highlighthigh  #524f67S
-#
+# themes/catppuccin-mocha
+#rosewater #f5e0dc
+#flamingo #f2cdcd
+#pink #f5c2e7
+#mauve #cba6f7
+#red #f38ba8
+#maroon #eba0ac
+#peach #fab387
+#yellow #f9e2af
+#green #a6e3a1
+#teal #94e2d5
+#sky #89dceb
+#sapphire #74c7ec
+#blue #89b4fa
+#lavender #b4befe
+#text #cdd6f4
+#subtext1 #bac2de
+#subtext0 #a6adc8
+#overlay2 #9399b2
+#overlay1 #7f849c
+#overlay0 #6c7086
+#surface2 #585b70
+#surface1 #45475a
+#surface0 #313244
+#base #1e1e2e
+#mantle #181825
+#crust #11111b
+
 general {
   output_format = "i3bar"
-  color_good = "#31748f"
-  color_bad = "#eb6f92"
-  color_degraded = "#9ccfd8"
+  color_good = "#a6e3a1"
+  color_bad = "#f38ba8"
+  color_degraded = "#74c7ec"
   colors = false
   interval = 2
   markup = "pango"
@@ -39,8 +51,8 @@ order += "tztime localdate"
 order += "tztime localtime"
 
 volume master {
-  format = "<span foreground='#ebbcba' size='large'>  </span><span weight='bold' foreground='#ebbcba'> %volume </span>"
-  format_muted = "<span foreground='#eb6f92' size='large'>  </span>"
+  format = "<span foreground='#cba6f7' size='large'>  </span><span weight='bold' foreground='#cba6f7'> %volume </span>"
+  format_muted = "<span foreground='#eba0ac' size='large'>  </span>"
   device = "default"
   mixer = "Master"
   mixer_idx = 0
@@ -49,13 +61,13 @@ volume master {
 }
 
 tztime localdate {
-  format = "<span weight='bold' foreground='#ebbcba'> %a %d %B </span>"
+  format = "<span weight='bold' foreground='#cba6f7'> %a %d %B </span>"
   separator_block_width = 2
   separator = true
 }
 
 tztime localtime {
-  format = "<span weight='bold' foreground='#ebbcba'> %H:%M </span>"
+  format = "<span weight='bold' foreground='#cba6f7'> %H:%M </span>"
   separator_block_width = 2
   separator = false
 }

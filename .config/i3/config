@@ -9,22 +9,33 @@ set $mod Mod4
 set $primary_monitor "DP-1"
 set $secondary_monitor "HDMI-1"
 
-# set primary Rosé Pine colorscheme colors
-set $color_base           #191724
-set $color_surface        #1f1d2e
-set $color_overlay        #26233a
-set $color_muted          #6e6a86
-set $color_subtle         #908caa
-set $color_text           #e0def4
-set $color_love           #eb6f92
-set $color_gold           #f6c177
-set $color_rose           #ebbcba
-set $color_pine           #31748f
-set $color_foam           #9ccfd8
-set $color_iris           #c4a7e7
-set $color_highlightlow   #21202e
-set $color_highlightmed   #403d52
-set $color_highlighthigh  #524f67
+# themes/catppuccin-mocha
+set $rosewater #f5e0dc
+set $flamingo #f2cdcd
+set $pink #f5c2e7
+set $mauve #cba6f7
+set $red #f38ba8
+set $maroon #eba0ac
+set $peach #fab387
+set $yellow #f9e2af
+set $green #a6e3a1
+set $teal #94e2d5
+set $sky #89dceb
+set $sapphire #74c7ec
+set $blue #89b4fa
+set $lavender #b4befe
+set $text #cdd6f4
+set $subtext1 #bac2de
+set $subtext0 #a6adc8
+set $overlay2 #9399b2
+set $overlay1 #7f849c
+set $overlay0 #6c7086
+set $surface2 #585b70
+set $surface1 #45475a
+set $surface0 #313244
+set $base #1e1e2e
+set $mantle #181825
+set $crust #11111b
 
 
 # Appearances --------
@@ -46,7 +57,6 @@ focus_follows_mouse no
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-
 bar {
   position top
   status_command i3status
@@ -57,26 +67,27 @@ bar {
   binding_mode_indicator yes
 
   colors {
-    background $color_base
-    statusline $color_text
-    separator $color_rose
+    background         $base
+    statusline         $text
+    focused_statusline $text
+    focused_separator  $base
 
-    focused_workspace  $color_base $color_rose $color_base
-    active_workspace   $color_base $color_base $color_text
-    inactive_workspace $color_base $color_base $color_text
-    urgent_workspace   $color_base $color_love $color_text
-    binding_mode       $color_base $color_rose $color_text
+    # target           border bg        text
+    focused_workspace  $base  $mauve    $crust
+    active_workspace   $base  $surface2 $text
+    inactive_workspace $base  $base     $text
+    urgent_workspace   $base  $red      $crust
   }
 }
 
 # Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
-client.focused           $color_rose     $color_base $color_text  $color_rose      $color_rose
-client.focused_inactive  $color_text     $color_base $color_text  $color_subtle    $color_surface
-client.unfocused         $color_text     $color_base $color_text  $color_overlay   $color_overlay
-client.urgent            $color_text     $color_base $color_text  $color_love      $color_love
-client.placeholder       $color_base     $color_base $color_text  $color_overlay   $color_overlay
-client.background        $color_base
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
 
 # Workspaces --------
 
@@ -261,7 +272,7 @@ exec --no-startup-id xset s 120 5
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color "$color_base" --image "$wallpaper"
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color "$base" --image "$wallpaper"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -311,7 +322,7 @@ bindsym $mod+Shift+q kill
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
-bindcode $mod+33 exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '$color_base' -sf '$color_base' -sb '$color_rose' -nf '$color_muted'"
+bindcode $mod+33 exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '$base' -sf '$base' -sb '$mauve' -nf '$subtext0'"
 
 # lock screen
 bindsym $mod+XF86Tools exec --no-startup-id xset s activate
