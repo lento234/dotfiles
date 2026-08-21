@@ -7,4 +7,6 @@
   "images": {
     "blockImages": false
   }
+  "defaultModel": "claude-opus-4-8",
+  "defaultThinkingLevel": "medium"
 }

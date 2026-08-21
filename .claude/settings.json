@@ -1,12 +1,47 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
-    "deny": [
-      "Bash(git commit:*)",
-      "Bash(git push:*)"
+    "allow": [
+      "WebFetch",
+      "WebSearch",
     ],
+    "deny": [
+      "Bash(git add:*)",
+      "Bash(git am:*)",
+      "Bash(git apply:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git branch -M:*)",
+      "Bash(git branch -d:*)",
+      "Bash(git branch -f:*)",
+      "Bash(git branch -m:*)",
+      "Bash(git cherry-pick:*)",
+      "Bash(git checkout:*)",
+      "Bash(git clean:*)",
+      "Bash(git commit:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(git merge:*)",
+      "Bash(git mv:*)",
+      "Bash(git pull:*)",
+      "Bash(git push:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(git restore:*)",
+      "Bash(git revert:*)",
+      "Bash(git rm:*)",
+      "Bash(git stash:*)",
+      "Bash(git submodule update:*)",
+      "Bash(git switch:*)",
+      "Bash(git tag -d:*)",
+      "Bash(git update-ref:*)",
+      "Bash(git worktree add:*)",
+      "Bash(git worktree remove:*)"
+    ],
+    "defaultMode": "default",
     "disableBypassPermissionsMode": "disable"
   },
-  "model": "claude-fable-5[1m]",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
   },
@@ -14,17 +49,25 @@
     "enabled": true,
     "failIfUnavailable": true,
     "allowUnsandboxedCommands": false,
+    "autoAllowBashIfSandboxed": true,
+    "network": {
+      "allowLocalBinding": true
+    },
     "filesystem": {
       "allowWrite": [
         "/tmp/build"
       ]
     }
   },
+  "alwaysThinkingEnabled": true,
   "effortLevel": "high",
-  "voice": {
-    "enabled": true,
-    "mode": "hold"
-  },
+  "showThinkingSummaries": true,
   "skipWorkflowUsageWarning": true,
-  "theme": "dark"
+  "theme": "dark",
+  "editorMode": "vim",
+  "autoCompactEnabled": true,
+  "switchModelsOnFlag": false,
+  "remoteControlAtStartup": false,
+  "voiceEnabled": false,
+  "model": "opus[1m]"
 }

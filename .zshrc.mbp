@@ -98,18 +98,36 @@ export PATH="$LAUNCH_HOME/bin:$PATH"
 # launch completions
 [ -s "$LAUNCH_HOME/complete/_launch" ] && source "$LAUNCH_HOME/complete/_launch"
 
+#vpnconnect() {
+#  /opt/cisco/secureclient/bin/vpn -s connect "https://sslvpn.ethz.ch/service-inf-drz" <<EOF
+#$(op read 'op://Employee/DRS VPN/radius-id')
+#$(op read 'op://Employee/DRS VPN/password')
+#$(op item get 'DRS VPN' --otp)
+#EOF
+#}
+#
+#vpndisconnect() {
+#  /opt/cisco/secureclient/bin/vpn disconnect
+#}
+#
+#vpnstatus() {
+#  /opt/cisco/secureclient/bin/vpn status
+#}
+
 vpnconnect() {
-  /opt/cisco/secureclient/bin/vpn -s connect "https://sslvpn.ethz.ch/service-inf-drz" <<EOF
-$(op read 'op://Employee/DRS VPN/radius-id')
-$(op read 'op://Employee/DRS VPN/password')
-$(op item get 'DRS VPN' --otp)
-EOF
+  local user pass otp
+  user=$(op read 'op://Employee/DRS VPN/radius-id')  || return 1
+  pass=$(op read 'op://Employee/DRS VPN/password')   || return 1
+  otp=$(op item get 'DRS VPN' --otp)                 || return 1
+
+  sudo -v || return 1   # prime sudo before stdin is a pipe
+
+  printf '%s\n' "$pass" | sudo openconnect \
+    --config="$HOME/.config/openconnect/drz.conf" \
+    --user="$user" \
+    --form-entry="main:secondary_password=$otp"
 }
 
 vpndisconnect() {
-  /opt/cisco/secureclient/bin/vpn disconnect
-}
-
-vpnstatus() {
-  /opt/cisco/secureclient/bin/vpn status
+  sudo kill "$(sudo cat /tmp/openconnect-drz.pid)"
 }
