@@ -6,7 +6,7 @@
   "permissions": {
     "allow": [
       "WebFetch",
-      "WebSearch",
+      "WebSearch"
     ],
     "deny": [
       "Bash(git add:*)",
@@ -42,6 +42,7 @@
     "defaultMode": "default",
     "disableBypassPermissionsMode": "disable"
   },
+  "model": "opus[1m]",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
   },
@@ -64,10 +65,9 @@
   "showThinkingSummaries": true,
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
-  "editorMode": "vim",
   "autoCompactEnabled": true,
   "switchModelsOnFlag": false,
   "remoteControlAtStartup": false,
   "voiceEnabled": false,
-  "model": "opus[1m]"
+  "editorMode": "normal"
 }
