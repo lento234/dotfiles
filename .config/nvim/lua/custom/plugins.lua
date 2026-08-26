@@ -45,8 +45,8 @@ vim.cmd.colorscheme 'catppuccin-mocha'
 --  A collection of various small independent plugins/modules
 vim.pack.add { gh 'nvim-mini/mini.nvim' }
 if vim.g.have_nerd_font then
-  require('mini.icons').setup()
-  MiniIcons.mock_nvim_web_devicons()
+  require('mini.icons').setup {}
+  MiniIcons.mock_nvim_web_devicons {}
 end
 
 -- Better Around/Inside textobjects
@@ -163,3 +163,20 @@ require('which-key').setup {
     { 'gr', group = 'LSP actions', mode = { 'n' } },
   },
 }
+
+-- neotree
+vim.pack.add {
+  { src = gh 'nvim-neo-tree/neo-tree.nvim', version = vim.version.range '*' },
+  gh 'nvim-lua/plenary.nvim',
+  gh 'MunifTanjim/nui.nvim',
+}
+require('neo-tree').setup {
+  filesystem = {
+    window = {
+      mappings = {
+        ['\\'] = 'close_window',
+      },
+    },
+  },
+}
+noremap('n', '<leader>n', '<cmd>Neotree toggle<cr>', 'NeoTree reveal')
