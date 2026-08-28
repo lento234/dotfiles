@@ -76,6 +76,10 @@ statusline.section_location = function()
 	return "%2l:%-2v"
 end
 
+-- mini pairs
+vim.pack.add({ gh("nvim-mini/mini.pairs") })
+require("mini.pairs").setup({})
+
 -- formatting
 -- indentation
 vim.pack.add({ gh("NMAC427/guess-indent.nvim") })
@@ -400,6 +404,9 @@ vim.pack.add({ gh("stevearc/conform.nvim") })
 require("conform").setup({
 	notify_on_error = false,
 	format_on_save = function(bufnr)
+		if not vim.g.format_on_save then
+			return
+		end
 		-- You can specify filetypes to autoformat on save here:
 		local disable_filetypes = {
 			-- lua = true,
@@ -416,13 +423,17 @@ require("conform").setup({
 	},
 	-- You can also specify external formatters in here.
 	formatters_by_ft = {
+		css = { "prettier" },
+		cpp = { "clang-format" },
+		html = { "prettier" },
 		-- rust = { 'rustfmt' },
 		-- Conform can also run multiple formatters sequentially
 		-- python = { "isort", "black" },
 		python = { "ruff_format", "ruff_organize_imports" },
 		--
 		-- You can use 'stop_after_first' to run the first available formatter from the list
-		-- javascript = { "prettierd", "prettier", stop_after_first = true },
+		javascript = { "prettier" },
+		typescript = { "prettier" },
 	},
 })
 
@@ -543,4 +554,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			lint.try_lint()
 		end
 	end,
+})
+
+-- snacks
+vim.pack.add({ gh("folke/snacks.nvim") })
+require("snacks").setup({
+	bigfile = { enabled = true },
+	image = { enabled = true },
+	indent = { enabled = true },
 })
