@@ -41,6 +41,22 @@ vim.api.nvim_create_autocmd("PackChanged", {
 	end,
 })
 
+vim.api.nvim_create_user_command("PackUpdate", function(ev)
+	vim.pack.update(#ev.fargs > 0 and ev.fargs or nil, { force = ev.bang })
+end, {
+	desc = "Update vim.pack plugins",
+	bang = true,
+	nargs = "*",
+	complete = function(arg_lead)
+		local names = vim.tbl_map(function(plug)
+			return plug.spec.name
+		end, vim.pack.get(nil, { info = false }))
+		return vim.tbl_filter(function(name)
+			return vim.startswith(name, arg_lead)
+		end, names)
+	end,
+})
+
 local function gh(repo)
 	return "https://github.com/" .. repo
 end
@@ -68,13 +84,11 @@ require("mini.ai").setup({
 -- Add/delete/replace surroundings (brackets, quotes, etc.)
 require("mini.surround").setup({})
 
--- Simple and easy statusline.
-local statusline = require("mini.statusline")
--- Set `use_icons` to true if you have a Nerd Font
-statusline.setup({ use_icons = vim.g.have_nerd_font })
-statusline.section_location = function()
-	return "%2l:%-2v"
-end
+-- statusline
+vim.pack.add({ gh("nvim-lualine/lualine.nvim") })
+require("lualine").setup({})
+
+require("mini.trailspace").setup()
 
 -- mini pairs
 vim.pack.add({ gh("nvim-mini/mini.pairs") })
@@ -602,15 +616,52 @@ require("snacks").setup({
 	bigfile = { enabled = true },
 	image = { enabled = true },
 	indent = { enabled = true },
+	git = { enabled = true },
+	gitbrowse = {
+		url_patterns = {
+			["git%.drz%.li"] = {
+				branch = "/-/tree/{branch}",
+				file = "/-/blob/{branch}/{file}#L{line_start}-{line_end}",
+				permalink = "/-/blob/{commit}/{file}#L{line_start}-{line_end}",
+				commit = "/-/commit/{commit}",
+			},
+		},
+	},
 })
 
+noremap({ "n", "x" }, "<leader>gB", function()
+	Snacks.gitbrowse()
+end, "[g]it [B]rowse")
+noremap({ "n" }, "<leader>gb", function()
+	Snacks.git.blame_line()
+end, "[g]it [b]lame inline")
+
+-- tmux integration
 vim.pack.add({ gh("alexghergh/nvim-tmux-navigation") })
 local nvim_tmux_nav = require("nvim-tmux-navigation")
 nvim_tmux_nav.setup({
-	disable_when_zoomed = true, -- defaults to false
+	disable_when_zoomed = true,
+})
+noremap("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+noremap("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+noremap("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+noremap("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+
+-- colorizer
+vim.pack.add({ gh("catgoose/nvim-colorizer.lua") })
+require("colorizer").setup({
+	options = { parsers = { css = true, names = false } },
 })
 
-vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
-vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
-vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
-vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+-- flash
+vim.pack.add({ gh("folke/flash.nvim") })
+require("flash").setup({})
+noremap({ "n", "x", "o" }, "s", function()
+	require("flash").jump()
+end, "Flash [s]earch")
+noremap({ "n", "x", "o" }, "S", function()
+	require("flash").treesitter()
+end, "Flash Treesitter")
+noremap("o", "r", function()
+	require("flash").remote()
+end, "Remote Flash")

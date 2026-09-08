@@ -46,6 +46,7 @@
   "worktree": {
     "baseRef": "fresh"
   },
+  "model": "opus[1m]",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
   },
