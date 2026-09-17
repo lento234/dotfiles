@@ -35,6 +35,10 @@ eval "$(starship init bash)"
 # Activate spack
 alias activate_spack='source ${HOME}/lib/spack/share/spack/setup-env.sh'
 
+# fix routing
+alias vpnroutingfix='sudo ip route add 10.148.48.0/24 via 129.132.112.193 dev enp5s0f0'
+alias vpnroutingreset='sudo ip route del 10.148.48.0/24'
+
 start_ssh_agent() {
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519

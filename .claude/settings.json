@@ -42,15 +42,15 @@
     "defaultMode": "default",
     "disableBypassPermissionsMode": "disable"
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5-1[1m]",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
   },
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,
-    "allowUnsandboxedCommands": false,
     "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": false,
     "network": {
       "allowLocalBinding": true
     },
@@ -65,9 +65,9 @@
   "showThinkingSummaries": true,
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
+  "editorMode": "normal",
   "autoCompactEnabled": true,
   "switchModelsOnFlag": false,
   "remoteControlAtStartup": false,
-  "voiceEnabled": false,
-  "editorMode": "normal"
+  "voiceEnabled": false
 }
