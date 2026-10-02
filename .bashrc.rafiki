@@ -44,9 +44,25 @@ start_ssh_agent() {
     ssh-add ~/.ssh/id_ed25519
 }
 
-# 1password agent sock binding only if local and non-root
-if [[ ((EUID != 0 )) && ! ${SSH_TTY} && -z ${SSH_CLIENT} ]]; then
-    export SSH_AUTH_SOCK=${HOME}/.1password/agent.sock
+if (( EUID != 0 )); then
+    _agent_link=${HOME}/.ssh/ssh_auth_sock
+    _op_sock=${HOME}/.1password/agent.sock
+    if [[ -n ${TMUX} ]]; then
+        [[ -S ${_agent_link} ]] || ln -sfn "${_op_sock}" "${_agent_link}"
+        export SSH_AUTH_SOCK=${_agent_link}
+    elif [[ -n ${SSH_CONNECTION} ]]; then
+        [[ -S ${SSH_AUTH_SOCK} && ${SSH_AUTH_SOCK} != "${_agent_link}" ]] && \
+            ln -sfn "${SSH_AUTH_SOCK}" "${_agent_link}"
+    else
+        ln -sfn "${_op_sock}" "${_agent_link}"
+        export SSH_AUTH_SOCK=${_op_sock}
+    fi
+    unset _agent_link _op_sock
+    ## sign commits via $SSH_AUTH_SOCK; op-ssh-sign talks to the local 1password
+    ## app directly, so inside tmux over ssh it prompts on the desk screen
+    #export GIT_CONFIG_COUNT=1
+    #export GIT_CONFIG_KEY_0=gpg.ssh.program
+    #export GIT_CONFIG_VALUE_0=ssh-keygen
 fi
 
 # kitty
@@ -59,14 +75,7 @@ export PATH="${GOPATH}/bin:${PATH}"
 # rust
 . "$HOME/.cargo/env"
 
-# # zig
-# export PATH="/home/lento/lib/ziglang/zig-latest:${PATH}"
-# # export PATH="/home/lento/lib/ziglang/zls/zig-out/bin:${PATH}"
-
 # xrandr --output "DP-5" --mode "1920x1200" --left-of "DP-2"
-
-# # mess
-# source /home/lento/projects/se/mess/completions/mess.bash
 
 # nvm / node
 export NVM_DIR="$HOME/.nvm"
@@ -88,10 +97,6 @@ complete -C terragrunt terragrunt
 
 # tv
 eval "$(tv init bash)"
-# source /home/lento/.config/op/plugins.sh
-
-# # Pi
-# export PATH="/home/lento/.nvm/versions/node/v22.14.0/bin:$PATH"
 
 # launch
 export LAUNCH_HOME="$HOME/.launch"
