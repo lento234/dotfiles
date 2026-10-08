@@ -42,7 +42,7 @@
     "defaultMode": "default",
     "disableBypassPermissionsMode": "disable"
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "worktree": {
     "baseRef": "fresh"
   },
@@ -65,13 +65,13 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "autoMemoryEnabled": false,
   "showThinkingSummaries": true,
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
   "editorMode": "normal",
   "verbose": false,
   "autoCompactEnabled": true,
-  "autoMemoryEnabled": false,
   "switchModelsOnFlag": false,
   "remoteControlAtStartup": false,
   "voiceEnabled": false

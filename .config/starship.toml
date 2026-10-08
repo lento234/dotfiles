@@ -84,6 +84,7 @@ symbol = " "
 
 [gcloud]
 symbol = "󱇶 "
+disabled = true
 
 [gleam]
 symbol = " "
