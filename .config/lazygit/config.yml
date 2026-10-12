@@ -1,9 +1,5 @@
 # Config relating to the Lazygit UI
 gui:
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-author-color
-  authorColors: {}
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-branch-color
-  branchColorPatterns: {}
   # Custom icons for filenames and file extensions
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-files-icon--color
   customIcons:
@@ -73,10 +69,10 @@ gui:
   # If true, wrap lines in the staging view to the width of the view. This makes
   # it much easier to work with diffs that have long lines, e.g. paragraphs of
   # markdown text.
-  wrapLinesInStagingView: true
+  wrapLinesInDiffView: true
   # If true, hunk selection mode will be enabled by default when entering the
   # staging view.
-  useHunkModeInStagingView: true
+  useHunkModeInDiffView: true
   # One of 'auto' (default) | 'en' | 'zh-CN' | 'zh-TW' | 'pl' | 'nl' | 'ja' | 'ko'
   # | 'ru' | 'pt'
   language: auto
@@ -128,6 +124,10 @@ gui:
     # Default text color
     defaultFgColor:
       - default
+    # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-author-color
+    authorColors: {}
+    # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-branch-color
+    branchColorPatterns: {}
   # Config relating to the commit length indicator
   commitLength:
     # If true, show an indicator of commit message length
