@@ -88,6 +88,7 @@ require("guess-indent").setup({})
 -- git
 vim.pack.add({ gh("lewis6991/gitsigns.nvim") })
 require("gitsigns").setup({
+	current_line_blame_formatter = "<abbrev_sha>: <author>, <author_time:%Y-%m-%d> - <summary>",
 	signs = {
 		add = { text = "+" },
 		change = { text = "~" },
@@ -132,18 +133,18 @@ require("gitsigns").setup({
 		-- normal mode
 		map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "git stage hunk" })
 		map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "git reset hunk" })
-		map("n", "<leader>hs", gitsigns.stage_buffer, { desc = "git stage buffer" })
+		map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "git stage buffer" })
 		map("n", "<leader>hu", gitsigns.stage_hunk, { desc = "undo stage hunk" })
-		map("n", "<leader>hr", gitsigns.reset_buffer, { desc = "git reset buffer" })
+		map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "git reset buffer" })
 		map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "preview git hunk" })
 		map("n", "<leader>hb", function()
 			gitsigns.blame_line({ full = true })
 		end, { desc = "git blame line" })
-		map("n", "<leader>hb", function()
+		map("n", "<leader>hB", function()
 			gitsigns.blame()
 		end, { desc = "git blame buffer" })
 		map("n", "<leader>hd", gitsigns.diffthis, { desc = "git diff against index" })
-		map("n", "<leader>hd", function()
+		map("n", "<leader>hD", function()
 			gitsigns.diffthis("~")
 		end, { desc = "git diff against last commit" })
 
@@ -152,7 +153,7 @@ require("gitsigns").setup({
 		map("n", "<leader>td", gitsigns.toggle_deleted, { desc = "toggle git show deleted" })
 
 		-- text object
-		map({ "o", "x" }, "ih", ":<c-u>gitsigns select_hunk<cr>", { desc = "select git hunk" })
+		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "select git hunk" })
 	end,
 })
 
@@ -266,7 +267,7 @@ noremap("n", "<leader>/", function()
 end, "[/] Fuzzily search in current buffer")
 
 noremap("n", "<leader>s/", function()
-	builtin.live_gDep({
+	builtin.live_grep({
 		grep_open_files = true,
 		prompt_title = "Live Grep in Open Files",
 	})
@@ -276,6 +277,29 @@ end, "[s]earch [/] in Open Files")
 --
 vim.pack.add({ gh("j-hui/fidget.nvim") })
 require("fidget").setup({})
+
+-- completion
+vim.pack.add({
+	-- release tag downloads the prebuilt fuzzy matcher binary
+	{ src = gh("saghen/blink.cmp"), version = vim.version.range("1.*") },
+	gh("rafamadriz/friendly-snippets"),
+})
+require("blink.cmp").setup({
+	keymap = {
+		preset = "default",
+		["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
+		["<S-Tab>"] = { "snippet_backward", "fallback" },
+	},
+	appearance = { nerd_font_variant = "mono" },
+	completion = {
+		documentation = { auto_show = true, auto_show_delay_ms = 200 },
+	},
+	sources = {
+		default = { "lsp", "path", "snippets", "buffer" },
+	},
+	signature = { enabled = true },
+})
+vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
@@ -391,6 +415,8 @@ require("mason-lspconfig").setup({
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
 	-- You can add other tools here that you want Mason to install
+	"jsonlint", -- used by nvim-lint
+	"markdownlint", -- used by nvim-lint
 })
 
 require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -470,7 +496,7 @@ local function treesitter_try_attach(buf, language)
 
 	-- Enable treesitter based indentation
 	if has_indent_query then
-		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 	end
 end
 
@@ -563,3 +589,14 @@ require("snacks").setup({
 	image = { enabled = true },
 	indent = { enabled = true },
 })
+
+vim.pack.add({ gh("alexghergh/nvim-tmux-navigation") })
+local nvim_tmux_nav = require("nvim-tmux-navigation")
+nvim_tmux_nav.setup({
+	disable_when_zoomed = true, -- defaults to false
+})
+
+vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
