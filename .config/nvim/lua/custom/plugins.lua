@@ -665,3 +665,8 @@ end, "Flash Treesitter")
 noremap("o", "r", function()
 	require("flash").remote()
 end, "Remote Flash")
+
+-- diffview
+vim.pack.add({ gh("sindrets/diffview.nvim") })
+require("diffview").setup({})
+noremap("n", "<leader>dm", "<cmd>DiffviewOpen main<cr>", "[d]iff[v]iew [m]ain")

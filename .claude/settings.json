@@ -42,7 +42,6 @@
     "defaultMode": "default",
     "disableBypassPermissionsMode": "disable"
   },
-  "model": "opus",
   "worktree": {
     "baseRef": "fresh"
   },
