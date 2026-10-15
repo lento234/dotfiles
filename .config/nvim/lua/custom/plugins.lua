@@ -175,6 +175,7 @@ require("which-key").setup({
 		{ "<leader>s", group = "[s]earch", mode = { "n", "v" } },
 		{ "<leader>t", group = "[t]oggle" },
 		{ "<leader>h", group = "git [h]unk", mode = { "n", "v" } },
+		{ "<leader>S", group = "[S]ession" },
 		{ "gr", group = "LSP actions", mode = { "n" } },
 	},
 })
@@ -199,6 +200,19 @@ require("neo-tree").setup({
 	},
 })
 noremap("n", "<leader>n", "<cmd>Neotree toggle<cr>", "NeoTree reveal")
+
+-- sessions
+vim.pack.add({ gh("rmagatti/auto-session") })
+require("auto-session").setup({
+	-- neo-tree windows don't restore cleanly, close them before saving
+	pre_save_cmds = { "tabdo Neotree close" },
+	log_level = "error",
+	suppressed_dirs = { "~/", "~/Downloads", "/" },
+})
+noremap("n", "<leader>Ss", "<cmd>AutoSession save<cr>", "[S]ession: [s]ave")
+noremap("n", "<leader>Sr", "<cmd>AutoSession restore<cr>", "[S]ession: [r]estore")
+noremap("n", "<leader>Sd", "<cmd>AutoSession delete<cr>", "[S]ession: [d]elete")
+noremap("n", "<leader>Sf", "<cmd>AutoSession search<cr>", "[S]ession: [f]ind")
 
 -- search and navigation
 
