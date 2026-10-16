@@ -1,83 +1,34 @@
-local function noremap(mode, lhs, rhs, desc, opts)
-	opts = opts or { silent = true }
-	vim.keymap.set(mode, lhs, rhs, { desc = desc, noremap = true, silent = opts["silent"] })
-end
+local map = vim.keymap.set
 
--- general keymaps
 -- hardmode on
-noremap("n", "<Left>", "", "")
-noremap("n", "<Right>", "", "")
-noremap("n", "<Up>", "", "")
-noremap("n", "<Down>", "", "")
-noremap("v", "<Left>", "", "")
-noremap("v", "<Right>", "", "")
-noremap("v", "<Up>", "", "")
-noremap("v", "<Down>", "", "")
+for _, key in ipairs({ "<Left>", "<Right>", "<Up>", "<Down>" }) do
+	map({ "n", "v" }, key, "<Nop>")
+end
 
 -- remap undo
-noremap("n", "u", "")
-noremap("n", "U", ":u<CR>", "undo")
+map("n", "u", "<Nop>")
+map("n", "U", "u", { desc = "undo" })
 
 -- move around
-noremap("n", "H", "^", "jump to line start")
-noremap("n", "L", "$", "jump to line end")
-noremap("v", "H", "^", "select to line start")
-noremap("v", "L", "$<left>", "select to line end")
+map({ "n", "v" }, "H", "^", { desc = "jump to line start" })
+map("n", "L", "$", { desc = "jump to line end" })
+map("v", "L", "g_", { desc = "select to line end" })
 
--- deselect all highlights
-noremap("n", "<leader><BS>", ":nohl<CR>", "clear all highlights")
+-- deselect all highlights (<C-l> is taken by tmux navigation)
+map("n", "<leader><BS>", "<cmd>nohlsearch<CR>", { desc = "clear all highlights" })
 
 -- move lines
-noremap("v", "J", ":m '>+1<CR>gv=gv", "move line down")
-noremap("v", "K", ":m '<-2<CR>gv=gv", "move line up")
-
--- toggle line numbers
--- noremap('n', '<leader>tl', ':set invrelativenumber<CR>', '[t]oggle relative [l]ine number')
-
--- toggle format on save
-noremap("n", "<leader>tf", ":ToggleFormatOnSave<CR>", "[t]oggle disable [f]ormat on save")
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "move line down", silent = true })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "move line up", silent = true })
 
 -- window
-noremap("n", "<leader>sv", "<C-w>v", "[s]plit [v]ertical") -- split vertical
-noremap("n", "<leader>sh", "<C-w>s", "[s]plit [h]orizontal") -- split horizontal
-noremap("n", "<leader>se", "<C-w>=", "[s]plit [e]qual") -- equal the split
-noremap("n", "<leader>sx", ":close<CR>", "[s]plit close") -- close split window
+map("n", "<leader>wv", "<C-w>v", { desc = "[w]indow split [v]ertical" })
+map("n", "<leader>wh", "<C-w>s", { desc = "[w]indow split [h]orizontal" })
+map("n", "<leader>we", "<C-w>=", { desc = "[w]indow [e]qualize" })
+map("n", "<leader>wx", "<cmd>close<CR>", { desc = "[w]indow close" })
 
 -- marks
-noremap("n", "<leader>mda", ":delmarks a-zA-Z0-9<CR>", "[m]arks: [d]elete [a]ll")
+map("n", "<leader>mda", "<cmd>delmarks a-zA-Z0-9<CR>", { desc = "[m]arks: [d]elete [a]ll" })
 
 -- diagnostics
-noremap("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostic [q]uickfix list")
-
--- tab
--- noremap('n', '<leader>to', ':tabnew<CR>', '[t]ab [o]pen')    -- open new tab
--- noremap('n', '<leader>tx', ':tabclose<CR>', '[t]ab e[x]it ') -- close tab
--- noremap('n', '<leader>tn', ':tabn<CR>', '[t]ab [n]ext')      -- next tab
--- noremap('n', '<leader>tp', ':tabp<CR>', '[t]ab [p]revious ') -- previous tab
-
--- Highlight on yank (copy)
-local function augroup(name)
-	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
-end
--- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-	group = augroup("highlight_yank"),
-	callback = function()
-		vim.hl.on_yank()
-	end,
-})
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
-
--- format on save
-vim.g.format_on_save = true
-vim.api.nvim_create_user_command("ToggleFormatOnSave", function()
-	vim.g.format_on_save = not vim.g.format_on_save
-	local fidget = require("fidget")
-	if vim.g.format_on_save then
-		fidget.notify("format on save", nil, { annote = "ENABLED", key = "formatonsave" })
-	else
-		fidget.notify("format on save", nil, { annote = "DISABLED", key = "formatonsave" })
-	end
-end, { desc = "Toggle format-on-save", bang = true })
+map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [q]uickfix list" })
