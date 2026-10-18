@@ -11,6 +11,7 @@ cursor-style = bar
 font-family = Lilex Nerd Font
 font-size = 12
 font-thicken = true
+macos-option-as-alt = left
 theme = catppuccin-mocha
 window-colorspace = display-p3
 window-decoration = false

@@ -4,6 +4,23 @@ vim.cmd.colorscheme("catppuccin-mocha")
 -- statusline
 require("lualine").setup({})
 
+-- buffer tabline
+-- barbar's own plugin/ file calls setup({}) unless this is false, which would reset the options below
+vim.g.barbar_auto_setup = false
+require("barbar").setup({
+	animation = false,
+	-- keep the tabline aligned when neo-tree is open
+	sidebar_filetypes = { ["neo-tree"] = { event = "BufWipeout" } },
+})
+vim.keymap.set("n", "<C-q>", "<cmd>BufferClose<CR>", { desc = "buffer close" })
+vim.keymap.set("n", "<A-h>", "<cmd>BufferPrevious<CR>", { desc = "buffer prev" })
+vim.keymap.set("n", "<A-l>", "<cmd>BufferNext<CR>", { desc = "buffer next" })
+vim.keymap.set("n", "<A-H>", "<cmd>BufferMovePrevious<CR>", { desc = "buffer move to prev" })
+vim.keymap.set("n", "<A-L>", "<cmd>BufferMoveNext<CR>", { desc = "buffer move to next" })
+vim.keymap.set("n", "<C-p>", "<cmd>BufferPick<CR>", { desc = "buffer [p]ick" })
+vim.keymap.set("n", "<A-p>", "<cmd>BufferPin<CR>", { desc = "buffer pin" })
+vim.keymap.set("n", "<leader>cc", "<cmd>BufferCloseAllButCurrent<CR>", { desc = "buffer [c]lose all but [c]urrent" })
+
 -- which-key
 require("which-key").setup({
 	delay = 300,

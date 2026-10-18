@@ -69,7 +69,7 @@ vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<CR>", { desc = "[g]o neo[g]it" })
 require("diffview").setup({})
 vim.keymap.set("n", "<leader>dm", "<cmd>DiffviewOpen main<CR>", { desc = "[d]iffview against [m]ain" })
 
--- snacks git helpers (snacks is set up in plugin/ui.lua)
+-- snacks git helpers (snacks is set up in plugin/20-ui.lua)
 vim.keymap.set({ "n", "x" }, "<leader>gB", function()
 	Snacks.gitbrowse()
 end, { desc = "[g]it [B]rowse" })

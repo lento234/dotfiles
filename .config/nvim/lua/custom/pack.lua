@@ -67,6 +67,7 @@ local specs = {
 	-- ui
 	{ src = gh("catppuccin/nvim"), name = "catppuccin" },
 	gh("nvim-lualine/lualine.nvim"),
+	gh("romgrk/barbar.nvim"),
 	gh("folke/which-key.nvim"),
 	gh("folke/todo-comments.nvim"),
 	gh("folke/snacks.nvim"),
