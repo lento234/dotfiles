@@ -19,6 +19,7 @@ require("conform").setup({
 		python = { "ruff_format", "ruff_organize_imports" },
 		javascript = { "prettier" },
 		typescript = { "prettier" },
+		vue = { "prettier" },
 	},
 })
 

@@ -1,5 +1,16 @@
 -- server configs come from nvim-lspconfig's lsp/*.lua, overridden in after/lsp/*.lua
-local servers = { "lua_ls", "stylua" }
+local servers = {
+	"clangd",
+	"eslint",
+	"gopls",
+	"lua_ls",
+	"pyright",
+	"ruff", -- also used by conform
+	"rust_analyzer",
+	"stylua",
+	"vtsls", -- also serves TypeScript inside .vue files, see after/lsp/vtsls.lua
+	"vue_ls",
+}
 
 require("mason").setup({})
 -- only used for lspconfig <-> mason name translation; servers are enabled below
@@ -10,11 +21,12 @@ require("mason-tool-installer").setup({
 		"markdownlint", -- nvim-lint
 		"prettier", -- conform
 		"clang-format", -- conform
-		"ruff", -- conform
 	}),
 })
 
-vim.lsp.enable(servers)
+-- zls has to match the zig version, so it comes from PATH instead of mason;
+-- servers whose binary is missing are skipped quietly
+vim.lsp.enable(vim.list_extend(vim.deepcopy(servers), { "zls" }))
 
 -- grn, gra, grr, gri, grt and gO are nvim defaults; the pickers below override some with telescope
 local highlight_augroup = vim.api.nvim_create_augroup("custom_lsp_highlight", { clear = true })
@@ -39,6 +51,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		if not client then
 			return
+		end
+
+		-- nvim only maps K to hover when 'keywordprg' is untouched, and some ftplugins
+		-- set it (go runs `go doc` in a terminal split), so map it explicitly
+		if client:supports_method("textDocument/hover", buf) then
+			map("K", vim.lsp.buf.hover, "hover documentation")
 		end
 
 		-- highlight references of the word under the cursor while it rests there
