@@ -30,30 +30,30 @@
 1. Clone the dotfiles to your computer:
 
     ```bash
-    $ git clone git@github.com:lento234/dotfiles.git
-    $ cd dotfiles
+    git clone git@github.com:lento234/dotfiles.git
+    cd dotfiles
     ```
 
 2. Configure dotfiles (rename destination if needed):
 
     ```bash
-    $ ln -s <src> <dst>
+    ln -s <src> <dst>
     ```
 
 3. (*Optional*): Additional tmux setup, install plugins (then, in tmux
    `CTRL+B`, `I`):
 
     ```bash
-    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     ```
 
 ### Neovim setup
 
 Requirements:
 
- - image.nvim:
-  - imagemagick
-  - pkg-config
+- image.nvim
+- imagemagick
+- pkg-config
 
 ## Links
 
