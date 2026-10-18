@@ -51,8 +51,8 @@ vim.o.updatetime = 250
 vim.o.cursorline = true
 vim.o.scrolloff = 4
 
--- sessions
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+-- sessions ("globals" keeps barbar's buffer order and pins)
+vim.o.sessionoptions = "blank,buffers,curdir,folds,globals,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- diagnostics (virtual_text is off by default since 0.11)
 vim.diagnostic.config({

@@ -63,6 +63,7 @@ gitsigns.setup({
 })
 
 -- neogit
+require("neogit").setup({ graph_style = "kitty" })
 vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<CR>", { desc = "[g]o neo[g]it" })
 
 -- diffview
@@ -73,3 +74,15 @@ vim.keymap.set("n", "<leader>dm", "<cmd>DiffviewOpen main<CR>", { desc = "[d]iff
 vim.keymap.set({ "n", "x" }, "<leader>gB", function()
 	Snacks.gitbrowse()
 end, { desc = "[g]it [B]rowse" })
+vim.keymap.set("n", "<leader>gb", function()
+	Snacks.git.blame_line()
+end, { desc = "[g]it [b]lame line" })
+vim.keymap.set("n", "<leader>gll", function()
+	Snacks.picker.git_log_line()
+end, { desc = "[g]it [l]og for current [l]ine" })
+vim.keymap.set("n", "<leader>glg", function()
+	Snacks.lazygit.log()
+end, { desc = "[g]it [l]og [g]raph (lazygit)" })
+vim.keymap.set("n", "<leader>lg", function()
+	Snacks.lazygit()
+end, { desc = "[l]azy[g]it" })

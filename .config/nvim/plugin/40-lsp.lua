@@ -58,6 +58,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		if client:supports_method("textDocument/hover", buf) then
 			map("K", vim.lsp.buf.hover, "hover documentation")
 		end
+		if client:supports_method("textDocument/signatureHelp", buf) then
+			map("<M-k>", vim.lsp.buf.signature_help, "signature documentation")
+		end
+		map("<leader>lr", "<cmd>lsp restart<CR>", "[l]sp [r]estart")
 
 		-- highlight references of the word under the cursor while it rests there
 		if client:supports_method("textDocument/documentHighlight", buf) then

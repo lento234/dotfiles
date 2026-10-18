@@ -30,6 +30,8 @@ require("which-key").setup({
 		{ "<leader>t", group = "[t]oggle" },
 		{ "<leader>h", group = "git [h]unk", mode = { "n", "v" } },
 		{ "<leader>g", group = "[g]it", mode = { "n", "x" } },
+		{ "<leader>gl", group = "[g]it [l]og" },
+		{ "<leader>l", group = "[l]sp / [l]azygit" },
 		{ "<leader>d", group = "[d]iff" },
 		{ "<leader>w", group = "[w]indow" },
 		{ "<leader>m", group = "[m]arks" },
@@ -41,6 +43,7 @@ require("which-key").setup({
 
 -- todo comments
 require("todo-comments").setup({ signs = false })
+vim.keymap.set("n", "<leader>tt", "<cmd>TodoLocList<CR>", { desc = "[t]oggle [t]odo loclist" })
 
 -- notifications and LSP progress; also routes vim.notify through fidget
 require("fidget").setup({ notification = { override_vim_notify = true } })
@@ -49,6 +52,7 @@ require("fidget").setup({ notification = { override_vim_notify = true } })
 require("colorizer").setup({
 	options = { parsers = { css = true, names = false } },
 })
+vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<CR>", { desc = "[t]oggle [c]olorizer" })
 
 -- snacks
 require("snacks").setup({
@@ -78,12 +82,18 @@ require("neo-tree").setup({
 		},
 	},
 })
-vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle<CR>", { desc = "NeoTree toggle" })
+vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle reveal<CR>", { desc = "NeoTree toggle, revealing current file" })
 
 -- sessions
 require("auto-session").setup({
-	-- neo-tree windows don't restore cleanly, close them before saving
-	pre_save_cmds = { "tabdo Neotree close" },
+	pre_save_cmds = {
+		-- neo-tree windows don't restore cleanly, close them before saving
+		"tabdo Neotree close",
+		-- lets barbar store buffer order and pins (needs "globals" in sessionoptions)
+		function()
+			vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" })
+		end,
+	},
 	log_level = "error",
 	suppressed_dirs = { "~/", "~/Downloads", "/" },
 })

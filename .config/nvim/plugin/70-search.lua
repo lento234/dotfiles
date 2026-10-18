@@ -25,6 +25,14 @@ map("<leader>sd", builtin.diagnostics, "[s]earch [d]iagnostics")
 map("<leader>sr", builtin.resume, "[s]earch [r]esume")
 map("<leader>s.", builtin.oldfiles, '[s]earch Recent Files ("." for repeat)')
 map("<leader><leader>", builtin.buffers, "[ ] Find existing buffers")
+map("<leader>:", builtin.command_history, "[:] command history")
+map('<leader>s"', builtin.registers, '[s]earch ["] registers')
+map("<leader>ms", builtin.marks, "[m]arks: [s]how")
+
+-- git
+map("<leader>gf", builtin.git_files, "[g]it [f]iles")
+map("<leader>gc", builtin.git_commits, "[g]it [c]ommits")
+map("<leader>gs", builtin.git_status, "[g]it [s]tatus")
 
 map("<leader>/", function()
 	builtin.current_buffer_fuzzy_find(themes.get_dropdown({ winblend = 10, previewer = false }))
