@@ -69,6 +69,7 @@ local specs = {
 	{ src = gh("nvim-neo-tree/neo-tree.nvim"), version = vim.version.range("*") },
 	gh("MunifTanjim/nui.nvim"),
 	gh("rmagatti/auto-session"),
+	gh("OXY2DEV/markview.nvim"),
 
 	-- editor
 	gh("nvim-mini/mini.nvim"),

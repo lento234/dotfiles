@@ -1,7 +1,20 @@
 local ts = require("nvim-treesitter")
 
 -- ensure basic parsers are installed
-ts.install({ "bash", "c", "diff", "html", "lua", "luadoc", "markdown", "markdown_inline", "query", "vim", "vimdoc" })
+ts.install({
+	"bash",
+	"c",
+	"diff",
+	"html",
+	"lua",
+	"luadoc",
+	"markdown",
+	"markdown_inline",
+	"query",
+	"vim",
+	"vimdoc",
+	"yaml",
+})
 
 ---@param buf integer
 ---@param language string

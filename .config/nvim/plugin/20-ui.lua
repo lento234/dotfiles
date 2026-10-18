@@ -54,6 +54,15 @@ require("colorizer").setup({
 })
 vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<CR>", { desc = "[t]oggle [c]olorizer" })
 
+-- markdown preview (lazy-loads itself, so it's set up eagerly as its README recommends)
+require("markview").setup({
+	preview = {
+		-- mini.icons is only set up with a nerd font, see plugin/10-editor.lua
+		icon_provider = vim.g.have_nerd_font and "mini" or "internal",
+	},
+})
+vim.keymap.set("n", "<leader>tm", "<cmd>Markview Toggle<CR>", { desc = "[t]oggle [m]arkdown preview" })
+
 -- snacks
 require("snacks").setup({
 	bigfile = { enabled = true },
@@ -75,6 +84,7 @@ require("snacks").setup({
 -- file tree
 require("neo-tree").setup({
 	filesystem = {
+		follow_current_file = { enabled = true, leave_dirs_open = true },
 		window = {
 			mappings = {
 				["\\"] = "close_window",
