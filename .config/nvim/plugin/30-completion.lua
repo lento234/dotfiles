@@ -10,7 +10,11 @@ require("blink.cmp").setup({
 		documentation = { auto_show = true, auto_show_delay_ms = 200 },
 	},
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer" },
+		default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+		providers = {
+			-- ranks lazydev's require() path completions above lua_ls
+			lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
+		},
 	},
 	signature = { enabled = true },
 })

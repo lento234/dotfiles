@@ -12,6 +12,14 @@ local servers = {
 	"vue_ls",
 }
 
+-- Neovim/plugin types for lua_ls, only in Lua files that need them
+require("lazydev").setup({
+	library = {
+		{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+		{ path = "snacks.nvim", words = { "Snacks" } },
+	},
+})
+
 require("mason").setup({})
 -- only used for lspconfig <-> mason name translation; servers are enabled below
 require("mason-lspconfig").setup({ automatic_enable = false })
@@ -28,25 +36,29 @@ require("mason-tool-installer").setup({
 -- servers whose binary is missing are skipped quietly
 vim.lsp.enable(vim.list_extend(vim.deepcopy(servers), { "zls" }))
 
--- grn, gra, grr, gri, grt and gO are nvim defaults; the pickers below override some with telescope
+-- grn, gra, grr, gri, grt and gO are nvim defaults; the pickers below override some with snacks
 local highlight_augroup = vim.api.nvim_create_augroup("custom_lsp_highlight", { clear = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("custom_lsp_attach", { clear = true }),
 	callback = function(event)
 		local buf = event.buf
-		local builtin = require("telescope.builtin")
 		local function map(lhs, rhs, desc)
 			vim.keymap.set("n", lhs, rhs, { buffer = buf, desc = "LSP: " .. desc })
 		end
+		local function pick(lhs, picker, desc)
+			map(lhs, function()
+				Snacks.picker[picker]()
+			end, desc)
+		end
 
-		map("grr", builtin.lsp_references, "[g]oto [r]eferences")
-		map("gri", builtin.lsp_implementations, "[g]oto [i]mplementation")
-		map("grd", builtin.lsp_definitions, "[g]oto [d]efinition")
-		map("grt", builtin.lsp_type_definitions, "[g]oto [t]ype definition")
-		map("grD", vim.lsp.buf.declaration, "[g]oto [D]eclaration")
-		map("gO", builtin.lsp_document_symbols, "document symbols")
-		map("gW", builtin.lsp_dynamic_workspace_symbols, "workspace symbols")
+		pick("grr", "lsp_references", "[g]oto [r]eferences")
+		pick("gri", "lsp_implementations", "[g]oto [i]mplementation")
+		pick("grd", "lsp_definitions", "[g]oto [d]efinition")
+		pick("grt", "lsp_type_definitions", "[g]oto [t]ype definition")
+		pick("grD", "lsp_declarations", "[g]oto [D]eclaration")
+		pick("gO", "lsp_symbols", "document symbols")
+		pick("gW", "lsp_workspace_symbols", "workspace symbols")
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		if not client then

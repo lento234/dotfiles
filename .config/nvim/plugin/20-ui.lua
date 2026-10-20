@@ -68,7 +68,8 @@ require("snacks").setup({
 	bigfile = { enabled = true },
 	image = { enabled = true },
 	indent = { enabled = true },
-	git = { enabled = true },
+	-- fuzzy finder and vim.ui.select, see plugin/70-search.lua
+	picker = { enabled = true },
 	gitbrowse = {
 		url_patterns = {
 			["git%.drz%.li"] = {
