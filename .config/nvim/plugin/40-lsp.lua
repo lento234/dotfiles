@@ -8,6 +8,8 @@ local servers = {
 	"ruff", -- also used by conform
 	"rust_analyzer",
 	"stylua",
+	"terraformls",
+	"terragrunt_ls",
 	"vtsls", -- also serves TypeScript inside .vue files, see after/lsp/vtsls.lua
 	"vue_ls",
 }
