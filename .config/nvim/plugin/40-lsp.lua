@@ -38,6 +38,10 @@ require("mason-tool-installer").setup({
 -- servers whose binary is missing are skipped quietly
 vim.lsp.enable(vim.list_extend(vim.deepcopy(servers), { "zls" }))
 
+vim.keymap.set("n", "<leader>tD", function()
+	vim.diagnostic.enable(not vim.diagnostic.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+end, { desc = "[t]oggle [D]iagnostics (buffer)" })
+
 -- grn, gra, grr, gri, grt and gO are nvim defaults; the pickers below override some with snacks
 local highlight_augroup = vim.api.nvim_create_augroup("custom_lsp_highlight", { clear = true })
 
