@@ -44,6 +44,12 @@ gitsigns.setup({
 		map("n", "<leader>hS", gitsigns.stage_buffer, "git stage buffer")
 		map("n", "<leader>hR", gitsigns.reset_buffer, "git reset buffer")
 		map("n", "<leader>hp", gitsigns.preview_hunk, "preview git hunk")
+		map("n", "<leader>hh", function()
+			require("custom.stash_hunk").stash_hunk()
+		end, "git stash hunk (append to latest hunk stash)")
+		map("n", "<leader>hH", function()
+			require("custom.stash_hunk").stash_hunk({ new = true })
+		end, "git stash hunk (new stash)")
 		map("n", "<leader>hb", function()
 			gitsigns.blame_line({ full = true })
 		end, "git blame line")
@@ -56,6 +62,7 @@ gitsigns.setup({
 		-- toggles
 		map("n", "<leader>tb", gitsigns.toggle_current_line_blame, "toggle git blame line")
 		map("n", "<leader>td", gitsigns.toggle_deleted, "toggle git show deleted")
+		map("n", "<leader>tp", gitsigns.preview_hunk_inline, "toggle git preview hunk inline")
 
 		-- text object
 		map({ "o", "x" }, "ih", gitsigns.select_hunk, "select git hunk")
