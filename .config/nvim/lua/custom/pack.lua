@@ -83,6 +83,9 @@ local specs = {
 
 	-- treesitter
 	{ src = gh("nvim-treesitter/nvim-treesitter"), version = "main" },
+
+	-- ai
+	gh("folke/sidekick.nvim"),
 }
 
 vim.pack.add(specs)

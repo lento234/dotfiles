@@ -36,6 +36,7 @@ require("which-key").setup({
 		{ "<leader>w", group = "[w]indow" },
 		{ "<leader>m", group = "[m]arks" },
 		{ "<leader>S", group = "[S]ession" },
+		{ "<leader>a", group = "[a]i (sidekick)", mode = { "n", "x" } },
 		{ "gr", group = "LSP actions", mode = { "n" } },
 		{ "gs", group = "[s]urround", mode = { "n", "x" } },
 	},

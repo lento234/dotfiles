@@ -74,6 +74,7 @@ These you need to install yourself:
 - `lazygit` (`<leader>gl…` git keymaps)
 - `zls` on your `PATH`, matching your zig version
 - `terraform` / `terragrunt` for HCL formatting
+- [`claude`](https://github.com/anthropics/claude-code) (Claude Code CLI) for sidekick (`<leader>a…` keymaps)
 
 ## Links
 
